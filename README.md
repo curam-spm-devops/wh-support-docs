@@ -3,8 +3,6 @@ Here you'll find transitional support documentation for the Social Programs port
 
 ## Installation instructions
 
-Clone this repository 
-
 ### Requirements
 
 node.js - version 14.17.6 [^1]
@@ -12,8 +10,16 @@ node.js - version 14.17.6 [^1]
 [^1]: It is recommended to install node using [Node Version Manager](https://github.com/nvm-sh/nvm).
 
 ### Install dependencies
+After cloning this repository, [open a terminal](https://support.apple.com/en-ie/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac) at the root of the project
+
 ```console
-  npm install
+cd /wh-support-docs
+```
+
+and run the install command.
+
+```console
+npm install
 ```
 
 ### Running the site locally
@@ -23,5 +29,4 @@ After the command completes, the site will be accessible at `http://localhost:80
 
 ## Deployment
 
-The content is automatically managed and deployed on the `gh-pages` branch by the deploy GitHub Actions *Deploy* workflow.
-The deployed site is viewable at [https://curam-spm-devops.github.io/wh-support-docs/](https://curam-spm-devops.github.io/wh-support-docs/).
+The content is managed and deployed on the `gh-pages` branch by the GitHub Actions *Deploy* workflow.
