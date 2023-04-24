@@ -18,7 +18,7 @@
       path: /spm/spm_803_prereqs
     - title: Documentation 
       path: /spm/spm_803_docs              
-- title: Watson Care Manager
+- title: Merative Integrated Care
   pages:
     - title: Overview
       path: /wcm/overview
