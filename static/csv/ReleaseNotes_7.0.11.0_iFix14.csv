@@ -1,0 +1,20 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-132587,,Update the xmlsec library to a later version,Third Party Updates,,,,"The Apache XML Security for Java (xmlsec) library includes a mature Digital Signature and Encryption implementation. It is used in the Cúram product as part of the Axis 2 secure web services solution. 
+
+The version of the xmlsec library used by Cúram has been updated from 2.2.3 to 2.2.6. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.
+
+* CuramSDEJ/lib/third&#95;party&#95;version.properties - the version of the specified xmlsec library has been updated.
+* CuramSDEJlibxmlsec-2.2.6.jar - the version of the JAR has been updated. 
+
+We recommend that you update any references in custom scripts and other artefacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-132586,,Update the version of the Apache derby JAR file to a later version,Third Party Updates,,,,"The Apache Derby API released under the Apache License is a pure Java relational database engine using standard SQL and JDBC as its APIs. It is used in the Cúram product as part of the client application build infrastructure. 
+
+The version of the derby library has now been updated from 10.14.2.0 to 10.14.2.0-1. The new version contains some minor defect fixes. As a result of this upgrade, the following JAR has been updated in the Cúram deliverable.
+
+* CuramCDEJ/lib/ext/jar/derby.jar
+
+"
