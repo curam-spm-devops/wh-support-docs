@@ -1345,31 +1345,6 @@ Participant profile pictures displayed in the Context Panel and Smart Navigator 
 Profile pictures are no longer squashed and are now scaled to preserve their original aspect ratio.
 
 "
-SPM-128298,,Update the Evidence Broker to support the sharing of evidence to Holding Cases,ENT,Evidence Broker,,,"*Issue Description:*
-The Evidence Broker now supports sharing evidence to a Holding Case. It previously only supported sharing evidence from a Holding Case. This meant that the round-tripping of evidence was not possible.
-
-*User Interface Impact:* No
-
-*Prerequisites:*
-
-# Create an XSL transformation to transform the attributes associated with a particular evidence type, Vehicle, for example, into XML that can be stored on the Holding Evidence entity.
-# Ensure the Vehicle evidence is activated automatically once captured.
-# Ensure evidence-sharing configurations have been set up to support round-tripping. For example, this could be the sharing of Holding Evidence on a Holding Case to Vehicle evidence on another case type, and vice-versa. Set Trusted Source to ?Yes' for the configurations.
-
-*Steps to Reproduce:*
-
-# Log in to the Citizen Portal.
-# Launch an Advanced Life Event script to capture Vehicle evidence.
-# Populate all the necessary attributes before clicking Save.
-# The Vehicle evidence is stored on the Holding Evidence entity on the Holding Case and is shared to the target case type, integrated case, for example.
-## Ensure the Vehicle evidence is active on the target case type.
-# Now modify the Vehicle evidence on the integrated case and activate the changes.
-# Issue: The Vehicle evidence is not shared back to the Holding Evidence on the Holding Case.
-
-*Resolution:*
-The Evidence Broker infrastructure has been updated to support the sharing of evidence to a Holding Case, thereby fully supporting the round-tripping of evidence.
-
-"
 SPM-128297,DT036713,Dynamic evidence initialization - ThreadLocal issue causes error for dynamic evidence pages,CEF,Technical Services,Client Development Environment,Infrastructure,"*Issue Description:*
 In certain initialization instances, the dynamic evidence cache can become out of sync and result in a dynamic evidence error on the screen. The asynchronous nature of this problem means that it will only occur intermittently and cannot be reproduced on demand.
 
@@ -1425,6 +1400,31 @@ Using classic rules, when evidence is applied and the to date of the evidence is
 
 *Resolution:*
 The logic in question has been rewritten so that an index-out-of-bounds exception can no longer occur.
+
+"
+SPM-127895,DT036689,Update the Evidence Broker to support the sharing of evidence to Holding Cases,ENT,Evidence Broker,,,"*Issue Description:*
+The Evidence Broker now supports sharing evidence to a Holding Case. It previously only supported sharing evidence from a Holding Case. This meant that the round-tripping of evidence was not possible.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Create an XSL transformation to transform the attributes associated with a particular evidence type, Vehicle, for example, into XML that can be stored on the Holding Evidence entity.
+# Ensure the Vehicle evidence is activated automatically once captured.
+# Ensure evidence-sharing configurations have been set up to support round-tripping. For example, this could be the sharing of Holding Evidence on a Holding Case to Vehicle evidence on another case type, and vice-versa. Set Trusted Source to ?Yes' for the configurations.
+
+*Steps to Reproduce:*
+
+# Log in to the Citizen Portal.
+# Launch an Advanced Life Event script to capture Vehicle evidence.
+# Populate all the necessary attributes before clicking Save.
+# The Vehicle evidence is stored on the Holding Evidence entity on the Holding Case and is shared to the target case type, integrated case, for example.
+# Ensure the Vehicle evidence is active on the target case type.
+# Now modify the Vehicle evidence on the integrated case and activate the changes.
+# Issue: The Vehicle evidence is not shared back to the Holding Evidence on the Holding Case.
+
+*Resolution:*
+The Evidence Broker infrastructure has been updated to support the sharing of evidence to a Holding Case, thereby fully supporting the round-tripping of evidence.
 
 "
 SPM-127384,DT036777,Long page titles or zooming can cause a scrollbar to appear in the page actions area that is not selectable with a mouse,Look and Feel,,,,"*Issue Description:*
