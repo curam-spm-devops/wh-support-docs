@@ -1,0 +1,207 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-133462,DT036912,Universal Access IEG form fails while deleting conditional pages,ENT,Intelligent Evidence Gathering,,,"*Issue Description:*
+Conditional page navigation is failing when the condition expression is using a custom function and the condition result changes.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Create a script that includes a conditional pages based on custom function expression.
+# Run the script and select conditional question value.
+# Navigate to the summary page.
+# Edit data from the summary page which navigates to the conditional question.
+# Update conditional question value so that condition is changed and click submit button.
+# Issue: Error is displayed on the page - """"Something went wrong. Try again later."""".
+
+*Resolution:*
+Now conditional pages are handled correctly when the condition expression is using a custom function, and the expected page is displayed whenever the condition result changes.
+
+"
+SPM-133264,DT036816,Schedule Icon does not display on the Case Audit Context panel when the current date falls between the schedule's start and end date,,,,,"*Issue Description:*
+The schedule icon is not displayed on the Case Audit Plan context panel when a schedule is added to an audit plan and the current date falls between the schedule's start and end date. 
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as administrator.
+# Navigate to the Administration Workspace, expand the Case Audits section and select Case Audit Configurations.
+# Select New action to create a New Case Audit Configuration.
+
+*Steps to Reproduce:*
+
+# Log in as an audit coordinator.
+# Select the Audit Plans and Case Audits tab to expand the shortcut menu. 
+# Create a new Audit Plan from the shortcuts panel.
+# Select the Audit plan created to view the plan in it?s own tab.
+# Add a Schedule to the Audit Plan, set the current date to fall between the start and end date of the schedule.
+# Issue: The schedule icon is not displayed on the context panel.
+
+*Resolution:*
+The issue is now fixed, the schedule icon is now displayed on the Case Audit Plan context panel when a schedule is added to an audit plan and the current date falls between the schedule's start and end date. 
+
+"
+SPM-133237,DT036761,Automatic form submission triggered from within a modal dialog displays incorrect content after it's refreshed,ENT,Application Development Environment,Client Development Environment,,"*Issue Description:*
+Changing the value of a drop-down within a modal did not save the updated value on the server and the modal was incorrectly closed.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+A customised drop-down which has an associated custom JavaScript event to submit the form when the user selects a value, for example, Special Interest on the Edit Person modal.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Navigate to the person home page and select Edit.
+# Set the currency value, Andorran Peseta, for example, and set Special Interest to High Risk.
+# Issue: Once a Special Interest value has been selected, the modal incorrectly closes and the Special Interest field is not updated to High Risk.
+
+*Resolution:*
+Changing the value of a drop-down within a modal saves the updated value to the server and the correct content is displayed to the user after the modal refresh has completed.
+
+"
+SPM-133234,,Users.modify can be a bottleneck during pods warmup,CEF,Application Development Environment,Security Management,Data Access Layer,"*Issue Description:*
+When the same user name is used for multiple simultaneous logins, some of the login attempts fail with a RecordChangedException.  
+
+The reason for the error is that each login updates the lastSuccessLoginDate on the Users table and multiple simultaneous logins with the same username may experience contention by trying to update the same Users record.
+
+*User Interface Impact:* No.
+
+*Steps to Reproduce:*
+
+# Log in to the application from multiple browsers with the same username at the same time. 
+# Issue: One or more of the login attempts will fail. 
+
+*Resolution:*
+For user names listed in application property 'curam.security.default.system.users' the Users record does not get updated during a successful login. The login will still be recorded in the AuthenticationLog table.
+
+(This application property is also used to contain the list of internal system users for which the alternative login mechanism does not get called when 'curam.security.altlogin.enabled' is set to 'True'.)
+
+For a failed login, the Users record will always get updated in order to increment the failed login attempts counter and possibly disable the account. Also for the first successful login after a failed login attempt the Users record will be updated in order to reset the failed login attempts counter to zero.
+
+"
+SPM-133233,,Overflow Actions menu missing for Nominees in Nominee list page,CEF,,,,"*Issue Description:*
+The inline overflow menu and menu items are not displayed on the Nominee list page when the curam.actionmenus.max-inline-items.list is set to 1. The user has no way to carry out any of the nominee actions other than New or Edit. 
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 1. Save and then publish the changes.
+# Log out. 
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a caseworker.
+# Register a new person and create a Social Assistance case.
+# Add Employment Status evidence and apply changes to activate the evidence.
+# Create an Employment Benefit Product Delivery.
+# On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.
+# Issue: The overflow menu is not displayed so the user has no way to access the actions for the Nominee.
+
+*Scenario 2:*
+
+# Log in as an eligibility worker.
+# Register a new person.
+# Submit an Income Support Application for Food Assistance.
+# Open the Income Support integrated case.
+# Add and activate the necessary evidence on the integrated case to make the Food Assistance product delivery eligible.
+# Authorise the product delivery.
+# On the Food Assistance product delivery, navigate to the Financials Tab and select the Nominees page.
+# Issue: The overflow action menu and menu items are not displayed, so the user has no way to access the actions for the Nominee. 
+
+*Resolution:*
+The overflow action menu and menu items are now displaying correctly on the Nominee list page. 
+
+"
+SPM-133104,,Separator Pattern - Overflow Actions menu for Nominees - Missing or duplicate action items   when the number of list actions to display inline is set to greater than 1,CEF,,,,"*Issue Description:*
+The inline overflow menu and menu items are not displayed on the Nominee list page when the curam.actionmenus.max-inline-items.list is set to greater than 1. The user has no way to access the overflow menu.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 3. Save and then publish the changes.
+# Log out.
+# Log in as a caseworker.
+# Register a new person and create a Social Assistance case.
+# Add Employment Status evidence and apply changes to activate the evidence.
+# Create an Employment Benefit Product Delivery.
+# On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.
+# Issue: The Change Address row level action is not displayed inline or within the overflow menu.
+
+*Scenario 2:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 5. Save and then publish the changes.
+# Log out. Log in as a caseworker.
+# Register a new person and create a Social Assistance case.
+# Add Employment Status evidence and apply changes to activate the evidence.
+# Create an Employment Benefit Product Delivery.
+# On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.
+# Issue: The Change Bank account row level action is displayed twice, once as in inline action and once within the overflow menu.
+
+*Resolution:*
+The overflow action menu and menu items now display correctly on the Nominee list page when the number of list actions to display inline is set to greater than 1.
+
+"
+SPM-133072,,Inline Actions are missing from the Overflow menu on the Objectives list page when the number of list actions to display inline is set to a value greater than 1,CEF,,,,"*Issue Description:*
+Inline Actions are missing from the overflow menu on the Objectives list page when the number of list actions to display inline is set to a value greater than 1.
+
+*User Interface Impact:* No
+
+*Scenario 1:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 2. Save and then publish the changes.
+# Log in as an administrator. 
+# Select the Administration Workspace tab to expand the shortcuts panel.
+# Navigate to Outcome Plans under the Outcome Management section in the shortcuts panel.
+# Select an Outcome Plan, for example, Child Welfare Outcome Plan to view the plan.
+# Navigate to the Objectives tab and add 2 new Objectives. 
+# Log in as a Child Welfare Structured Decision Making Caseworker.
+# Register a person who is under 18 years old and create an Ongoing Case for the person. 
+# Select the Outcome Plan tab on the Ongoing Case and create a new Child Welfare Outcome Plan. 
+# On the Outcome Plan, navigate to the Workspace tab. 
+# Add an Objective to the Outcome Plan. 
+# Click on the action menu for the Objective. 
+# Issue: The New Note, Update Expected End Date, and Review actions are not displayed in the overflow menu.
+
+*Scenario 2:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 10. Save and then publish the changes.
+# Log in as an administrator. 
+# Select the Administration Workspace tab to expand the shortcuts panel.
+# Navigate to Outcome Plans under the Outcome Management section in the shortcuts panel.
+# Select an Outcome Plan, for example, Child Welfare Outcome Plan to view the plan.
+# Navigate to the Objectives tab and add 2 new Objectives. 
+# Log in as a Child Welfare Structured Decision Making Caseworker.
+# Register a person who is under 18 years old and create an Ongoing Case for the person. 
+# Select the Outcome Plan tab on the Ongoing Case and create a new Child Welfare Outcome Plan. 
+# On the Outcome Plan, navigate to the Workspace tab. 
+# Add an Objective to the Outcome Plan. 
+# Click on the action menu for the Objective. 
+# Issue: The overflow menu is not displaying any actions, the update Completion Details, View Printable Document and Delete actions cannot be accessed by the user.
+
+*Resolution:*
+When the curam.actionmenus.max-inline-items.list? is set to 10 the overflow action menus now display correctly on the Objectives list page of an Outcome plan.
+
+"
