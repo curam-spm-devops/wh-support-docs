@@ -8,7 +8,7 @@ Clone this repository.
 
 ### Requirements
 
-node.js - version 14.17.6 [^1]
+node.js - version 20.11.0
 
 It is recommended to install node using [Node Version Manager](https://github.com/nvm-sh/nvm)
 Mac: See the 'Troubleshooting on macOS' section, you might need to create a bash profile (see related bullet)
