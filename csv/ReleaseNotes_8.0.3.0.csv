@@ -1,0 +1,1689 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-127034,,Introduction of Lucene jars,Third Party Updates,,,,"Lucene is a full-text search library in Java which makes it easy to add search functionality. The jars below were specifically added to SPM to support the new Contact Log Search feature. This leverages the Lucene Memory Index feature which allows information to be indexed in memory before being searched.
+
+The following jars have been introduced:
+* EJBServer/components/core/lib/lucene-analyzers-common-8.11.1.jar
+* EJBServer/components/core/lib/lucene-core-8.11.1.jar
+* EJBServer/components/core/lib/lucene-highlighter-8.11.1.jar
+* EJBServer/components/core/lib/lucene-memory-8.11.1.jar
+* EJBServer/components/core/lib/lucene-queries-8.11.1.jar
+* EJBServer/components/core/lib/lucene-queryparser-8.11.1.jar 
+
+"
+SPM-126979,,Update to certified version of Apple VoiceOver,Third Party Updates,,,,"The certified version of Apple VoiceOver is now updated to iOS 15.7. This is certified against Chrome 110. 
+"
+SPM-126978,,Update browser plug-in Java? Runtime Environment (JRE) level used in Microsoft Word Integration,Third Party Updates,,,,"The following JRE level for Microsoft Word Integration is supported for this release:
+ * JRE 1.8 u361 
+"
+SPM-126977,,Updates to supported browser versions,Third Party Updates,,,,"The following browser versions are now updated and certified for this release.
+
+Caseworker Application Browser Support
+ * Google Chrome is updated to 110
+ * Microsoft Edge is updated to 110
+
+Universal Access Application Browser Support
+ * Google Chrome is updated to 110
+ * Microsoft Edge is updated to 110
+ * Mozilla Firefox is updated to 109 
+"
+SPM-126746,DT036329,Selecting 'Reload Frame' from the person record context panel redirects the user to the login page,CEF,Application Development Environment,Core Development Infrastructure,,"**Issue Description:**
+If a user right-clicks on the person record context panel and selects 'Reload Frame' from the pop-up menu, the browser refreshes and the user is redirected to the login page.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in to the application.
+ # Navigate to a person record.
+ # Right-click on the person record context panel and select 'Reload Frame'.
+ # Issue: The browser redirects the user to the Login page.
+
+**Resolution:**
+When a user right-clicks on the person context panel and selects 'Reload Frame', they are no longer logged out of the SPM application and remain on the page displaying the person record.
+"
+SPM-126689,DT036289,IEG Application Form produces  Null Pointer Exception when navigating between sections,ENT,Intelligent Evidence Gathering,APIs,,"**Issue Description:**
+An IEG application form produces a Null Pointer Exception error when navigating from one section to another via the left panel section navigation if there are disabled sections in between.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+An IEG script with the following structure:
+ # Section navigation panel enabled (show-sections=""""true"""").
+ # The script contains 4 sections: Section A, Section B, Section C, and Section D.
+ # Section A contains a question page that is always enabled, with a Question A1 that will be used as criteria to display the Section B and Section C question pages.
+ # Section B contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.
+ # Section C contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.
+ # Section D contains a question page that is always enabled with at least one question.
+
+**Steps to Reproduce:**
+ # Start the IEG script.
+ # In Section A, question A1 provides an answer that will ensure the question pages of Section B and Section C are not displayed, therefore not enabling the sections.
+ # Click Next.
+ # Section B and Section C are not displayed, and the navigator jumps to Section D.
+ # On the Section D question page, click the left panel navigation to go to Section A.
+ # On the Section A question page, click the left panel navigation to go to Section D.
+ # Issue: A Null Pointer Exception is displayed and the user cannot navigate to the desired section.
+
+**Resolution:**
+This issue is resolved. Disabled sections in an IEG script are now handled properly to avoid a Null Pointer Exception and the user can navigate to previous sections as expected.
+"
+SPM-126565,,Update the version of the commons-net library to 3.9.0,Third Party Updates,,,,"The Apache Commons Net library contains a collection of network utilities and protocol implementations. Supported protocols include FTP, SMTP(S), Telnet and others. 
+
+The version of the commons-net JAR that is used by SPM has now been updated from 3.6 to 3.9.0. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified commons-net JAR file has been updated.
+ * CuramSDEJlibcommons-net-3.9.0.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.
+"
+SPM-126546,,Update the version of the xmlgraphics-commons library to 2.8,Third Party Updates,,,,"Apache XML Graphics Commons is a library that consists of several reusable components used by Apache Batik and Apache FOP.
+
+The version of the Apache XML Graphics Commons JAR that is used by SPM has now been updated from 2.4 to 2.8. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified XML Graphics Commons JAR file has been updated.
+ * CuramSDEJxmlserverxmlgraphics-commons-2.8.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above. 
+"
+SPM-126535,,Update the version of the snakeyaml library to 1.33,Third Party Updates,,,,"The snakeyaml library provides functionality to parse a YAML file, and convert to Jackson objects.  
+
+The version of the snakeyaml JAR that is used by SPM has now been updated from 1.27 to 1.33. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified snakeyaml JAR file has been updated.
+ * EJBServercomponentsRestgraphql_libsnakeyaml-1.33.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above. 
+"
+SPM-126482,,Update the version of the bcel library to 6.7.0,Third Party Updates,,,,"The Byte Code Engineering Library (Apache Commons BCEL) is intended to give users a convenient way to analyze, create, and manipulate (binary) Java class files (those ending with .class). Classes are represented by objects which contain all the symbolic information of the given class: methods, fields and byte code instructions, in particular. 
+
+The version of the BCEL JAR that is used by SPM has now been updated from 6.1 to 6.7.0. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified BCEL JAR file has been updated.
+ * CuramSDEJlibbcel-6.7.0.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.
+"
+SPM-126375,,Shortcut menu items 'jump' slightly when selecting them,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+Shortcut menu items appear to 'jump' when selecting them from the drop-down expansion.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Navigate to the Cases and Outcomes tab.
+ # Select a parent shortcuts menu item.
+ # Issue: After selecting the shortcuts menu item, the selected item is padded causing it to jump 4 pixels.
+
+**Resolution:**
+This issue is now resolved and the selected items no longer appear to 'jump' 4 pixels on selection. 
+"
+SPM-126282,DT036595,The SPM application logs excessive path resolver errors,CEF,Application Development Environment,Core Development Infrastructure,,"**Issue Description**
+When opening a second tab in a web browser, the SPM application logs excessive path resolver errors. This occurs when the application is deployed on a WebSphere application server.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Open a new tab in the browser (CTRL+T).
+ # Enter the URL for SPM in the address bar, then press enter.
+ # Log in.
+ # Open a second tab (CTRL+T).
+ # Enter the URL for SPM in the address bar, then press enter.
+ # Log in again.
+ # Return to the first tab.
+ # Navigate to the 'HCR Cases and Outcomes' section.
+ # From the section shortcut panel, select 'Searches' then 'Case...'.
+ # Issue: Observe multiple '-117507' errors in the WebSphere server logs. Every page navigated to in the application in the first tab after this series of steps logs a stack trace for a '-117507' exception though there is no exception shown on the screen to the end user.
+
+**Resolution:**
+When the user opens the second tab and enters the URL for SPM and presses enter, they will be brought to the application home page and will not be prompted to log in again. This behavior will ensure that the excessive number of '-117507' errors which were previously appearing in the WebSphere server logs will no longer do so. 
+"
+SPM-126281,DT036599,"Vertical scrollbar disappears after resizing the browser ",CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+On resizing the browser window or when zooming in or out, the vertical scrollbar is not redisplayed after it is hidden.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Navigate to the Inbox.
+ # Reduce the browser window size so that a vertical scrollbar displays on the screen.
+ # Increase the browser window size so that the vertical scrollbar is hidden.
+ # Issue: Reduce the browser window again and the vertical scrollbar is not displayed as expected.
+
+**Resolution:**
+On resizing the browser window, the vertical scrollbar is redisplayed.
+"
+SPM-126205,,Author field not being populated for subsequent modifications of incident contact logs,ENT,Provider Management,,,"**Issue Description:**
+When a provider incident contact log has been modified more than once, the author field displays as blank.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a Resource Manager.
+ # Click My Providers and select any provider from the list.
+ # Navigate to incidents and add an incident with any default details.
+ # Create a contact log and save.
+ # Modify the contact log by appending some text to the narrative and save.
+ # Modify the contact log again.
+ # Issue: The author field on the edit contact log modal is blank on any subsequent modification after the first one.
+
+**Resolution:**
+The author field now displays as expected. 
+
+**Technical:**
+An incorrect parameter was being passed to the modify operation from the UIM page for the author field causing subsequent modifications to be blank."
+SPM-126201,,Screen reader does not announce the date selected when using arrow keys to navigate,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+When navigating between different dates (on the Person Search, for example) using the arrow keys, the screen reader is not announcing the dates.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Enable a screen reader.
+# Log in as a caseworker.
+# Select Person under Searches in the shortcuts panel.
+# Use the arrow keys to navigate to the Date of Birth field.
+# Issue: The screen reader is not announcing the date.
+
+**Resolution:**
+A screen reader now announces the dates selected when using the arrow keys to navigate.
+"
+SPM-126123,DT036583,Tables with expandable list rows not providing information to screen readers,Accessibility,,,,"**Issue Description:**
+When a supported screen reader is used and a user navigates to a table with expandable list rows, table header HTML elements can be present but not provide any information to the user.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Enable a screen reader.
+# Log in as a caseworker.
+# Search for a person.
+# Navigate to the Search Results table using the Tab key, then navigate through the tables headers using the up and down arrow keys.
+# Issue: The first and last table headers do not provide any information to the screen reader.
+
+**Resolution:**
+A supported screen reader now describes the table headers. The issue was resolved by removing the aria-hidden attributes from table headers that were not providing any information via a supported screen reader.
+"
+SPM-126084,DT036581,The Skip to Main Content link is not accessible by keyboard,Accessibility,,,,"**Issue Description:**
+The 'Skip to Main Content' link in the Application banner is not selected when you navigate with the Tab key.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Use the Tab key to navigate through the UI elements in the Application banner.
+ # Issue: The 'Skip to Main Content' link does not receive the cursor focus.
+
+**Resolution:**
+When you navigate through the Application banner with the Tab key, the 'Skip to Main Content' link is now selected.
+"
+SPM-126080,,Update the versions of the Jackson JARs to the latest version - 2.14.0,Third Party Updates,,,,"The Jackson API contains multiple functions to read and build JSON using Java. It has data binding capabilities and provides a framework to serialize custom Java objects to JSON strings and deserialize JSON strings back into Java objects. The Java Development Environment (JDE) and the REST infrastructure utilizes these utilities.
+
+The versions of these JARs have now been updated from 2.13.2 and 2.13.2.2 to 2.14.0. As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.
+ * CuramSDEJlibthird_party_version.properties - the versions of the specified Jackson JARs have been updated.
+
+ * CuramSDEJlibjackson-annotations-2.14.0.jar - version of the JAR updated.
+ * CuramSDEJlibjackson-core-2.14.0.jar - version of the JAR updated.
+ * CuramSDEJlibjackson-databind-2.14.0.jar - version of the JAR updated.
+
+ * CuramCDEJlibextjarjackson-annotations-2.14.0.jar - version of the JAR updated.
+ * CuramCDEJlibextjarjackson-core-2.14.0.jar - version of the JAR updated.
+ * CuramCDEJlibextjarjackson-databind-2.14.0.jar - version of the JAR updated.
+
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-annotations-2.14.0.jar - version of the JAR updated.
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-core-2.14.0.jar - version of the JAR updated.
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-databind-2.14.0.jar - version of the JAR updated.
+
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-base-2.14.0.jar - version of the JAR updated.
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-json-provider-2.14.0.jar - version of the JAR updated.
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-module-jaxb-annotations-2.14.0.jar - version of the JAR updated.
+ 
+ * EJBServercomponentsRestgraphql_libjackson-dataformat-yaml-2.14.0.jar - version of the JAR updated.
+
+ * EJBServercomponentsRestgraphql_libjackson-datatype-jdk8-2.14.0.jar - version of the JAR updated.
+
+Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated. 
+"
+SPM-126047,DT036616,Unable to edit just the day or month of a date using the keyboard,Look and Feel,,,,"**Issue Description:**
+On a date field, a user should be able to edit an already entered date. However, editing a date is not possible. The cursor jumps to the end of the date and adds the new numbers at the end of the field.
+
+**User Interface Impact:** No
+
+**Steps to reproduce:**
+ # Log in as a caseworker.
+ # Open the Person Search page.
+ # Enter a date in the Date of Birth field (for example, 10/16/1984 for a MM/DD/YYYY format).
+ # Press the Tab key to go to the next field or use the mouse to click on another field.
+ # Go back to the Date of Birth field. 
+ # Keep the cursor within the date (for example 16) and press the Backspace key until all data is deleted.
+ # Now start typing a new day value to replace the 16.
+ # Issue: As soon as the user starts typing the first character in the date, the cursor jumps to the end of the date (after the year) and it is not possible to enter the desired date.
+
+**Resolution:**
+After editing a deleted date in a date field, the cursor no longer jumps to the end of the field.
+"
+SPM-125925,,Support for CMIS 1.1 Browser binding,CEF,Technical Services,CMIS Adapter,,"The Content Management Interoperability Services (CMIS) specification describes how clients and repositories communicate with each other and how the domain model is mapped to the raw data that is transferred. These modes of communication and the model-to-data mappings are called bindings.
+
+The CMIS 1.0 specification defined two bindings, the Web Services binding, and the AtomPub binding; and the CMIS 1.1 specification added a third, the Browser binding.  For more information about the CMIS Binding types, see {{https://freecontent.manning.com/wp-content/uploads/the-browser-binding-with-a-cmis-repository.pdf}}.
+
+Previously, a system administrator could configure a target system service of type 'Content Management Interoperability Service over Atompub'. That is, previously customers could choose one configuration:
+ * CMIS 1.0 and Atompub binding
+where the CMIS specification is configured on your CMS.
+
+An additional target system service of type 'Content Management Interoperability Service over Browser Binding' has been added. Typically, the service extension URL differs between the bindings and the CMIS specifications. If you are using CMIS 1.1 and your repository supports the improved Browser binding, you can now use it. Changing to the Browser binding has no effect on the user as the behavior is the same.
+
+The following validation message has been introduced to prevent a system administrator from configuring more than one active CMIS target system service: 'A target system service already exists for the Content Management Interoperability Service.'
+
+Customers can choose one of three configurations:
+ * CMIS 1.1 and Browser binding (recommended)
+ * CMIS 1.1 and Atompub binding
+ * CMIS 1.0 and Atompub binding (may be deprecated in the near future)
+where the CMIS specification is configured on your CMS.
+
+Note: Browser binding is not supported on a CMS using the CMIS 1.0 specification.
+"
+SPM-125917,DT036336," Incorrect date on evidence timeline on Incoming evidence screen for evidence types with no business start date",ENT,Evidence Broker,,,"**Issue Description:**
+When evidence that has no business start date is shared to the Incoming Evidence page, the start date of the case to which the evidence is being shared is displayed by default as the start date of the evidence. Currently, when evidence without a business start date is shared to an application case, the incoming evidence timeline incorrectly displays 01/01/0001 for the start date of the evidence instead of defaulting to the case start date.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+Evidence sharing should be configured for Person Case to Application Case for Contact Preferences evidence with Trusted Source set to No.
+
+**Steps to Reproduce:**
+ # Log in as an Insurance Affordability caseworker.
+ # Register a person.
+ # Add Contact Preferences evidence.
+ # Create an application case.
+ # Navigate to the incoming evidence list page on the application case.
+ # Expand the row for Contact Preferences.
+ # Issue: The timeline displays 01/01/0001 as a start date for the evidence.
+
+**Resolution:**
+A date that represents the start date of the application case is now displayed by default.
+
+**Technical:**
+Application cases do not populate a start date on the Case Header entity; instead, they use a registration date field. The logic on the incoming evidence page has now been updated to retrieve and display the registration date of the application case when shared evidence has no business start date. 
+"
+SPM-125894,,CER Expression statistics,CEF,Integrated Case Management,Eligibility & Entitlement,,"**Issue Description:**
+The JMX statistics do not include information about CER calculations which makes it difficult to identify potentially poorly performing rules.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Create an Unemployment Benefit case.
+ # Approve and activate the case.
+ # Download the JMX data from the server.
+ # Issue: The JMX data will include information about the BPO calls, and SQL queries for the case reassessment, but no information about the individual rule calculations performed during the reassessment.
+
+**Resolution:**
+The JMX data now includes counts and timings for the number of reads, writes, recalculations and errors for each CER attribute. 
+"
+SPM-125865,DT036326,A meaningful heading is not provided for screen reader users on the Case Search page,Accessibility,,,,"**Issue Description:**
+The text in the page title bar on the Case Search page appears like a heading, but an HTML heading element is not used for this text. This causes the heading structure to appear incorrectly for screen reader users. The same text also appears twice on the page, which does not add value to the user.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Navigate to the Cases and Outcomes section.
+ # Select Case Search from the shortcuts panel.
+ # Use the browser developer tools to inspect the HTML used for rendering the text in the page title bar.
+ # Issue: The text in the page title bar appears as a heading but an HTML heading element is not used to render it. The text also appears twice on the page.
+
+**Resolution:**
+The duplicated text has now been removed from the Case Search page and the text in the page title bar is now constructed using an HTML heading element.
+"
+SPM-125842,DT036324,Evidence approval task is not displayed in the case task list page,CEF,Business Services,Task Management,,"**Issue Description:**
+When evidence is created within a case that requires approval and an evidence approval task is created, the task is not listed in the Task list page within the case and the task does not include a link to the associated case under the Supporting Information cluster. 
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+# Log in as an administrator.
+# Create a new integrated case with a single piece of evidence configured against it, Email Addresses, for example.
+# Update the Approval Checks for an Organization Unit that a caseworker holds a position within by adding the chosen evidence type in the previous step. Set the percentage value as 100 and save.
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Register a Person and create the new integrated case.
+# From the integrated case home page navigate to the Evidence tab and create the new Evidence.
+# Apply Changes and observe an informational message is displayed stating that manual approval is required.
+# Issue 1: On the task home page, there is no link in the Supporting Information cluster to navigate to the associated case home page.
+# Issue 2: The task is not listed in the task list page under the Task tab within the case.
+
+**Resolution:**
+This issue has been resolved. Version 4 of the Evidence Approval Workflow has been released. This new version contains the link to the associated integrated case home page in the Supporting Information cluster and the task is displayed in the task list page within the integrated case task tab.
+"
+SPM-125840,DT036320,No label for Subject field in Quick Notes,Accessibility,,,,"**Issue Description:**
+Screen readers required standard label formatting on all forms so that field names can be announced. The input element in Quick Notes does not have a proper label on the Subject field which causes the field labels to work incorrectly for screen reader users.
+
+**User Interface Impact:** Yes
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Register a new person.
+ # On the new person page, click on the smart panel.
+ # Issue: The top input field which is used to capture a subject within the Quick Notes section does not have a field label.
+
+**Resolution:**
+For Quick Notes, modifications have been made to the renderer class to display the label element 'Subject' and appropriate help text. 
+"
+SPM-125791,,Update the version of the Jsoup library to the latest available version,Third Party Updates,,,,"Jsoup is a Java library that is used to work with HTML. It provides an API for fetching URLs and extracting and manipulating data using HTML5 DOM methods and CSS selectors. 
+
+The version of the Jsoup JAR that is used by SPM has now been updated from 1.14.2 to 1.15.3. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.
+ * CuramSDEJlibthird_party_version.properties - the specified Jsoup JAR file version has been updated.
+ * CuramSDEJlibjsoup-1.15.3.jar - the version of the JAR has been updated.
+ * CuramCDEJlibextjarjsoup-1.15.3.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.
+"
+SPM-125756,DT036317,Incorrect attribute present in HTML tags makes table navigation more difficult for screen readers,Accessibility,,,,"**Issue Description:**
+On the search results table when a user right clicks  on a search result and selects to inspect  the element, the 'scope=row' attribute is incorrectly present on HTML '<td>' tags which makes navigation more difficult and less efficient for screen readers.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Navigate to the Person Search page.
+# Perform a search that will return a number of records.
+# Right-click on any of the returned records and select Inspect from the browser pop-up menu.
+# Review the HTML for the associated '<td>' tag.
+# Issue: A 'scope=row' attribute is present on the HTML '<td>' tag.
+
+**Resolution:**
+This issue has been resolved and now HTML '<td>' tags do not contain the 'scope=row' attribute. This makes table navigation easier when using a screen reader. 
+"
+SPM-125738,DT036309,Error displays when creating dynamic evidence where the relatedParticipant attribute is named 'caseParticipantRoleID',CEF,Dynamic Evidence,,,"**Issue Description:**
+When the multi-participant operations feature is enabled for a Dynamic Evidence type, if that evidence type's metadata file defines a 'RelatedCPAttribute' element whose 'name' attribute is set to 'caseParticipantRoleID', then creating an instance of that evidence type produces an un-handled server exception.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+# There needs to be a Dynamic Evidence type defined which has the attribute 'enableMultiMemberUpdates' set to 'true' in the RelCPCluster element.
+# The Dynamic Evidence type definition also needs to have the 'relatedParticipant' attribute set to 'caseParticipantRoleID' and the 'name' attribute of the RelatedCPAttribute element should also be 'caseParticipantRoleID'.
+
+**Steps to Reproduce:**
+# Log in as an Insurance Affordability caseworker.
+# Complete an application to create an application case.
+# Navigate to the application case created.
+# Create a new evidence item of the Dynamic Evidence type defined in the prerequisites.
+# Populate the required fields and submit the evidence.
+# Issue: An Unhandled Server Exception displays.
+
+**Resolution:**
+Evidence using the Dynamic Evidence type is now created without exception. 
+
+**Technical:**
+The exception was caused by a problem parsing the evidence details because of the same attribute name on the relatedParticipant and the RelatedCPAttribute. This issue has been fixed by parsing the evidence details using XML instead of string regular expressions.  
+"
+SPM-125731," DT036312",When executing Intelligent Evidence Gathering (IEG) scripts the screen reader does not ignore HTML tags,Accessibility,,,,"**Issue Description:**
+When executing Intelligent Evidence Gathering (IEG) scripts with HTML tags, a screen reader announces the tags.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+ # Update the question text of an IEG script to include HTML tags, for example, Bold ?<B>?, or List ?<li>? tags.
+
+**Steps to Reproduce:**
+ # Enable a screen reader.
+ # Navigate to the modified IEG script.
+ # Issue: The screen reader reads the markup text.
+
+**Resolution:**
+The screen reader no longer reads the HTML tags. The issue has been resolved by removing the HTML tags from the titles.
+"
+SPM-125708,DT036331,After a second incorrect date is entered the validation message displays an incorrect date,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+When an incorrect date is entered in the date field, a validation error message is displayed. This message contains the date that the user entered. This is an expected behaviour. When a second incorrect date is entered, a validation error message displays the second incorrect date, however, the date field displays a different date. This can be confusing to the user.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as caseworker.
+ # Open Register Person and click Next to move to the main Register Person page.
+ # Enter all mandatory data and enter incorrect data in Date of Birth field for example 02/30/1980.
+ # Click Save.
+ # As expected, an error message displays that the date of birth is not valid and displays the date you entered in step 3. This same date displays in the Date of Birth field.
+ # Change the date to some other incorrect date for example 05/35/1985.
+ # Click Save.
+ # Issue: As expected, an error message displays that the date of birth is not valid and displays the date you entered in step 6. However, a different date displays in the Date of Birth field.
+
+**Resolution:**
+When a second incorrect date is entered, the validation error message and the Date of Birth field both contain the same information."
+SPM-125704,,The comments area of the New Agreement modal on an outcome plan is lacking context when a screen reader is used,Accessibility,,,,"**Issue Description:**
+The Comments field displayed in the New Agreement modal on an outcome plan is missing context when the screen reader is used.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a Child Services caseworker.
+# Register a person.
+# Click the Care and Protection tab and select Cases.
+# Use the New page action to create an Ongoing Case.
+# Click the Outcome Plan tab and select the New page action.
+# Enable a screen reader.
+# Create an outcome plan
+# Select New Agreement from the actions menu; a pop-up modal will appear.
+# Navigate to the Comments section of the modal.
+# Issue: The description for the field is not announced by the screen reader. 
+
+**Resolution:**
+The screen reader now provides context to the user once the user navigates to the Comments field on the New Agreement modal.
+"
+SPM-125687,DT036279,Date picker converts input to incorrect dates,CEF,,,,"**Issue Description:**
+If a caseworker manually enters a date in an incorrect format, the date entered gets automatically converted to a date in the correct format and may result in an incorrect date getting entered.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Select Person under Registration in the shortcuts panel.
+# Click Next.
+# Enter an incorrect date in the Register Person modal, for example 1.2 in the Date Of Birth date picker.
+# Issue: The input is changed to 01.02.2022 and there is no format validation. 
+
+**Resolution:**
+When a date is now entered in an incorrect format, a validation message is displayed to the user. 
+"
+SPM-125663,,Open Enrollment Period configuration not available for the year 2023,SOL,Income Support HCR,,,"**Issue Description:**
+No open enrollment period configuration for 2021 for Insurance Affordability is available.
+
+**User Interface Impact: **No
+
+**Steps to Reproduce:**
+# Log in as an administrator.
+# Navigate to Open Enrollment Period under Health Care Reform in the shortcuts panel.
+# Issue: No open enrollment period for 2021 is configured.
+
+**Resolution:**
+A new open enrollment period configuration is now available. The configuration is: Start Date 11/1/2020, End Date 12/15/2020, Coverage Start Date 1/1/2021, and Coverage End Date 12/31/2021.
+"
+SPM-125593,DT036308,"Validation message not displayed when overlapping Alien evidence added with different Alien types ",SOL,Common Evidence,,,"**Issue Description:**
+Alien evidence records citizenship details for a household member. A caseworker should not be able to create multiple Alien evidence records for a household member that overlap within the same period of time. Currently, a validation exists when overlapping Alien evidence is added for the same Alien type however there is no validation when overlapping Alien evidence is added for different Alien types. 
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as an Income Support caseworker.
+# Register a new Person.
+# Create a new Income Support integrated case.
+# Click on the Evidence tab and select Dashboard.
+# Add new Alien evidence with details:
+   ** Alien Status: Asylee
+   ** Date of Entry: 01/01/2022
+# Apply the evidence changes.
+# Update the Alien evidence and set the end date to 7/31/2022.
+# Apply the evidence changes.
+# Add new Alien evidence with details:
+   ** Alien Status: Conditional Entrant
+   ** Date of Entry: 01/01/2022
+# Apply the evidence changes.
+# Issue: No validation is displayed.
+
+**Resolution:**
+This issue has been resolved. Now when overlapping Alien evidence with different Alien types are added, the following informational message is displayed alerting the caseworker that an Alien record already exists 'Alien - An Alien record already exists for this household member.'.
+
+On apply changes, the validation 'Alien - An Alien record already exists for this household member.' is displayed which prevents the caseworker from activating the overlapping evidence.
+"
+SPM-125584,"DT036298 ",The date value is invalid when the dateFormat is set to 'TT MM JJJJ',CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+When the 'dateFormat' build time property in ApplicationConfiguration.properties is set to 'TT MM JJJJ' for German language implementations and the date picker is used, the date selection is invalid.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+ # The 'dateFormat' build time property in ApplicationConfiguration.properties is set to 'TT MM JJJJ'.
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Open the Register Person modal.
+ # Enter a Date of Birth using the date picker.
+ # Issue: The date displayed is not the date entered and is invalid.
+
+**Resolution:**
+The date value selected by the date picker widget is a valid value when German is used. 
+"
+SPM-125506,DT036291,Application case authorization comments do not allow special characters,CEF,Common Intake,,,"**Issue Description:**
+When an application is authorized using the Authorise Program modal comments can be entered. If the comments that are entered include special characters, when the comments are viewed within the application case after authorization, the special characters that were included in the comments are not properly displayed.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as an Insurance Affordability caseworker.
+ # Register a new Person.
+ # From the tab action menu, select New Application to start an application.
+ # Complete and submit the application.
+ # Authorize the application by adding comments with special characters.
+ # Under the Programs tab expand the Insurance Affordability program and select to view Authorisations.
+ # Issue: Special characters added in the comments are not properly displayed.
+
+**Resolution:**
+Special characters included in comments added during the authorization process are now displayed. 
+
+**Technical:**
+The issue was resolved by updating logic in the ProgramAuthorisationDataImpl class.
+"
+SPM-125322,,CMIS 1.1 support via Apache Chemistry 0.9.0,CEF,Technical Services,CMIS Adapter,,"Merative Social Program Management uses the Content Management Interoperability Services (CMIS) standard to integrate with Content Management Systems.
+
+The version of Apache Chemistry used for this integration has been upgraded from 0.7.0 to 0.9.0 to support the CMIS 1.1 specification and the Browser Binding. As a result of these updates, the following changes have been made in the CMISInfrastructure server component.
+ * CMISInfrastructure/lib/chemistry-opencmis-client-api-0.9.0.jar - version updated from 0.7.0 to 0.9.0.
+ * CMISInfrastructure/lib/chemistry-opencmis-client-bindings-0.9.0.jar - version updated from 0.7.0 to 0.9.0.
+ * CMISInfrastructure/lib/chemistry-opencmis-client-impl-0.9.0.jar - version updated from 0.7.0 to 0.9.0.
+ * CMISInfrastructure/lib/chemistry-opencmis-commons-api-0.9.0.jar - version updated from 0.7.0 to 0.9.0.
+ * CMISInfrastructure/lib/chemistry-opencmis-commons-impl-0.9.0.jar - version updated from 0.7.0 to 0.9.0.
+
+Note that any references in custom scripts and other artefacts to the updated JAR files listed above must be updated.
+"
+SPM-125319,DT036288,Updating the name of a registered participant is not reflected in the contact list,CEF,Integrated Case Management,Participant Management,,"**Issue Description:**
+When the name of a registered person that exists as a client contact is updated, the client contact name is not updated to reflect the name change.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Register a new Person (Jon Doe, for example).
+# Search for and open an existing person (John Smith, for example).
+# Navigate to the Client Contacts and select Contacts.
+# Use the New page action to Create a contact from a registered participant 
+# Search for and select Jon Doe as a contact.
+# Navigate to the Jon Doe home page and click the Evidence tab.
+# Edit the Names evidence and change the first name from Jon to John.
+# Navigate back to John Smith's contacts and refresh the page.
+# Issue: The name change is not reflected in the list of contacts. It still reads Jon Doe.
+
+**Resolution:**
+Edits to a registered participant's name are now reflected in the contacts listing for a registered person. 
+"
+SPM-125315,,Update to the latest version of the Rampart Axis 2 security library - esapi,Third Party Updates,,,,"Merative Social Program Management web services are based on Apache Axis2. With the Rampart security module of Axis2, Social Program Management web services can be secured for authentication, integrity (signature), confidentiality (encryption/decryption), and non-repudiation (timestamp). 
+
+The version of one of the JAR files in Rampart has been updated. As a result of this update, the following changes have been made in the JDE Axis 2 deliverable.
+* CuramSDEJlibaxis2esapi-2.4.0.0.jar - version updated from 2.2.3.1 to 2.4.0.0. 
+
+Note that any references in custom scripts and other artifacts to the updated JAR file listed above must be updated. 
+"
+SPM-125312,DT036287,Update Apache Commons Lang JAR,Third Party Updates,,,,"The Apache Commons Lang JAR has been updated. This JAR provides a host of helper utilities for the java.lang API, notably String manipulation methods, basic numerical methods, object reflection, concurrency, creation and serialization and System properties. Additionally it contains basic enhancements to java.util.Date and a series of utilities dedicated to help with building methods, such as hashCode, toString and equals.
+ * Apache Commons Lang JAR has been updated from 2.6 to 3.12.0.
+
+The following JAR updates were also made due to dependencies on the Apache Commons Lang JAR:
+ * Apache Commons Configuration JAR has been updated from 1.3 to 2.8.0.
+ * json-schema-validator JAR has been updated from 0.1.5 to 1.0.72.
+ * ical4j JAR has been updated from 1.0-beta4 to 3.2.1.
+ * Apache Commons Text JAR has been added. The version is 1.10.0.
+
+As a result of these upgrades, the following changes have been made in the JDE and REST deliverable.
+ * CuramSDEJlibthird_party_version.properties - versions of the specified Apache Commons JARs updated.
+ * CuramSDEJlibcommons-lang-3.12.0.jar - version of the JAR updated.
+
+ * CuramCDEJlibextjarcommons-lang-3.12.0.jar - version of the JAR updated.
+ * CuramCDEJlibextjarcommons-configuration-2.8.0.jar - version of the JAR updated.
+ * CuramCDEJlibextjarcommons-text-1.10.0.jar - version of the JAR added. 
+ * EJBServer/components/Rest/graphql_lib/json-schema-validator-1.0.72.jar - version of the JAR updated.
+ * EJBServer/components/core/lib/ical4j-3.2.1.jar - version of the JAR updated.
+
+Note that any references in custom scripts and other artifacts to the updated JAR files must be updated.
+
+For more information about the changes associated with this update, see 'Updating the Apache Commons Lang and Apache Commons Configuration libraries' in the Cúram Upgrade Guide. 
+"
+SPM-125264,DT036286,Case worker is logged out from SPM if a second browser tab is opened to the login page,CEF,Application Development Environment,Core Development Infrastructure,,"**Issue Description:**
+If a user logs into the SPM application on one browser tab and has a second browser tab opened on the SPM login page, any activity on the first browser tab such as opening My Cases from the Quick Links pod will redirect the user to the login page.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Open a browser tab and log into the SPM application. Wait for the application home page to finish loading in that tab.
+ # Open a second browser tab and go to the SPM application login page but do not log in.
+ # Return to the first browser tab and click 'My Cases...' on the Quick Links pod.
+ # Issue: The user is immediately redirected to the SPM application login page in that browser tab.
+ # Issue: No warning or logout confirmation screen is displayed to the user.
+
+**Resolution:**
+A user is no longer logged out from the SPM application if a second browser tab is opened to the SPM application login page after having previously logged into the application in another browser tab. Instead, if the user navigates between those tabs, the user will be able to perform the required actions in SPM and will not be automatically logged out. 
+"
+SPM-125256,DT036299,"When trace method enabled, authorizing an Insurance Affordability application produces an error log",CEF,Integrated Case Management,,,"**Issue Description:**
+When the property curam.trace.methods is set to true, authorizing an Insurance Affordability application produces a Process Instance Error with a ClassCastException in the logs.
+
+**User Interface Impact:** No
+
+**Related WorkItems:** 125222, 125250
+
+**Prerequisite(s):**
+ # Log in as a system administrator.
+ # Navigate to Property Administration under Application Data in the shortcuts panel.
+ # Search for the property 'curam.trace.methods'.
+ # Edit the value and set it to true. Save and then publish the change.
+
+**Steps to Reproduce:**
+ # Log in as an Insurance Affordability caseworker.
+ # Register a new Person.
+ # Create a new application with the mandatory information.
+ # Authorize the application.
+ # Issue: A Process Instance Error displays in the logs with a ClassCastException.
+
+**Resolution:**
+An exception is no longer produced in the logs when authorizing an Insurance Affordability application with tracing enabled. 
+"
+SPM-125255,,Batch launcher error when DB-to-JMS is enabled with WebSphere Liberty server,CEF,Application Development Environment,Server Development Environment,Batch Processing,"**Issue Description:**
+The batch launcher fails when DB-to-JMS is enabled in conjunction with the WebSphere Liberty server.
+
+When this occurs the server logs include one or both of the following messages:
+* User ?UNAUTHENTICATED? does not have a role on CuramServer'
+* java.lang.ClassCastException: curam.util.invoke.EJSLocal0SLEJBMethod_2b4572e3 incompatible with curam.util.invoke.Method 
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Set application property 'Database-to-jms - enable flag' to 'True'.
+ # Set application property 'Database-to-jms - Notification batch launcher mode' to '1'.
+ # Set application property 'Database-to-jms - Notification host name' and 'Database-to-jms - Notification port number' to reference an SPM application on WebSphere Liberty.
+ # Run the batch launcher. 
+ # Issue: [batchlauncher] A runtime exception occurred: An error occurred triggering the database-to-JMS server at '<host name>':'<port number>' (SSL mode: false). Note that properties `curam.batchlauncher.dbtojms.notification.host` and `curam.batchlauncher.dbtojms.notification.port` respectively must be set to the host and port number on which the Curam client application is deployed because the database to JMS server is part of the Curam client application.
+
+**Resolution:**
+When DB-to-JMS is enabled, the batch launcher can now authenticate with the server to obtain an LTPA token required by WebSphere Liberty to trigger a database-to-JMS transfer.
+
+LTPA token usage is enabled by setting the application property 'Database-to-jms - Enable LTPA token usage for DB-to-JMS triggering'
+(Technical ID: curam.batchlauncher.dbtojms.notification.ltpa) to 'True'.
+
+To help with troubleshooting another property 'Database-to-jms - Enable tracing for DB-to-JMS triggering'
+(Technical ID: curam.batchlauncher.dbtojms.notification.trace) is also now available. Setting this property to 'True' enables diagnostic logging for DB-to-JMS operations. Previously it was necessary to set the application-wide property 'Tracing level' (Technical ID: curam.trace) to 'trace_verbose' in order to activate this logging, which was less convenient. 
+"
+SPM-125250,,"When trace method is enabled, authorizing an Income Support product delivery produces an error",SOL,Income Support CGISS,,,"**Issue Description:**
+When the property 'curam.trace.methods' is set to true, authorizing an Income Support Application produces an application error.
+
+**User Interface Impact:** No
+
+**Related WorkItems:** 125222, 125256
+
+**Prerequisite(s):**
+ # Log in as a system administrator.
+ # Navigate to Property Administration under Application Data in the shortcuts panel.
+ # Search for the property 'curam.trace.methods'.
+ # Edit the value and set it to true. Save and then publish the change.
+
+**Steps to Reproduce:**
+ # Log in as an Income Support caseworker.
+ # Register a new Person.
+ # Create a new application, select Food Assistance, and complete the application.
+ # Add Work Registration and Head of household evidence.
+ # Set the application to Ready for Determination.
+ # Check eligibility and authorize the application.
+ # Issue: An application error is displayed.
+
+**Resolution:**
+An unhandled server exception is no longer produced when authorizing an Income Support application product delivery with tracing enabled.
+"
+SPM-125246,DT036247,Spinner disappears after 15 seconds even if the associated activity has not completed,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+The process spinner disappears after 15 seconds even if the associated activity has not completed indicating to the user that the process had finished when it is actually still running.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+# Identify a process (Person Search, for example) that requires more than 15 seconds for the server to complete.
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Select Person under Searches in the shortcuts panel.
+# Enter the search criteria that will start the process identified in the Prerequisite(s) section.
+# Issue: The progress spinner disappears after 15 seconds giving no indication to the user that the process is still running.
+
+**Resolution:**
+The progress spinner no longer terminates after 15 seconds.
+
+**Technical:**
+The maximum spinner timeout period can be increased by setting the 'curam.progress.widget.timeout.max' property to an appropriate value in the ApplicationConfiguration.properties file. The default spinner maximum timeout period is 90000 (90 seconds). 
+"
+SPM-125245,,Save and Cancel buttons disappear from the New Petition modal,SOL,Child Welfare,,,"**Issue Description:**
+When a Child Welfare caseworker creates a new legal action but incorrectly populates the Participant and Respondent fields as the same person, the Save and Cancel buttons disappear from the New Petition modal.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+# Legal Actions are configured.
+
+**Steps to Reproduce:**
+# Log in as a Child Welfare caseworker.
+# Register a person and create an Ongoing Case.
+# Open the ongoing case and navigate to the Legal tab.
+# Select Legal actions and then click New.
+# The New Legal Action modal is displayed.
+# Select 'Petition' for the Legal Category and 'Petition to Transfer' for the Legal Action and click the Next button.
+# Complete the mandatory fields and select the same person as participant and respondent and click Save.
+# Issue: The buttons on the modal will disappear from view and the only resolution is to start the task of creating a New Legal Action again. 
+
+**Resolution:**
+The Save and Cancel buttons do not disappear from the New Petition modal when a new legal action is being created.
+"
+SPM-125238,PO09827,Incorrectly entered dates are converted to random dates in the application,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+When a user manually enters an incorrect date value into a date field on a form in the application, a seemingly random date is displayed.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Navigate to Person under Registration in the shortcuts panel.
+# Manually enter an incorrect date into the Date of Birth field on the first step of the Register Person wizard.
+# Click the Search button.
+# Issue: An incorrect random date is generated and displayed in the field when the search is being done in the system.
+
+**Resolution:**
+When a user manually enters an incorrect date into a form within the application, an error message now notifies them that an incorrect date was entered. Users can enter a new date by clearing the incorrect date and manually entering the correct date.
+"
+SPM-125236,PO09836,The progress spinner is not displayed when fetching search results,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+When you click a Search button on a modal or wizard to search for data in the system, the progress spinner is not displayed to indicate that the search is in progress.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Navigate to Person under Searches in the shortcuts panel.
+# Enter some search criteria into the fields provided in the form.
+# Click the Search button.
+# Issue: A progress spinner does not display as expected while the system fetches the data to populate the search results.
+
+**Resolution:**
+When a Search button on a modal or wizard is clicked to search for data in the system, the progress spinner is displayed to indicate that the search is in progress.
+"
+SPM-125234,PO09838,Custom search page with multiple searches display all of the search result counts on the first search list,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+Custom search pages with multiple searches display all of the search result counts on the first results list instead of displaying separate counts for each result list on the page. The search result count needs to be displayed on each results list to give the user context. 
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+# Set LIST_ROW_COUNT to true in the curam-config.xml configuration file.
+# Customize Person_search1.uim and Person_search1.properties to have more than one LIST element.
+# Rebuild and deploy the application.
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Navigate to Person under Searches in the shortcuts panel.
+# Search for an existing person (using search criteria such as Last Name).
+# Issue: The first set of search results shows '(Number of Items: X)' twice, where X is the number of items in the list.
+
+**Resolution:**
+The search result count is now displayed separately on each list, which helps provide appropriate context to the user.
+
+**Technical:**
+When LIST_ROW_COUNT is configured in the application and when multiple lists are present on a page, the page correctly displays the search result count on each list separately. 
+"
+SPM-125233,PO09775,The date picker is unnecessarily opened when certain modal dialogs open,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+The date picker is activated by default when you open a modal dialog where the first field accepts a date value. The open date picker can block some of the modal dialog content that the user needs to see.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Register a new Person.
+# Navigate to the Evidence tab and click the New page action.
+# On the New Evidence modal, select the Add row-level action for Email Addresses.
+# Issue: When the New Email Address modal dialog opens, the date picker for the Received Date field opens and blocks some content on the modal dialog.
+
+**Resolution:**
+When a user opens a modal dialog that has the date picker form control as the first field, the date picker stays closed until the user goes to the field and selects a date.
+"
+SPM-125222,DT036281,"When trace method is enabled, opening a modal to add static evidence produces an error",CEF,Common Intake,,,"**Issue Description:**
+Adding static evidence results in the message 'An Application Error Has Occurred' being presented to the user as well as a ClassCastException in the server logs if the property 'curam.trace.methods' is set to true.
+
+**User Interface Impact:** No
+
+**Related WorkItems:** 125250, 125256
+
+**Prerequisite(s):**
+ # Log in as a system administrator.
+ # Navigate to Property Administration under Application Data in the shortcuts panel.
+ # Search for the property 'curam.trace.methods'.
+ # Use the row-level action to edit the value and set it to true. Click Save.
+ # Publish the changes.
+
+**Steps to Reproduce:**
+ # Log in as an Income Support caseworker.
+ # Register a person and complete a new Income Support Application.
+ # Open the Income Support application and navigate to the Evidence dashboard.
+ # Add static evidence such as Work Registration Evidence.
+ # Issue: When clicking to add Work Registration evidence, the following error is presented to the user 'An Application Error Has Occurred' together with a ClassCastException in the server logs.
+
+**Resolution:**
+This issue has been resolved and a ClassCastException is no longer produced in the server logs when opening a modal to add static evidence.
+"
+SPM-125221,DT036272,"FIELD element with CONTROL=""""SKIP"""" does not occupy space",CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+When the CONTROL attribute is set to SKIP on UIM FIELD elements,  blank fields are not displayed. This causes alignment and spacing issues when trying to position fields within clusters that have multiple rows.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+ # A UIM page that contains FIELD elements within CLUSTERS that have a CONTROL attribute set to SKIP. In the example below, there is a 5-column cluster with SKIP FIELDS to align the BLANK FIELDS
+
+
+<CLUSTER TITLE=""""Title"""" SHOW_LABELS=""""true"""">
+<CLUSTER NUM_COLS=""""5"""" LAYOUT_ORDER=""""FIELD"""" LABEL_WIDTH=""""0"""" SHOW_LABELS=""""false"""">
+<FIELD>
+<CONNECT>
+<TARGET NAME=""""ACTION"""" PROPERTY=""""subject""""/>
+</CONNECT>
+</FIELD>
+<FIELD LABEL=""""Text"""">
+<CONNECT>
+<TARGET NAME=""""ACTION"""" PROPERTY=""""subject""""/>
+</CONNECT>
+</FIELD>
+<FIELD ALIGNMENT=""""RIGHT"""">
+<CONNECT>
+<TARGET NAME=""""ACTION"""" PROPERTY=""""subject""""/>
+</CONNECT>
+</FIELD>
+<FIELD>
+<CONNECT>
+<TARGET NAME=""""ACTION"""" PROPERTY=""""subject""""/>
+</CONNECT>
+</FIELD>
+</CLUSTER>
+<CLUSTER NUM_COLS=""""5"""" SHOW_LABELS=""""false"""">
+<FIELD CONTROL=""""SKIP"""" />
+<FIELD CONTROL=""""SKIP"""" />
+<FIELD CONTROL=""""SKIP"""" />
+<FIELD LABEL=""""Text"""" WIDTH=""""97"""">
+<CONNECT>
+<TARGET NAME=""""ACTION"""" PROPERTY=""""subject""""/>
+</CONNECT>
+</FIELD>
+</CLUSTER>
+</CLUSTER>
+
+
+**Steps to Reproduce:**
+ # Navigate to the application page detailed in the prerequisite(s) section above.
+ # Issue: The text that should be displayed on the right of the cluster is not aligned correctly.
+
+**Resolution:**
+Using SKIP fields with this cluster configuration are now correctly aligned.
+"
+SPM-125220,,The initial focus is not visible when a modal dialog is opened in Edge Chromium,Accessibility,,,,"**Issue Description:**
+When a modal dialog is opened, the initial location of the cursor should be displayed to the user. However, On Edge Chromium when a modal dialog is opened the initial focus for the cursor is not visible.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Register a new Person.
+ # On the Person tab, select New Case from the tab actions menu.
+ # Issue: The initial focus is not shown.
+
+**Resolution:**
+This issue has been resolved and now the initial focus is displayed on opening a modal dialog in Edge Chromium. 
+"
+SPM-125218,PO09810,Passive modal dialogs can display buttons when opened from a modal dialog,Look and Feel,,,,"**Issue Description:**
+If a passive modal dialog (a modal dialog with no action controls), is opened from another modal dialog in the application, it incorrectly shows buttons from the previous modal dialog. Users can get confused and think that the buttons can be used in the new context.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:** N/A
+
+**Resolution:**
+The buttons are now hidden as expected in passive modal dialogs that open from a modal dialog in the application.
+"
+SPM-125213,PO09817,A button is displayed as a link where an ACTION_CONTROL has a nested CONDITION element,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+A button in the application is incorrectly displayed as a link if the corresponding ACTION_CONTROL element has a nested CONDITION element. For example, when a conditional Cancel button on a modal dialog is configured in UIM/VIM with a nested CONDITION element on an ACTION_CONTROL element that does not have TYPE=""""SUBMIT"""", it is not displayed correctly to the user.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+# RegisterPerson_duplicateCheckForPDCWizard.uim is customized to have a Cancel button ACTION_CONTROL element that is a nested CONDITION element.
+
+**Steps to Reproduce:**
+# Log in as a caseworker.
+# Navigate to and open the person registration wizard.
+# Issue: The Cancel action button is displayed as a link. 
+
+**Resolution:**
+The button is correctly displayed on the customized page.
+
+**Technical:**
+The infrastructure that generates JavaServer Pages from UIM has been updated. A button on a modal dialog is now correctly rendered when the associated ACTION_CONTROL element has a nested CONDITION child element. 
+"
+SPM-125198,DT036280,Issue payments validates against primary bank account instead of the nominated bank account on the case,ENT,Financial Management,,,"**Issue Description:**
+
+As part of financial payment processing, if an EFT delivery pattern is specified for a product delivery case, the system determines whether a valid bank account exists for the nominee before generating a payment. Currently when issuing payments, the system is incorrectly using the person?s preferred bank account rather than the nominated bank account identified on the case to perform this validation.
+
+**User Interface Impact:** No 
+
+**Steps to Reproduce:**
+# Login as a caseworker.
+# Register a new person.
+# Create a Bank Account evidence record for the person, entering all mandatory details, specify a start and end date in the past and check the Preferred indicator.
+# Create a second Bank Account evidence record for the person with a start date after the first Bank Account end date and do not specify an end date. 
+# Create an integrated case and add any necessary evidence for eligibility.
+# Create an associated product delivery, specifying an EFT delivery pattern.
+# Navigate to the Financials tab and click Nominees.
+# Select the row level action Change Bank Account for the existing Nominee record and choose the second Bank Account created above.
+# Navigate to Certifications and edit the existing record, backdating the From Date to ensure a payment is generated. 
+# Submit for Approval and Activate Case.
+# Log in as a System Administrator.
+# Expand Batch and select processes.
+# Search for generate.
+# Execute Generate Instruction Line items and Generate Instruments.
+# Search for issue.
+# Execute Issue Concern Payments and Process Payment Instrument Types.
+# Run Batch processing.
+# Login as a Caseworker.
+# Open the Person homepage.
+# Navigate to the Financial Transactions tab.
+# Click Payments Issued.
+# Issue 1: No payments were issued.
+# Open the Employment Benefit case.
+# Issue 2: No Last Payment is issued in the Context Panel.
+
+
+**Resolution:**
+
+This issue has been resolved by updating the logic which validates the Bank Account. The system will now correctly validate by using the bank account nominated on the case instead of always using the preferred Bank Account."
+SPM-125193,DT036278,Microsoft Word does not open with the Curam File Edit feature on Chrome if AppData and Local AppData don't share the same parent folder,CEF,Business Services,,,"**Issue Description:**
+Microsoft Word fails to launch and an error message appears on the screen after the 'Almost ready' message is displayed for users that have a remote Appdata folder and a default Local Appdata folder setting on their profile.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+ # Windows user profile configured to have a remote Appdata folder and a default Local Appdata folder.
+ # Install Microsoft Word.
+ # Install a supported (supported for Social Program Management Word Integration) Java Runtime Environment.
+ # Install Google Chrome.
+ # Install and enable the Cúram File Edit Native Messaging Bridge Extension for Google Chrome. This is available on the Chrome Web Store.
+ # Install the Social Program Management Word Integration Assistant. This is distributed with the Cúram Client Development Environment.
+ # Log in as a system administrator.
+ # Navigate to Microsoft Word Templates under Communications in the shortcuts panel.
+ # Select the New page action to create a new Microsoft Word template.
+ # Enter a name and template document ID for the template and upload a file to be used as the template.
+ # Select a suitable category and sub-category. To allow the template to be used for any communication, set the category to All Communication and the subcategory to All Communications. Click Save.
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Search for and navigate to a Person home page.
+ # Navigate to the Client Contact tab and click Communications.
+ # Create a new Microsoft Word communication using the page-level action.
+ # On the New Microsoft Word Communication modal, specify a Correspondent and click Next.
+ # Enter the Subject and Address, choose the Template Name that was configured previously, and click Save.
+ # The Word File Edit Screen is loaded in the Tab Content page and the File Edit Control Panel modal is shown.
+ # Messages display including 'Almost ready'.
+ # Issue: Microsoft Word fails to launch and an error message appears on the screen.
+
+**Resolution:**
+A new Word Integration Bridge installer has been released to address the issue when the user is configured to have a remote Appdata folder and a default Local Appdata folder.
+"
+SPM-125184,,Placeholder text has insufficient color contrast in certain Outcome Plan Activities in Outcome Plan Workspace,Accessibility,,,,"**Issue Description:**
+The contrast ratio between placeholder text and its background for both Search Objectives and Search Activities in the Outcome Plan Workspace is insufficient.
+
+**User Interface Impact:** No 
+
+**Steps to Reproduce:**
+ # Log in as a Child Services caseworker.
+ # Register a Child and create an Ongoing Case.
+ # Create an Outcome Plan from the Ongoing Case.
+ # On the Outcome Plan, select the Workspace tab, navigate to Objectives, and click Search. Verify the contrast of placeholder text with its background color.
+ # Issue: The contrast ratio between the placeholder text and its background does not meet the minimum search objectives and search activities guidelines.
+
+**Resolution:**
+The background color has been updated, so it is easier to see the placeholder text against the background on the activities in the Outcome Plan workspace for Search Objectives and Search Activities. 
+"
+SPM-125163,DT036273,"When an Income Support Integrated Case is closed, menu items which are no longer applicable remain enabled",CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+When an Income Support Integrated Case is closed, the menu items Close Case, Add Application, Add as Item of Interest, Re-add a Member and Add Member should be disabled but instead remain enabled.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as an Income Support caseworker.
+ # Register a new Person.
+ # Create a new Income Support Case.
+ # Close the Income Support Case.
+ # Issue: The menu items Close Case, Add Application, Add as Item of Interest, Re-add a Member and Add a Member are enabled.
+
+**Resolution:**
+When an Income Support Integrated Case is closed, the menu items Close Case, Add Application, Add as Item of Interest, Re-add a Member and Add a Member are now disabled.
+"
+SPM-125161,,Corrupted PDF generated for Insurance Affordability applications submitted online in the caseworker application when PDF Summary Template enabled,ENT,Universal Access,,,"Issue Description:
+A summary PDF template can be configured for use in creating PDF documents that are generated when an application is submitted. When the summary PDF template configuration is enabled, it is used for the generation of PDF documents for all scripts, without any exclusions. As a result, invalid PDFs were generated for non-supported IEG scripts that contained non-supported conditions as listed in the //Configuring the generic PDF summary template// section within the Configuring Curam Common Intake guide. For example, a corrupt PDF document was generated for the Insurance Affordability application IEG script because the script does not support summary PDF generation.
+
+User Interface Impact:Yes
+
+Steps to Reproduce:
+ # Enable the new PDF summary template as documented in the //Configuring the generic PDF summary template// section within the Configuring Curam Common Intake guide.
+ # Log in as an Insurance Affordability caseworker.
+ # Register a new Person.
+ # Submit an application for Insurance Affordability with minimum data.
+ # Navigate to the Administration tab and select Attachments.
+ # Download the PDF that is generated as part of the application case creation.
+ # Issue: Observe that a corrupted PDF document is generated.
+
+Resolution:
+This issue is now resolved and the original data store PDF template is used to generate PDF documents for Insurance Affordability applications submitted in the online application when a summary PDF template is configured.
+
+By default, the Insurance Affordability application IEG script is excluded from summary PDF generation through a new 'curam.intake.pdftemplate.iegsummarypagelayout.scriptexcludelist' environment variable. The environment variable defines a list of scripts to be excluded from summary PDF template generation if a summary PDF template is configured.
+"
+SPM-125160,,"Viewing a person?s application PDF displays an error ",SOL,Income Support,,,"**Issue Description:**
+Selecting the View Application PDF row-level action for the application case listed under Applications within a Person tab results in an error.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as an Income Support caseworker.
+ # Register a new person.
+ # Create and submit an Income Support application for the person.
+ # On the person tab, navigate to Applications.
+ # For the application case listed, select the View Application PDF row-level action.
+ # Issue: An error message is displayed: 'ERROR: The file cannot be downloaded because the page '?Person_listApplicationsForPerson?' has not been configured in the FILE_DOWNLOAD_CONFIG section of curam-config.xml'.
+
+**Resolution:**
+The Application PDF can now be correctly viewed from within the Person tab.
+
+**Technical:**
+The issue was resolved by updating the FILE_DOWNLOAD configuration for the page in the curam-config.xml. 
+"
+SPM-125157,DT036270,Rich Text Editor removes highlighted text in the middle of a sentence without a warning message,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+When copying text from a Microsoft Word document, which includes highlighted text in the middle of the line, into the Rich Text Editor, the editor removes the highlighted text and no warning message is displayed.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Register a person.
+ # Navigate to the Client Contact tab.
+ # Create a New Note.
+ # Copy and paste a partially highlighted sentence from a Microsoft Word Document into the entry field.
+ # Issue: The highlighted words are removed without any warning.
+
+**Resolution:**
+The highlighted words are no longer removed. The issue has been resolved by updating the 'pastefromword' CKEditor plugin to a more recent version. 
+"
+SPM-125139,DT036263,Time Widget clears manually entered time values on pressing Tab,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+When a user manually enters a time into the Time Widget and presses Tab, the value entered is cleared and placeholder text is displayed.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Navigate to the Calendar.
+ # Select New Activity from the page-level actions menu.
+ # In the New Activity modal, navigate to the time widget by pressing the Tab keyboard navigation key.
+ # Manually enter a value from the time drop-down list (for example, 00:00, 00:30, 01:00, 01.30 ...)
+ # Press the Tab key to move to the next input field.
+ # Issue: The entered time value is erased and the placeholder text HH:mm is displayed.
+
+**Resolution:**
+The time is now set correctly when a user enters a value manually into the Time Widget and presses the Tab keyboard navigation key.
+"
+SPM-125133,,A 'Null' button appears on the Preview Contract confirmation modal,ENT,Provider Management,,,"**Issue Description:**
+When a caseworker views the Preview Contract confirmation modal, the 'Yes' button is incorrectly labelled as 'Null'. 
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a Provider Management manager.
+ # Click My Providers under Provider in the shortcuts panel.
+ # Click the Provider Reference Number hyperlink to open an existing provider in a new tab.
+ # Click the Financial tab and select Contracts.
+ # Create and generate a Utilization Contract for the contract to go to an Issued state.
+ # Select the Preview row-level action for the Utilization Contract.
+ # Issue: The 'Yes' button is incorrectly labelled as 'Null'.
+
+**Resolution:**
+The Preview Contract confirmation modal buttons are correctly labelled. 
+"
+SPM-125109,DT036254,Create Claim Representatives page not loading due to JSP Scriptlet page tag,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+The Create Claim Representatives page does not finish loading correctly, preventing user input.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a claim worker.
+# Navigate to Cases and select New Case.
+# Search for and select a registered person (John Smith, for example).
+# Enter the values to create the claim.
+# On the claim home page select Case Summary and then Case Representatives and click New.
+# Select the Case Participant (John Smith, for example) and click Next.
+# Issue: The page does not finish loading correctly preventing user input.
+
+**Resolution:**
+This issue has now been addressed and the Create Claim Representatives page now loads correctly.
+
+**Technical:**
+In the Workers Compensation component, WCO_createClaimRepresentatives.uim uses a JSP_SCRIPTLET tag, which has been updated to correctly render on pages where it is configured in UIM.
+"
+SPM-125042,PO08583,Non-scrollable clusters containing a widget table or a single field of type text area are not announced by a screen reader,Accessibility,,,,"**Issue Description:**
+When a supported screen reader is used in the internal application, non-scrollable clusters containing a widget table or a single field of type text area are not announced.
+
+**User Interface Impact**: No
+
+**Steps to Reproduce:**
+
+**Scenario 1:**
+ # Enable a screen reader.
+ # Log in as a Resource manager.
+ # Enroll a New Provider.
+ # Add a New Member to the provider.
+ # Click the Training link of the Credentials tab for the provider.
+ # Click the New Non-Managed Training Program link.
+ # Issue: The context for the widget table at the end of the page is not announced by the screen reader when using the arrow keys.
+
+**Scenario 2:**
+ # Enable a screen reader.
+# Log in as an adoption supervisor.
+# Register a new Person.
+# Create an Ongoing Case for the person.
+# Create a New Adoption Case.
+# Navigate to the text area field.
+# Issue 1: The description for the text area field is not announced by the screen reader.
+# Issue 2: The text area field is not announced by the screen reader.
+
+**Resolution:**
+A screen reader now announces the widget table and single field of type text area in a non-scrollable cluster.
+"
+SPM-125036,PO09773,REST API call with an unknown parameter succeeds without any error being returned,CEF,Technical Services,Rest,Infrastructure,"**Issue Description:**
+When converting from JSON to Java objects, REST requests allow extra fields in the JSON request body that do not match attributes in the corresponding Java object. The extra fields are ignored and the request executes normally. 
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Create a POST request to any REST API, populating the body with correct JSON data.
+# Add an unknown field into the body of the JSON, 'whatever': 'adfafadf', for example.
+# Send the request.
+# Issue: The request executes normally and no error is returned. 
+
+**Resolution:**
+When converting from JSON to Java objects, REST requests no longer ignores the extra fields in the JSON request body and an error is returned.
+
+**Technical:**
+A system property 'curam.rest.fail.on.unknown.field' has been added to control this behavior. If this property is enabled, in the event that an unknown field is present in the JSON body of a REST request, the REST call will return an HTTP 400  response code with the following message: 'The request contains an unrecognized attribute.'. This property is disabled by default.
+
+You can find more information about this property in the //Social Program Management REST API Guide//.
+"
+SPM-124621,,An error message is displayed when adding a translation,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+Administrators can configure text translations for various business objects that include text fields, such as Code Table names. Currently, an error message is displayed when an administrator attempts to add a new text translation to a business object.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as a system administrator.
+# Navigate to System Configurations, expand Application Data, and select Code Tables.
+# Search for an existing code table.
+# Select Translate from the row-level action menu to open the View Localizable Text modal.
+# Select Add translation to open the Add Localizable Text modal.
+# Enter any text and click Save.
+# Issue: An error message is displayed. 
+
+**Resolution:**
+A new text translation can be added from the Add Localizable Text modal without issue. 
+"
+SPM-124516,PO09804,"On the Communications screen, the action menu displays the Delete option twice when the communication type is 'Email' and the communication status is 'Draft'",CEF,Business Services,Correspondence Management,,"**Issue Description:**
+On the communications page under the Contact tab, the action menu is displaying the delete option twice for an email in draft communication status.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce (Generic):**
+# Log in as a caseworker.
+# Register a new person.
+# Create an integrated case for the person.
+# Navigate to the Contact tab and select Communications.
+# From the actions menu select New Email.
+# Add the mandatory details and select send later.
+# Click Save.
+# Open the action menu for the email in draft communication status.
+# Issue: The Delete option is displayed twice in the action menu.
+
+**Resolution:**
+The issue has been resolved and only one Delete action now displays within the action menu for an email communication that has a draft communication status. 
+"
+SPM-124314,PO09765,Gantt chart in Service Plans is not rendered correctly,ENT,Service Planning,,,"**Issue Description:**
+A Gantt chart in Service Plans is not rendered correctly when the expected end date of a goal is set to a future year.
+
+**User Interface Impact**: No
+
+**Prerequisite(s):**
+ # Log in as a system administrator.
+ # Click Property Administration below Application Data in the shortcuts panel.
+ # Enter 'curam.cfss.ccs.common.plan.indicator' in the Name field and click Search.
+ # Use the Edit Value row-level action to update the value of the returned property to 'true' and click Save.
+ # Use the Publish page action to publish the changes.
+
+**Steps to Reproduce:**
+ # Log in as a Child Welfare caseworker.
+ # Register a new Person.
+ # Use the New Case tab action to create a new Ongoing Case for the person.
+ # Navigate to the Plan tab and click Service Plans.
+ # Click New to add a Service Plan.
+ # Select the registered person as the participant and select the type as 'Child Protection and Welfare'.
+ # Click 'Save & Use Template'.
+ # Select 'Family Services' as the template and click Save.
+ # Click Mentorship within 'Child and Adolescent Activities'.
+ # Use the Edit tab action menu to update the expected end date year to the next year and click Save.
+ # Navigate back to the Service Plan home page and click the refresh icon.
+ # Issue: Gantt Chart is not displayed.
+
+**Resolution:**
+The Gantt Chart is now correctly displayed. CSS properties were updated in the javascript file used for rendering the Gantt chart. 
+"
+SPM-124279,PO09762,Mandatory asterisks for  Skill Level and Skill Type are missing on the New Skill page,CEF,,,,"**Issue Description:**
+When creating a new User Skill, the asterisk which indicates whether a form field is mandatory or not is not present for the fields Skill Level and Skill Type. These fields are mandatory and a validation message will be returned if either field is blank when submitting the form.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as an administrator.
+# Search for a User.
+# Open the Skills tab in the User profile.
+# Click New to open the New Skill modal.
+# Attempt to save the New Skill with either the Skill Level or Skill Type as blank.
+# Issue: A validation message appears indicating that these fields are mandatory, but the asterisks indicating they are mandatory are missing.
+
+**Resolution:**
+Asterisks are now displayed beside the Skill Level and Skill Type fields indicating that they are mandatory.
+"
+SPM-124200,PO09737,Labels on New Names evidence modals are incorrectly aligned,Look and Feel,,,,"**Issue Description:**
+The required field labels on the New Names evidence modal are incorrectly aligned.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Register a new Person.
+ # Navigate to the Evidence tab and click the New page action.
+ # On the New Evidence modal, select the Add row-level action for Names evidence.
+ # Issue: The required fields are indented and misaligned from the other field labels.
+
+**Resolution:**
+All labels on the New Names evidence are correctly aligned.
+"
+SPM-124194,DT036316,Administration Workspace shortcut menu fails the minimum color contrast requirements,Accessibility,,,,"**Issue Description:**
+When shortcut menu items in the Administration Workspace are selected, they fail the minimum color contrast requirements.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as an administrator.
+ # Navigate to the Administration Workspace.
+ # Expand the Shortcuts menu and navigate to an option in one of the categories.
+ # Verify the contrast between the text and the background color.
+ # Issue: The contrast ratio between the text and the background is only 3.04:1, which is below the minimum required color contrast.
+
+**Resolution:**
+Administration Workspace Shortcut menu items now have an acceptable color contrast ratio when selected. 
+"
+SPM-123977,PO09705,Administrator is not navigated to User Home page after creating a new user,CEF,Administration Suite,,,"**Issue Description:**
+The user home page is not opened in a new tab as expected when an administrator creates a new user.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as an administrator.
+# Select New User below Users in the shortcuts panel.
+# Fill in all the mandatory details.
+# Click Save.
+# Issue: The home page of the newly created user is not opened in a new tab as expected.
+
+**Resolution:**
+This issue is now resolved. The user home page of a newly created user now opens in a new tab.
+
+**Technical:**
+Updated the save action to link to the Organization_userHome when a new user is created, hence a new user home page tab with user details is opened when a new user is created. 
+"
+SPM-123800,DT032834,Nominee destination bank account not created automatically during case creation when only one active bank account exists for the nominee,ENT,Financial Management,,,"**Issue Description:**
+When registering a product delivery, the case nominee creation logic sets the destination for both the bank account and address. The logic for determining the destination bank account looks for the bank accounts associated with the client. If there is just one bank account, this is set as the destination. If there is more than one, then the system cannot decide which bank account to set as the destination, and this step needs to be carried out manually by the caseworker.
+
+Currently, the logic does not exclude bank accounts that are end-dated from the list. This results in the need for a caseworker to manually identify the destination bank account in scenarios where there is only one active bank account that could be automatically set during case creation.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce (Generic):**
+ # Log in as a caseworker.
+ # Register a new Person (Robert Smyth).
+ # Click the Evidence tab and select the New page action.
+ # On the New Evidence modal, select the Add row-level action for the Bank Accounts evidence.
+ # On the New Bank Accounts modal, add the mandatory details. Also, specify an end date in the past and leave the Preferred indicator unchecked.
+ # Click Save.
+ # Add a second Bank Account with a start date in the past, no end date, and check the Preferred indicator.
+ # Click Save.
+ # Click the Care and Protection tab.
+ # Select Cases and click the New page action.
+ # Create an integrated case for the client.
+ # Add the necessary evidence and activate it.
+ # Create an associated product delivery, ensuring to select an EFT delivery pattern.
+ ** A case nominee is created but no destination bank account is set because the nominee has more than one bank account.
+ # Add the necessary certification to the product delivery.
+ # From the tab actions menu on the product delivery, select Submit for Approval.
+ # On the Submit Case for Approval confirmation dialog click Yes.
+ # Issue: The following exception is thrown - 'The case cannot be approved as the Nominee Robert Smyth has no bank account'.
+
+**Resolution:**
+No validation message is now displayed and the case can be submitted for approval.
+
+The logic for creating a case nominee during the creation of a product delivery case now excludes end-dated bank accounts when determining what bank accounts can be used as the destination for EFT payments. 
+"
+SPM-122263,PO09316,Paragraph spacing issues in Contact Log PDFs generated in Child Welfare Intakes,SOL,Child Welfare,,,"**Issue Description:**
+When creating a contact in the Contact Log, narrative text is entered. Currently when generating a PDF of the Contact Log in a Child Welfare Intake case, the spacing for the narrative text does not match the spacing of the narrative that was entered into the contact. After each paragraph there is an additional empty line included.
+
+**User Interface Impact:** No 
+
+**Steps to Reproduce:**
+# Login as Child Welfare intake worker.
+# Create an Intake case.
+# Create a contact.
+# Add narrative text with multiple lines of text. Save.
+# From the Contact Logs list page, select Preview Selected Contacts. Notice the line spacing.
+# Click on Print Log. This produces a PDF.
+# Open the contact log PDF and check the spacing of the lines in the PDF vs. the display in the application.
+# Issue: The spacing displayed in the generated contact log PDF does not match application and displays extra blank lines.
+
+**Resolution:**
+The narrative text included in the generated PDF for the contact log now matches the formatting applied to the narrative text when entered in the application, with all empty lines removed.
+
+**Technical:**
+While converting the html to text, an extra line is added after each paragraph and this has now been removed from the content that is included in the generated Contact Log PDF.
+"
+SPM-121690,PO09181,Member who was end dated and later re-added to integrated case shows up twice on the context panel,CEF,Integrated Case Management,Common,,"**Issue Description:**
+When a case member in an integrated case is end-dated, and then re-added, they are appearing twice on the case context panel.
+
+**User Interface Impact:** No 
+
+**Prerequisite(s):**
+ # Set the system date to September 1st, 2020.
+ # Log in as administrator.
+ # Select Integrated Cases under Case in the shortcuts panel.
+ # Click on the New page action to configure a new integrated case type.
+ # Provide the following details on the New Integrated Case Type modal:
+ ** Name: Test IC
+ ** Determine Translator Required: No
+ ** Display in Participant Programs List: Yes
+ ** Display in Citizen Self Service: No
+ ** Display in My Cases filter: Yes
+ ** Display in Case Search filter: Yes
+ ** Appealable: No
+ ** Members Only for Contact Log: No
+ ** Ownership Strategy: Blank
+# Click Save.
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Register one adult and one child.
+ # Create a parent/child relationship between the two.
+ # Create a new integrated case of the newly configured type for the adult.
+ # Click on the Participants tab on the integrated case.
+ # On the Case Members list, select the New page action.
+ # Search for the child and add them to the case.
+ # Move the server date forward to October 1st, 2020.
+ # Navigate to the integrated case's Participants tab.
+ # Select the Edit row-level action for the child.
+ # Add an end date of September 20th, 2020 specifying the Reason as 'Moved away'.
+ # Re-add the child as a new case member on September 29th, 2020.
+ # Issue: The child who has been end-dated and re-added as a member of the integrated case displays twice in the context panel.
+
+**Resolution:**
+This issue has been resolved and a case member who has been end-dated and re-added to an integrated case now only displays once on the case context panel. 
+"
+SPM-121673,,Update the File Edit Extension from MV2 to MV3,Third Party Updates,,,,"Social Program Management uses a Google Chrome browser extension that enables users to edit Microsoft Word documents through the application. Google is updating its extension platform from Manifest Version 2 (MV2) to Manifest Version 3 (MV3) and the changes will impact all Social Program Management customers that use the Word editing feature in a Chrome-based browser.
+
+Customers must update browsers and roll out the new extension to all clients that use the Word Integration Assistant for editing Word documents in SPM. The Google Chrome MV2 support timeline states that from January 2023, MV2 extensions will no longer run in Chrome.
+
+The following steps need to be completed on each client environment:
+ # Update the user?s browser to Chrome version 104 or Edge version 104 or later.
+ # Install the 'SPM File Edit Native Messaging Bridge' extension from the Chrome Web Store.
+ # Update the Cúram Word Integration installer to use the version included with this release.
+
+The new version of the Cúram Word Integration installer is delivered in this release at the following location:
+* CuramCDEJ/lib/curam/installers/IBMCuramWordIntegrationAssistant.msi
+"
+SPM-121480,PO09143,"After closing a search modal that was opened from another modal, an incorrect field is in focus",Accessibility,,,,"**Issue Description:**
+After returning from a search that is initiated from a pop-up modal, such as when adding Relationships evidence for a person, the focus does not remain on the field the search was initiated from.  
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Register a new Person.
+ # Navigate to the Evidence tab and click the New page action on the Evidence list page.
+ # Scroll down to Relationships in the New Evidence modal and select the Add row-level action.
+ # On the New Relationships page, select the case participant. On the Participant field, select the search icon.
+ # Enter the name of any existing person (Smith, for example) and click Search. Then select a result.
+ # Issue: When you are returned to the New Relationships modal dialog, the search icon is in focus instead of the clear icon.
+
+**Resolution:**
+The clear icon beside the Participant field now remains in focus when the search dialog is closed.
+"
+SPM-121098,PO09050,Payments can be generated on product delivery cases that have been suspended and manually reassessed prior to initial activation,ENT,Financial Management,,,"**Issue Description:**
+Financial payments are intended to only be generated on a product delivery case after it has been initially approved and activated. If a product delivery case is suspended before initial activation and manually reassessed, financial payments can then be incorrectly generated on the case.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce (Generic):**
+
+**Scenario 1 (CER product):**
+ # Log in as a caseworker.
+ # Register a new Person.
+ # Create an integrated case for the person.
+ # Add evidence to the case to make the client eligible. Apply changes.
+ # Add an associated product delivery to the integrated case.
+ # Add certification to the product delivery if required.
+ # Suspend the product delivery.
+ # Click on the Determinations tab.
+ # Use the Reassess page action to manually reassess the case.
+ # Click on the Financials tab and use the Issue Financials page action to issue a payment.
+ # Issue: A payment is incorrectly issues on the product delivery case which has not yet been activated.
+
+**Scenario 2 (Classic product):**
+ # Log in as a caseworker.
+ # Register a new Person.
+ # Create an integrated case for the person.
+ # Add evidence to the case to make the client eligible. Apply changes.
+ # Add an associated product delivery to the integrated case.
+ # Add certification to the product delivery if required.
+ # Suspend the product delivery.
+ # From the product delivery home page, select the Reassess page action.
+ # Specify the From and To dates and click Save.
+ # Click on the Financials tab and use the Issue Financials page action to issue a payment. 
+ # Issue: A payment is incorrectly issues on the product delivery case which has not yet been activated.
+
+**Resolution:**
+Payments can no longer be issued on product delivery cases that have been suspended prior to initial activation. The issue was resolved by introducing a new validation to prevent a user from manually reassessing a suspended product delivery case that was never in an active state. If a caseworker attempts to do this now on either a CER or Classic case, the following validation message is presented:
+
+'Case 'X' could not be reassessed as it has never been activated and it currently has a status of Suspended.'
+"
+SPM-119552,PO08830,Screen reader incorrectly announces on the Next Page and Last Page icons,Accessibility,,,,"**Issue Description:**
+When list pagination is enabled on search results, arrow icons used to navigate across the search results list pages are incorrectly announced by the screen reader.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+ # The search results should return over 20 records.
+ # The page size for the results should be set to display a minimum number of records (15).
+
+**Steps to Reproduce:**
+
+**Scenario 1:**
+ # Enable a screen reader.
+ # Log in as a caseworker.
+ # Perform a case search that returns more than 15 cases.
+ # Use the Tab key to navigate to the Next Page and Last Page icons.
+ # Issue: Notice that the screen reader announces 'graphic on mouse hover' on the Next Page and Last Page icons.
+ # Navigate to the second page.
+ # Use the Shift + Tab key to select the left arrow icons.
+ # Issue: Notice that the screen reader announces 'graphic on mouse hover' on the Previous Page and First Page icons.
+
+**Scenario 2:**
+ # Enable a screen reader.
+ # Log in as a system administrator.
+ # Click System Configurations and expand the shortcuts panel.
+ # Expand the Application Data section and click Property Administration.
+ # Search for the word ?evidence?. This will result in pagination when the search results are displayed.
+ # Use the Tab key to navigate to the Next Page and Last Page icons.
+ # Issue: Notice that the screen reader announces 'graphic on mouse hover' on Next Page and Last Page icons.
+ # Navigate to the second page.
+ # Use the Shift + Tab key to select the left arrow icons.
+ # Issue: Notice that the screen reader announces 'graphic on mouse hover' words on the Previous Page and First Page icons.
+
+**Resolution:**
+The correct announcements are now made by a screen reader when tabbing across the pagination arrow icons. For more information, see the Pagination section in the Web Client Reference Manual."
+SPM-119379,PO08803,curam.environment.internal.timeout.warning.modal.logoutpage not working as expected,CEF,,,,"**Issue Description:**
+In Social Program Management when the session timeout is customized as described in the product documentation, the session timeout triggers correctly and the warning modal is displayed. However, on expiration of the warning the custom logout page does not display. See the //Customizing the session timeout warning in the caseworker application// section in the //Web Client Reference Manual//.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Create and configure a custom logout page as described in the product documentation.
+ # Log in as a caseworker.
+ # Wait for the session timeout page to appear.
+ # Wait for the countdown to complete without interaction with the application.
+ # Issue: The custom logout page is not invoked.
+
+**Resolution:**
+The session time-out logic has been fixed to allow the custom logout page to be displayed.
+"
+SPM-118651,PO08723,"Payment Correction cases contain incorrect references to sample UIM pages under the Financials tab. ",CEF,Integrated Case Management,Common,,"**Issue Description:**
+Under the Financials tab on Payment Correction cases sample UIM pages are incorrectly referenced. 
+
+**User Interface Impact:** No
+
+**Prerequisite:**
+
+1. Remove the //sample component// before building the project.
+
+**Steps to Reproduce (Generic):**
+ # Log in as a caseworker.
+ # Register a new Person.
+ # Create an integrated case for the person.
+ # Add the necessary evidence to make the person eligible and activate it.
+ # Add an associated product delivery to the integrated case, payable 'Weekly By Cash In Advance'.
+ # On the product delivery, select the Administration tab, User Roles section and select New Supervisor action and add the caseworker. 
+ # Submit and activate the product delivery.
+ # Click the Financials tab and select Transactions.
+ # Use the Issue Payment page action to generate a payment.
+ # Modify the certification on the product delivery and move the certification from date forward by 4 or more days. 
+ ** Note that an associated overpayment (Payment Correction) is created.
+ # Now modify the certification from date back to its original value. 
+ ** Note that an associated underpayment (Payment Correction) is created.
+ # Navigate to the Payment Correction underpayment case.
+ # On the Payment Correction underpayment case, select the Administration tab, User Roles section and select New Supervisor action and add the caseworker. 
+ # Submit, approve, and activate the case. 
+ ** Doing this will result in a new underpayment (RBU) financial component being created.
+ # Click the Financial tab on the Payment Correction underpayment and select Deductions and view Current Deductions and Deductions History.
+ # The page does not load as the application was referencing a sample UIM page, which doesn't exist now, as the sample component was removed in the prerequisite(s) step.
+ # Issue: Since Payment Corrections isn?t a sample case it shouldn?t be referencing sample UIMs.
+
+**Resolution:** The necessary sample UIM content that was being referenced by pages in the core component has been moved to the core component and references to it have been updated in instances where this content has been renamed.
+
+ 
+
+ "
+SPM-116814,PO08454,Screen reader is not reading the Active Evidence headers on an Income Support Integrated Case in the correct order,Accessibility,,,,"**Issue Description:**
+When a supported screen reader is used by an eligibility caseworker to navigate to an Income Support integrated case, the Active Evidence column headings are not read in the correct order by the screen reader.
+ 
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Enable a screen reader.
+ # Log in as an eligibility caseworker using a supported browser.
+ # Register a person and create a Food Assistance application case and authorize it.
+ # Navigate to the Person?s Income Support integrated case and click the Evidence tab.
+ # Select the 'Active Evidence' page.
+ # Tab slowly through to the inline action menu, next to the refresh and printer icons, and then navigate slowly using the down arrow key twice. The table summary with fields is now read by the screen reader.
+ # Issue: Instead of reading ?Type',  the ?Participant? column heading name is read first by the screen reader.
+
+**Resolution:**
+The screen reader announces the table columns in the correct order. The Summary.Active.Evidence property under Evidence_workspaceActiveHighLevelView.properties file has been updated with the correct table order.
+"
+SPM-116224,,Grey icons don't have sufficient contrast in High Contrast mode,Accessibility,,,,"**Issue Description:**
+ In High Contrast mode, the grey icons don't have sufficient contrast against a black background and are difficult to see.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+# Windows machine with High Contrast Mode turned on.
+
+**Steps to Reproduce:**
+# Log in as an Insurance affordability caseworker.
+# Register a person and submit an Insurance Affordability Application.
+# Issue: The refresh and print Icons are difficult to see.
+
+**Resolution:**
+Icons now have sufficient contrast against a black background and are visible in High Contrast mode. 
+"
+SPM-115759,,End dated or closed bank account being set as the nominee bank account,ENT,Financial Management,,,"**Issue Description:**
+When a product delivery case is created, case nominee creation logic sets the destination for both the bank account and address for the nominee. The logic for determining the destination bank account looks for the bank accounts associated with the person serving as the nominee. If there is just one, then this bank account is set as the destination bank account even if it is not an active bank account. When the case is then submitted for approval, no validation is thrown to prevent the approval of the case and the use of the end-dated bank account as the nominee's destination bank account.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce (Generic):**
+ # Log in as a caseworker.
+ # Register a new Person (Robert Smyth).
+ # Click the Evidence tab and select the New page action.
+ # On the New Evidence tab select the Add row-level action for the Bank Accounts evidence.
+ # Add the mandatory details, including an end date in the past.
+ # Click Save.
+ # Click the Care and Protection tab.
+ # Select Cases and click the New page action.
+ # Create an integrated case for the client.
+ # Add the necessary evidence and activate it.
+ # Create an associated product delivery, ensuring to select an EFT delivery pattern.
+ ** A case nominee is created and a destination bank account is set to the bank account created in steps 4 and 5.
+ # Add the necessary certification to the product delivery.
+ # From the tab actions menu on the product delivery, select Submit for Approval.
+ # On the Submit Case for Approval confirmation dialog click Yes.
+ # Issue: No validation is thrown to indicate that the bank account that has been set as the nominee's destination bank account is end-dated.
+
+**Resolution:**
+A validation message 'The case cannot be approved as the Nominee Robert Smyth has no bank account.? is now displayed to indicate that the bank account that has been specified for the destination bank account cannot be used and to prevent the case from being submitted for approval.
+
+The logic has been updated to now check that the bank account status is 'Open', the record status of the bank account is 'Active', and that the end date has not been specified to some date in the past. 
+"
+SPM-113817,PO07813,Application Case authorization fails when a Tax Filer is changed to a Non-Filer in the Intelligent Evidence Gathering (IEG) script,SOL,Income Support HCR,,,"**Issue Description:**
+When creating an application for Insurance Affordability, tax filer information can be entered for the applicants. When an applicant's information is changed from being a Tax Filer to a Non-Filer in the application script, a failure then occurs when attempting to authorize the application case.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as an Insurance Affordability caseworker.
+ # Register a new Person.
+ # Select New Application Form from the Person home page.
+ # Fill out the application for 2 siblings.
+ # On the Tax Filer Information page set the first sibling as a Tax Filer and the second sibling as a Tax Dependent of the first sibling.
+# On the Income Page select No to income for both siblings. 
+ # Populate the mandatory fields on the remaining application page. 
+ # On the Summary page, in the Additional Income Information section, Tax Filing Information cluster, click the Change row level action for the first sibling and set the sibling to a Non-Filer by unselecting the checkbox.
+ # On the Tax Dependent Information page select No to the tax dependent question for both siblings.
+ # Continue through the application populating the mandatory fields and submit the application
+ # Open the resulting application case and authorize it.
+ # Issue: The following validation message prevents authorization 'Parent evidence Tax Filing Status must be specified.'
+
+**Resolution:**
+The application case can now be authorized. The IEG script for the application now correctly updates the status of the Tax Dependent when the Tax Filer is changed to be a Non-Filer."
+SPM-106691,PO07259,The refresh icon on the search page does not work after performing a search,Accessibility,,,,"**Issue Description:**
+The Refresh and Print widget is used as a toolbar on many pages across the application. (It sometimes also includes the Help button.) When a user selects the Refresh action on Search pages, depending upon the state of the search it may not perform the action of refreshing the page. The issue occurs when no results are returned or if results are returned.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+
+**Scenario 1:**
+ # Log in as an Income Support worker.
+ # On the Home tab in the Find Client pod, enter search details such as Last Name 'abcdef', then click Search.
+ # When the Search Results page opens, click on Search.
+  # Issue: Whether the search is successful, clicking the Refresh button does not refresh the entered search criteria.
+
+**Scenario 2:**
+ # Log in as a caseworker.
+ # Select Searches then Cases, enter any search details, then click Search.
+ # Issue: Whether the search is successful, clicking the Refresh button does not refresh the entered search criteria.
+
+**Resolution:**
+Now after a search completes, when the user hovers the cursor over the Refresh button, a 'Refresh disabled' message is displayed along with a red strikethrough icon to alert the user that the refresh option is not available. To refresh after completing a search, click Reset where available.
+"
+SPM-105222,"PO07104, DT034667",Downloading a file on an expanded inline page clears the content on the expanded inline page,CEF,Application Development Environment,,,"**Issue Description:**
+When a file is downloaded from an expandable list row, the content of the expanded inline page is cleared.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as an administrator.
+ # Select Scripts under Intelligent Evidence Gathering in the shortcuts panel.
+ # Select Search.
+ # Expand a row to reveal its inline page.
+ # In the action menu for the expanded row select Download.
+ # Issue: The contents of the inline page are cleared.
+
+**Resolution:**
+The JavaScript called upon selecting Download has been updated to ensure the contents of inline pages are no longer cleared."

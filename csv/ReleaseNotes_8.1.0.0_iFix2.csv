@@ -1,0 +1,301 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-130369,,Missing columns and content when printing pages that contain expandable lists,Look and Feel,Application Development Environment,Client Development Environment,Widgets,"*Issue Description:*
+When printing a page within the Cúram application that contains an expanded list, some columns may not display on the printed page.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as caseworker.
+# Navigate to Cases and Outcomes.
+# Expand the shortcuts panel.
+# Expand the Searches section and select Person.
+# Search for a person.
+# Expand one of the search result rows.
+# Select the Print icon.
+# Issue:  In the Search Results sections, the Date of Birth column is cut off.
+
+*Resolution:*
+The layout of expandable lists has been adjusted to ensure columns are not missing when printed.
+
+"
+SPM-130335,,Inline page actions displayed when printing,Look and Feel,,,,"*Issue Description:*
+Inline page actions are displayed when printing.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a Person.
+# Navigate to the Persons Home tab, click the Print button and Cancel the first print dialog that appears.
+# Issue: Page actions, for example, Add Picture_,_ are displayed in the print view.
+
+*Resolution:*
+Inline page actions are no longer displayed when printing.
+
+"
+SPM-130261,DT036798,"When a Javascript function is linked to an Action Control on a modal, the modal remains greyed out after the function has been executed",CEF,,,,"*Issue Description:*
+When a Javascript function is linked to an Action Control on a modal, the modal content appears frozen after the function has been executed.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+Configure a custom UIM which opens in a modal and contains an Action Control which executes a Javascript function when clicked.
+To create the Action Control, configure an <ACTION_CONTROL> element with a child <SCRIPT> element. Add an EVENT=?ONCLICK? attribute to the <SCRIPT> element and configure a SCRIPT_FILE attribute to contain the name of a custom Javascript file and an ACTION attribute to contain the name of the Javascript function to be executed.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker
+#  Navigate to the custom UIM.
+# Click on the Action Control with the custom Javascript configured.
+# Issue: When the Javascript function has executed, the modal freezes and cannot be interacted with.
+
+*Resolution:*
+When a Javascript function is linked to an Action Control on a modal, the modal content is interactive after the function has been executed.
+
+"
+SPM-130248,DT036775,The progress spinner is not displayed when fetching search results,CEF,,,,"*Issue Description:*
+When you click a Search button on a modal or wizard to search for data in the system, the progress spinner is not displayed to indicate that the search is in progress.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to Person under Searches in the shortcuts panel.
+# Enter some search criteria into the fields provided in the form.
+# Click the Search button.
+# Issue: A progress spinner does not display as expected while the system fetches the data to populate the search results.
+
+*Resolution:*
+When a Search button on a modal or wizard is clicked to search for data in the system, the progress spinner now displays to indicate that the search is in progress. 
+
+"
+SPM-130128,DT036791,Clicking Save or Cancel from a custom Client Contact Note does not return the user to the parent modal,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+
+When a form is submitted on a modal which is a child of another modal that was opened from a tab actions menu, the parent modal is not correctly displayed.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+A tab actions menu is configured to have an overflow menu item that opens a modal with a list containing a list actions menu. For example, a tab actions menu on a person tab, that has a New Demo overflow item that opens a modal containing a list of notes that can be edited.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# From the tab actions overflow menu, select the ?New Demo?? menu item.
+# From the Demo modal, select the Edit button from actions menu column on a note to edit.
+# Edit the Subject field or notes text area and select the Submit button.
+# Issue: The modal ?Notes? is displayed instead of the parent modal ?Demo?.
+
+*Resolution:*
+When a form on a modal - which is a child of another modal that was opened from a tab actions menu - is submitted, the parent modal is correctly updated and displayed to the user.
+
+"
+SPM-130074,DT036788,The return page URL is not being passed into modal windows from links outside the menu,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+Open a modal from an inline action within a tab action menu and select a link or button, an application error occurs.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+A tab actions menu is configured to have an inline menu item that opens a modal which redirects the user to another page or modal when they perform a modal action. 
+
+For example, a tab actions menu on a person tab, where the New Note menu item is configured inline and opens a New Note modal which has been configured with a resolve UIM (containing a JSP_SCRIPTLET element) that depends on the ?_o3rpu? parameter to redirect the user.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Select the ?New Note? inline action button within tab action menu.
+# Create the note by selecting the Save button.
+# Issue: An application error occurs.
+
+*Resolution:*
+When you open a modal from an inline action within a tab action menu and subsequently select a link or button, the user interface is correctly updated.
+
+*Technical:*
+
+When a user selects an inline action within a tab action menu, the ?_o3rpu? HTTP request parameter is added to the request so it will be present when resolver UIM pages use it to redirect users to another page or modal.
+
+//"
+SPM-130061,DT036744,While using a screen reader searching for and selecting an item results in the page crashing and an error code being displayed,Accessibility,,,,"*Issue Description:*
+When using a screen reader, searching for and selecting an item by using the Enter key or Spacebar results in the page crashing and an error code being displayed.
+For example, when creating a task while using a screen reader, searching for and selecting an external user causes the page to crash and the task is not created. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Navigate to the Person Search page.
+# Search for a registered user and open their home page.
+# Navigate to the Administration tab.
+# Select to create a new task.
+# Select the search icon for an external user.
+# Enter % in the search field to return all external users.
+# Press tab until you reach the Select link.
+# Hit the link by pressing the Space bar.
+# Issue: The new task page does not open and an error is displayed with Error code: ?STATUS_ACCESS_VIOLATION?.
+
+*Resolution:*
+You can now search for and select items using the Enter key or Spacebar while using a screen reader.
+Now when creating a task while using a screen reader, searching for and selecting an external user will return the user to the new task page where the selected external user is displayed. The user can continue to create the task.
+
+"
+SPM-130059,DT036664,"Unable to select the last item in a multi-select, scrollable list",Look and Feel,,,,"*Issue Description:*
+The last item in a scrollable, selectable list is difficult to select due to the fade-out effect at the bottom.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+There are no instances out of the box.  To see this in action, a developer may:-
+
+# Configure SCROLL_HEIGHT onto a UIM multi-select LIST. 
+# Set the value to less than the combined height of the number of items in the list. 
+# Rebuild the client application.
+# Restart the application.
+# Test by selecting the last item in the list.
+
+*Resolution:*
+Styles have been updated to allow the user to select the last item.
+
+"
+SPM-130057,DT036780,Multiple primary buttons are present on Dynamic Evidence modal dialogs,CEF,Dynamic Evidence,,,"*Issue Description:*
+Multiple primary buttons are present for Dynamic Evidence modal dialogs when the evidence modal has been opened from another modal and the evidence has End Dating enabled or has a ?Save and Next? or ?Save and New? button. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Select the Administration Workspace tab and expand the Shortcuts panel.
+# Navigate to the Dynamic Evidence page under the Rules and Evidence section.
+# Click Edit on an evidence list item (e.g Addresses, Identifications, Countable Assistance Period).
+#  Ensure the ?Enable End Dating when Creating Evidence? checkbox is selected.
+# Log in as a caseworker.
+# Register a person.
+# From the tab action menu of the Participant Data Case, select ?New Evidence...? to open the New Evidence dialog.
+# Click on an Add button next to an evidence type to open a new evidence dialog (e.g Addresses, Identifications, Countable Assistance Period).
+# Issue: There are duplicate primary buttons being displayed on the modal.
+
+*Resolution:*
+When a Dynamic Evidence modal has been opened from another modal and the evidence has End Dating enabled or has a ?Save and Next? or ?Save and New? button, multiple primary buttons are no longer displayed.
+
+"
+SPM-130056,DT036777,Long page title or zooming can cause a scrollbar to appear in the Page Actions area that is not selectable with a mouse.,Look and Feel,,,,"*Issue Description:*
+When the length of the title in the main content area exceeds the space available, horizontal scrolling is required to reach the action buttons but, the scrollbar cannot be selected using a mouse.
+
+*User Interface Impact:* Yes
+
+*Prerequisites:*
+Ensure your operating system is set to always display scrollbars (classic scrollbars).
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Navigate to Person?s Home tab, select the Client Contact tab and expand the Communication Exceptions section. 
+# Open the Shortcuts Panel.
+# Use browser zoom to zoom to 200%.
+# Issue: The main content area header scrolls horizontally but the scrollbar cannot be selected with a mouse.
+
+*Resolution:*
+The main content area header no longer scrolls horizontally, instead the title wraps and the actions remain in view or stacking beneath the title when space is limited. 
+
+"
+SPM-130052,DT036781,Full list of notes are not printed if SCROLL_HEIGHT attribute is set on the LIST element in Participant_listNote1.vim,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+After applying a SCROLL_HEIGHT attribute to a <LIST> UIM element, if the number of rows in the list extends beyond this SCROLL_HEIGHT value the rows revealed by scrolling are not displayed when the page is printed.
+
+*User Interface Impact:* No.
+
+*Prerequisites:*
+Customise a list by adding a SCROLL_HEIGHT attribute to its LIST UIM element, for example, add SCROLL_HEIGHT=""""150 to the <LIST> UIM element in Participant_listNote1.vim (<LIST SCROLL_HEIGHT=""""150"""">).
+
+*Steps to Reproduce:*
+
+# Log in a caseworker.
+# Register a person.
+# Navigate to the Persons Home page and select the Client Contact tab.
+# From the Notes section, select the New action and create 5 notes for the person. A scrollbar will display beside the list of notes.
+# Select the Print icon.
+# Click Cancel on the first print preview page.
+# Issue: A scrollbar displays in the print preview and not all of the notes created for the person are displayed.
+
+*Resolution:*
+Print specific styling has been added to reveal all rows and remove the scroll bar on the printed version of the page.
+
+"
+SPM-129879,DT036741,Search popup modal freezes when reset button is pressed,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+When you select a button on a modal in order to reset fields that you have already populated, the modal enters into a frozen state indefinitely and the fields are not reset.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as Provider Management Resource Manager.
+# Navigate to Provider And Services.
+# Expand the shortcuts panel.
+# Expand the Providers section and select Enroll Provider.
+# On the Enroll Provider modal, Provider Search page, click Next.
+# On the Provider Details page, progress to the ?sort code? popup field.
+# Select the search icon to activate the sort code popup modal.
+# Enter data into the sort code search field and select the Reset button to reset the populated field.  
+# Issue: The modal enters a frozen state indefinitely and the populated fields are not reset.
+
+*Scenario 2:*
+
+# Log in as an eligibility worker.
+# Register a new Person.
+# Submit an Income Support Application for Cash Assistance.
+# Open the Income Support integrated case.
+# Navigate to the Evidence tab and click the New Evidence page-level action.
+# On the New Evidence modal, select the Add row-level action for Student evidence.
+# On the Student Evidence modal, progress to the ?School? popup field in the School Details section.
+# Select the search icon to activate the Educational Institute search popup modal.
+# Enter data into the  search field and select the Reset button to reset the populated field.  
+# Issue: The modal enters a frozen state indefinitely and the populated fields are not reset.
+
+*Resolution:*
+When you select a button on a modal in order to reset fields that you have already populated, the fields are reset as expected and the modal is not frozen.
+
+"
+SPM-129570,DT036750,Codetable values are not displaying correctly when the modal window is small,CEF,Application Development Environment,Client Development Environment,Look & Feel,"*Issue Description:*
+When you navigate to a codetable hierarchy dropdown and activate it to select an option, it is difficult to view and select the options from the dropdown menu that is presented.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+A modal or a step in wizard is configured to have just codetable hierarchy fields. For example on the Enroll Provider wizard, the 2nd step is configured to have just the 2 codetable hierarchy fields and both configured horizontally.
+
+*Steps to Reproduce:*
+
+*Scenario 1:* 
+
+# Log in as Provider Management Resource Manager.
+#  Navigate to Provider And Services.
+# Expand the shortcuts panel.
+# Expand the Providers section and select Enroll Provider.
+# On the Enroll Provider modal, Provider Search page, click Next.
+# On the Provider Details page, select the Provider Category codetable hierarchy dropdown.
+# Issue: The options are hard to view and select from dropdown menu presented because it is small in height and has a small vertical scrollbar to scroll the options.
+
+*Scenario 2:*
+
+# Log in as an eligibility worker.
+# Register a new Person.
+# Submit an Income Support Application for Food Assistance.
+# Open the Income Support integrated case.
+# Open Tab Actions menu, select Guided Change and select the Add a Member action to open the Add Household Member wizard.
+# Enter all mandatory details in the Participant Details, Personal Information and Relationship details wizard pages and proceed to step 4, Program Details. 
+# In the Work Registration section, select the Work Non Participation radio button.
+# Issue: The options are hard to view and select from dropdown menu presented because it is small in height and has a small vertical scrollbar to scroll the options.
+
+*Resolution:*
+When you navigate to a codetable hierarchy dropdown and activate it to select an option, you can easily view and select an option from the menu presented.
+
+"
