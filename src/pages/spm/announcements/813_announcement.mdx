@@ -1,24 +1,40 @@
 ---
-title: 8.1.2 is now available
-description: 8.1.2 is now available
+title: 8.1.3 is now available
+description: 8.1.3 is now available
 ---
 
-## Cúram 8.1.2
+## Cúram 8.1.3
 
-Cúram by Merative™ is a leading solution for supporting the end-to-end social program and care coordination service delivery process. v8.1.2.0 includes key enhancements to our portal capabilities, caseworker efficiency, and developers productivity.
+Cúram by Merative™  is a leading solution for supporting the end-to-end social program and care coordination service delivery process. v8.1.3.0 includes enhancements to our user experience and developer productivity.
 
-### Persona based portal - Additional portal capability
+### User Experience
 
-We are excited to announce the expansion of our modern portal capabilities. Our enhanced solution empowers clients to build portals tailored to new personas, including authorised representatives.
+#### Accessibility – Caseworker and Clients 
+At Merative, we are committed to ensuring our systems meet recognized industry accessibility standards. The 8.1.3 release includes enhancements across numerous WCAG 2.1 criteria to improve accessibility for both clients and caseworkers. These enhancement vary in nature; from additional metadata to ensure screen readers can correctly and intuitively convey everything on the page, removing truncation of data for better readability, e.g. data in context panel, to more visual changes on the UI such as labels for each distinct element of a phone number or changing how task list pages conveys for each task if, and with whom, a task is being worked on by. 
 
-To support clients in buildiing tailored portals we will be providiing a sample portal and guidance to demonstrate how this capability can be implemented.
+#### Field Validations – enhanced CE capability 
+We’ve streamlined the Citizen application by reducing unnecessary scrolling, making it easier for users to identify errors quickly. This improvement not only enhances the overall user experience but also ensures greater accessibility for individuals using screen readers, fostering inclusivity. 
 
-### Caseworker efficiency - Multi lingual support
-
-Multilingual support provides efficiency gains for caseworkers by displaying the interface in the user's language of choice removing need for on the fly translation. In v8.1.2.0, we are extending multilingual support in Cúram to cater for the display of eligibility results throughout the caseworker application.
+To enable accessible server-side validations CE version 7.4.0 or later is required. 
 
 ### Developer productivity
 
-Introduced a hookpoint into the payments generation process so that developers can compliantly customize the logic that determine payments due and thus meet specific agency requirements.
+#### DB Support  
+Introduced support for DB2 community edition for customers to use in development and test environments reducing overall costs of DB2 licences that are required. In addition, we have upgraded the version of H2 that we support, providing greater compatibility with Oracle reducing rework. 
 
-For more details about these features, see the [What's new in 8.1.2](/pdf/spm/Curam_WhatsNew_812.pdf) and the [8.1.2 release notes](/pdf/releasenotes/curam812.pdf).
+#### Authentication  
+We have extended our support of OIDC for Liberty on Kubernetes. We have introduced a hookpoint to the Cúram Liberty login module, allowing developers to extend the out-of-the-box logic in a compliant manner.  
+
+
+
+### Performance 
+
+Continuous investment in our infrastructure ensures Cúram performs at scale and is ready to meet your cloud and expansion strategies.  In 8.1.3 we have improved batch performance of 2 critical processes, reassessments and financials, and improved the operation of Kubernetes PODS and startup times. 
+
+### Licence Amendment- Bundled Software  
+
+After conducting a comprehensive review of our customers' utilization of bundled software products, we have reached the decision to officially withdraw this entitlement from the Curam 8.1.3 release. The majority of customers do not utilize the bundled software due to the limitations inherent in these products and, as such, will not be affected by this update.   
+
+Should you believe that you are impacted by this change, we encourage you to contact your Curam Account Executive.   
+
+For more details about these features, see the [What's new in 8.1.3](/pdf/spm/Curam_WhatsNew_813.pdf) and the [8.1.3 release notes](/pdf/releasenotes/curam813.pdf).
