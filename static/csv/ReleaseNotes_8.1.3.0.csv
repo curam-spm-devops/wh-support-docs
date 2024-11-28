@@ -1258,7 +1258,7 @@ The title attribute has been added to the iFrames, improving navigation for scre
 
 For more information on the artifacts modified in this update, please refer to the _Merative Cúram 8.1.3.0 Update iFrames Titles_ PDF document included with this release.
 
-[Merative Cu?ram 8.1.3.0 Update iFrames Titles|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/Merative_Cu?ram_8.1.3.0_Update_iFrames_Titles.pdf]
+[Merative Cu?ram 8.1.3.0 Update iFrames Titles|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/Merative&#95;Cu?ram&#95;8.1.3.0&#95;Update&#95;iFrames&#95;Titles.pdf]
 
 "
 SPM-132420,,Inline actions are missing from the overflow menu on the Objectives list page when the number of list actions to display inline is set to a value greater than 1,CEF,,,,"*Issue Description:*
@@ -2073,7 +2073,7 @@ Reserved icon for a task fails for non-text contrast checks.
 # Issue: The reserved icon next to the newly created task fails for non-text contrast checks.
 
 *Resolution:*
-The icon has been replaced and the accessibility checks pass.
+The icon has been removed and replaced by a new column titled ?Worked on by?.
 
 "
 SPM-130831,DT036831,An unhandled server exception displays after using a work queue in the My Cases search and  that work queue is subsequently deleted,CEF,Administration Suite,,,"*Issue Description:*
@@ -2988,9 +2988,9 @@ Page-level action controls in the application with vague labels such as New and 
 *Resolution:*
 Page-level action buttons throughout the application have been updated with more descriptive labels, providing users with clearer information about the actions they are performing.
 
-For details on the artifacts modified as part of this update, refer to the _Merative Cúram 8.1.3.0 Update Properties_ PDF document included with this release.
+For details on the artifacts modified in this update, refer to the _Merative Cúram 8.1.3.0 Update Properties_ PDF document included with this release.
 
-[Merative Cu?ram 8.1.3.0 Update Properties|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/Merative_Cu?ram_8.1.3.0_Update_Properties.pdf]
+[Merative Cu?ram 8.1.3.0 Update Properties|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/Merative&#95;Cu?ram&#95;8.1.3.0&#95;Update&#95;Properties.pdf]
 
 "
 SPM-125764,DT036825,Date picker converts input to incorrect dates,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
