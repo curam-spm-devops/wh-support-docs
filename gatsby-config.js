@@ -23,7 +23,7 @@ module.exports = {
       options: {
         iconPath: "./src/images/curam-icon-512.png",
         repository: {
-          baseUrl: "https://github.com/WH-GovSPM-Doc/wh-support-docs",
+          baseUrl: "https://github.com/curam-spm-devops/wh-support-docs",
           branch: "master",
         },
       },
