@@ -20,6 +20,13 @@ module.exports = {
     },
     {
       resolve: 'gatsby-theme-carbon',
+      options: {
+        iconPath: "./src/images/curam-icon-512.png",
+        repository: {
+          baseUrl: "https://github.com/WH-GovSPM-Doc/SPM-Customers",
+          branch: "master",
+        },
+      },
     },
   ],
 };
