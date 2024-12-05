@@ -10,7 +10,7 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Merative Support Docs',
-        icon: 'src/images/favicon.png',
+        icon: 'src/images/favicon.svg',
         short_name: 'Merative Support Docs',
         start_url: '/',
         background_color: '#ffffff',
