@@ -1,0 +1,164 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.1.2.0 iFix3</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.1.2.0 iFix3</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.1.2.0 iFix3 release.
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.1.2.0 iFix3 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>  
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#integrated_case_management_improvedandresolvedissues">Integrated Case Management</a><br/><a href="#technical_services_improvedandresolvedissues">Technical Services</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-139087"></a>DT036968, WorkItem:SPM-139087 - Actions column in Versions list for a dynamic evidence showing unnecessary text 'container disabled AS'<br/><p><b>Issue Description:</b><br/>In the administration application, when viewing the version information for dynamic evidence, an unexpected column displaying the text ‘container disabled AS’ is shown. <br/><br/><b>User Interface Impact:</b> No <br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as an administrator.<li>Select the shortcuts tab and expand the Rules and Evidence section.<li>Select dynamic evidence to open the Dynamic Evidence list.<li>Expand a dynamic evidence record.<li>Issue:  An unexpected column displaying ‘container disabled AS’ is shown on the Versions tab.</ol><b>Resolution:</b><br/>When viewing the Versions information for a dynamic evidence type in the administration application, it is displayed without the additional column.<br/><br/><br/></p></p>
+<br/><a name="integrated_case_management_improvedandresolvedissues"></a>
+<h4>Integrated Case Management</h4><a href="#eligibility_&_entitlement_improvedandresolvedissues">Eligibility & Entitlement</a><br/>
+<br/><a name="eligibility_&_entitlement_improvedandresolvedissues"></a>
+<h4>Eligibility & Entitlement</h4><a href="#data_access_layer_improvedandresolvedissues">Data Access Layer</a><br/>
+<br/><a name="data_access_layer_improvedandresolvedissues"></a>
+<h4>Data Access Layer</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-138422"></a>DT037082, WorkItem:SPM-138422 - Expensive query across Dependency and PrecedentChangeItem tables for each reassessment<br/><p><b>Issue Description:</b><br/>When a case is reassessed by the Dependency Manager, a database query is executed to identify which precedents caused the reassessment. This is done to derive the probable reason for the reassessment, which is then displayed in the ‘Reason’ column of the Determination History for the case. The possible values displayed in this column are: 'Rules Change', 'System Configuration Change', and 'Case Reassessment'. In systems with large numbers of cases and a high volume of records in the Dependency table, this query can consume significant database time and resources. In the out-of-the-box application, this query is used solely to populate the display field and is not essential for any other processing.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b> <br/><ol><li>Enable JMX report generation for batch programs by setting the property 'Write a JMX report to disk at the end of each batch program.' to True.<li>Run the Dependency Manager batch suite, ensuring that some cases are awaiting processing by the batch.<li>Check attribute 'SQLStats' of the resulting JMX report for the presence of operation Dependency.searchDistinctPrecedentsByDependentAndPrecedentChangeSetWithHash .<li>Issue: The JMX report will indicate that the method was called once per case reassessment and may contribute significantly to overall SQL execution times.</ol><b>Resolution:</b><br/>The query can be suppressed by setting the application property 'curam.reassess.contributing.precedents.search.disabled' to True. Reassessments triggered by the dependency manager will no longer execute the expensive query.<br/><br/><br/></p></p>
+<br/><a name="technical_services_improvedandresolvedissues"></a>
+<h4>Technical Services</h4><a href="#server_development_environment_improvedandresolvedissues">Server Development Environment</a><br/>
+<br/><a name="server_development_environment_improvedandresolvedissues"></a>
+<h4>Server Development Environment</h4><a href="#batch_processing_improvedandresolvedissues">Batch Processing</a><br/><a href="#data_access_layer_improvedandresolvedissues">Data Access Layer</a><br/>
+<br/><a name="batch_processing_improvedandresolvedissues"></a>
+<h4>Batch Processing</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-138505"></a>WorkItem:SPM-138505 - Set the batch property to its default behaviour<br/><p><b>Property Name:</b> Clear caches per case in chunked batch<br/><b>Technical ID:</b> curam.batch.streams.cache.clear.mode.&lt;instanceID><br/><b>Category:</b> Application - Batch settings<br/><b>Type:</b> 32 bit Integer<br/><b>Default value:</b> 0<br/><br/>For chunked batch jobs that execute reassessments, increasing the chunk size raises the memory demand of the streamer. This can prevent large chunk sizes from being utilized. Part of this memory demand is caused by two transaction-level caches: the SQL Query cache and the Persistence Infrastructure (PI) cache, whose sizes increase over the duration of a chunk.<br/><br/>It is now possible to enable either or both of these transaction-level caches to be cleared at the end of processing each case in the chunk instead of waiting for the end of the chunk, thereby stopping the memory demand from increasing proportionally to the size of the chunk. The property name takes the format 'curam.batch.streams.cache.clear.mode.&lt;instanceID>' where &lt;instanceID> identifies a type of chunked batch program.<br/><br/>Valid values of &lt;instanceID> can be found in the code table 'Batch Process Chunk Name'. Valid values for this property are as follows:<br/><br/>0 - Cache clearing off (i.e. the transaction-level caches will be cleared at the end of the chunk).<br/>1 - Clear the PI cache at the end of processing each case.<br/>2 - Clear SQL Query cache at the end of processing each case.<br/>3 - Clear both caches at the end of processing each case.<br/><br/><b>Example 1:</b> <br/>To clear both caches per case for 'CREOLE Bulk Case Chunk Reassessment by Product': curam.batch.streams.cache.clear.mode.BPN6=3<br/><br/><b>Example 2:</b><br/>To clear only the PI cache per case for 'Generate Instruction Line Items': curam.batch.streams.cache.clear.mode.BPN1=1.<br/><br/><i>As with all caches, there is a trade-off between memory usage and fetching data from the database. Although clearing a cache more frequently will lessen the memory demand, it will also require some data to be reloaded more frequently. The overall gain or loss will be dependent on the content of the data being processed.</i><br/><br/>Note that since this is an optional property for out-of-the-box and custom chunked batch programs it is not automatically available in the Property Administration screen. To use this property for a chunked batch program you must first add it by clicking the New button in the Property Administration screen.</p></p>
+<br/><a name="data_access_layer_improvedandresolvedissues"></a>
+<h4>Data Access Layer</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-138670"></a>WorkItem:SPM-138670 - Inconsistent JMX SQL data when many slow queries are executed.<br/><p><b>Issue Description:</b><br/>JMX counters get reset for long running SQL statements.<br/><br/><b>User Interface Impact:</b> No.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Download JMX statistics from a running JVM.<li>Take note of the Executions counts for the statements listed in ‘SQLStats’.<li>Pick an SQL statement which has had more than two executions.<li>Cause the statement to be executed and block its execution - this could be done by setting a breakpoint in a browser, or by executing a SQL update on a record which is locked by another connection.<li>After about 10 seconds allow the blocked statement to complete.<li>Download JMX statistics from the JVM again.<li>Check the Executions figure for the SQL statement you blocked.<li>Issue: The statistics for the SQL statement you delayed have been reset.</ol><b>Resolution:</b><br/>The JMX statistics for SQL statements no longer automatically reset for long running SQL statements.<br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/curam812.pdf">Known Issues documented for 8.1.2.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2024
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>
