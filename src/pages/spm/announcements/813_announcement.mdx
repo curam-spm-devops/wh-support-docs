@@ -20,11 +20,10 @@ To enable accessible server-side validations CE version 7.4.0 or later is requir
 ### Developer productivity
 
 #### DB Support  
-Introduced support for DB2 community edition for customers to use in development and test environments reducing overall costs of DB2 licences that are required. In addition, we have upgraded the version of H2 that we support, providing greater compatibility with Oracle reducing rework. 
+Introduced support for IBM DB2 community edition for customers to use in development and test environments reducing overall costs of IBM DB2 licences that are required. In addition, we have upgraded the version of H2 that we support, providing greater compatibility with Oracle reducing rework. 
 
 #### Authentication  
-We have extended our support of OIDC for Liberty on Kubernetes. We have introduced a hookpoint to the Cúram Liberty login module, allowing developers to extend the out-of-the-box logic in a compliant manner.  
-
+The Cúram Login Module has been enhanced with dedicated modules for SAML and OIDC authentication on IBM WebSphere Liberty. New features include internal and external user verification, Alternate login ID support and efficient security cache population—eliminating the need for server restarts when adding users. Authentication events are now logged in the AuthenticationLog table for enhanced auditing and traceability.
 
 
 ### Performance 
