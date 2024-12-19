@@ -1,0 +1,80 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-139087,DT036968,Actions column in Versions list for a dynamic evidence showing unnecessary text 'container disabled AS',CEF,,,,"*Issue Description:*
+In the administration application, when viewing the version information for dynamic evidence, an unexpected column displaying the text ?container disabled AS? is shown. 
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Select the shortcuts tab and expand the Rules and Evidence section.
+# Select dynamic evidence to open the Dynamic Evidence list.
+# Expand a dynamic evidence record.
+# Issue:  An unexpected column displaying ?container disabled AS? is shown on the Versions tab.
+
+*Resolution:*
+When viewing the Versions information for a dynamic evidence type in the administration application, it is displayed without the additional column.
+
+"
+SPM-138670,,Inconsistent JMX SQL data when many slow queries are executed.,CEF,Technical Services,Server Development Environment,Data Access Layer,"*Issue Description:*
+JMX counters get reset for long running SQL statements.
+
+*User Interface Impact:* No.
+
+*Steps to Reproduce:*
+
+# Download JMX statistics from a running JVM.
+# Take note of the Executions counts for the statements listed in ?SQLStats?.
+# Pick an SQL statement which has had more than two executions.
+# Cause the statement to be executed and block its execution - this could be done by setting a breakpoint in a browser, or by executing a SQL update on a record which is locked by another connection.
+# After about 10 seconds allow the blocked statement to complete.
+# Download JMX statistics from the JVM again.
+# Check the Executions figure for the SQL statement you blocked.
+# Issue: The statistics for the SQL statement you delayed have been reset.
+
+*Resolution:*
+The JMX statistics for SQL statements no longer automatically reset for long running SQL statements.
+
+"
+SPM-138505,,Set the batch property to its default behaviour,CEF,Technical Services,Server Development Environment,Batch Processing,"*Property Name:* Clear caches per case in chunked batch
+*Technical ID:* curam.batch.streams.cache.clear.mode.<instanceID>
+*Category:* Application - Batch settings
+*Type:* 32 bit Integer
+*Default value:* 0
+
+For chunked batch jobs that execute reassessments, increasing the chunk size raises the memory demand of the streamer. This can prevent large chunk sizes from being utilized. Part of this memory demand is caused by two transaction-level caches: the SQL Query cache and the Persistence Infrastructure (PI) cache, whose sizes increase over the duration of a chunk.
+
+It is now possible to enable either or both of these transaction-level caches to be cleared at the end of processing each case in the chunk instead of waiting for the end of the chunk, thereby stopping the memory demand from increasing proportionally to the size of the chunk. The property name takes the format 'curam.batch.streams.cache.clear.mode.<instanceID>' where <instanceID> identifies a type of chunked batch program.
+
+Valid values of <instanceID> can be found in the code table 'Batch Process Chunk Name'. Valid values for this property are as follows:
+
+0 - Cache clearing off (i.e. the transaction-level caches will be cleared at the end of the chunk).
+1 - Clear the PI cache at the end of processing each case.
+2 - Clear SQL Query cache at the end of processing each case.
+3 - Clear both caches at the end of processing each case.
+
+*Example 1:* 
+To clear both caches per case for 'CREOLE Bulk Case Chunk Reassessment by Product': curam.batch.streams.cache.clear.mode.BPN6=3
+
+*Example 2:*
+To clear only the PI cache per case for 'Generate Instruction Line Items': curam.batch.streams.cache.clear.mode.BPN1=1.
+
+_As with all caches, there is a trade-off between memory usage and fetching data from the database. Although clearing a cache more frequently will lessen the memory demand, it will also require some data to be reloaded more frequently. The overall gain or loss will be dependent on the content of the data being processed._
+
+Note that since this is an optional property for out-of-the-box and custom chunked batch programs it is not automatically available in the Property Administration screen. To use this property for a chunked batch program you must first add it by clicking the New button in the Property Administration screen."
+SPM-138422,DT037082,Expensive query across Dependency and PrecedentChangeItem tables for each reassessment,CEF,Integrated Case Management,Eligibility & Entitlement,Data Access Layer,"*Issue Description:*
+When a case is reassessed by the Dependency Manager, a database query is executed to identify which precedents caused the reassessment. This is done to derive the probable reason for the reassessment, which is then displayed in the ?Reason? column of the Determination History for the case. The possible values displayed in this column are: 'Rules Change', 'System Configuration Change', and 'Case Reassessment'. In systems with large numbers of cases and a high volume of records in the Dependency table, this query can consume significant database time and resources. In the out-of-the-box application, this query is used solely to populate the display field and is not essential for any other processing.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Enable JMX report generation for batch programs by setting the property 'Write a JMX report to disk at the end of each batch program.' to True.
+# Run the Dependency Manager batch suite, ensuring that some cases are awaiting processing by the batch.
+# Check attribute 'SQLStats' of the resulting JMX report for the presence of operation Dependency.searchDistinctPrecedentsByDependentAndPrecedentChangeSetWithHash .
+# Issue: The JMX report will indicate that the method was called once per case reassessment and may contribute significantly to overall SQL execution times.
+
+*Resolution:*
+The query can be suppressed by setting the application property 'curam.reassess.contributing.precedents.search.disabled' to True. Reassessments triggered by the dependency manager will no longer execute the expensive query.
+
+"
