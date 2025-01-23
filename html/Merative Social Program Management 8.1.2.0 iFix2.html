@@ -1,0 +1,196 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.1.2.0 iFix2</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.1.2.0 iFix2</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.1.2.0 iFix2 release.
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.1.2.0 iFix2 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>  
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#look_and_feel_improvedandresolvedissues">Look and Feel</a><br/><a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_improvedandresolvedissues">Curam Modules</a><br/><a href="#third_party_updates_improvedandresolvedissues">Third Party Updates</a><br/>
+<br/><a name="look_and_feel_improvedandresolvedissues"></a>
+<h4>Look and Feel</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-134274"></a>DT036605, WorkItem:SPM-134274 - On some pages mandatory fields have no visible label <br/><p><b>Issue Description:</b><br/><br/>There are a number of fields in the application that are mandatory but do not display the mandatory asterisk indicator, these fields do not have a label which means that the mandatory asterisk indicator cannot be displayed. <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a Child Welfare intake worker.<li>Create an Intake.<li>Enter the minimum data needed to open the Intake.<li>Select the Recommendation tab.<li>Recommend Screened-In.<li>Submit the recommendation. <li>Log in as a Child Welfare intake supervisor.<li>Approve the recommendation task.<li>Select the intake home link on the task to open the intake home page.<li>On the intake home page, click the ellipsis and select Start Investigation. <li>On the Investigation, select Plan, then Services and click New. <li>Search for ‘care’ and select a service.<li>Issue: On the next page of the New Service wizard, the ‘Reason’ field is mandatory but does not have a field title and asterisk.</ol><b>Resolution:</b><br/>The affected pages have been updated to have a label so that the mandatory asterisk indicator can be displayed.<br/><br/><b>Technical:</b><br/>The following pages have been updated:<br/><br/><ul><li>webclient/components/ChildServices/Intake/CCSIntake_modifyNarrative.uim<li>webclient/components/AssessmentPlanning/Delivery/OutcomePlan/Factors/OutcomePlanFactor_addNote.uim<li>webclient/components/AssessmentPlanningCPM/overridden/CPM/Referral/ProviderManagement_editReferralNotificationsNotSent.uim<li>webclient/components/AssessmentPlanningCPM/overridden/CPM/ServiceDelivery/ProviderManagement_editService1.uim<li>webclient/components/CPM/Referral/AddReferralWizard/ProviderManagement_referralWizardCommonDetails.vim<li>webclient/components/CPM/Referral/ProviderManagement_editReferralNotificationsNotSent.uim<li>webclient/components/CPM/ServiceDelivery/CreateServiceDeliveryWizard/CreateServiceDeliveryWizard_details1.uim<li>webclient/components/CPM/ServiceDelivery/ProviderManagement_editService1.uim</ul><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135444"></a>DT036812, WorkItem:SPM-135444 - Modal window does not resize correctly when navigating back from a larger window<br/><p><b>Issue Description:</b><br/>When navigating through a wizard, sometimes a modal window does not resize correctly when navigating back from a larger modal window.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>There must be a wizard that contains at least two pages that have different widths specified in the WINDOW_OPTIONS parameter of the UIM page. The first page should be smaller than the second page.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Launch the wizard.<li>Navigate from the first page to the second page. The second page will be displayed in a larger modal than the first.<li>Navigate back to the first page.<li>Issue: The first modal does not resize back to the original size, it is the same size as the second modal.</ol><b>Resolution:</b><br/>Modals were not rendered at the correct size because the CSS style applied to previous modals was not being cleared properly. This has now been corrected so that a modal will be assigned a size based on the width specified in the WINDOW_OPTIONS parameter of the corresponding UIM page.<br/><br/>This may impact a customer’s existing wizards by fixing pages that had previously displayed at the wrong size.<br/><br/><br/></p></p>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#administration_suite_improvedandresolvedissues">Administration Suite</a><br/><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/><a href="#dynamic_evidence_improvedandresolvedissues">Dynamic Evidence</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133193"></a>DT036917, WorkItem:SPM-133193 - Validation messages are not displayed when an invalid value is entered into drop-downs<br/><p><b>Issue Description:</b><br/>When an invalid value is entered into drop-downs, no validation is displayed to indicate the value is invalid and the default drop-down value is saved, this can result in wrong values getting saved by the system inadvertently.<br/><br/><b>User Interface Impact:</b> No <br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker. <li>Register a person.<li>In the Gender field which defaults to Male,  type 'abc'.<li>Click Save.<li>Issue:  A validation is not displayed to indicate an invalid value has been entered and the default value (Male) is recorded as the person’s Gender.</ol><b>Resolution:</b><br/>A validation is displayed to indicate an invalid value has been entered into a drop-down.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-134596"></a>DT036899, WorkItem:SPM-134596 - Unable to search on a single character in Address Line 1<br/><p><b>Issue Description:</b><br/>When users attempt to search using only a single character in the Address Line 1 field, a validation message is displayed stating, ‘Address Line 1 field must contain at least 2 alphanumeric characters.’ This validation prevents users from searching for addresses that require only one character in Address Line 1.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Navigate to Service Supplier Search under Searches in the shortcuts panel.<li>Enter a single character in the Address Line 1 field and click Search.<li>Issue: A validation prevents the user from searching. </ol><b>Resolution:</b><br/>Configurable validations have been introduced that will allow system administrators to configure whether or not minimum length validations are displayed for Address Line 1, Address Line 2, and City. These validations are enabled by default, they can be disabled in the Validation Configuration section of the System Administration application to prevent minimum length checks.   <br/><br/>References for configurable validations added in Platform:<br/><br/><ul><li>generalsearch.err&#95;search&#95;fv&#95;address&#95;line&#95;1&#95;short|a|<li>generalsearch.err&#95;search&#95;fv&#95;address&#95;line&#95;1&#95;short|b|<li>generalsearch.err&#95;search&#95;fv&#95;address&#95;line&#95;2&#95;short|a|<li>generalsearch.err&#95;search&#95;fv&#95;address&#95;line&#95;2&#95;short|b|<li>generalsearch.err&#95;search&#95;fv&#95;city&#95;short|a|<li>generalsearch.err&#95;search&#95;fv&#95;city&#95;short|b|<li>generalsearch.err&#95;search&#95;fv&#95;street&#95;number&#95;short|a| (CA&#95;CIVIC address layout only)<li>generalsearch.err&#95;search&#95;fv&#95;street&#95;number&#95;short|b| (CA&#95;CIVIC address layout only)<li>generalsearch.err&#95;search&#95;fv&#95;street&#95;name&#95;short|a| (CA&#95;CIVIC address layout only)<li>generalsearch.err&#95;search&#95;fv&#95;street&#95;name&#95;short|b| (CA&#95;CIVIC address layout only)</ul><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-134755"></a>DT036886, WorkItem:SPM-134755 - Third party link does not open when using custom code to facilitate opening of this link in a separate tab <br/><p><b>Issue Description:</b><br/>In Cúram, when a custom third party link is configured to open in a separate browser tab from the ACTION&#95;CONTROL tag inside the ACTION&#95;SET, it is failing to open the URL in a new tab. <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>Configure a custom third-party URL to open in a separate browser tab and close the modal it was actioned from. <br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Navigate to the custom UIM.<li>Click the action control with the custom JavaScript configured.<li>Issue: When the JavaScript function has been executed, the third-party URL does not open in a new tab.</ol><b>Resolution:</b><br/>This issue has been fixed so that users can configure a third-party URL along with any custom JavaScript. The execution order ensures that the third-party URL opens first in a new tab, followed by the execution of any configured JavaScript.<br/><br/><br/><br/></p></p>
+<br/><a name="administration_suite_improvedandresolvedissues"></a>
+<h4>Administration Suite</h4><a href="#calendaring/scheduling_improvedandresolvedissues">Calendaring/Scheduling</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133581"></a> DT036738, WorkItem:SPM-133581 - Selecting a business email link for a user is not opening the mail client<br/><p><b>Issue Description:</b><br/>When an administrator clicks on the ‘Business Email’ field in a user’s context panel, the mail client is not opened. A JavaScript error is reported in the browser console.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>User should have a valid business email address.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as an administrator.<li>Click User Search in the shortcuts panel.<li>Search for and open an existing user.<li>In the context panel, select the email hyperlink in the Business Email field.<li>Issue: Nothing happens, the mail client does not open. A JavaScript error was reported in the browser console. </ol><b>Resolution:</b><br/>This has been resolved, the ‘Business Email’ field will now open up a new dialog to send an email when an administrator clicks on the email address.<br/><br/> <br/></p></p>
+<br/><a name="calendaring/scheduling_improvedandresolvedissues"></a>
+<h4>Calendaring/Scheduling</h4><a href="#accessibility_improvedandresolvedissues">Accessibility</a><br/>
+<br/><a name="accessibility_improvedandresolvedissues"></a>
+<h4>Accessibility</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135370"></a>DT036878, WorkItem:SPM-135370 - Empty h1 heading on Calendar page is causing an accessibility failure<br/><p><b>Issue Description:</b><br/>Empty h1 heading element on the calendar page is causing an accessibility violation.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Navigate to the Calendar tab.<li>Issue: Scanning the page with an Accessibility Evaluation tool reveals an accessibility violation due to empty heading element.</ol><b>Resolution:</b><br/>The properties file is updated to populate appropriate text and the accessibility violation has been resolved.<br/><br/><br/></p></p>
+<br/><a name="application_development_environment_improvedandresolvedissues"></a>
+<h4>Application Development Environment</h4><a href="#client_development_environment_improvedandresolvedissues">Client Development Environment</a><br/><a href="#participant_management_improvedandresolvedissues">Participant Management</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133928"></a>DT036920, WorkItem:SPM-133928 - Session timeout not logging the user out correctly when machine is restored from sleep mode<br/><p><b>Issue Description:</b><br/>The Cúram Session Timeout feature behaves unexpectedly when restored after sleep mode has been activated.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b> N/A<br/><br/><b>Resolution:</b><br/>Additional functionality has been added to ensure the Session Timeout feature behaves as expected.<br/><br/><br/></p></p>
+<br/><a name="client_development_environment_improvedandresolvedissues"></a>
+<h4>Client Development Environment</h4><a href="#infrastructure_improvedandresolvedissues">Infrastructure</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135243"></a>DT036923, WorkItem:SPM-135243 - Space occupied by the expanded nested list item remains as white space when the nested list item is collapsed<br/><p><b>Issue Description:</b><br/>When a nested expandable list row is collapsed, its content is replaced with whitespace, rather than collapsing completely .<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><br/><b>Scenario 1:</b><br/><ol><li>Log in as a caseworker.<li>Register a person which opens the person home page.<li>Click the Issues and Proceedings tab and navigate to the Special Cautions page.<li>Click New to add a special caution. Add a long vertical description for this special caution. <li>Click New to add a second special caution.<li>Expand the first special caution to show the long associated description.<li>Minimize the first special caution.<li>Issue: Whitespace remains where the expanded content was shown.</ol><b>Scenario 2:</b><br/><ol><li>Log in as a caseworker.<li>Open the Inbox tab.<li>Create a task, while creating the task select the ‘Add to My Tasks’ checkbox.<li>Open Task and open the History and Comments tab and expand the toggle.<li>Collapse the toggle.<li>Issue: Whitespace remains where the expanded content was shown.</ol><b>Resolution:</b><br/>The issue has been resolved by ensuring a collapsed row no longer takes up any additional space on the page.<br/><br/><br/></p></p>
+<br/><a name="infrastructure_improvedandresolvedissues"></a>
+<h4>Infrastructure</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135665"></a>DT036929, WorkItem:SPM-135665 - Container (compound) columns with text fields in lists are not sortable<br/><p><b>Issue Description:</b><br/>List columns with both field text and a link are not sortable. This is most prevalent on lists with the ‘Add Translation’ icon next to a translatable text field.  <br/><br/><b>User Interface Impact:</b> Yes<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as an administrator.<li>Navigate to the Administration Workspace.<li>Expand the shortcuts panel.<li>Expand the Workflow section and select Work Queues.<li>Click the ‘Name’ column header.<li>Issue: Nothing happens. The rows are not sorted by ‘Name’ as expected.</ol><b>Resolution:</b><br/>Support has been added for sorting a variety of compound columns within lists. These are columns containing mixed contents including a text field. It excludes compound columns with checkboxes, radio buttons or any other widgets.  <br/><br/>It should be noted that as per standard sortable columns, this will increase the width of the newly sortable columns by a small amount due to the additional space reserved for the sorting icons. All updated columns will have the UIM structure, <br/><code>//LIST/CONTAINER[FIELD and not(WIDGET)]</code>. </p></p>
+<br/><a name="participant_management_improvedandresolvedissues"></a>
+<h4>Participant Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135180"></a>DT036962, WorkItem:SPM-135180 - Issue in migration of address via PECMigration Batch<br/><p><b>Issue Description:</b><br/>The PECMigrationBatch job provides the foundation for the migration of data from Participant Data Case (PDC) to Person Evidence Case (PEC). During the migration of PDCAddress evidence, the value of the ‘address’ field in the DynamicEvidenceDataAttribute table is incorrectly copied. This field serves as a foreign key to an Address entity. Instead, the Address and its associated AddressElement records should be migrated, and the value of the DynamicEvidenceDataAttribute for the ‘address’ should be updated to reflect the primary key of the migrated Address entity.<br/><br/><b>User Interface Impact:</b> No.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a person.<li>Run the PECMigrationBatch job.<li>Review the migrated DynamicEvidenceDataAttribute records for PDCAddress.<li>Issue: The value of the DynamicEvidenceDataAttribute row with name ‘address’ has the same value as the original PDC record.</ol><b>Resolution:</b><br/>When the PECMigrationBatch job migrates DynamicEvidenceDataAttribute rows for PDCAddress evidence, it now migrates the Address and AddressElement records where the ADDRESSID matches the ‘value’ in the DynamicEvidenceDataAttribute row with the name ‘address’. It then re-links the value to the ADDRESSID of the migrated Address record.<br/><br/><br/></p></p>
+<br/><a name="dynamic_evidence_improvedandresolvedissues"></a>
+<h4>Dynamic Evidence</h4><a href="#evidence_maintenance_improvedandresolvedissues">Evidence Maintenance</a><br/>
+<br/><a name="evidence_maintenance_improvedandresolvedissues"></a>
+<h4>Evidence Maintenance</h4><a href="#infrastructure_improvedandresolvedissues">Infrastructure</a><br/>
+<br/><a name="infrastructure_improvedandresolvedissues"></a>
+<h4>Infrastructure</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133950"></a>DT036931, WorkItem:SPM-133950 - An error occurs when multiple evidence pages simultaneously try to access the AppResource table for the first time<br/><p><b>Issue Description:</b><br/>During Dynamic Evidence Maintenance operations ‘The page you have requested is not available.’ is sporadically seen. To resolve this problem a server restart is required and the page can then be reloaded successfully.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>AppResource entries with name prefixed with DynEvd_ are removed from the AppResource database table.<li>The Application is started in a Cluster configuration where multiple Application Server nodes are started.<li> The Application experiences high load with regard to Dynamic Evidence Maintenance operations across clustered nodes.<li>Issue: A sporadic 404 response is returned for a user requested Dynamic Evidence Page during an evidence maintenance operation. This results in the User seeing the ‘The page you have requested is not available.’ message. The issue occurs because of problems trying to access AppResource table data under load conditions. The failed access attempt is final on affected node and no further attempts to load that Dynamic Evidence Page can be made on that node until restart.</ol><b>Resolution:</b><br/>The solution is to prevent the need for server restart whenever an attempt to load a Dynamic Evidence Page fails. During infrastructure UI Component Model Cache loading, the infrastructure will attempt further retries on Dynamic Evidence pages that failed to load, thereby allowing the User to reload a failed page.<br/><br/><br/></p></p>
+<br/><a name="curam_modules_improvedandresolvedissues"></a>
+<h4>Curam Modules</h4><a href="#intelligent_evidence_gathering_improvedandresolvedissues">Intelligent Evidence Gathering</a><br/>
+<br/><a name="intelligent_evidence_gathering_improvedandresolvedissues"></a>
+<h4>Intelligent Evidence Gathering</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135260"></a>DT036924, WorkItem:SPM-135260 - IEG window height is compressed when opened from an actions menu<br/><p><b>Issue Description:</b><br/>When an IEG modal window is launched from an actions menu, the height of that IEG modal window is compressed which makes it difficult for the user to populate the form.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>There is no equivalent flow in the default Cúram application so the following steps can be performed to allow the issue to be reproduced.<br/><ol><li>Create an action menu item which opens a modal window where the user can select an intake application with just one program linked to it. <li>On selection of the Intake application, call the following default application UIM files which direct the user to the IEG modal.<li>The page flow should be the following in this instance: </ol><ul><li>Custom Modal Window > CommonIntake&#95;listInternalIntakePrograms > CommonIntake&#95;startInternalIntakeScriptPage</ul><b>Steps to Reproduce:</b><br/><br/><b>Scenario 1:</b><br/><ol><li>Log in as a caseworker.<li>Register a person.<li>Click on New Application Form action menu item.<li>Select the Application and click Next to launch the IEG modal.<li>Issue: If there is only a single program configured in the above scenario, the IEG modal that is launched has a very short height making it difficult for the user to fill in the required details.</ol><b>Resolution:</b><br/>The IEG modal window is now launched with a minimum default height which ensures the modal height is sufficient to populate all of the required details in a more user friendly manner.<br/><br/></p></p>
+<br/><a name="third_party_updates_improvedandresolvedissues"></a>
+<h4>Third Party Updates</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-134019"></a>WorkItem:SPM-134019 - Update the version of the commons-configuration JAR file to the latest<br/><p>The Apache Commons Configuration package contains tools to assist in the reading of configuration/preferences files in various formats. The library is used in Cúram in a variety of places for XML configuration processing. It is mainly used in the client project for processing the various configuration files for Client Widgets.<br/><br/>The version of the commons configuration library has now been updated from 2.9.0 to 2.10.1. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.<br/><br/><ul><li>CuramCDEJ\lib\ext\jar\commons-configuration-2.10.1.jar - the version of the JAR file has been updated.<li>TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-configuration JAR has been updated.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-134020"></a>WorkItem:SPM-134020 - Update Guice and Guava to latest version<br/><p>Google Guava is an open source set of core libraries for the Java platform released by Google under the Apache License. The version of Google Guava used in the Cúram product has been updated from 27.0.1-jre to 33.2.0-jre. <br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.<br/><br/><ul><li>guava.jar (updated from 27.0.1-jre to 33.2.0-jre).<li>failureaccess.jar (updated from 1.0.1 to 1.0.2) - this is a dependency of guava.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.<br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><a name="KnownIssues"></a><a name="SUPER_ISSUE"></a>
+<a href="#curam_enterprise_framework_knownissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_knownissues">Curam Modules</a><br/><a href="#solutions_knownissues">Solutions</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-132217"></a>WorkItem:SPM-132217 - Application Case Entitlement field does not support users toggling their preferred language<br/><p><b>Title</b><br/>The Entitlement field on the Application Case Eligibility Checks list page does not support users toggling their preferred language. <br/><br/><b>Description</b><br/>The content of the 'Entitlement' field on the Application Case Eligibility Checks list page is written in the locale of the user running the Eligibility Check and therefore cannot be displayed in different locales by the user toggling their preferred language.<br/><br/><br/></p></p>
+<br/><a name="curam_enterprise_framework_knownissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#technical_services_knownissues">Technical Services</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-132227"></a>DT036978, WorkItem:SPM-132227 - Extra white space when nested list is expanded<br/><p>Extra white space appears when a nested list is expanded and the list is nested within another list and the nested list contains list items smaller than 304px/19rem.<br/><br/><br/></p></p>
+<br/><a name="technical_services_knownissues"></a>
+<h4>Technical Services</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135786"></a>WorkItem:SPM-135786 - Space occupied by expanded Special Caution description not removed when the description is collapsed<br/><p><b>Title</b><br/><br/>Spacing issue for expanding rows in lists exists in a specific scenario.<br/><br/><b>Scenario</b> <b>Description</b><br/><ol><li>A LIST has been specified on a UIM page that contains a DETAILS&#95;ROW element.<li>The DETAILS&#95;ROW element specifies an INLINE&#95;PAGE element.<li>The page specified for the INLINE&#95;PAGE displays text when it is expanded and that text can be long vertically.<li> When that row is expanded to display the long vertical text and is subsequently collapsed, the space that is taken up by the expanded text is not removed.</ol><b>Steps to Reproduce</b><br/><ol><li>Log in as a caseworker.<li>Register a new Person.<li>From the person home page click the Issues and Proceedings tab.<li>Add two Special Cautions. <li>On the first Special Caution appearing on the page, add a long vertical description.<li>Expand that Special Caution.<li>Minimize the description on the inline page.<li>Issue: The space that is taken up by the expanded description is not removed when the description is collapsed.</ol><br/></p></p>
+<br/><a name="curam_modules_knownissues"></a>
+<h4>Curam Modules</h4><a href="#provider_management_knownissues">Provider Management</a><br/>
+<br/><a name="provider_management_knownissues"></a>
+<h4>Provider Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-89478"></a>WorkItem:SPM-89478 (was previously 103350) - Incorrect underpayment amount created when multiple service invoice line items reassessed due to change in service rate<br/><p>When there are multiple service invoice line items created and paid to a provider using a fixed amount service rate and payment option of 'pay fixed amount', if the service rate that was used to determine the payment amount is retrospectively modified, to a higher rate, for example, underpayments are not being generated for all of the affected service invoice line items.<br/><br/><br/></p></p>
+<br/><a name="solutions_knownissues"></a>
+<h4>Solutions</h4><a href="#child_welfare_knownissues">Child Welfare</a><br/>
+<br/><a name="child_welfare_knownissues"></a>
+<h4>Child Welfare</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-124601"></a>WorkItem:SPM-124601 (was previously 277357) - Buttons not dynamically displayed based on Reporter Type selected in Capture Reporter dialog<br/><p>When capturing Reporter information on a Child Welfare intake, depending on the reporter type selected, the modal buttons displayed should change. For example, when an 'Anonymous' type is selected, only the Cancel and Finish buttons should be displayed. Currently, all three buttons, Cancel, Next, and Finish are displayed regardless of the Reporter type selected.<br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2024
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>
