@@ -1,5 +1,5 @@
 TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
-SPM-139459,"   DT037089",REST API error messages return HTML code for a single quote (&#39) instead of the single quote character,CEF,Application Development Environment,Rest,,"*Issue Description:*
+SPM-139459,"   DT037089","REST API error messages return HTML code for a single quote (""""&#39"""") instead of the single quote character",CEF,Application Development Environment,Rest,,"*Issue Description:*
 Certain REST API error messages contain parts which are subjected to HTML escaping, causing characters to be converted to their unreadable HTML-escaped representation.
 
 *User Interface Impact:* No
@@ -14,7 +14,7 @@ The REST infrastructure has been updated to ensure that error messages are displ
 Resolved line should resemble this example.?There was an issue while parsing a 'concern_role_id' attribute, which contains a value of '12345xxx': The field 'concern_role_id' must be a whole number.
 
 "
-SPM-139458,DT037104,"The swagger spec generator in the REST infrastructure incorrectly always assumes the same request and responses body for a PUT request ",,,,,"*Issue Description:*
+SPM-139458,DT037104,"The swagger spec generator in the REST infrastructure incorrectly always assumes the same request and responses body for a PUT request ",CEF,Application Development Environment,Rest,,"*Issue Description:*
 The Swagger spec generator in the REST infrastructure incorrectly assumes that all PUT requests have the same request and response body. This results in the object definition for the request body being reused for the response body, regardless of whether the input and output structs are different in the actual API.
 
 *User Interface Impact:* No
@@ -30,7 +30,7 @@ The Swagger spec generator in the REST infrastructure incorrectly assumes that a
 The Swagger spec generator has been updated to detect when a PUT API has differing input and output structs and generate separate object definitions for the request and response bodies when required.
 
 "
-SPM-139457,DT037091,"The Swagger specification for the REST apis is missing the description for the mandatory referer request header ",CEF,Application Development Environment,,,"*Issue Description:*
+SPM-139457,DT037091,"The Swagger specification for the REST apis is missing the description for the mandatory referer request header ",CEF,Application Development Environment,Rest,,"*Issue Description:*
 The Swagger specification for REST APIs does not include descriptions for the mandatory Referer header, which is required for all API requests.
 
 *User Interface Impact:* No
@@ -54,7 +54,7 @@ The Swagger specification has been updated to include the Referer header as a ma
  }{noformat}
 
 "
-SPM-139456,DT037090,The error object defined in the Swagger specification is incorrect,CEF,Application Development Environment,,,"*Issue Description:*
+SPM-139456,DT037090,The error object defined in the Swagger specification is incorrect,CEF,Application Development Environment,Rest,,"*Issue Description:*
 
 The error object definition in the Swagger specification is incorrect and inconsistent with the actual error response returned by REST APIs.
 
@@ -85,7 +85,17 @@ To reproduce the issue you need to invoke a REST API.
 # Add the LTPA token to the cookie request header for all API calls.
 # Call an existing REST API with an invalid parameter (e.g., /Rest/v1/persons/12345xxx).
 Issue: The API response contains an errors attribute, along with field and stack_trace attributes (if curam.trace is set to trace_on), however, the Swagger specification defines the error object as having an Error attribute instead of errors and does not include field or stack_trace.
-{noformat}{
+
+
+
+*Resolution:* 
+
+The Swagger specification has been updated to:
+
+# Rename the incorrectly named Error attribute to errors.
+# Add definitions for the field and stack_trace (will now always appear but will not have a value unless curam.trace is set to trace_on) attributes, with descriptions indicating that these fields may not always contain values.
+
+{noformat}
     """"errors"""": [
         {
             """"code"""": 404,
@@ -98,15 +108,8 @@ Issue: The API response contains an errors attribute, along with field and stack
 ]
 }{noformat}
 
-
-*Resolution:* 
-
-The Swagger specification has been updated to:
-
-# Rename the incorrectly named Error attribute to errors.
-# Add definitions for the field and stack_trace (will now always appear but will not have a value unless curam.trace is set to trace_on) attributes, with descriptions indicating that these fields may not always contain values.
 "
-SPM-137537,"DT037101 ",Internal error codes returned from the Rest Infrastructure are not documented,CEF,Application Development Environment,,,"*Issue Description:*
+SPM-137537,"DT037101 ",Internal error codes returned from the Rest Infrastructure are not documented,CEF,Application Development Environment,Rest,,"*Issue Description:*
 The 'Code' attribute of the failure response message body is used for both standard HTTP response codes and internal Curam error codes.
 Consumer applications normally expect HTTP response codes and do not know how to handle internal error codes.
 
@@ -116,7 +119,9 @@ Consumer applications normally expect HTTP response codes and do not know how to
 
 Make a Rest invocation using an incorrectly formatted date.
 E.g: Send the following message with an incorrectly formatted 'endDate' 
-  {
+
+
+{noformat} {
   """"specialCautionType"""": { """"tableName"""" : """"SpecialCautionType"""", """"value"""" : """"SCSC12"""", """"description"""" : """"Escape Threat"""", """"parentCodeTable"""" : """"SpecialCautionCategory"""" },
   """"specialCautionCategory"""": { """"tableName"""" : """"SpecialCautionCategory"""", """"value"""" : """"SCC03"""", """"description"""" : """"Behavioral Alert"""" },
   """"special_caution_id"""": """"100"""",
@@ -125,16 +130,16 @@ E.g: Send the following message with an incorrectly formatted 'endDate'
   """"endDate""""  : """"202-03-20"""",
   """"Comments"""" : """"test comments"""",
   """"concern_role_id"""": """"101""""
-  }
-  to the Rest path, E.g:  [https://10.0.0.229:10101/Rest/v1/persons/101/special_cautions|https://10.0.0.229:10101/Rest/v1/persons/101/special_cautions]
+  }  to the Rest path, E.g:  https://10.0.0.229:10101/Rest/v1/persons/101/special_cautions{noformat}
 
 *Issue:* The resulting error message will contain internal code -150212 to indicate that 'endDate' could not be decoded:
-  {
+
+{noformat}{
   """"code"""" : -150212,
   """"field"""" : """"endDate"""",
   """"message"""" : """"There was an issue while parsing a 'endDate' attribute, which contains a value of '202-03-20': This is not in the supported ISO-8601 date format, e.g. yyyy-MM-dd."""",
   """"level"""" : """"error""""
-  }
+  }{noformat}
 
 *Resolution:*
 
