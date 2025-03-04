@@ -520,6 +520,45 @@ The use of ellipses at the end of action control labels is inconsistent between 
 Ellipses were removed from the [View History] action controls on the person home page as no additional information is required to perform the action.
 
 "
+SPM-135593,,Application error when action phase property on link connection not initialized,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When action menus or cluster buttons are configured on a modal or page, and within that configuration, a link connection with a source action phase bean has not been initialized, an application error can occur.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a caseworker.
+# Navigate to the Cases and Outcomes tab and expand the Registration section in the shortcuts panel.
+# Click on Service Supplier.
+# Issue: The modal opens with an application error and no details.
+
+*Scenario 2:*
+
+# Log in as an administrator. 
+# Navigate to Process Instance Errors under the Process Monitoring section in the shortcuts panel.
+# Issue: The modal opens with an application error and no details.
+
+*Resolution:*
+Pages or modals with action menus or cluster buttons configured, and within that configuration, a link connection with a source action phase bean that has not been initialized will now display correctly and an application error will not occur.
+
+*Technical*
+
+An example of an action menu or cluster button configured in UIM/VIM to have an action phase property source would be something like the following with just the ACTION_CONTROL configuration.
+
+{noformat}<ACTION_CONTROL LABEL=""""ActionControl.Label.somelabel"""">
+ ...
+ <LINK OPEN&#95;MODAL=""""true"""" PAGE&#95;ID=""""Page1234"""">
+    <CONNECT>
+      <SOURCE NAME=""""ACTION"""" PROPERTY=""""someProperty""""/>
+      <TARGET NAME=""""PAGE"""" PROPERTY=""""PageParam1""""/>
+    </CONNECT>
+</LINK>{noformat}
+
+Additionally to have an application error, there would be no page connection (PAGE/CONNECT element) to initialiize the action phase property.
+
+"
 SPM-135528,DT037020,Screen reader reads 'Blank' before reading information text about no tabs opened when there are no tabs opened in a section,Accessibility,,,,"*Issue Description:*
 When no tabs are opened in a section, the screen reader reads ?Blank? before reading the information text about no tabs being opened. This can make the screen reader user think that there is no more content on the page.
 
@@ -1113,7 +1152,7 @@ The Calendar date picker defaults to the current date when a previous date is cl
 
 
 "
-SPM-133184,DT036917,Invalid values entered for code table drop down fields do not throw validation messages,CEF,Dynamic Evidence,,,"*Issue Description:*
+SPM-133184,DT036917,Invalid values entered for code table drop-down fields do not throw validation messages,CEF,Dynamic Evidence,,,"*Issue Description:*
 When an invalid value is entered into drop-downs, no validation is displayed to indicate that the value is invalid, and the default drop-down value is saved. This can result in the system inadvertently saving wrong values.
 
 *User Interface Impact:* No 
