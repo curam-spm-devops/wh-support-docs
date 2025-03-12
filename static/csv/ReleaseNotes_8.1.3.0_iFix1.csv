@@ -1,17 +1,17 @@
 TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
-SPM-139459,"   DT037089","REST API error messages return HTML code for a single quote (""""&#39"""") instead of the single quote character",CEF,Application Development Environment,Rest,,"*Issue Description:*
-Certain REST API error messages contain parts which are subjected to HTML escaping, causing characters to be converted to their unreadable HTML-escaped representation.
+SPM-139459,"   DT037089",REST API error messages return HTML code for a single quote (&#39;) instead of the single quote character,CEF,Application Development Environment,Rest,,"*Issue Description:*
+Certain REST API error messages contain parts subjected to HTML escaping, causing characters to be converted to their unreadable HTML-escaped representation.
 
 *User Interface Impact:* No
+
 *Steps to Repo:* N/A
 
-Issue:?There was an issue while parsing a 'concern_role_id' attribute, which contains a value of '12345xxx': The field (&#39)concern_role_id(&#39) must be a whole number.
+Issue:?There was an issue while parsing a 'concern&#95;role&#95;id' attribute, which contains a value of '12345xxx': The field &#39;concern&#95role&#95id&#39; must be a whole number.
 
 *Resolution:*
-The REST infrastructure has been updated to ensure that error messages are displayed correctly for consumers of the API.
+The REST infrastructure has been updated to ensure that error messages are displayed correctly for API consumers.
 
-
-Resolved line should resemble this example.?There was an issue while parsing a 'concern_role_id' attribute, which contains a value of '12345xxx': The field 'concern_role_id' must be a whole number.
+Resolved line should resemble this example.?There was an issue while parsing a 'concern&#95;role&#95;id' attribute, which contains a value of '12345xxx': The field 'concern&#95;role&#95;id' must be a whole number.
 
 "
 SPM-139458,DT037104,"The swagger spec generator in the REST infrastructure incorrectly always assumes the same request and responses body for a PUT request ",CEF,Application Development Environment,Rest,,"*Issue Description:*
@@ -55,10 +55,7 @@ The Swagger specification has been updated to include the Referer header as a ma
 
 "
 SPM-139456,DT037090,The error object defined in the Swagger specification is incorrect,CEF,Application Development Environment,Rest,,"*Issue Description:*
-
 The error object definition in the Swagger specification is incorrect and inconsistent with the actual error response returned by REST APIs.
-
-
 There are two key problems:
 
 # The error object definition contains an incorrectly named Error attribute instead of errors.
@@ -66,9 +63,8 @@ There are two key problems:
 
 
 *User Interface Impact:* No
+
 *Steps to Reproduce:*
-
-
 To reproduce the issue you need to invoke a REST API.
 
 
@@ -80,12 +76,11 @@ To reproduce the issue you need to invoke a REST API.
 
 *Using a command-line tool (e.g., cURL):*
 
-# Programmatically call the /Res/j_security_check URL.
+# Programmatically call the /Res/j&#95security&#95check URL.
 # Retrieve the LTPA token from the response cookie header.
 # Add the LTPA token to the cookie request header for all API calls.
 # Call an existing REST API with an invalid parameter (e.g., /Rest/v1/persons/12345xxx).
-Issue: The API response contains an errors attribute, along with field and stack_trace attributes (if curam.trace is set to trace_on), however, the Swagger specification defines the error object as having an Error attribute instead of errors and does not include field or stack_trace.
-
+Issue: The API response contains an errors attribute, along with field and stack&#95trace attributes (if curam.trace is set to trace&#95on), however, the Swagger specification defines the error object as having an Error attribute instead of errors and does not include field or stack&#95trace.
 
 
 *Resolution:* 
@@ -93,16 +88,16 @@ Issue: The API response contains an errors attribute, along with field and stack
 The Swagger specification has been updated to:
 
 # Rename the incorrectly named Error attribute to errors.
-# Add definitions for the field and stack_trace (will now always appear but will not have a value unless curam.trace is set to trace_on) attributes, with descriptions indicating that these fields may not always contain values.
+# Add definitions for the field and stack&#95trace (will now always appear but will not have a value unless curam.trace is set to trace&#95on) attributes, with descriptions indicating that these fields may not always contain values.
 
-{noformat}
+{noformat}{
     """"errors"""": [
         {
             """"code"""": 404,
             """"field"""": null,
             """"message"""": """"HTTP 404 Not Found"""",
             """"level"""": """"error"""",
-            """"message_id"""": null,
+            """"message&#95id"""": null,
 """"stackTrace"""": null
 }
 ]
@@ -116,7 +111,6 @@ Consumer applications normally expect HTTP response codes and do not know how to
 *User Interface Impact:* No
 
 *Steps to Reproduce:*
-
 Make a Rest invocation using an incorrectly formatted date.
 E.g: Send the following message with an incorrectly formatted 'endDate' 
 
@@ -124,13 +118,13 @@ E.g: Send the following message with an incorrectly formatted 'endDate'
 {noformat} {
   """"specialCautionType"""": { """"tableName"""" : """"SpecialCautionType"""", """"value"""" : """"SCSC12"""", """"description"""" : """"Escape Threat"""", """"parentCodeTable"""" : """"SpecialCautionCategory"""" },
   """"specialCautionCategory"""": { """"tableName"""" : """"SpecialCautionCategory"""", """"value"""" : """"SCC03"""", """"description"""" : """"Behavioral Alert"""" },
-  """"special_caution_id"""": """"100"""",
+  """"special&#95caution&#95id"""": """"100"""",
   """"versionNo"""": 0,
   """"startDate"""": """"2021-03-18"""",
   """"endDate""""  : """"202-03-20"""",
   """"Comments"""" : """"test comments"""",
-  """"concern_role_id"""": """"101""""
-  }  to the Rest path, E.g:  https://10.0.0.229:10101/Rest/v1/persons/101/special_cautions{noformat}
+  """"concern&#95role&#95id"""": """"101""""
+  }  to the Rest path, E.g:  https://10.0.0.229:10101/Rest/v1/persons/101/special&#95cautions{noformat}
 
 *Issue:* The resulting error message will contain internal code -150212 to indicate that 'endDate' could not be decoded:
 
