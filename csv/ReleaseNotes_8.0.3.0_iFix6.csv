@@ -1,0 +1,57 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-133295,DT036875,There is no clear differentiation between notes making it more difficult to read,Look and Feel,,,,"*Issue Description:*
+When a note is appended to and contains text with tables and links, there is little differentiation/spacing between them making them difficult to read.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to a person home page.
+# Click the Client Contact tab and select the Notes page.
+# Use the New page action to add a note.
+# Append to this note, adding a table and some hyperlinks, and click Save.
+# Issue: The notes have little separation/spacing between them. This makes it difficult for users to differentiate them.
+
+*Resolution:*
+The CSS for the notes history has been updated to add a horizontal line separator, making the note author/timestamp bold, and padding was added in above and below to help users to differentiate between the notes.
+
+"
+SPM-133241,DT036869,"Screen reader announces invisible non-actionable elements ",Accessibility,,,,"*Issue Description:*
+The screen reader announces non-focused elements when attention is shifted from the shortcuts panel splitter to a different element.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Select the Cases and Outcomes tab, making sure all the tabs are closed on the workspace.
+# Navigate to the shortcuts splitter.
+# Use the down arrow key to navigate to the content.
+# Issue: The screen reader announces non-focused elements when attention is shifted from the shortcuts panel splitter to a different element when all the tabs are closed on the workspace.
+
+*Resolution:*
+The issue is resolved, the screen reader does not read the non-focused elements in the shortcuts panel when attention is shifted to a different element when all the tabs are closed on the workspace.
+
+"
+SPM-133240," DT036738",Selecting the business email link for a user is not opening the mail client,CEF,Administration Suite,,,"*Issue Description:*
+When an administrator clicks on the ?Business Email? field in a user?s context panel, the mail client is not opened. A JavaScript error is reported in the browser console.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+User should have a valid business email address.
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Click User Search in the shortcuts panel.
+# Search for and open an existing user. Check for a valid business email address, add a valid business email address if blank. Save and close the user.
+# In the context panel, select the business email hyperlink in the Business Email field.
+# Issue: Nothing happens, the mail client does not open. A JavaScript error was reported in the browser console. 
+
+*Resolution:*
+This has been resolved, the ?Business Email? field will now open up a new dialog to send an email when an administrator clicks on the email address.
+
+ "
