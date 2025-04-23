@@ -2512,6 +2512,25 @@ The amount column labels and their corresponding values are aligned in opposite 
 The amount column header and the values are now aligned in the same direction. Additionally, the position of the column header and the sorting arrows has been swapped. This applies only to column values that are right-aligned and headers that are left-aligned. Furthermore, it applies to all table values, not just amount fields, and is not domain-type specific.
 
 "
+SPM-129767,,The link name for View History on the evidence pages is displayed incorrectly resulting in a WCAG 2.4.4 Link purpose failure,Accessibility,,,,"*Issue Description:*
+The link name for View History on evidence pages is displayed incorrectly resulting in a WCAG 2.4.4 Link purpose failure. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Select the Evidence tab.
+# Expand an Evidence record, for example, Addresses.
+# Issue: the View History link displayed next to the ?Approval Status? and the ?Updated By? fields is displayed incorrectly [View History ] with multiple linked references on the [?View History?  link and the closing bracket ']' link.
+
+*Resolution:*
+The property label ActionControl.Label.ViewHistory, associated with the View History link, was updated to include the closing bracket ']' to fix the view history link [View History]. However, the property ActionControl.Label.ViewHistoryCloseBracket is no longer required and has been deprecated, along with the referencing Action Control, to address the WCAG 2.4.4 Link Purpose failure.
+
+If you have customized the property ActionControl.Label.ViewHistory, please note that the pages using this will now display without the appended ActionControl.Label.ViewHistoryCloseBracket property. To resolve this, please append the value (custom or OOTB) of ActionControl.Label.ViewHistoryCloseBracket to the custom value for ActionControl.Label.ViewHistory.
+
+"
 SPM-129688,DT036755,Calendar fails the minimum colour contrast requirement,Accessibility,,,,"*Issue Description:*
 The current date in the Calendar date picker has insufficient contrast with the background color.
 
