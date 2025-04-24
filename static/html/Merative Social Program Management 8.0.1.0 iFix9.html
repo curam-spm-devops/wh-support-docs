@@ -1,0 +1,159 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.0.1.0 iFix9</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.0.1.0 iFix9</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.0.1.0 iFix9 release.
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.0.1.0 iFix9 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>  
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_improvedandresolvedissues">Curam Modules</a><br/>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/>
+<br/><a name="application_development_environment_improvedandresolvedissues"></a>
+<h4>Application Development Environment</h4><a href="#security_management_improvedandresolvedissues">Security Management</a><br/>
+<br/><a name="security_management_improvedandresolvedissues"></a>
+<h4>Security Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-141701"></a>DT037253, WorkItem:SPM-141701 -  Cases assigned a higher sensitivity level can be viewed by an audit coordinator with a lower sensitivity level<br/><p><b>Issue Description:</b><br/>An audit coordinator with a lower sensitivity level can view and select cases for auditing linked to a person with a higher sensitivity level. <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as an administrator.<li>In the shortcuts panel, navigate to Case Audit Configurations under the Case Audits section and select New Case Audit Configuration.<li>Configure an audit with the following values:<ol><li>Case Audit type: Select Product Delivery in the dropdown and search and select Employment Benefit and click Next.<li>Algorithm: Systematic Sampling<li>Allow Audit Coordinator to Specify Cases for Audit: Yes<li>Dynamic Query: Benefit Product Delivery Case Query<li>Focus Area: Select All<li>Select Save</ol><li>Navigate to Users and select User Search.<li>Search for the administrator user. Update the administrator’s sensitivity level to 5. <li>Search for the caseworker user. Update their sensitivity level to 5. <li>Log in as this updated caseworker.<li>Register a person.<li>Set the person’s sensitivity level to 5.<li>Create an integrated case for the person.<li>Create an associated product delivery. Note down the Case Reference Number. <li>Add the necessary evidence to make the person eligible.<li>Apply the evidence changes.<li>Submit the product delivery for approval.<li>Activate the product delivery.<li>Log in as an audit coordinator.<li>In the shortcuts panel, select New Audit Plan under Audits section. <li>Configure an Audit Plan with the following values:<ol><li>Purpose: Compliance Review<li>Audit Item: Employment Benefit<li>User Involvement: Provide Feedback</ol><li>From the Audit Plan home page, open the page actions overflow menu and click the Select Specific Cases to Audit action.<li>Search for the product delivery case created above (Step 11).<li>Issue: The audit coordinator can view and select to audit the product delivery case linked to a person with a higher sensitivity level.</ol><b>Resolution:</b><br/>When an audit coordinator with a lower sensitivity level searches for a case linked to a client with a higher sensitivity level, the details are masked. Additionally, if an audit coordinator tries to add a restricted case, the following validation message displays: ‘You do not have access to this client’s details.’&nbsp;&nbsp; <br/><br/> <br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-141705"></a>DT037158, WorkItem:SPM-141705 - Users with a lower sensitivity level than the sensitivity level of a person on a case can see the client details on an application case search<br/><p><b>Issue Description:</b><br/>Users with a lower sensitivity level can view case details linked to a client with a higher sensitivity level. This includes personally identifiable information, such as the client’s name, program details, and date of birth.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/><ol><li>Log in as an administrator.<li>Navigate to the Shortcuts panel. Select User Interface.<li>Navigate to Sections. Select DefaultAppSection. <li>Navigate to the Shortcuts Panels tab of the DefaultAppSection.<li>Select New Link for Searches Group.<li>Enter ‘ApplicationSearch’ in Link ID.<li>Enter ‘CommonIntake_applicationCaseSearch’ in Page ID.<li>Enter 'Application Search…’ in Title. Save the details. <li>Navigate back to the User Interface menu in the Shortcuts Panel. Select Publish.</ol><b>Steps to Reproduce:</b><br/><ol><li>Log in as an administrator.<li>Search for the Admin user.<li>Change the administrator’s Sensitivity Level to 5.<li>Search for the ‘superuser’ and change their Sensitivity Level to 5.<li>Log in as a ‘superuser’. <li>Register a person.<li>Navigate to the actions menu on the Person tab and select to Edit.<li>Update the Sensitivity Level to 5.<li>From the Actions menu, select New Application Form.<li>Complete and submit the application form to generate an application case.<li>Note the Application Reference Number under Care and Protection - Applications.<li>Log in as caseworker (sensitivity level 1). <li>Select Person Search… from Searches menu of the Shortcut Panel.<li>Select Application Search… from the Searches menu of the Shortcut Panel.<li>Enter the Reference Number and click Search.<li>Issue: The search results display the client’s name and the program they applied for. Clicking on the Application Case link also reveals the client’s Date of Birth.</ol><b>Resolution</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>This issue has been resolved. When a user searches for an application case linked to a client with a higher sensitivity level, case details such as the application reference number, form, type, client’s name, and program details are grayed out and masked. If the user attempts to expand and view additional information of a restricted case, the following validation message is displayed: ‘You do not have access to this client’s details.’<br/><br/><br/></p></p>
+<br/><a name="curam_modules_improvedandresolvedissues"></a>
+<h4>Curam Modules</h4><a href="#intelligent_evidence_gathering_improvedandresolvedissues">Intelligent Evidence Gathering</a><br/>
+<br/><a name="intelligent_evidence_gathering_improvedandresolvedissues"></a>
+<h4>Intelligent Evidence Gathering</h4><a href="#apis_improvedandresolvedissues">APIs</a><br/>
+<br/><a name="apis_improvedandresolvedissues"></a>
+<h4>APIs</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-141877"></a>DT036289, WorkItem:SPM-141877 - IEG Application Form produces Null Pointer Exception when navigating between sections<br/><p><b>Issue Description:</b><br/>An IEG application form produces a Null Pointer Exception error when navigating from one section to another via the left panel section navigation if there are disabled sections in between.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>An IEG script with the following structure:<br/><ol><li>Section navigation panel enabled (show-sections="true").<li>The script contains 4 sections: Section A, Section B, Section C, and Section D.<li>Section A contains a question page that is always enabled, with a Question A1 that will be used as criteria to display the Section B and Section C question pages.<li>Section B contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.<li>Section C contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.<li>Section D contains a question page that is always enabled with at least one question.</ol><b>Steps to Reproduce:</b><br/><ol><li>Start the IEG script.<li>In Section A, question A1 provides an answer that will ensure the question pages of Section B and Section C are not displayed, therefore not enabling the sections.<li>Click Next.<li>Section B and Section C are not displayed, and the navigator jumps to Section D.<li>On the Section D question page, click the left panel navigation to go to Section A.<li>On the Section A question page, click the left panel navigation to go to Section D.<li>Issue: A Null Pointer Exception is displayed and the user cannot navigate to the desired section.</ol><b>Resolution:</b><br/>This issue is resolved. Disabled sections in an IEG script are now handled properly to avoid a Null Pointer Exception and the user can navigate to previous sections as expected.<br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/curam812.pdf">Known Issues documented for 8.0.1.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2025
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>
