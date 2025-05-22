@@ -18,21 +18,21 @@
       path: /spm/code-samples
     - title: Education & Certification
       path: /spm/education                                                          
-- title: Merative Integrated Care
+# - title: Merative Integrated Care
   pages:
-    - title: Overview
+   #  - title: Overview
       path: /wcm/overview
-    - title: Release notes
+  #   - title: Release notes
       path: /wcm/release-notes
    # - title: Coming soon
       # path: /wcm/coming-soon
-    - title: System requirements
+  #   - title: System requirements
       path: /wcm/requirements
-    - title: Product videos
+ #    - title: Product videos
       path: /wcm/videos
-    - title: Technotes
+ #    - title: Technotes
       path: /wcm/technotes
-    - title: Product documentation
+  #   - title: Product documentation
       path: /wcm/product-documentation
   hasDivider: true
 - title: Notices
