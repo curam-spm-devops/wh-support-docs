@@ -1,0 +1,220 @@
+---
+title: 8.2.0.0 ModernJava CD
+description: 8.2.0 ModernJava CD
+---
+<a name="top"></a>
+
+Cúram supported operating systems, prerequisites, and supported software.
+
+<AnchorLinks>
+  <AnchorLink>Operating systems</AnchorLink>
+  <AnchorLink>Prerequisites</AnchorLink>
+  <AnchorLink>Supported software</AnchorLink>
+</AnchorLinks>
+
+## Operating systems
+
+<a name="operating-systems"></a>
+<AnchorLinks>
+  <AnchorLink>Microsoft Windows</AnchorLink>
+  <AnchorLink>Linux</AnchorLink>
+</AnchorLinks>
+
+### Microsoft Windows
+
+The Microsoft® Windows® platform is supported for designing, developing, testing, and building the application on a server.
+
+#### Windows 11 Enterprise x86-64
+
+|Bitness|Base|23H2|24H2|Future|
+|-------|----|----|----|------|
+|64-Exploit|Yes|Yes|Yes|Yes|
+
+#### Windows 11 Pro x86-64
+
+|Bitness|Base|23H2|24H2|Future|
+|-------|----|----|----|------|
+|64-Exploit|Yes|Yes|Yes|Yes|
+
+### Linux
+
+The Linux® platform is supported for building the application on a server.
+
+#### Red Hat® Enterprise Linux (RHEL) 9 x86-64
+
+|Bitness|9.5|Future|
+|-------|---|------|
+|64-Exploit|Yes|Yes|
+
+#### Red Hat® Enterprise Linux (RHEL) 8 x86-64
+
+|Bitness|Base|8.1|8.2|8.3|8.4|8.5|8.6|8.7|8.8|8.9|8.10|Future|
+|-------|----|---|---|---|---|---|---|---|---|---|----|------|
+|64-Exploit|No|No|No|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+
+[Back to Operating systems](#operating-systems)
+
+[Back to top](#top)
+
+## Prerequisites
+
+### Installation
+
+The supported platforms for the Merative™ Cúram installers are Linux and Windows.
+
+Java is required to run the Merative™ Cúram installers and the following versions are certified for this purpose.
+
+|Prerequisite|Version|
+|-------|----|
+|Adoptium OpenJDK|8 and future fix packs|
+|IBM® Runtime Environment, Java Technology Edition|8 and future fix packs|
+|Oracle Java SDK/JRE/JDK|8.0 and future fix packs|
+
+[Back to top](#top)
+
+## Supported software
+
+<a name="suppported-software"></a>
+
+* [Accessibility](#accessibility)
+
+* [Application servers](#application-servers)
+
+* [Databases](#databases)
+
+* [Development Tools](#development-tools)
+
+* [Reporting and Analysis](#reporting-and-analysis)
+
+* [Word Integration](#word-integration)
+
+* [Web browsers](#web-browsers)
+
+### Accessibility
+
+The following accessibility software is supported.
+
+|Supported software|Version|Browser|
+|------------------|-------|-------|
+|Freedom Scientific JAWS screen reader|2025 and future fix packs|Microsoft Edge and [JAWS](http://www.freedomscientific.com/products/blindness/jaws) 2025 is the only certified screen reader and browser combination.|
+|Apple VoiceOver|Any version and future fix packs|Google Chrome 137 and VoiceOver on iPad with iOS 18.5 is the certified combination for tablets.|
+
+[Back to Supported software](#supported-software)
+
+### Application Servers
+
+For the supported operating systems and necessary configuration information for these application servers, see the [IBM® WebSphere® Application Server product site](http://www.ibm.com/support/docview.wss?uid=swg27006921) or the [Oracle WebLogic Server product site](https://www.oracle.com/middleware/technologies/weblogic.html) documentation.
+
+Container and Kubernetes platforms are not supported on these application servers.
+
+|Supported software|Version|Details|
+|------------------|-------|-------|
+|Oracle WebLogic Server 12c|(12.2.1.4.0) and future patches| The JDK (Java Development Kit) version 8 (and future fix packs) compatible with the WebLogic Server installation is supported. <br />**Note:** Oracle Database is the only database that is supported for use with Oracle WebLogic Server.|
+|Oracle WebLogic Server 14c|(14.1.1.0.0) and future patches| The JDK (Java Development Kit) version 8 (and future fix packs) compatible with the WebLogic Server installation is supported. Later JDK versions (e.g. JDK 11) are not supported. <br />**Note:** Oracle Database is the only database that is supported for use with Oracle WebLogic Server.|
+|IBM WebSphere Application Server|9.0.5 and future fix packs|The JDK (Java Development Kit) version 8 (and future fix packs) supplied with the WebSphere Application Server installation is supported.|
+|IBM WebSphere Application Server Network Deployment|9.0.5 and future fix packs|The JDK (Java Development Kit) version 8 (and future fix packs) supplied with the IBM WebSphere Application Server installation is supported.|
+|IBM WebSphere Application Server for z/OS|9.0.5 and future fix packs|The JDK (Java Development Kit) version 8 (and future fix packs) supplied with the IBM WebSphere Application Server installation is supported.|
+
+[Back to Supported software](#supported-software)
+
+### Databases
+
+For the supported operating systems and necessary configuration information for these databases, see the database product documentation.
+
+Database-as-a-Service or Container and Kubernetes platforms are not supported on these databases.
+
+|Supported software|Version|Details|
+|------------------|-------|-------|
+|IBM® Db2® Advanced Edition|12.1.1.0 and future fix packs|Reporting: <br />- Cúram Reporting and Analytics is supported on DB2 version 12.1.1.0 and future fix packs, future mod levels and their fix packs. <br />- The Cúram data warehouse can be built on this version of Db2. <br/>- Reporting ETLs can be built using a technology compatible with this version of Db2. Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+|IBM® Db2® Standard Edition|12.1.1.0 and future fix packs|Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+|IBM® Db2® Starter Edition|12.1.1.0 and future fix packs|Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+|IBM® Db2® Community Edition|12.1.1.0 and future fix packs|IBM Db2 Community Edition is only supported for use in the development environment to aid application design, development and testing. For further details, see [here](https://www.ibm.com/docs/en/db2/12.1.0?topic=editions-db2-database-product-deployment-options#c0058536__db2_community).|
+|IBM® Db2® Enterprise Server Edition|11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />11.5.9.0 and future fix packs<br />|Reporting: <br />- Cúram Reporting and Analytics is supported on DB2 version 11.5.5.0 and future fix packs, future mod levels and their fix packs. <br />- The Cúram data warehouse can be built on this version of Db2. <br/>- Reporting ETLs can be built using a technology compatible with this version of Db2. Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+|IBM® Db2® Advanced Enterprise Server Edition|11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />11.5.9.0 and future fix packs<br />|Reporting: <br />- Cúram Reporting and Analytics is supported on DB2 version 11.5.5.0 and future fix packs, future mod levels and their fix packs. <br />- The Cúram data warehouse can be built on this version of Db2. <br />- Reporting ETLs can be built using a technology compatible with this version of Db2. Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+|IBM® Db2® Standard Edition VPC Option|11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />11.5.9.0 and future fix packs<br />|Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+|IBM® Db2® Community Edition|11.5.9.0 and future fix packs<br />|IBM Db2 Community Edition is only supported for use in the development environment to aid application design, development and testing. For further details, see [here](https://www.ibm.com/docs/en/db2/11.5?topic=editions-db2-database-product-offerings#c0058536__db2_community). |
+|IBM® Db2® for z/OS|13 and future maintenance levels|When using Cúram with Db2 for z/OS, the provided db2jcc4.jar file in the $CURAMSDEJ/drivers folder is used to access Db2 for z/OS whether access is local to z/OS or via a remote deployment. However, the level of Db2 for z/OS may have dependencies with the client JDBC driver level; therefore, see the [IBM Data Server Driver for JDBC and SQLJ versions and Db2 for z/OS APARs](https://www.ibm.com/support/pages/node/405457) page for supported Db2 and JDBC levels. <br /> The hardware and software requirements for Db2 13 for z/OS are detailed [here](https://www.ibm.com/docs/en/db2-for-zos/13?topic=13-hardware-software-requirements).|
+|Oracle Database 19c|(19.3) and future Release Updates (RU)||
+||(19.3) Enterprise Edition and future Release Updates (RU)|Reporting: <br />- Only the Enterprise Edition of Oracle Database 19c is supported for Curam Reporting.<br />- See the [Oracle Database product site](https://www.oracle.com/database/) for certified configuration information on this product.<br />- Curam Reporting has been certified against Oracle 19c as a source database to host the Cúram Application database and as a target database to host Reporting databases.|
+|H2 Database|2.2.224 and future fix packs|H2 is only supported for use in the development environment to aid application design, development and testing. The supported platform is Windows 11. H2 is not supported for use with IBM Websphere Application Server or Oracle WebLogic Server. See the [H2 site](http://www.h2database.com/html/main.html) for further information and technical support. |
+
+[Back to Supported software](#supported-software)
+
+### Development Tools
+
+Note that the development of the application is restricted to the Windows platform (Windows 11) and the listed tools have been tested only on that platform.
+
+Although technical support is not provided for any Integrated Development Environment (IDE) it should be possible to use any Java IDE for development. Support for IDEs should be sought from the relevant software vendor. The Eclipse IDE has been tested and it's use is described in the documentation.
+
+|Supported software|Version|Details|
+|------------------|-------|-------|
+|Apache Ant|1.10.6|Please note that only Apache Ant 1.10.6 is supported. Associated fix packs are not.|
+|Eclipse|4.18 and future fix packs|Eclipse 4.18.0 and [higher maintenance releases](https://www.eclipse.org/downloads/packages/release/Neon/3). Servlet Containers/Application Servers: Apache Tomcat [9.0.99](https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.99/), with [Eclipse Tomcat Plugin](https://sourceforge.net/projects/tomcatplugin/files/updatesite/plugins/) 9.0.1. Java SE: IBM and Oracle Java SE JDK 8.0 and [higher updates](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Java EE: Oracle Java EE 6 and 7 and [higher updates](http://www.oracle.com/technetwork/java/javaee/downloads/java-archive-downloads-eesdk-419427.html). |
+|Rational Software Architect Designer|9.7.1.2|**Recommended version for the Windows 11 platform**. Supported as a Modeling Environment. Servlet Containers/Application Servers: Apache Tomcat 9.0.99, with Eclipse Tomcat Plugin 9.0.1. Java SE: IBM and Oracle Java SE JDK 8.0 and higher updates. Java EE: Oracle Java EE 6 and 7 and higher updates.|
+|Java|Adoptium OpenJDK 8 and future fix packs|Can be used for Cúram Development.|
+||IBM JDK 1.8 and future fix packs|Can be used for Cúram Development.|
+||Oracle JDK 1.8 and futre fix packs|Can be used for Cúram Development.|
+
+[Back to Supported software](#supported-software)
+
+### Reporting and Analysis
+
+Eclipse Business Intelligent and Reporting Tools (BIRT) is an open source component that provides a development and execution environment for Cúram Business Intelligence (BI) content.
+
+The use of a second Eclipse instance for BIRT development is recommended as standard Cúram development often requires an Eclipse version that is not compatible with the certified BIRT development environment.
+
+For more information, see the Development Environment Installation Guide and the BIRT Developer Guide.
+
+|Supported software|Version|Details|
+|------------------|-------|-------|
+|Eclipse Business Intelligence and Reporting Tools|4.8.0 and future fix packs|Cúram uses the all-in-one installation. For more information, see [BIRT versions and platform support](https://download.eclipse.org/birt/downloads/drops/).|
+
+[Back to Supported software](#supported-software)
+
+### Word Integration
+
+The Microsoft Word integration functionality for Google Chrome and Microsoft Edge is based around the extension and native messaging 
+features of those browsers.
+
+Java is required to run the Word Integration Assistant client desktop Java™ application which is part of the Word Integration
+feature. The Java versions specified in the table below are certified for this purpose.
+
+|Supported software|Version|Details|
+|------------------|-------|-------|
+|Adoptium OpenJDK|8 and future fix packs|Adoptium OpenJDK Version 8.0 is available as a free download from the [Adoptium Home Page](https://adoptium.net). |
+|Oracle Java SDK/JRE/JDK|8.0 and future fix packs|Available to download from the [Oracle Java downloads page](https://www.oracle.com/java/technologies/downloads). |
+|Microsoft Word|2021 and future fix packs|Required for creating and editing Cúram communication documents in Microsoft Word format.|
+
+[Back to Supported software](#supported-software)
+
+### Web Browsers
+
+The minimum recommended resolution is 1366x768. The optimum DPI setting is Normal size.
+
+Chrome, Firefox, Edge, and Safari release new versions frequently and install updates automatically by default. Merative Cúram releases (V.R.M.F releases only) are generally tested on the latest version (for Chrome and Edge, stable releases only) of these browsers available at the start of the development cycle; if tested with no issues Merative will certify that version. The prerequisites advise the version that is certified at each new product release. If for any reason, Merative Cúram are unable to certify for that version, it may be necessary to revert back to a version that is previously fully certified. While Merative will support customers on newer versions of these browsers than the last certified version, they should understand that they have not been fully tested.
+
+#### Standard desktop browser support
+
+While every effort is made to ensure that internal case worker application pages use standard web technologies and formats that are compatible with all browsers, only the listed browsers are officially supported.
+
+#### Universal Access desktop browser support
+
+Universal Access has been specifically developed for public facing applications so browser support has been extended in this area.
+
+* For information about browser support for the Universal Access Responsive Web Application, see the prerequisites and supported software in the [Universal Access Responsive Web Application documentation](/spm/pdf-documentation#citizen-engagement).
+* While every effort is made to ensure that the classic Universal Access application uses standard web technologies and formats that are compatible with all browsers, only the listed browsers are officially supported.
+
+|Supported software|Version|Details|
+|------------------|-------|-------|
+|Google Chrome|137 and future fix packs|This browser is supported for both the Universal Access and Case Worker applications. Microsoft Word Integration  and Arabic (RTL) are supported for this browser in the Case Worker application.|
+|Microsoft Edge|137 and future fix packs|This browser is supported for both the Universal Access and Case Worker applications. Microsoft Word Integration  and Arabic (RTL) are supported for this browser in the Case Worker application.|
+|Mozilla Firefox|138 and future fix packs| This browser is supported only for the Universal Access application.|
+|Apple Safari|18 and future fix packs|This browser is supported only for the Universal Access application.|
+
+#### Tablet browser support
+
+Google Chrome 137 and future fix packs are supported for tablet devices.
+
+[Back to Supported software](#supported-software)
+
+[Back to top](#top)
