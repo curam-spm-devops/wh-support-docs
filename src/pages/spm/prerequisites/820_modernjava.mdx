@@ -66,15 +66,15 @@ Java is required to run the Merative™ Cúram installers and the following vers
 
 |Prerequisite|Version|
 |-------|----|
-|Adoptium OpenJDK|8 and future fix packs|
-|IBM® Runtime Environment, Java Technology Edition|8 and future fix packs|
-|Oracle Java SDK/JRE/JDK|8.0 and future fix packs|
+|Adoptium OpenJDK|21 and future fix packs|
+|IBM® Runtime Environment, Java Technology Edition|21 and future fix packs|
+|Oracle Java SDK/JRE/JDK|21 and future fix packs|
 
 [Back to top](#top)
 
 ## Supported software
 
-<a name="suppported-software"></a>
+<a name="supported-software"></a>
 
 * [Accessibility](#accessibility)
 
@@ -103,17 +103,13 @@ The following accessibility software is supported.
 
 ### Application Servers
 
-For the supported operating systems and necessary configuration information for these application servers, see the [IBM® WebSphere® Application Server product site](http://www.ibm.com/support/docview.wss?uid=swg27006921) or the [Oracle WebLogic Server product site](https://www.oracle.com/middleware/technologies/weblogic.html) documentation.
+For the supported operating systems and necessary configuration information for these application servers, see the [IBM® WebSphere® Application Server product site](http://www.ibm.com/support/docview.wss?uid=swg27006921).
 
-Container and Kubernetes platforms are not supported on these application servers.
+Container and Kubernetes platforms are supported on these application servers.
 
 |Supported software|Version|Details|
 |------------------|-------|-------|
-|Oracle WebLogic Server 12c|(12.2.1.4.0) and future patches| The JDK (Java Development Kit) version 8 (and future fix packs) compatible with the WebLogic Server installation is supported. <br />**Note:** Oracle Database is the only database that is supported for use with Oracle WebLogic Server.|
-|Oracle WebLogic Server 14c|(14.1.1.0.0) and future patches| The JDK (Java Development Kit) version 8 (and future fix packs) compatible with the WebLogic Server installation is supported. Later JDK versions (e.g. JDK 11) are not supported. <br />**Note:** Oracle Database is the only database that is supported for use with Oracle WebLogic Server.|
-|IBM WebSphere Application Server|9.0.5 and future fix packs|The JDK (Java Development Kit) version 8 (and future fix packs) supplied with the WebSphere Application Server installation is supported.|
-|IBM WebSphere Application Server Network Deployment|9.0.5 and future fix packs|The JDK (Java Development Kit) version 8 (and future fix packs) supplied with the IBM WebSphere Application Server installation is supported.|
-|IBM WebSphere Application Server for z/OS|9.0.5 and future fix packs|The JDK (Java Development Kit) version 8 (and future fix packs) supplied with the IBM WebSphere Application Server installation is supported.|
+|IBM WebSphere Liberty|24.0.0.6 and future fix packs|The JDK (Java Development Kit) version 21 and future fix packs.|
 
 [Back to Supported software](#supported-software)
 
@@ -148,12 +144,12 @@ Although technical support is not provided for any Integrated Development Enviro
 
 |Supported software|Version|Details|
 |------------------|-------|-------|
-|Apache Ant|1.10.6|Please note that only Apache Ant 1.10.6 is supported. Associated fix packs are not.|
-|Eclipse|4.18 and future fix packs|Eclipse 4.18.0 and [higher maintenance releases](https://www.eclipse.org/downloads/packages/release/Neon/3). Servlet Containers/Application Servers: Apache Tomcat [9.0.99](https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.99/), with [Eclipse Tomcat Plugin](https://sourceforge.net/projects/tomcatplugin/files/updatesite/plugins/) 9.0.1. Java SE: IBM and Oracle Java SE JDK 8.0 and [higher updates](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Java EE: Oracle Java EE 6 and 7 and [higher updates](http://www.oracle.com/technetwork/java/javaee/downloads/java-archive-downloads-eesdk-419427.html). |
+|Apache Ant|1.10.15|Please note that only Apache Ant 1.10.15 is supported. Associated fix packs are not.|
+|Eclipse|4.30 and future fix packs|Eclipse 4.30.0 and [higher maintenance releases](https://www.eclipse.org/downloads/packages/release/2023-12/r). Servlet Containers/Application Servers: Apache Tomcat [9.0.99](https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.99/), with [Eclipse Tomcat Plugin](https://sourceforge.net/projects/tomcatplugin/files/updatesite/plugins/) 9.0.1. Java SE: IBM and Oracle Java SE JDK 8.0 and [higher updates](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Java EE: Oracle Java EE 6 and 7 and [higher updates](http://www.oracle.com/technetwork/java/javaee/downloads/java-archive-downloads-eesdk-419427.html). |
 |Rational Software Architect Designer|9.7.1.2|**Recommended version for the Windows 11 platform**. Supported as a Modeling Environment. Servlet Containers/Application Servers: Apache Tomcat 9.0.99, with Eclipse Tomcat Plugin 9.0.1. Java SE: IBM and Oracle Java SE JDK 8.0 and higher updates. Java EE: Oracle Java EE 6 and 7 and higher updates.|
-|Java|Adoptium OpenJDK 8 and future fix packs|Can be used for Cúram Development.|
-||IBM JDK 1.8 and future fix packs|Can be used for Cúram Development.|
-||Oracle JDK 1.8 and futre fix packs|Can be used for Cúram Development.|
+|Java|Adoptium OpenJDK 21 and future fix packs|Can be used for Cúram Development.|
+||IBM JDK 21 and future fix packs|Can be used for Cúram Development.|
+||Oracle JDK 21 and future fix packs|Can be used for Cúram Development.|
 
 [Back to Supported software](#supported-software)
 
@@ -167,22 +163,20 @@ For more information, see the Development Environment Installation Guide and the
 
 |Supported software|Version|Details|
 |------------------|-------|-------|
-|Eclipse Business Intelligence and Reporting Tools|4.8.0 and future fix packs|Cúram uses the all-in-one installation. For more information, see [BIRT versions and platform support](https://download.eclipse.org/birt/downloads/drops/).|
+|Eclipse Business Intelligence and Reporting Tools|4.15.0 and future fix packs|Cúram uses the all-in-one installation. For more information, see [BIRT versions and platform support](https://download.eclipse.org/birt/downloads/drops/).|
 
 [Back to Supported software](#supported-software)
 
 ### Word Integration
 
-The Microsoft Word integration functionality for Google Chrome and Microsoft Edge is based around the extension and native messaging 
-features of those browsers.
+The Microsoft Word integration functionality for Google Chrome and Microsoft Edge is based around the extension and native messaging features of those browsers.
 
 Java is required to run the Word Integration Assistant client desktop Java™ application which is part of the Word Integration
 feature. The Java versions specified in the table below are certified for this purpose.
 
 |Supported software|Version|Details|
 |------------------|-------|-------|
-|Adoptium OpenJDK|8 and future fix packs|Adoptium OpenJDK Version 8.0 is available as a free download from the [Adoptium Home Page](https://adoptium.net). |
-|Oracle Java SDK/JRE/JDK|8.0 and future fix packs|Available to download from the [Oracle Java downloads page](https://www.oracle.com/java/technologies/downloads). |
+|Adoptium OpenJDK|21 and future fix packs|Adoptium OpenJDK Version 21.0 is available as a free download from the [Adoptium Home Page](https://adoptium.net). |
 |Microsoft Word|2021 and future fix packs|Required for creating and editing Cúram communication documents in Microsoft Word format.|
 
 [Back to Supported software](#supported-software)
