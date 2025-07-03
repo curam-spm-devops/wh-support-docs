@@ -8,7 +8,7 @@ const Content = ({ buildTime }) => (
   <>
     <p>
      {buildTime}      <br />
-      &copy; Merative US L.P. 1999, 2024<br />
+      &copy; Merative US L.P. 1999, 2025<br />
       Merative is a trademark of Merative US L.P. in the United States and other countries. 
     </p>
     {/* <p>
