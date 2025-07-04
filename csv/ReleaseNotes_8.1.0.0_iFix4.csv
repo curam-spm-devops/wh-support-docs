@@ -1,0 +1,171 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-133071,,Inline Actions are missing from the Overflow menu on the Objectives list page when the number of list actions to display inline is set to a value greater than 1,CEF,,,,"*Issue Description:*
+Inline Actions are missing from the overflow menu on the Objectives list page when the number of list actions to display inline is set to a value greater than 1.
+
+*User Interface Impact:* No
+
+*Scenario 1:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 2. Save and then publish the changes.
+# Log in as an administrator. 
+# Select the Administration Workspace tab to expand the shortcuts panel.
+# Navigate to Outcome Plans under the Outcome Management section in the shortcuts panel.
+# Select an Outcome Plan, for example, Child Welfare Outcome Plan to view the plan.
+# Navigate to the Objectives tab and add 2 new Objectives. 
+# Log in as a Child Welfare Structured Decision Making Caseworker.
+# Register a person who is under 18 years old and create an Ongoing Case for the person. 
+# Select the Outcome Plan tab on the Ongoing Case and create a new Child Welfare Outcome Plan. 
+# On the Outcome Plan, navigate to the Workspace tab. 
+# Add an Objective to the Outcome Plan. 
+# Click on the action menu for the Objective. 
+# Issue: The New Note, Update Expected End Date, and Review actions are not displayed in the overflow menu.
+
+*Scenario 2:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 10. Save and then publish the changes.
+# Log in as an administrator. 
+# Select the Administration Workspace tab to expand the shortcuts panel.
+# Navigate to Outcome Plans under the Outcome Management section in the shortcuts panel.
+# Select an Outcome Plan, for example, Child Welfare Outcome Plan to view the plan.
+# Navigate to the Objectives tab and add 2 new Objectives. 
+# Log in as a Child Welfare Structured Decision Making Caseworker.
+# Register a person who is under 18 years old and create an Ongoing Case for the person. 
+# Select the Outcome Plan tab on the Ongoing Case and create a new Child Welfare Outcome Plan. 
+# On the Outcome Plan, navigate to the Workspace tab. 
+# Add an Objective to the Outcome Plan. 
+# Click on the action menu for the Objective. 
+# Issue: The overflow menu is not displaying any actions, the update Completion Details, View Printable Document and Delete actions cannot be accessed by the user.
+
+*Resolution:*
+When the curam.actionmenus.max-inline-items.list? is set to 10 the overflow action menus now display correctly on the Objectives list page of an Outcome plan."
+SPM-132705,,Inline list action menus are not displaying the correct menu items when there is a conditional item or a separator element in the list action menu,CEF,,,,"*Issue Description:*
+The inline action menu and menu items are not displaying the correct menu items when there is a conditional item or a separator element in the list action menu.
+
+*User Interface Impact:* No
+
+*Prerequisites:* Customize pages so that they contain inline action menus with conditional menu items and a separator element. 
+
+*Steps to Reproduce:*
+
+*Scenario 1:* 
+
+# Navigate to the customized page that contains conditional menu items.
+# Select the inline action menu to view the items.  
+# Issue: The inline action menu are not displaying the correct the menu items when there is a conditional item.
+
+*Scenario 2:* 
+
+# Navigate to the customized page that contains a separator element.
+#  Select the inline action menu to view the items. 
+# Issue: The inline action menu are not displaying the correct menu items when there is a separator element.
+
+*Resolution:*
+The inline action menu and menu items now display correctly when there is a conditional item or a separator element in the list action menu. 
+
+"
+SPM-132470,,Separator Pattern - Overflow Actions menu for Nominees - Missing or duplicate action items   when the number of list actions to display inline is set to greater than 1,CEF,,,,"*Issue Description:*
+The inline overflow menu and menu items are not displayed on the Nominee list page when the curam.actionmenus.max-inline-items.list is set to greater than 1. The user has no way to access the overflow menu. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 3. Save and then publish the changes.
+# Log out. 
+# Log in as a caseworker.
+# Register a new person and create a Social Assistance case.
+# Add Employment Status evidence and apply changes to activate the evidence.
+# Create an Employment Benefit Product Delivery.
+# On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.
+# Issue: The Change Address row level action is not displayed inline or within the overflow menu.
+
+*Scenario 2:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 5. Save and then publish the changes.
+# Log out. Log in as a caseworker.
+# Register a new person and create a Social Assistance case.
+# Add Employment Status evidence and apply changes to activate the evidence.
+# Create an Employment Benefit Product Delivery.
+# On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.
+# Issue: The Change Bank account row level action is displayed twice, once as in inline action and once within the overflow menu. 
+
+*Resolution:*
+The overflow action menu and menu items now display correctly on the Nominee list page when the number of list actions to display inline is set to greater than 1. 
+
+"
+SPM-132469,,Overflow Actions menu missing for Nominees in Nominee list page,CEF,,,,"*Issue Description:*
+The inline overflow menu and menu items are not displayed on the Nominee list page when the curam.actionmenus.max-inline-items.list is set to 1. The user has no way to carry out any of the nominee actions other than New or Edit. 
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 1. Save and then publish the changes.
+# Log out. 
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a caseworker.
+# Register a new person and create a Social Assistance case.
+# Add Employment Status evidence and apply changes to activate the evidence.
+# Create an Employment Benefit Product Delivery.
+# On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.
+# Issue: The overflow menu is not displayed so the user has no way to access the actions for the Nominee.
+
+*Scenario 2:*
+
+# Log in as an eligibility worker.
+# Register a new person.
+# Submit an Income Support Application for Food Assistance.
+# Open the Income Support integrated case.
+# Add and activate the necessary evidence on the integrated case to make the Food Assistance product delivery eligible.
+# Authorise the product delivery.
+# On the Food Assistance product delivery, navigate to the Financials Tab and select the Nominees page.
+# Issue: The overflow action menu and menu items are not displayed, so the user has no way to access the actions for the Nominee. 
+
+*Resolution:*
+When the property ?curam.actionmenus.max-inline-items.list? is set to 1, the overflow action menu and menu items now display correctly on the Nominee list page. 
+
+"
+SPM-132179,,'No Contents' displayed in the inline action menu for Service Plan Goals when the number of list actions to display inline is set to 4,CEF,,,,"*Issue Description:*
+The inline action menu is not displaying the correct menu items for Service Plan Goals when the number of list actions to display inline is set to 4.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.actionmenus.max-inline-items.list?.
+# Set the value to 4. Save and then publish the changes.
+# Log out.
+
+*Steps to Reproduce*
+
+# Log in as an administrator.
+# Select the Administration Workspace tab to expand the shortcuts panel.
+# Navigate to Goals under the Service plans section in the shortcuts panel.
+# Click on the action menu for a listed Service Plan, for example, Gain Sustainable Employment.
+# Issue: The action menu when selected displays No Contents text, the Delete action is not displayed.
+
+*Resolution:*
+When the curam.actionmenus.max-inline-items.list? is set to 4 the inline action menu and menu items now display correctly. "
