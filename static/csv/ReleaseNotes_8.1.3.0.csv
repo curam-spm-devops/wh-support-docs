@@ -1,4 +1,34 @@
 TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-145742,,Update the version of the xmlunit-core JAR file to the latest,Third Party Updates,,,,"XMLUnit Core provides helper classes to validate generated XML against an XML Schema, assert the values of XPath queries or compare XML documents against expected outcomes. It provides a diff-engine which provides full control over what kind of difference is required and which part of the generated document to compare against reference documents. It is used to ensure that Dynamic Domain Definitions are loaded correctly in the product.
+
+The version of the xmlunit-core library has now been updated from 2.10.0 to 2.10.3. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+
+* CuramSDEJlibxmlunit-core-2.10.3.jar - the version of the JAR file has been updated.
+* TI/lib/release/third_party_version.properties - the version of the specified xmlunit-core JAR file has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-145596,,Open Enrollment Period Configuration for 2026,SOL,Income Support HCR,,,"*Issue Description:*
+No Open Enrollment Period configuration for 2025 for Insurance Affordability is available.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Navigate to Open Enrollment Period under Health Care Reform in the shortcuts panel.
+# Issue: No Open Enrollment Period for 2025 is configured.
+
+*Resolution:*
+A new Open Enrollment Period configuration is now available. The configuration is: 
+
+* Start Date is November 1, 2024
+* End Date is January 15, 2025
+* Coverage Start Date is January 1, 2025  
+* Coverage End Date is December 31, 2025
+
+"
 SPM-138875,,Batch Performance Improvements: Managing caches and multiple transactions in batch processes,CEF,Technical Services,Server Development Environment,Batch Processing,"*Issue Description:* 
 Four property updates are required to benefit from the batch processing performance improvements. The following application properties are now available to help improve batch processing performance.
 
@@ -113,6 +143,33 @@ In Cúram Citizen Engagement, when the selected language is switched from English
 
 *Resolution:*
 When the language is switched, the Life Event type is displayed in the selected language.
+
+"
+SPM-138373,DT037144,The reissue payment functionality should only roll up line items pertaining to the regenerated payment,ENT,Financial Management,Financials,,"*Issue Description:*
+When a cancelled payment is being reissued, it?s possible that other unprocessed instruction line items existing on the system for the same concern can be rolled up into the regenerated payment. Only instruction line items regenerated from the cancelled payment should be included in the reissued payment.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce (Generic):*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Create an integrated case for the person.
+# Add evidence to make the person eligible.
+# Activate the evidence.
+# Add an associated product delivery to the integrated case, ?Weekly By Check In Advance?.
+# Add the necessary certification to the product delivery.
+# Submit, approve and activate the product delivery.
+# Run the financials batch jobs.
+## Check that a payment has been issued on the case.
+# Cancel the payment.
+# Run the GenerateInstructionLineItems batch process, specifying the next payment date as the processingDate.
+## Check that an unprocessed instruction line item exists on the system.
+# Reissue the cancelled payment.
+# Issue: The reissued payment is larger than the cancelled payment, as the unprocessed instruction line item has been included in the payment regeneration process.
+
+*Resolution:*
+Reissuing payments now only includes those instruction line items that are part of the regeneration process. It doesn?t include any other unprocessed instruction line items that might exist on the system for the same concern that did not arise from the payment cancellation and regeneration process.
 
 "
 SPM-138344,,Inconsistency in keyboard navigation focus colors in the shortcuts menu and Smart Panel areas,Look and Feel,,,,"*Issue Description:*
@@ -385,6 +442,25 @@ Configure an IEG script containing a list question, which has been configured as
 The focus indicator is now displayed for keyboard users when navigating through the options of a single-select IEG list question displayed as a drop-down menu.
 
 "
+SPM-135903,DT037052,File Name truncated in New Attachment modal,Accessibility,,,,"*Issue Description:*
+In the New Attachment modal, selecting a file with a long name causes the file name to be truncated. This makes it hard for users to confirm the correct file was selected.
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+# Log in as caseworker.
+# Register a person.
+# Navigate to the Client Contact tab.
+# Open the Attachments page.
+# Click on the New Attachment button to open the New Attachment modal. 
+# Click on the Browse button and select a file with long name.
+# Issue: The file name is truncated, making it difficult for users to confirm they selected the correct file.
+
+*Resolution:*
+The full file name is now visible in the New Attachment modal. Long file names will wrap to the next line instead of being truncated.
+
+"
 SPM-135795,DT037038,IEG mandatory radio button and multi-select questions are not announced as mandatory by screen readers,Accessibility,,,,"*Issue Description:*
 IEG mandatory radio button and multi-select questions are not announced as mandatory by screen readers.
 
@@ -471,6 +547,27 @@ The first column on the Tasks list page displays an orange icon indicating reser
 
 *Resolution:*
 The tasks list page has been updated to include a new column titled ?Worked on by?. This column specifies whether the task is reserved or not. When the task is reserved, the column displays the full name of the user who is working on the task. The name is a hyperlink that, when selected, displays additional information about the user. The existing column that previously displayed the orange icon has been removed. 
+
+"
+SPM-135766,DT037029,Inline tabs in an expanded list disappearing when navigating using a screen reader,Accessibility,,,,"*Issue Description:*
+When a screen reader is enabled, inline tabs within an expanded list may disappear during keyboard navigation.
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+# Enable a screen reader. 
+# Log in as caseworker.
+# Register a person.
+# Navigate to the Evidence tab.
+# Expand an evidence, for example, address.
+# Navigate to the first tab (Details) in the list of inline tab list (Details, Change History, Issues, Verifications).
+# Press the Right arrow key, focus moves to next tab (Change History) in the inline tab list.
+# Press the UP arrow key.
+# Issue: The inline tabs list within the expanded evidence list disappear. 
+
+*Resolution:*
+Inline tabs within the expanded list now remain visible and accessible during keyboard navigation with a screen reader enabled.
 
 "
 SPM-135631,,Generate performance report from BatchProcessChunk  at end of batch,ENT,Application Development Environment,Server Development Environment,Batch Processing,"*Issue Description:*
@@ -3096,6 +3193,28 @@ In Cúram, on Income Support product delivery cases, the Income Calculation secti
 
 *Resolution:*
 The income calculations section displays values in a single column. 
+
+
+"
+SPM-123955,"PO09697, DT032839",Administrator unable to view skill level in list view,,,,,"*Issue Description:*
+The Skills tab on the user homepage does not display the Skill Level in the list view. Users must select to edit to view the Skill Level.
+
+*User Interface Impact:* Yes
+
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Navigate to Administration Workspace -> User Search -> Search for any user (e.g., Case Worker).
+# Open the user's homepage.
+# Click the Skills tab.
+# Select New to add a new skill.
+# Fill out the details, including Skill Level, and click Save.
+# The skill is added to the list, but the Skill Level does not appear anywhere in the list view. Users must edit the entry to view the Skill Level
+
+*Resolution:*
+The Skills tab now includes a new """"Skill Level"""" column in the list view, which shows the skill level for each skill. Users can immediately see the skill level without needing to edit the entry.
+
 
 
 "
