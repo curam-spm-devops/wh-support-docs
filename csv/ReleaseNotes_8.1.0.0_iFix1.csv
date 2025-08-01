@@ -1,0 +1,598 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-129937,DT036745,"While using a screen reader the selected value inside the Case Participant input field is not announced, the focus goes to the Clear button (X) and skips the input field",Accessibility,,,,"*Issue Description:*
+When using a screen reader to search for and select a case participant on the New Task modal, the screen reader does not announce the selected value in the Case Participant input field, the focus goes to the Clear button (X) and skips the input field.  
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Register a person.
+# Navigate to the Inbox tab.
+# Select New Task from the actions menu.
+# On the New Task modal, tab to the Case Participant search field. 
+# Select the Search icon, search for and select the person registered in step 3. 
+# Issue: The screen reader does not announce the selected value in the Case Participant input field.
+
+*Resolution:*
+This has been resolved, the screen reader now announces the value in the case participant input field on returning to the New Task modal. 
+
+"
+SPM-129892,DT036715,A search value with a large amount of text when selected within the search field display the text overlapping the search Icon,Look and Feel,,,,"*Issue Description:*
+When a long value is selected in a search field, the search text overlaps the search Icon.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Log in as an administrator.
+# Expand the Users section in the shortcuts panel and select User Search.
+# Search for a known user's Organization Unit, for example, James Smith.
+# Click edit and update the Organization Unit name to ?James Smith work unit - ALAW Test Really Long Name in Search Box to see how far this may overlap others.?
+# Navigate back to user search and click the magnifying glass in the Organization Unit search field.
+# Search for the Organization Unit updated in step 6.
+# Select ?James Smith work unit - ALAW Test Really Long Name in Search Box to see how far this may overlap others.?
+# Issue:  The long value in the search field overlaps the Search Icon.
+
+*Resolution:* This has been resolved, when a search value contains a large amount of text is selected in a search field, the selected value does not overlap the Search Icon.
+
+"
+SPM-129889,DT036769,Wizard page transition doesn't auto-scroll to top where first field is a date,CEF,Application Development Environment,Client Development Environment,Look & Feel,"*Issue Description:*
+When the user scrolls down on a wizard page and clicks next to a second wizard page, it should open at the top of the page. When the second page has a scrollbar and has a Date Picker as the first field, it opens in a scrolled-down position with the focus on the modal.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Modify RegisterPerson_registerForPDCWizardView.vim to put the Date of Birth field at the top.
+# Build and deploy the application.
+# Log in as a caseworker.
+# Navigate to the Cases and Outcomes tab.
+# Expand the Registration section.
+# Register a person.
+# Scroll down and click Next.
+# Issue: The second page opens scrolled down where is should open to the top.
+
+*Resolution:*
+This issue has been resolved. When the second page has a scrollbar, and has a Date Picker as the first field, the page opens at the top with the field in focus. The obsolete focus styles for the modal body have been removed.
+
+"
+SPM-129887,DT036772,Navigators can no longer continue IEG applications started by citizens,ENT,Universal Access,,,"*Issue Description:*
+External users such as navigators who act on behalf of citizens can no longer continue IEG applications started by citizens (and vice versa). _Note - This is only applicable for those who have customised the CE portal to enable navigator users to work on behalf of citizen users and only affects the motivations API._
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a Provider Manager. 
+# Enroll a provider. 
+# Log in as a Citizen user using the CE portal. 
+# Click the 'Manage assister' link in the CE IEG page banner. 
+# Assign the assister using the Assister reference number. 
+# Log out from CE portal. 
+# Login as the Navigator user (selected in step 5) using CE portal. 
+# Click on Assist Client and Navigate to the Client Request Page
+# Click on Resume the Health care application
+# Issue: Something went wrong error is displayed
+
+*Resolution:*
+A new API delivered in v8 introduced a validation to enforce that the logged-in user corresponded to the user on the motivation. This meant that a navigator user could no longer resume an IEG script on behalf of a citizen (and vice versa).  Now, the motivation flow has been updated to apply the correct authorisation checks allowing navigator users to resume applications that a citizen started.
+
+"
+SPM-129878,DT036767,Missing columns and unnecessary screen elements shown when printing pages that contain a large number of columns,Look and Feel,,,,"*Issue Description:*
+When printing a page within the Cúram application that contains a list with a large number of columns, some columns may not display on the printed page and scrollbars incorrectly display.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Navigate to the Client Contact tab.
+# Create a New Note.
+# Select the Print icon. Ensure that the Layout option is set to 'Portrait'.
+# Select Cancel on the first Print Preview page (the context panel preview) to move to the Print Preview of the notes section.
+# Issue: Some list columns may be missing and scrollbars displayed.
+
+*Resolution:*
+This issue is resolved, all columns are now displayed on the printed page and the scrollbars are no longer displayed.    
+
+"
+SPM-129842,DT036686,Radio button group form control does not correctly define relationship or mandatory fields,Accessibility,,,,"*Issue Description:*
+On custom pages using the radio button group form control, the radio button group form control has no relationship between the label and the buttons.
+
+Additionally, when a user is tabbing through mandatory radio button form controls, the screen reader does not announce them as mandatory.
+
+*Resolution:*
+The radio button group form control has a relationship between the label and the buttons. Screen readers will now notify a user when a radio button group from control is marked as mandatory in a form.
+
+*Technical:*
+The issue was resolved by an update to rendered HTML of the radio button group form control to properly group the buttons with the configured label.
+A data-testid is generated in the HTML which is intended for testing purposes.
+
+"
+SPM-129839,DT036766,Javascript initiated from action menus is not working,ENT,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When selecting an item from within an action menu that is associated with custom JavaScript (i.e. item selected from an action menu's drop down), the action menu item fails to launch the JavaScript call.
+
+*User Interface Impact:* No
+
+*Prerequisite(s):*
+Customise a dropdown action menu item so that a JavaScript call is launched when it is selected, for example, New Microsoft Word action on the Client Contact, Communications page.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Navigate to the Client Contact tab. 
+# Select Communications.
+# Select he New Microsoft Word action from the  dropdown menu.
+# Issue: The action menu item fails to launch the JavaScript call. 
+
+*Resolution:*
+This has been resolved, both inline and dropdown menu items that have custom Javascript associated are functioning as expected.  "
+SPM-129836,DT036761,Automatic form submission triggered from within a modal dialog displays incorrect content after it's refreshed,ENT,Application Development Environment,Client Development Environment,,"*Issue Description:*
+Changing the value of a dropdown within a modal did not save the updated value on the server and the modal was incorrectly closed.
+
+*User Interface Impact:* No
+
+*Prerequisite(s):*
+A customised dropdown which has an associated custom JavaScript event to submit the form when the user selects a value, for example, Special Interest on the Edit Person modal.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Navigate to the person home page and select Edit.
+# Set the currency value (e.g. Andorran Peseta) and set Special Interest to High Risk.
+# Issue: Once a Special Interest value has been selected, the modal incorrectly closes and the Special Interest field is not updated to High Risk.
+
+*Resolution:*
+Changing the value of a dropdown within a modal saves the updated value to the server and the correct content is displayed to the user after the modal refresh has completed.
+
+"
+SPM-129776,DT036763,Close action is displayed twice when adding a new evidence type record,Look and Feel,,,,"*Issue Description:*
+When adding New evidence and the Add row-level action is selected for an evidence type, a Close action is displayed twice on this modal.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Navigate to the Evidence tab and click the New page-level action.
+# On the New Evidence modal, select the Add row-level action for an evidence type.
+# Issue: An extra ?Close? button is displayed on the add evidence wizard.
+
+*Resolution:*
+The extra close button is no longer displayed when adding a new evidence type.
+
+"
+SPM-129714,DT036248,Cúram Universal Access Responsive Web Application: IEG questions defined in conditionally hidden clusters but not referenced by read only element are included in the form,ENT,Intelligent Evidence Gathering,,,"*Issue Description:*
+IEG questions that are defined in conditionally hidden clusters are incorrectly displayed in forms. In the forms, only questions that are referenced by read-only elements should be displayed.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Update an IEG script to contain a static conditional cluster that starts a custom function without a read-only expression.
+# In the Universal Access Responsive Web Application, apply for a benefit by using the updated IEG script.
+# Issue: Observe that the hidden Boolean value is included in the response, which results in a checkbox that should be hidden being displayed on the IEG page. As a result, unexpected behavior might occur that might impact other pages that contain conditional clusters that reference the same question.
+
+*Resolution:*
+IEG pages that contain static conditional clusters, and that start custom functions without read-only-expressions, have been updated. The IEG pages no longer display hidden checkboxes.
+
+"
+SPM-129629,DT036737,URL not opening when clicked with custom onevent code configured,CEF,,,,"*Issue Description:*
+When custom javascript is used to close a modal on clicking a custom URL, the modal closes as expected but the URL is not opening in a new tab.
+
+*User Interface Impact:* No
+
+*Prerequisite(s):*  
+
+# A custom URL has been added to a modal where javascript is used to close the modal on clicking the URL.
+
+*Steps to Reproduce:* 
+
+# Log in as a caseworker.
+# Navigate to the modal modified in the prerequisites step above. 
+# Issue: On clicking the custom URL, the modal closes but the URL is not opened.
+
+*Resolution:*
+When custom javascript is used to close a modal on clicking a custom URL, the modal closes and the URL now opens in a new tab.
+
+"
+SPM-129627,DT036734,Edit boxes and checkboxes are not properly aligned with other input fields,Look and Feel,,,,"*Issue Description:*
+Labelled inputs and unlabelled inputs/checkboxes in the same cluster row are not vertically aligned.
+
+*User Interface Impact:* Yes.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Click on Person under Searches in the shortcuts panel.
+# Issue: The Show Nicknames and Show Sounds Like Names checkboxes on the Person Search page are not aligned with the First Name and Last Name text inputs.
+
+*Resolution:*
+Checkboxes and other unlabelled inputs are now aligned to other inputs in the same row.
+
+"
+SPM-129600,,IEG navigation using the add-link and edit-link may not be consistent for some script design patterns,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+In IEG, the Universal Access React Application ?processing from summary' via the ?add link? and 'edit link? feature was inconsistent depending on the script design and the navigation path the user had taken. In some scenarios the navigation was incorrect when navigating from the summary to an add or edit page-set and back to the summary. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Create an IEG script.
+# Include in the script a set of pages (2 or more) that create a record, (e.g. a set of pages to create an income record). Include a conditional page at the end of the set of pages which is driven by a conditional question on a previous page.
+# Include a summary page that includes an ?add link? to create the record. Specify the start and end page for the ?add link?, and use the page that is wrapped in a conditional to be the end page.
+# Run the script and select the ?add link? to create the record.
+# Navigate through the set of pages, but select the conditional value that will hide the end page.
+# Issue: When the ?end page? is hidden the script will not return to the summary page as expected, instead it will continue to the next page in the script. When using the ?edit link? in the above scenario the next page will be the next iteration of the loop, i.e. you will begin editing the next record instead of returning to the summary page.
+
+*Resolution:*
+IEG has been improved to take account of more script design patterns and a wider range of user navigation paths when considering what the next page is when the user navigates so that the user is provided a predictable user experience.
+
+"
+SPM-129599,DT036739,Codetable hierarchy text is centre alignment,Look and Feel,,,,"*Issue Description:*
+Drop-downs used in a code-table hierarchy appear narrower than expected and with additional unnecessary whitespace inside the field, thereby causing some selected values to be truncated.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a Provider Manager.
+# Enrol a New Provider Enquiry and click Next.
+# Scroll down to view the ?Primary Category and Types Interested In?.
+# Issue: The values in the Provider Category and the Provider Type drop-down fields are narrower than expected. The white space before the text in the drop-down truncates the text. 
+
+*Resolution:*
+Drop-downs used in a code-table hierarchy now display at their expected size and without any unnecessary white space inside the field.
+
+"
+SPM-129597,DT036712,Changing control question answers in IEG can cause unhandled server exception and data loss,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+IEG may delete data for the incorrect record when control questions are modified.
+
+*User Interface Impact:* No
+
+*Steps to reproduce*
+
+# Create an IEG script that contains a nested loop for adding and editing parent and child records. E.g. you can add a household member, and then you can add an income record by answering a question 'Does X have income?' which will conditionally enter a set of pages to add the income record. Note the outer loop must contain pages.
+# Create a Summary page in the script that allows you to edit the Parent record to change the control question that adds the child record. I.e. an edit-link to the page where the question is asked.
+# Run the script and add 3 parent records and 3 child records. E.g. add John, Mary and Tom and for each household member select yes for 'Does X have income' and add the income amount.
+# Continue to the summary page and select the edit button on the second parent record. E.g. edit Marys record and select No when asked 'Does Mary have income?'.
+# Continue to the summary page and select the edit button on the third parent record. E.g. edit Toms record and select No when asked 'Does Tom have income?'.
+# Continue to the summary page and select the edit button on the second parent record. E.g. edit Marys record and select Yes when asked 'Does Mary have income?'
+# Issue: The update fails on clicking next with ?Something went wrong. Try again or go to home.? Additionally data is lost for the previous record in the loop. E.g. if Toms control question 'Does Tom have Income' was changed to No then Marys record is deleted.
+
+*Resolution:*
+Now IEG correctly handles the modification of control questions that drive the addition and removal of Datastore entities.
+
+"
+SPM-129595,,Enable support for IEG script developer to delete entities via custom functions,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+In IEG, directly deleting entities from the Datastore via custom functions is unsafe. When entities are deleted via the IEG user interface 'Delete' action the IEG state machine is updated to reflect this change. This is an important process to ensure that the IEG state machine remains in sync with the Datastore. 
+
+*User Interface Impact:* No
+
+*Steps to reproduce:* 
+
+# A custom function is used to delete an entity from the datastore during the script execution. The custom function deletes the entities by directly removing them from the Datastore.
+
+{code:java}@Override
+public Adaptor getAdaptorValue(final RulesParameters rulesParameters)
+    throws AppException, InformationalException {
+    
+    final IEG2Context ieg2Context = (IEG2Context) rulesParameters;
+  final long rootEntityID = ieg2Context.getRootEntityID();
+  final long executionID = ieg2Context.getExecutionID();
+  final IEGScriptExecution scriptExecution =
+  IEGScriptExecutionFactory.getInstance().getScriptExecutionObject(
+    executionID);
+
+  Datastore datastore = null;
+  try {
+    datastore =
+      DatastoreFactory.newInstance().openDatastore(
+        scriptExecution.getSchemaName());
+  } catch (final NoSuchSchemaException e) {
+    throw new AppException(IEG.ID_SCHEMA_NOT_FOUND);
+  }
+  final Entity applicationEntity = datastore.readEntity(rootEntityID);
+  final EntityType assessmentEntityType =
+    datastore.getEntityType(""""assessment"""");
+  final Entity[] assessmentEntities =
+    applicationEntity.getChildEntities(assessmentEntityType);
+
+  for (int i = 0; i < assessmentEntities.length; i++) {
+    // THIS IS UNSAFE
+    assessmentEntities[i].delete();
+  }
+}{code}
+
+2. The behaviour of IEG is unpredictable after this custom function as the IEG state machine is not aware of the entity deletion.  
+
+*Resolution:*
+
+Now IEG provides support for programmatically triggering an entity delete from the Datastore in a safe and supported manner via the ?removeEntity? function of the curam.ieg.api.impl.IEGScript class. The code below shows how the original code can be refactored to a safe implementation that removes all the ?assessment? entities
+
+{code:java}@Override
+public Adaptor getAdaptorValue(final RulesParameters rulesParameters)
+    throws AppException, InformationalException {
+    
+  final IEG2Context ieg2Context = (IEG2Context) rulesParameters;
+  final long rootEntityID = ieg2Context.getRootEntityID();
+  final long executionID = ieg2Context.getExecutionID();
+  final IEGScriptExecution scriptExecution =
+  IEGScriptExecutionFactory.getInstance().getScriptExecutionObject(
+    executionID);
+    
+  // Use the RulesParameters object to instantiate an instance of the IEGScript class  
+  // which provides safe methods for manipulating the script execution state and   
+  // associated Datastore.
+  IEGScript iegScriptImpl = new IEGScript(rulesParameters);
+
+  Datastore datastore = null;
+  try {
+    datastore =
+      DatastoreFactory.newInstance().openDatastore(
+        scriptExecution.getSchemaName());
+  } catch (final NoSuchSchemaException e) {
+    throw new AppException(IEG.ID_SCHEMA_NOT_FOUND);
+  }
+  final Entity applicationEntity = datastore.readEntity(rootEntityID);
+  final EntityType assessmentEntityType =
+    datastore.getEntityType(""""assessment);
+  final Entity[] assessmentEntities =
+    applicationEntity.getChildEntities(assessmentEntityType);
+
+  for (int i = 0; i < assessmentEntities.length; i++) {
+    // Safe method of removing Datastore entities via a custom function.
+    iegScriptImpl.removeEntity(assessmentEntities[i].getUniqueID());
+  }
+}{code}
+
+"
+SPM-129594,,IEG rules expression resolver uses data from previous iteration,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+In IEG, when using custom validations in a filtered loop, the validation may receive the incorrect list item data.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Create a script that includes a loop for adding parent and child records, e.g. adding a household member and adding a pregnancy record for them.
+# In the parent loop create a page with a conditional question to decide if the child record is added. e.g. 'Is <Person> Pregnant?
+# Create a custom validation after the child loop that checks if the pregnancy information is correct. It is important that this callout is outside the child loop so that it is called for all parent records, not just the ones that created a child record.
+# Run the script and add the first parent and child record. e.g. Mary who is pregnant.
+# Add a second person e.g. Joan who is not pregnant.
+# Issue: The custom callout for the second record will receive the incorrect record, e.g. the data for the previous household member will be passed to the callout function. This will lead to an invalid validation using the incorrect data or could cause issues such as null pointer exceptions.
+
+*Resolution:*
+Now, IEG supports this script pattern and will pass the correct record to the callout function. However, it is recommended that the script pattern should be changed to only call custom validations when necessary. e.g. in the example above the custom validation could be moved inside the child loop.
+
+"
+SPM-129589,DT036691,IEG Player in Universal Access Responsive Web Application - Subsequent sections disabled in section navigation menu when editing from summary page without changing answers,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+When using IEG in the Universal Access Responsive Web Application sections may be incorrectly disabled while editing from a summary page.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+The issue arises under the following conditions.
+
+# Create an IEG script with a summary page that allows you to edit a record.
+# On the question page use a question that has a default value in the schema and also is used in a control question in a subsequent section so that changing the answer will disable that section in the section navigation and should force the user back through the script.
+# Run the script and answer the questions so that you arrive on the summary page with the edit-link that will bring you back to the question page from 2.
+# Select the edit-link to navigate to question page, don't change anything and select next. You should be brought back to the summary page.
+# Issue: You are not returned to the summary page when clicking Next, instead IEG determines that the answer has been changed which disables the section and forces you back through the script.
+
+*Resolution:*
+IEG now correctly handles scenarios where the user does not change control question answers when editing from the summary page.
+
+"
+SPM-129584,,Editing a relationship from the IEG summary page edits incorrect person,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+If 3 or more household members exist, only the relationship page corresponding to the first household member is accessible. All other household member relationship edit links are incorrectly landing on the first household member. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Create a script with a relationship-page element and a summary page that allows you to edit the relationships.
+# Load a script with pre-populated data, including People and relationships
+# Try to edit the relationship record for 1 of the additional household members, i.e. not the primary household member.
+# Issue: The edit link does not bring the user to the correct relationship record.
+
+*Resolution:*
+
+The IEG engine now links to the correct relationship record when the user clicks the edit relationship link on a IEG summary page.
+
+"
+SPM-129583,DT036646,Error when modifying relationship records in pre-populated IEG renewal scripts,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+In a pre-populated IEG script the first attempt to edit a relationship record will fail with the error ID_ACTION_LINK_PAGE_NOT_FOUND.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Create an IEG script that can be pre-populated with data.
+# Include in the script a ?relationship page? and ensure the relationships have been defined for 2 or more household members in the pre-populated data.
+# Include a summary page that includes a link to edit a relationship. The summary page must be accessible before traversing the relationship pages.
+# Select the edit relationship link.
+# Issue: The action will fail with the error ID_ACTION_LINK_PAGE_NOT_FOUND. 
+
+*Resolution:*
+Now, when a relationship record has been pre-populated in an IEG script, the 'edit relationship' link will not fail when selected.
+
+"
+SPM-129581,DT036623,Browser back button causes the UA script engine to lose track of the end page defined for a summary page link,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+When you add or edit a record from the summary page of an IEG script and use the browser back button (rather than the IEG back link) to go back, you are navigated to the next page of the script instead of back to the summary page.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Use an IEG script with a loop that contains two or more pages for adding a record, followed by another question page, and then a summary page that includes the record list with an Add link or Edit link. The Add and Edit links are defined with the start and end pages and the ?skip-to-summary? is set to true.
+# Launch the IEG script from step 1 and complete the script to the summary page.
+# Use the Add or Edit link to re-enter the loop to add a record or to edit a record.
+# Complete the first page of the loop to land on the second page.
+# Use the browser back button to return to the first page.
+# Use the Next button to return to the second page.
+# Complete the second page.
+# Click Next to return to the summary.
+# Issue: The script should navigate back to the summary page based on the ?skip-to-summary? attribute being set to true. However, it does not skip. Instead, the script continues to the next page which is defined in the script. This occurs only when you use the back button in the loop.
+
+*Resolution:*
+After the script completes the add record or edit record page loop, the script now correctly navigates to the summary page.
+
+"
+SPM-128623,,When configuring localizable text for the names of Work Queues and some Organization Structure objects duplicate name text can be used for multiple records in the same language,CEF,Administration Suite,,,"*Issue Description:*
+Due to the addition of multi-locale support for the ?name? fields on WorkQueue, Organisation Structure, Job, Location and Slot, it is now possible to bypass some validations.  Specifically, those duplicate validations that enforce uniqueness on these name fields. The ?Add Translation? link provides two avenues for bypassing these validations: adding a translation and editing a translation.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Navigate to the Work Queues page under the Workflow shortcuts menu item. 
+# Select the add name translation icon beside one of the work queue names.
+# The View Localizable Text modal is displayed.
+# Make sure that two different translations exist for the work queue for two different languages for example English and French.
+# Click Edit one of the English translations and copy this text.
+# Click Edit on the French translation and paste the English text into the French translation.
+# Issue: No validation is thrown to prevent the same text from being used for more than one language.
+
+*Resolution:*
+Adding a new translation or making an edit to an existing translation via the ?Add Translation? link will now validate the uniqueness of the translation within the locale for the field in question. 
+
+"
+SPM-128401,,Deprecation markers to be renamed to 8.1.0.0,CEF,,,,"A number of code artifacts which were marked as deprecated in Cúram 8.1.0.0 contained incorrect deprecation markers (i.e. the markers referred to an invalid Cúram release). These deprecation markers have now been updated and refer to the Cúram release in which that deprecation exercise took place, namely Cúram version 8.1.0.0.
+
+"
+SPM-128391,,An unhandled server exception occurs when searching for Organization Units and Positions in the Organization Structure in the administration application,CEF,Administration Suite,,,"*Issue Description:*
+Two application properties are available that provide the ability for an administrator to search for Organization Units and Positions in the Organization Structure. If these properties are enabled and the administrator attempts to use these searches an un-handled server exception occurs.
+
+*User Interface Impact:* No
+
+*Prerequisite(s):*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the properties 'curam.core.admin.org.orgunitsearch.isenabled? and ?curam.core.admin.org.positionsearch.isenabled?.
+# Edit each value and set it to 'Yes'. Save and then publish the changes.
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as administrator.
+# Select My Organization under Organization in the shortcuts panel.
+# Navigate to the Structures tab and click the existing Organization Structure.
+# Navigate to the Organization Unit tab.
+# Search by Name, Type and Location.
+# Issue: An un-handled server exception is displayed on the search page.
+
+*Scenario 2:*
+
+# Login as administrator.
+# Select My Organization under Organization in the shortcuts panel.
+# Navigate to the Structures tab and click the existing Organization Structure.
+# Navigate to the Positions tab.
+# Search by Organization Unit, Lead Position and Job.
+# Issue: An un-handled server exception is displayed on the search page.
+
+*Resolution:*
+The search issue for Organization Unit search and Position search if enabled has been resolved.? Now if a search is performed on either Organization Unit or Position search a list of the Organization Units and Positions that match the specified search criteria are returned.
+
+"
+SPM-128326,,An error message is displayed when trying to add a Recommendation Referral to a Factor,ENT,Outcome Management,,,"*Issue Description:* 
+An application error message is displayed when trying to add a referral on the Recommend Referral modal.
+
+*User Interface Impact:* No.
+
+*Steps to Reproduce:*
+
+# Login as an administrator.
+# Navigate to Factors within Outcome management in the shortcuts panel.
+# Select a Factor.
+# Navigate to the Recommendation tab.
+# Select Recommend Referrals from the action menu
+# Click the search icon adjacent to the Referral field.
+# Issue: An application error message is displayed.
+
+*Resolution:*
+Some artifacts which were previously removed as part of the Taxonomy code removal task have been reinstated to address the issue. Taxonomy related references have been removed before reinstating these artifacts.
+
+*Technical:* The Javascript file
+/Curam/components/CPM/ServiceDelivery/ServiceSearch/ProviderManagementSelectServiceTaxonomySearch.js has been renamed to ProviderManagementSelectServiceSearch.js.
+
+"
+SPM-128059,,"Search results for Work Queue, Organization Unit and Position are incorrectly being filtered by the user?s locale when a user performs a search",CEF,,,,"*Issue Description:*
+When a search is performed for business objects such as Work Queue, Organization Unit and Position using a search criterion of Name that is now translatable and the user?s locale is set to include a language and locale, for example, en_US, the search will only return results where translations have been configured for the business object in the user?s locale. It will not return results that match the base language of the user?s locale, for example, en.
+
+*User Interface Impact: No*
+
+*Prerequisite(s):*
+
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.environment.app.menu.locale.toggle.enabled?.
+# Edit the value and set it to 'True'. Save and then publish the changes.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to Cases and Outcome and select Provider under Searches.
+# Select the search button for the Owner's Name.
+# Click the search button for the Organization Unit.
+# Enter '%' in the Organization Unit Name and click Search.
+# Issue: No results are displayed. 
+
+*Resolution:*
+Now, when a search is performed for business objects such as Work Queue, Organization Unit and Position using a search criterion of Name the search will return results that match the user?s locale or their base language. 
+
+"
+SPM-125549,"DT036295, DT036645",Pop-up search clear button disappears when errors are present,Accessibility,Application Development Environment,,,"*Issue Description:*
+The clear button, displayed in a modal dialog pop-up search field when a value is selected, disappears when an error message is displayed after you click Save on the modal dialog, so you can no longer clear the selected value.
+
+In addition, when you open a modal dialog with a pre-populated pop-up search field,  the clear button is not displayed in the pop-up search field, so you can?t clear the pre-populated value.
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+*Scenario 1*
+
+# Log in as a caseworker.
+# Navigate to the Inbox section.
+# On the My Tasks tab, select New Task from the tab-level actions menu.
+# Click the Search icon in the Case Participant pop-up search field.
+# Search for and select a registered person in the pop-up search dialog.
+# Observe the clear button (represented with an X icon) is visible beside the selected Case Participant name in the New Task dialog.
+# Click Save.
+# Observe the error message displayed.
+# Issue: The clear button in the Case Participant field beside the selected name disappears after clicking Save, and you can?t clear the selected value.
+
+*Scenario 2*
+
+# Log in as a caseworker.
+# Navigate to the Cases and Outcomes section.
+#  Open the Register Person wizard and click Next.
+# On the Registration page, search for and select a Preferred Office for the person
+# Observe the clear button (represented with an X icon) is visible beside the selected Preferred Office name.
+# Click Save.
+# Observe the error messages displayed.
+# Issue: The clear button in the Preferred Office field beside the selected office disappears after clicking Save, and you can?t clear the selected value.
+
+*Scenario 3*
+
+# Log in as a caseworker.
+# Search for and select a registered person.
+# On the Person home page, click the Edit link in the context panel.
+# If the Preferred Office field is blank, search for and select a Preferred Office for the person and click Save. Click the Edit link again on the context panel.
+# The Edit Person modal dialog opens, with the Preferred Office pop-up search field pre-populated.
+# Issue: The clear button is not displayed beside the pre-populated value in the Preferred Office pop-up search field, and you can?t clear the selected value. 
+
+*Resolution:*
+The clear button is now displayed in modal dialog pop-up search fields with a selected value, when an error message is displayed after clicking Save on the modal dialog,  or when the value is pre-populated when the modal dialog is opened, and the selected value can be cleared as expected.
+
+"
