@@ -1,5 +1,5 @@
 TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
-SPM-137133,"DT036803, DT036843",A performance issue is present with lists that contain action controls and menus,CEF,Application Development Environment,,,"*Issue Description:*
+SPM-137133,DT036803,A performance issue is present with lists that contain action controls and menus,CEF,Application Development Environment,,,"*Issue Description:*
 When a list has to be rendered with a large number of records containing action controls and menus the resultant page is slow to appear.
 
 *User Interface Impact:* No
@@ -84,7 +84,7 @@ On Dynamic UIM screens that contain nested conditional clusters, layout issues a
 On Dynamic UIM screens that contain nested conditional clusters, the layout of the displayed clusters has been improved. This will help with readability. 
 
 "
-SPM-135894,DT037049," Adding new dynamic evidence results in An Application Error Has Occurred being presented to the user",CEF,Dynamic Evidence,Evidence Management,,"*Issue Description:*
+SPM-135894,DT037049, Adding new dynamic evidence results in An Application Error Has Occurred being presented to the user,CEF,Dynamic Evidence,Evidence Management,,"*Issue Description:*
 When adding dynamic evidence from the evidence type workspace page, the evidence is saved but the user is presented with ?An Application Error Has Occurred?.
 
 *User Interface Impact:* No

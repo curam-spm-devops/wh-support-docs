@@ -53,7 +53,7 @@ When a calendar widget is zoomed to 200%, the dates do not display in the last r
 The calendar widget can now be scrolled within the main content area and all dates within the calendar can be accessed using a mouse.
 
 "
-SPM-132091,DT036873,"IEG fails to render pages with a large number of clusters ",ENT,Intelligent Evidence Gathering,Player,,"*Issue Description:*
+SPM-132091,DT036873,IEG fails to render pages with a large number of clusters ,ENT,Intelligent Evidence Gathering,Player,,"*Issue Description:*
 When the IEG Player (using the java-based renderer) processes dynamic conditional clusters, NullPointerExceptions can be thrown under heavy load (multiple scripts being processed concurrently and a large number of conditional clusters).
 
 *User Interface Impact:* No
@@ -170,7 +170,7 @@ Two application properties are available that provide the ability for an adminis
 The issue for Organization Unit search and Position search if enabled has been resolved.?Now if a search is performed on either Organization Unit or Position a list of the Organization Units and Positions, respectively, that match the specified search criteria are returned.
 
 "
-SPM-131863,"PO09679, DT032844","Action menu within nested lists do not display all values ",Accessibility,,,,"*Issue Description:*
+SPM-131863,"PO09679, DT032844",Action menu within nested lists do not display all values ,Accessibility,,,,"*Issue Description:*
 Within nested lists, all values in an action menu do not display without scrolling downward to view.
 
 *User Interface Impact:* No
@@ -318,7 +318,7 @@ The Cúram Session Timeout warning is not appearing at the expected time when a m
 Additional functionality has been added to the Cúram Session Timeout feature to ensure the timing of this warning is correct, even when a modal is already displayed. 
 
 "
-SPM-131309,,"Unhandled server exception on person participant details after 'Add a Member' guided change used to add multiple primary employments ",SOL,Income Support CGISS,,,"*Issue Description:*
+SPM-131309,,Unhandled server exception on person participant details after 'Add a Member' guided change used to add multiple primary employments ,SOL,Income Support CGISS,,,"*Issue Description:*
 Unhandled server exception on the participant details page due to multiple primary employments.
 
 *User Interface Impact:* No
@@ -1124,7 +1124,7 @@ When Person Evidence Management is enabled and static evidence is configured for
 The Person Evidence Management screens were created to mimic the Participant Data Case screens. However, Participant Data Case does not support static evidence, whereas Person Evidence Management does. New static evidence screens are now available for Person Evidence Management.
 
 "
-SPM-129956,DT036772,"Navigators can no longer continue IEG applications started by citizens ",ENT,Universal Access,,,"*Issue Description:*
+SPM-129956,DT036772,Navigators can no longer continue IEG applications started by citizens ,ENT,Universal Access,,,"*Issue Description:*
 External users such as navigators who act on behalf of citizens can no longer continue IEG applications started by citizens, and vice versa. 
 
 Note: This is only applicable to those who have customised the CE portal to enable navigator users to work on behalf of citizen users and only affects the motivations API.
