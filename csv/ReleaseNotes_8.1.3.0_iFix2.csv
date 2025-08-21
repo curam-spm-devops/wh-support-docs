@@ -1,0 +1,193 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-142030,DT037222,Cancelled bank account for External Party incorrectly considered when attempting to re-add identical bank account details for the same External Party,CEF,Business Services,Participant Management,,"*Issue Description:*
+A cancelled bank account is being incorrectly considered when re-adding the same bank account to an External Party.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register an External Party.
+# On the External Party home page, click the Financial tab and select Bank Accounts.
+# Use the New page-level action to add a bank account.
+# On the Bank Accounts list page, use the Delete row-level action to cancel the bank account added in the previous step.
+# Again, using the New page-level action, re-add a bank account with the same details as in Step 4.
+# Issue: The following validation is incorrectly thrown, ?A bank account already exists for this client with this account number at the selected bank'.
+
+*Resolution:*
+This issue has been addressed and now it is possible to re-add a bank account to an External Party if a bank account with the same details was previously cancelled for that same External Party.
+
+"
+SPM-142027,DT037185,Duplicate bank account incorrectly allowed for the same person or across multiple people,ENT,Dynamic Evidence,Evidence Maintenance,,"*Issue Description:*
+It is possible to enter duplicate bank account details on the system, not only for a person, but also across people.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1 (at the person level)*
+
+# Register a new Person.
+# Click the Evidence tab.
+# Add Bank Account evidence, ensuring that the Joint Account indicator is set to ?false?.
+# Now re-add exactly the same bank account.
+# Issue: The system allows the second bank account to be added.
+
+*Scenario 2 (across people)*
+
+# Register a new Person (Person 1).
+# Click the Evidence tab.
+# Add Bank Account evidence, ensuring that the Joint Account indicator is set to ?false?.
+# Register another person (Person 2).
+# Add the same bank account details to Person 2.
+# Issue: The system allows the second bank account to be added.
+
+*Resolution:*
+Validations have been added to prevent duplicate bank accounts from being added to the system. To prevent duplicate bank accounts for the same person when creating or modifying a bank account, the following validation is now displayed - ?A bank account already exists for this client with this account number at the selected bank.? To prevent the same bank account number from being used by multiple persons within the same bank branch, the system displays the following validation - ?An account exists in this branch with this account number.?
+
+*Technical:*
+PDCBankAccountValidationRuleSet.xml has been updated to include the following (existing) attribute check as part of preCreateValidations and preModifyValidations:
+
+* bankAccountAlreadyExistsValidation
+
+The following message update has been made inside PDCBankAccountValidationRuleSet.properties
+
+* ERR&#95;BANKACCOUNT&#95;ACCOUNTEXISTS&#95;DUPLICATE=An account exists in this branch with this account number.
+
+has been updated to the following:
+
+* ERR&#95;BANKACCOUNT&#95;ACCOUNTEXISTS&#95;DUPLICATE=A bank account already exists for this client with this account number at the selected bank.
+
+"
+SPM-142026,DT037228,Unable to apply changes for a person with a bank account whose account status is 'Closed',ENT,Dynamic Evidence,Evidence Maintenance,,"*Issue Description:*
+A validation error is thrown when attempting to update a bank account?s status to ?Closed?. When applying changes, the following validation message is presented to the user: ?You cannot modify a bank account when the bank account status is closed.?
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Select Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.pec.enabled?.
+# Use the row-level action to update the property value to ?YES?.
+# Now, search for the property ?curam.miscapp.evidenceCalloutsEnabled?.
+# If not already set to ?YES?, use the row-level action to update this property to ?YES?.
+# Publish the changes.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new person.
+# From the Evidence Dashboard, add a bank account.
+# Activate the evidence.
+# Modify the bank account and set its status to ?Closed?.
+# Apply changes.
+# Issue: The following validation error is displayed: ?You cannot modify a bank account when the bank account status is closed.?
+
+*Resolution:*
+This issue has been resolved. It is now possible to apply changes when modifying a bank account?s status to ?Closed?.
+
+"
+SPM-141922,,Cúram Citizen Engagement - The program list in the Benefit acknowledgement message is not localisable and not accessible,CEF,Universal Access,,,"*Issue Description:*
+In Cúram Citizen Engagement, when the selected language is switched from English, the program list used in the benefit application acknowledgement notification on the user?s dashboard is not accessible and the 'and ' conjunction displayed when there are multiple programs, is not displayed in the selected language.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in to the Cúram citizen engagement portal.
+# Submit a benefit application for multiple programs.
+# Navigate to the user?s ?Your Account? page.
+# Within the Notifications card, observe the benefit application acknowledgement notification. The programs are separated by commas and the `and` conjunction.
+# Issue 1: Program list in the acknowledgement notification is not accessible.
+# Switch language to something other than English (for example French).
+# Issue 2: The ?and? conjunction used as the program list separator is not translated.
+
+*Resolution:*
+The program list used in the benefit application acknowledgement notification is now accessible and when the language is switched from English, it is displayed in the selected language.
+
+"
+SPM-141866,DT037025,Cúram Citizen Engagement - Benefit/Program name is not translated when the language is switched from English,CEF,Universal Access,,,"*Issue Description:*
+In Cúram Citizen Engagement, when the selected language is switched from English, the benefit or program name used in the payment message on the user?s dashboard does not display in the selected language.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in to the Cúram citizen engagement portal.
+# Submit a benefit application.
+# Log in to the Cúram application as a caseworker.
+# Search for the submitted application from step 2.
+# Process the application up to the issuing of the payment.
+# Go back to the citizen engagement portal and log in as the same user as per step 1.
+# Observe that a payment message is displayed within the Payments card on the user?s ?Your Account? page informing them when their next payment is due.
+# Switch language to something other than English (for example French).
+# Issue: The program or benefit name used in the payment message is not translated.
+
+*Resolution:*
+This has been addressed and now when the selected language is switched from English, the program or benefit name used in the payment message is displayed in the selected language.
+
+"
+SPM-141838,DT037241,Dynamic evidence 'From' and 'To' dates on a joint bank account do not sync with the 'From' and 'To' dates on the same joint bank account shared with other participants,CEF,Dynamic Evidence,Evidence Maintenance,,"*Issue Description:*
+Dynamic evidence 'From' and 'To' dates on a joint bank account do not sync with the 'From' and 'To' dates on the same joint bank account shared with other participants.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Click Properties under Application Data in the shortcuts panel.
+# Search for the property ?curam.pec.enabled?.
+# Update the value of the property to YES and publish the change.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person (Person 1).
+# Add Bank Account evidence with details:
+## Account Name: Bank1
+## Account Type: Corporate Current
+## Account Number: 12345678
+## Sort Code: 90-14-87
+## From: 12/01/2024
+## Joint = true
+# Click Save.
+# Apply changes.
+# Register a second person (Person 2).
+# Add Bank Account evidence with details:
+## Account Name: Bank1
+## Account Type: Corporate Current
+## Account Number: 12345678
+## Sort Code: 90-14-87
+## From: 12/01/2024
+## Joint = true
+# Click Save.
+# Apply changes.
+# On Person 2, update the joint bank account details as follows:
+## From: 11/01/2024
+## To: 12/27/2024
+# Click Save.
+# Apply changes.
+# Navigate to Person 1 and view the bank account evidence.
+# Issue: The From and To Dates are not updated on Person 1?s bank account.
+
+*Resolution:*
+This issue is now resolved. The ?From? and ?To? dates are kept in sync across a joint bank account shared by multiple participants.
+
+"
+SPM-141789,DT037260,Pseudo-translation characters are appearing in the language packs,Look and Feel,,,,"*Issue Description:*
+Some files within the language packs contain pseudo-translated characters instead of the correct translations for the respective languages. This issue affects UI elements, system messages, and other localized text, potentially impacting users accessing the application in non-English languages.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a user in a non-English locale.
+# Navigate around the application.
+# Issue: Some UI elements are displayed with pseudo-translation characters instead of the correct translations.
+
+*Resolution:*
+The correct translations now appear consistently throughout the application.
+
+
+ "
