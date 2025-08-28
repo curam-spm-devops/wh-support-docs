@@ -1,0 +1,171 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.1.3.0 iFix2</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.1.3.0 iFix2</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.1.3.0 iFix2 release.
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.1.3.0 iFix2 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>  
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#look_and_feel_improvedandresolvedissues">Look and Feel</a><br/><a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_improvedandresolvedissues">Curam Modules</a><br/>
+<br/><a name="look_and_feel_improvedandresolvedissues"></a>
+<h4>Look and Feel</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-141789"></a>DT037260, WorkItem:SPM-141789 - Pseudo-translation characters are appearing in the language packs<br/><p><b>Issue Description:</b><br/>Some files within the language packs contain pseudo-translated characters instead of the correct translations for the respective languages. This issue affects UI elements, system messages, and other localized text, potentially impacting users accessing the application in non-English languages.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a user in a non-English locale.<li>Navigate around the application.<li>Issue: Some UI elements are displayed with pseudo-translation characters instead of the correct translations.</ol><b>Resolution:</b><br/>The correct translations now appear consistently throughout the application.<br/><br/><br/><br/> </p></p>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#business_services_improvedandresolvedissues">Business Services</a><br/><a href="#dynamic_evidence_improvedandresolvedissues">Dynamic Evidence</a><br/><a href="#universal_access_improvedandresolvedissues">Universal Access</a><br/>
+<br/><a name="business_services_improvedandresolvedissues"></a>
+<h4>Business Services</h4><a href="#participant_management_improvedandresolvedissues">Participant Management</a><br/>
+<br/><a name="participant_management_improvedandresolvedissues"></a>
+<h4>Participant Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-142030"></a>DT037222, WorkItem:SPM-142030 - Cancelled bank account for External Party incorrectly considered when attempting to re-add identical bank account details for the same External Party<br/><p><b>Issue Description:</b><br/>A cancelled bank account is being incorrectly considered when re-adding the same bank account to an External Party.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register an External Party.<li>On the External Party home page, click the Financial tab and select Bank Accounts.<li>Use the New page-level action to add a bank account.<li>On the Bank Accounts list page, use the Delete row-level action to cancel the bank account added in the previous step.<li>Again, using the New page-level action, re-add a bank account with the same details as in Step 4.<li>Issue: The following validation is incorrectly thrown, ‘A bank account already exists for this client with this account number at the selected bank'.</ol><b>Resolution:</b><br/>This issue has been addressed and now it is possible to re-add a bank account to an External Party if a bank account with the same details was previously cancelled for that same External Party.<br/><br/><br/></p></p>
+<br/><a name="dynamic_evidence_improvedandresolvedissues"></a>
+<h4>Dynamic Evidence</h4><a href="#evidence_maintenance_improvedandresolvedissues">Evidence Maintenance</a><br/>
+<br/><a name="evidence_maintenance_improvedandresolvedissues"></a>
+<h4>Evidence Maintenance</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-141838"></a>DT037241, WorkItem:SPM-141838 - Dynamic evidence 'From' and 'To' dates on a joint bank account do not sync with the 'From' and 'To' dates on the same joint bank account shared with other participants<br/><p><b>Issue Description:</b><br/>Dynamic evidence 'From' and 'To' dates on a joint bank account do not sync with the 'From' and 'To' dates on the same joint bank account shared with other participants.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/><ol><li>Log in as a system administrator.<li>Click Properties under Application Data in the shortcuts panel.<li>Search for the property ‘curam.pec.enabled’.<li>Update the value of the property to YES and publish the change.</ol><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a new Person (Person 1).<li>Add Bank Account evidence with details:<ol><li>Account Name: Bank1<li>Account Type: Corporate Current<li>Account Number: 12345678<li>Sort Code: 90-14-87<li>From: 12/01/2024<li>Joint = true</ol><li>Click Save.<li>Apply changes.<li>Register a second person (Person 2).<li>Add Bank Account evidence with details:<ol><li>Account Name: Bank1<li>Account Type: Corporate Current<li>Account Number: 12345678<li>Sort Code: 90-14-87<li>From: 12/01/2024<li>Joint = true</ol><li>Click Save.<li>Apply changes.<li>On Person 2, update the joint bank account details as follows:<ol><li>From: 11/01/2024<li>To: 12/27/2024</ol><li>Click Save.<li>Apply changes.<li>Navigate to Person 1 and view the bank account evidence.<li>Issue: The From and To Dates are not updated on Person 1’s bank account.</ol><b>Resolution:</b><br/>This issue is now resolved. The ‘From’ and ‘To’ dates are kept in sync across a joint bank account shared by multiple participants.<br/><br/><br/></p></p>
+<br/><a name="universal_access_improvedandresolvedissues"></a>
+<h4>Universal Access</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-141866"></a>DT037025, WorkItem:SPM-141866 - Cúram Citizen Engagement - Benefit/Program name is not translated when the language is switched from English<br/><p><b>Issue Description:</b><br/>In Cúram Citizen Engagement, when the selected language is switched from English, the benefit or program name used in the payment message on the user’s dashboard does not display in the selected language.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in to the Cúram citizen engagement portal.<li>Submit a benefit application.<li>Log in to the Cúram application as a caseworker.<li>Search for the submitted application from step 2.<li>Process the application up to the issuing of the payment.<li>Go back to the citizen engagement portal and log in as the same user as per step 1.<li>Observe that a payment message is displayed within the Payments card on the user’s ‘Your Account’ page informing them when their next payment is due.<li>Switch language to something other than English (for example French).<li>Issue: The program or benefit name used in the payment message is not translated.</ol><b>Resolution:</b><br/>This has been addressed and now when the selected language is switched from English, the program or benefit name used in the payment message is displayed in the selected language.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-141922"></a>WorkItem:SPM-141922 - Cúram Citizen Engagement - The program list in the Benefit acknowledgement message is not localisable and not accessible<br/><p><b>Issue Description:</b><br/>In Cúram Citizen Engagement, when the selected language is switched from English, the program list used in the benefit application acknowledgement notification on the user’s dashboard is not accessible and the 'and ' conjunction displayed when there are multiple programs, is not displayed in the selected language.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in to the Cúram citizen engagement portal.<li>Submit a benefit application for multiple programs.<li>Navigate to the user’s ‘Your Account’ page.<li>Within the Notifications card, observe the benefit application acknowledgement notification. The programs are separated by commas and the `and` conjunction.<li>Issue 1: Program list in the acknowledgement notification is not accessible.<li>Switch language to something other than English (for example French).<li>Issue 2: The ‘and’ conjunction used as the program list separator is not translated.</ol><b>Resolution:</b><br/>The program list used in the benefit application acknowledgement notification is now accessible and when the language is switched from English, it is displayed in the selected language.<br/><br/><br/></p></p>
+<br/><a name="curam_modules_improvedandresolvedissues"></a>
+<h4>Curam Modules</h4><a href="#dynamic_evidence_improvedandresolvedissues">Dynamic Evidence</a><br/>
+<br/><a name="dynamic_evidence_improvedandresolvedissues"></a>
+<h4>Dynamic Evidence</h4><a href="#evidence_maintenance_improvedandresolvedissues">Evidence Maintenance</a><br/>
+<br/><a name="evidence_maintenance_improvedandresolvedissues"></a>
+<h4>Evidence Maintenance</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-142026"></a>DT037228, WorkItem:SPM-142026 - Unable to apply changes for a person with a bank account whose account status is 'Closed'<br/><p><b>Issue Description:</b><br/>A validation error is thrown when attempting to update a bank account’s status to ‘Closed’. When applying changes, the following validation message is presented to the user: ‘You cannot modify a bank account when the bank account status is closed.’<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/><ol><li>Log in as a system administrator.<li>Select Property Administration under Application Data in the shortcuts panel.<li>Search for the property ‘curam.pec.enabled’.<li>Use the row-level action to update the property value to ‘YES’.<li>Now, search for the property ‘curam.miscapp.evidenceCalloutsEnabled’.<li>If not already set to ‘YES’, use the row-level action to update this property to ‘YES’.<li>Publish the changes.</ol><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a new person.<li>From the Evidence Dashboard, add a bank account.<li>Activate the evidence.<li>Modify the bank account and set its status to ‘Closed’.<li>Apply changes.<li>Issue: The following validation error is displayed: ‘You cannot modify a bank account when the bank account status is closed.’</ol><b>Resolution:</b><br/>This issue has been resolved. It is now possible to apply changes when modifying a bank account’s status to ‘Closed’.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-142027"></a>DT037185, WorkItem:SPM-142027 - Duplicate bank account incorrectly allowed for the same person or across multiple people<br/><p><b>Issue Description:</b><br/>It is possible to enter duplicate bank account details on the system, not only for a person, but also across people.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><br/><b>Scenario 1 (at the person level)</b><br/><ol><li>Register a new Person.<li>Click the Evidence tab.<li>Add Bank Account evidence, ensuring that the Joint Account indicator is set to ‘false’.<li>Now re-add exactly the same bank account.<li>Issue: The system allows the second bank account to be added.</ol><b>Scenario 2 (across people)</b><br/><ol><li>Register a new Person (Person 1).<li>Click the Evidence tab.<li>Add Bank Account evidence, ensuring that the Joint Account indicator is set to ‘false’.<li>Register another person (Person 2).<li>Add the same bank account details to Person 2.<li>Issue: The system allows the second bank account to be added.</ol><b>Resolution:</b><br/>Validations have been added to prevent duplicate bank accounts from being added to the system. To prevent duplicate bank accounts for the same person when creating or modifying a bank account, the following validation is now displayed - ‘A bank account already exists for this client with this account number at the selected bank.’ To prevent the same bank account number from being used by multiple persons within the same bank branch, the system displays the following validation - ‘An account exists in this branch with this account number.’<br/><br/><b>Technical:</b><br/>PDCBankAccountValidationRuleSet.xml has been updated to include the following (existing) attribute check as part of preCreateValidations and preModifyValidations:<br/><br/><ul><li>bankAccountAlreadyExistsValidation</ul>The following message update has been made inside PDCBankAccountValidationRuleSet.properties<br/><br/><ul><li>ERR&#95;BANKACCOUNT&#95;ACCOUNTEXISTS&#95;DUPLICATE=An account exists in this branch with this account number.</ul>has been updated to the following:<br/><br/><ul><li>ERR&#95;BANKACCOUNT&#95;ACCOUNTEXISTS&#95;DUPLICATE=A bank account already exists for this client with this account number at the selected bank.</ul><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/curam813.pdf">Known Issues documented for 8.1.3.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2025
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>

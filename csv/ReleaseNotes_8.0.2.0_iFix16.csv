@@ -1,0 +1,61 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-131466,DT036736,Text pasted into the Smart Panel field of the Intake Assistant is duplicated,SOL,Child Welfare,,,"*Issue Description:*
+In Cúram, when copying and pasting the text into the smart panel field of the intake assistant, the pasted text is duplicated.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a Child Welfare intake worker.
+# Navigate to New Intake under Quick Links on the Home page.
+# Create a new Intake and Save.
+# Navigate to the Smart Panel on the Intake Assistant.
+# Paste text into the Smart Panel text editor.
+# Issue: The pasted text is duplicated i.e, the content appears twice in the Smart Panel text editor.
+
+*Resolution:*
+
+The pasted text is now added to the Smart Panel text editor once and displays correctly. 
+
+"
+SPM-131316,DT036838,"Microsoft Word fails to launch, if Microsoft Word has been previously closed in the same browsing session",CEF,Application Development Environment,Client Development Environment,Widgets,"*Issue Description:*
+When a caseworker is editing a Microsoft Word document for a second successive time, it fails to launch and JavaScript errors can be seen within the browser developer tools console.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Navigate to Microsoft Word Templates under the Communications section in the shortcuts panel.
+# Select the Edit row level action for SDT. 
+# Update the values in the Category section dropdowns to All Communication - All Communications and save. 
+
+*Steps to Reproduce:*
+
+# Log in as a supervisor.
+# Register a person and create a Social Assistance case.
+# Navigate to the Contact tab and select the Communications section.
+# From the content level action menu select New Microsoft Word.
+# On the New Microsoft Word Communication modal, set the Case Participant dropdown value to be the registered person and select Next. 
+# Enter a Subject for the communication, select an Address from the Select Address dropdown and click save.
+# Microsoft Word will successfully open.
+# From the Communications section, select the Edit row level action for the newly created Communications Microsoft Word document.
+# Issue: Microsoft Word does not launch and JavaScript errors can be seen within the browser developer tools console.
+
+*Resolution:*
+A caseworker can edit a Microsoft Word document as many times as they like within a session in the Cúram application. 
+
+"
+SPM-131019,,Extend FCProcessingDtls to support the distribution of payments throughout the week for a Set Benefit Week,ENT,Financial Management,,,"*Issue Description:*
+There is no caseID and/or primaryClientID passed into the MaintainFinancialComponent.setNextProcessingDate() API. These are required for a future implementation of a dynamic offset calculation based on case and/or primary client.
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+N/A
+
+*Resolution:*
+The FCProcessingDtls details struct that?s passed into the MaintainFinancialComponent.setNextProcessingDate() API has been extended to support the calculation of a dynamic offset based on case and/or primary client. The delivery of the interface to calculate the dynamic offset is not being delivered here, this will be in a future release. This change future-proofs the application so that the caseID and primaryClientID are set on the FCProcessingDtls struct and passed into MaintainFinancialComponent.setNextProcessingDate(). Where these details are not being assigned implicitly from a financial component entity details struct, the details are set explicitly.
+
+"
