@@ -1,0 +1,232 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-129073,PO09820,An error is displayed when saving updates to user preferences,CEF,,,,"*Issue Description:*
+The user preferences modal that is available in the web client allows each user of the application to update certain user settings, such as their time zone. When a user tries to make any changes to the User Preferences, an 'Error 500 - internal server error' message is displayed. 
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Open the Application menu and select the Preferences option.
+# Modify a setting on the Preferences modal. For example, set Enhanced mode to Yes and click Save.
+# Issue: An 'Error 500 - internal server error' message is displayed.
+
+*Resolution:*
+Users can now save updates to their user preferences without any errors being displayed. 
+
+"
+SPM-129072,PO09779," Form control labels are not displayed when a nested LABEL child element is used",Look and Feel,,,,"*Issue Description:*
+A form control's label is not displayed on a page or modal if the associated FIELD element in UIM has a nested LABEL child element. For example, the Show Nicknames label is not displayed for a checkbox form control on the Person Search page if the label is nested.
+
+*User Interface Impact:* No
+
+*Prerequisite(s):*
+
+* Install Social Program Management from a development installer.
+* Locate the file: ../webclient/components/core/Person/Search/Person_searchCriteriaView.vim.
+* Find the Nickname field: 
+
+<FIELD LABEL=""""Field.Label.Nickname""""> 
+  <CONNECT> 
+    <SOURCE NAME=""""DISPLAY"""" PROPERTY=""""result$dtls$searchWithNicknamesInd"""" /> 
+  </CONNECT> 
+  <CONNECT> 
+    <TARGET NAME=""""ACTION"""" PROPERTY=""""personSearchKey$nicknameInd"""" /> 
+  </CONNECT> 
+</FIELD>
+
+* Modify the field so that the LABEL is a child element instead of a FIELD attribute:
+
+<FIELD> 
+  <LABEL> 
+    <CONNECT> 
+      <SOURCE NAME=""""TEXT"""" PROPERTY=""""Field.Label.Nickname"""" /> 
+    </CONNECT> 
+   </LABEL> 
+   <CONNECT> 
+     <SOURCE NAME=""""DISPLAY"""" PROPERTY=""""result$dtls$searchWithNicknamesInd"""" /> 
+   </CONNECT> 
+   <CONNECT> 
+     <TARGET NAME=""""ACTION"""" PROPERTY=""""personSearchKey$nicknameInd"""" /> 
+   </CONNECT> 
+</FIELD>
+
+* Run the client build (build clean client).
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Click Person under Searches in the shortcuts panel.
+# Issue: The Show Nicknames label for the checkbox on the Person Search page is not displayed.
+
+*Resolution:*
+The JSP generator has been updated. A label that is associated with a form control on an application page or modal is now correctly displayed when a FIELD element has a nested LABEL child element in UIM. 
+
+"
+SPM-129071,DT036620,Page parameters are not passed correctly when a modal opens another modal,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When a modal passes more than one page parameter to a second modal, only the first parameter is named correctly when received by the called modal.
+
+*User Interface Impact:* No
+
+*Prerequisite(s):*
+A customised modal that passes two parameters to a receiving modal, the second parameter being 'caseID'
+
+*Steps to Reproduce:*
+
+# Navigate to the customised prerequisites page. 
+# Open a modal and trigger the action to pass two parameters to a second modal, the second parameter being 'caseID'.
+# Issue: The first parameter is correctly passed but subsequent page parameters are incorrectly named, for example, """"amp;caseID"""" instead of """"caseID""""
+
+*Resolution:*
+When a modal passes multiple page parameters to a second modal, all parameters are named correctly when received by the called modal."
+SPM-129059,,Pasting (Ctrl + V) coloured font texts does not work on Quick notes text area,SOL,Income Support,,,"*Issue Description:*
+Pasting coloured font texts on the Quick Notes text area is being pasted as the default font instead of the coloured font.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an Income Support caseworker.
+# Register a Person.
+# From the Person home tab, expand the Smart Panel.
+# From a Word document, copy and paste text with coloured fonts into the Quick Notes text area.
+# Issue: After pasting coloured font texts into the Quick Notes text area, it is displayed as default font instead of coloured font.
+
+*Resolution:*
+This issue has now been resolved. Now, when text is copied from a Word Document, the text font colour is preserved."
+SPM-128974,," IEG Application Form produces a Null Pointer Exception when navigating from one section to another via Left Panel Navigation",ENT,Intelligent Evidence Gathering,APIs,,"*Issue Description:*
+An IEG application form produces a Null Pointer Exception error when navigating from one section to another via the left panel section navigation if there are disabled sections in between.
+
+*User Interface Impact:* No
+
+*Prerequisite(s):*
+An IEG script with the following structure:
+
+# Section navigation panel enabled (show-sections=""""true"""").
+# The script contains 4 sections: Section A, Section B, Section C, and Section D.
+# Section A contains a question page that is always enabled, with a Question A1 that will be used as criteria to display the Section B and Section C question pages.
+# Section B contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.
+# Section C contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.
+# Section D contains a question page that is always enabled with at least one question.
+
+*Steps to Reproduce:*
+
+# Start the IEG script.
+# In Section A, question A1 provides an answer that will ensure the question pages of Section B and Section C are not displayed, therefore not enabling the sections.
+# Click Next.
+# Section B and Section C are not displayed, and the navigator jumps to Section D.
+# On the Section D question page, click the left panel navigation to go to Section A.
+# On the Section A question page, click the left panel navigation to go to Section D.
+# Issue: A Null Pointer Exception is displayed and the user cannot navigate to the desired section.
+
+*Resolution:*
+This issue is resolved. Disabled sections in an IEG script are now handled properly to avoid a Null Pointer Exception and the user can navigate to previous sections as expected.
+
+
+"
+SPM-128369,,Update the version of the commons-net library to 3.9.0,Third Party Updates,,,,"The Apache Commons Net library contains a collection of network utilities and protocol implementations. Supported protocols include FTP, SMTP(S), Telnet and others. 
+
+The version of the commons-net JAR that is used by SPM has now been updated from 3.6 to 3.9.0. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified commons-net JAR file has been updated.
+ * CuramSDEJlibcommons-net-3.9.0.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.
+"
+SPM-128367,,Update the version of the xercesImpl JAR file to the latest version - 2.12.2,Third Party Updates,,,,"The xercesImpl library is used for parsing, validating and manipulating XML documents. 
+
+The version of the xercesImpl JAR that is used by SPM has now been updated from 2.9.1 to 2.12.2. This new JAR file contains some minor bug fixes and enhancements. It also introduces a dependency on another JAR file, namely xml-apis.jar.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment (JDE) deliverable.
+ * CuramSDEJlibthird_party_version.properties - version of the specified xercesImpl JAR file has been updated and the version of the new xml-apis.jar file has been added. 
+ * CuramCDEJlibextjarxercesImpl-2.12.2.jar - version of the JAR file has been updated.
+ * CuramSDEJlibxercesImpl-2.12.2.jar -  version of the JAR file has been updated.
+ * CuramSDEJxmlserverxercesImpl-2.12.2.jar -  version of the JAR file has been updated.
+ * CuramCDEJlibextjarxml-apis-1.4.01-1.jar - new JAR file introduced.
+ * CuramSDEJlibxml-apis-1.4.01-1.jar - new JAR file introduced.
+ * CuramSDEJxmlserverxml-apis-1.4.01-1.jar - new JAR file introduced.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the updated and new JAR files as specified above.
+"
+SPM-128366,,Update the versions of the Jackson JARs to the latest version,Third Party Updates,,,,"The Jackson API contains multiple functions to read and build JSON using Java. It has data binding capabilities and provides a framework to serialize custom Java objects to JSON strings and deserialize JSON strings back into Java objects. The Java Development Environment (JDE) and the REST infrastructure utilizes these utilities.
+
+The versions of these JARs have now been updated from 2.13.2 and 2.13.2.2 to 2.15.2. As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.
+
+* CuramSDEJlibthird_party_version.properties - the versions of the specified Jackson JARs have been updated.
+
+* CuramSDEJlibjackson-annotations-2.15.2.jar - version of the JAR updated.
+* CuramSDEJlibjackson-core-2.15.2.jar - version of the JAR updated.
+* CuramSDEJlibjackson-databind-2.15.2.jar - version of the JAR updated.
+
+* CuramCDEJlibextjarjackson-annotations-2.15.2.jar - version of the JAR updated.
+* CuramCDEJlibextjarjackson-core-2.15.2.jar - version of the JAR updated.
+* CuramCDEJlibextjarjackson-databind-2.15.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-annotations-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-core-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-databind-2.15.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-base-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-json-provider-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-module-jaxb-annotations-2.15.2.jar - version of the JAR updated.
+ 
+* EJBServercomponentsRestgraphql_libjackson-dataformat-yaml-2.15.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestgraphql_libjackson-datatype-jdk8-2.15.2.jar - version of the JAR updated.
+
+Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated. 
+
+"
+SPM-128363,,Update the version of the xmlgraphics-commons library to 2.8,Third Party Updates,,,,"Apache XML Graphics Commons is a library that consists of several reusable components used by Apache Batik and Apache FOP.
+
+The version of the Apache XML Graphics Commons JAR that is used by SPM has now been updated from 2.4 to 2.8. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified XML Graphics Commons JAR file has been updated.
+ * CuramSDEJxmlserverxmlgraphics-commons-2.8.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above. 
+"
+SPM-128362,,Update the versions of axis.jar and xmlbeans to the latest versions in BIRT,Third Party Updates,,,,"BIRT is an open-source component, which provides a development and execution environment for report content. BIRT is used primarily as a tool for the development and execution of charting and tabular data.
+
+The following JAR updates were made in the BirtViewer:
+
+* BIApp/CuramBIRTViewer/WebContent/WEB-INF/platform/plugins/uk.co.spudsoft.birt.emitters.excel_4.8.0.v201806261756/lib/xmlbeans-3.1.0.jar
+* BIApp/CuramBIRTViewer/WebContent/WEB-INF/lib/axis.jar
+
+Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated.
+
+"
+SPM-128360,,Remove image2 plugin from ckeditor,Third Party Updates,,,,"CKEditor is a WYSIWYG-rich text editor which enables writing content directly inside of web pages or online applications.
+
+The following folders have been removed:
+
+* webclient/WebContent/cefwidgets/ckeditor/plugins/image2
+* webclient/WebContent/cefwidgets/ckeditor/_source/plugins/image2
+
+This plugin was not being used in Cúram and it has been removed.
+
+"
+SPM-127997,,Update the version of the snakeyaml library to 2.0,Third Party Updates,,,,"The snakeyaml library provides functionality to parse a YAML file, and convert to Jackson objects.  
+
+The version of the snakeyaml JAR that is used by SPM has now been updated from 1.33 to 2.0. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.
+
+* CuramSDEJlibthird_party_version.properties - the version of the specified snakeyaml JAR file has been updated.
+* EJBServercomponentsRestgraphql_libsnakeyaml-2.0.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.
+
+"
+SPM-127996,,Update the version of the bcel library to 6.7.0,Third Party Updates,,,,"The Byte Code Engineering Library (Apache Commons BCEL) is intended to give users a convenient way to analyze, create, and manipulate (binary) Java class files (those ending with .class). Classes are represented by objects which contain all the symbolic information of the given class: methods, fields and byte code instructions, in particular. 
+
+The version of the BCEL JAR that is used by SPM has now been updated from 6.1 to 6.7.0. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified BCEL JAR file has been updated.
+ * CuramSDEJlibbcel-6.7.0.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.
+"

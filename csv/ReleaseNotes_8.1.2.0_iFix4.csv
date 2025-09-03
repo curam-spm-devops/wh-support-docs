@@ -1,0 +1,111 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-144059,DT037279,Date anomaly for May 3rd 1942 in timezone America/Puerto_Rico,CEF,Application Development Environment,,,"*Issue Description:*
+The date May 3, 1942 is misinterpreted in the America/Puerto_Rico timezone due to an anomaly in certain versions of the Java timezone database. Specifically, the database incorrectly applies a 1-hour daylight saving time (DST) adjustment at midnight on that date. As a result, the date is shifted back to May 2, 1942 during calculations, leading to inaccurate historical date handling.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Add ?-Duser.timezone=America/Puerto_Rico? to the Default VM Arguments for the JRE being used.
+# Log in as a caseworker.
+# Register a person with their date of birth as May 3, 1942.
+# Issue: Their date of birth is incorrectly displayed as May 2, 1942.
+
+*Resolution:*
+A special case has been added to handle this anomaly and ensure accurate date calculations.
+
+"
+SPM-143970,DT036603,Specific task types are not closed automatically by the application after incoming evidence issues have been resolved,CEF,Business Services,Workflow,,"*Issue Description:*
+The following three problematic scenarios relating to tasks have been raised:
+
+Scenario 1: 'No Supervisor existing for Case XXXXX submitted for approval' task could be closed off manually even without a supervisor available. 
+
+Scenario 2: 'New Incoming Evidence on Case xxx that needs to be resolved' task does not close automatically when incoming evidence is resolved.
+
+Scenario 3: 'New In-edit Evidence on Case xxx as evidence failed to activate' task can not be manually closed when in-edit evidence is resolved.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a caseworker.
+# Register a new person.
+# Create an integrated case.
+# Create a product delivery case.
+# Update the Position and PositionReportingLink database tables as follows. This removes supervisors from the organizational structure.
+## UPDATE POSITION SET LEADPOSITIONIND = '0'
+## UPDATE POSITIONREPORTINGLINK SET RECORDSTATUS = 'RST2'
+# Submit the product delivery for approval.
+# Navigate to the tasks tab on the product delivery.
+# Click the task ?No Supervisor existing for Case XXXXX submitted for approval.?
+# On the task home page, select 'Confirm that the supervisor exists'.
+# Click Yes on the dialog box to confirm.
+# Issue: The task gets closed without the supervisor present.
+
+*Scenario 2:*
+
+# Log in as an administrator.
+# Select Evidence Sharing within Rules and Evidence on the shortcuts panel.
+# Create an identical evidence-sharing configuration from one integrated case type to another integrated case type.
+# Set Trusted Source = No.
+# Log in as a caseworker.
+# Register a new person.
+# Create two integrated cases for the registered person, i.e. the types configured for sharing in the previous step.
+# On the first case, navigate to the evidence tab.
+# Add evidence and apply evidence changes.
+# On the second case, a 'New Incoming Evidence on Case xxx that needs to be resolved' task is created within the Tasks tab.
+# Navigate to the Evidences tab and select incoming evidence.
+# Resolve the incoming evidence by adding it to the case.
+#  Issue: The task 'New Incoming Evidence on Case xxx that needs to be resolved' is not closed even after the incoming evidence is resolved.
+
+*Scenario 3:*
+
+# Log in as a caseworker.
+# Register a new person.
+# Submit an application.
+# On the application case, delete some evidence that would trigger mandatory evidence validations on the related integrated case.
+# Authorize the application case.
+# On the integrated case that gets created, evidence failed to activate and a new task 'New In-edit Evidence on Case xxx as evidence failed to activate' is created within the Tasks tab.
+# Navigate to the evidence tab and apply changes to activate the evidence on the integrated case.
+# A validation error for the mandatory evidence is displayed.
+# Add the missing evidence and apply evidence changes. 
+# Open the task and click ?Add To My Tasks?.
+# Now click Close on the task.
+# Issue: An error message appears preventing the task from being closed: ?Task XXX cannot be closed from this page.?
+
+*Resolution:*
+Scenario 1: Validations have been included to confirm that a supervisor exists before the task gets closed.
+
+Scenario 2: This issue has been resolved and the task 'New Incoming Evidence on Case xxx that needs to be resolved' gets closed when all the incoming evidence is resolved.
+
+Scenario 3: It is now possible to manually close the task. A new version of the AdvancedEvidenceSharingInEditTask workflow has been added to facilitate this manual closure.
+
+*Upgrade Impact:*
+For Scenario 3, any existing in-progress tasks will be created using the old workflow version. These tasks will not be affected by the new workflow, and a caseworker will still not be able to manually close them. Once the new workflow version is released and deployed, new tasks will be created, and a caseworker will be able to manually close them.
+
+
+
+
+"
+SPM-143845,DT037252,Disabled inline action menu configuration can cause NullPointerException errors to be sent to server logs,CEF,,,,"*Issue Description:*
+When the system administration configuration properties for inline action menus are disabled, for example, by removing the properties from the Cúram applications? Application.prx or Environment.xml file, a NullPointerException may occur, potentially leading to degraded application performance over time.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+Customize the Environment.xml file to remove th_e ?_curam.actionmenus.display-inline.enabled.tab? and 'curam.actionmenus.max-inline-items.tab' properties. Then build the database again.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Continue using the application until you encounter an error, either an ?Application Error? or a ?Sorry, an error has occurred? error when opening a browser tab.
+# Inspect the server logs.
+# Issue: A NullPointerException is thrown when the configuration properties for inline action menus are disabled, resulting in the exception stack trace being logged.
+
+*Resolution:*
+The Cúram application has been updated so that when the system administration configuration properties for inline action menus are disabled, a NullPointerException will not be thrown.
+
+"

@@ -1,0 +1,213 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.2.0.0 iFix2</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.2.0.0 iFix2</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.2.0.0 iFix2 release.
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.2.0.0 iFix2 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><style>
+  .table-container {
+    display: block;
+  }
+  .table-container table {
+    border-collapse: collapse;
+    width: 565px;
+    font-size: 8pt;
+  }
+  .table-container th, .table-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  .table-container th {
+    background-color: #f2f2f2;
+  }
+  .table-container td:first-child {
+    width: 35%;
+  }
+  .table-container td:last-child {
+    width: 65%;
+    font-size: 8pt;
+    font-weight: bold;
+  }
+</style>
+
+<p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<h3>Verify Download Integrity (SHA-256 Checksums)</h3>
+<p>To ensure the integrity of your downloaded files:</p>
+<ol>
+<li>Download the file(s) from the links provided above.</li>
+<li>Generate the SHA-256 checksum for the downloaded file using a tool such as shasum or certutil. For example:</li>
+  <ul>
+    <li>On Linux, run shasum -a 256 &lt;filename&gt; in the Terminal.</li>
+    <li>On Windows, run certutil -hashfile &lt;filename&gt; SHA256 in the Command Prompt.</li>
+  </ul>
+<li>Compare the generated checksum with the corresponding value in the table below.</li>
+<li>If the checksums match exactly, the file is authentic and has not been tampered with.</li>
+</ol>
+<div class="table-container">
+<h3>Java8</h3>
+<table>
+  <tr><th>Java8 ZipName</th><th>SHA-256 Checksum</th></tr>
+  <tr><td>Curam8200iFix2_Java8.zip</td><td>33ffe2b25f4205a3e3e5e36a4a565ca2079a739f067e42f12c52c03aa7d85fa1</td></tr>
+
+</table>
+</div>
+
+<div class="table-container">
+<h3>ModernJava</h3>
+<table>
+  <tr><th>ModernJava ZipName</th><th>SHA-256 Checksum</th></tr>
+  <tr><td>Curam8200iFix2_ModernJava.zip</td><td>5598191be5aa66ae228d6a2a24b88bb109f93fda1f98b5a7850c132df4490c3a</td></tr>
+
+
+</table>
+</div>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>  
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_improvedandresolvedissues">Curam Modules</a><br/>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#technical_services_improvedandresolvedissues">Technical Services</a><br/>
+<br/><a name="technical_services_improvedandresolvedissues"></a>
+<h4>Technical Services</h4><a href="#participant_management_improvedandresolvedissues">Participant Management</a><br/>
+<br/><a name="participant_management_improvedandresolvedissues"></a>
+<h4>Participant Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-145968"></a>DT037262, WorkItem:SPM-145968 - Unhandled server exception thrown when registering a prospect person as a person<br/><p><b>Issue Description:</b><br/>Registering a prospect person as a person with an existing mailing address results in an unhandled server exception if a private address is added during the registration process.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a Prospect Person with details: First Name, Last Name, Date of Birth, Gender, and Mailing Address.<ol><li>Note: Since no private address is provided, the system inserts an ‘Address Unavailable’ placeholder for the private address.</ol><li>On the Prospect Person home page, click the Register page-level action.<li>During the registration process, provide a valid private address.<li>Click Save.<li>Issue: An unhandled server exception is thrown.</ol><b>Resolution:</b><br/>The underlying issue here had to do with the removal of the private address placeholder ‘Address Unavailable’ when the mailing address was being inserted for the person. This meant that the primary address for the Concern Role was left pointing at a deleted address, thereby resulting in an unhandled server exception. The logic has been updated to only remove the placeholder address if the address being inserted is marked as preferred.<br/><br/><br/></p></p>
+<br/><a name="curam_modules_improvedandresolvedissues"></a>
+<h4>Curam Modules</h4><a href="#life_event_management_improvedandresolvedissues">Life Event Management</a><br/>
+<br/><a name="life_event_management_improvedandresolvedissues"></a>
+<h4>Life Event Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-145889"></a>DT037187, WorkItem:SPM-145889 - LifeEvents and HoldingCaseDP do not have proper error handling mechanism<br/><p><b>Issue Description:</b><br/>Developers were unable to handle the error that occurred when an exception was thrown during the deferred process in curam.citizen.datahub.holdingcase.impl.HoldingCaseImpl.updateEvidence(EvidenceUpdate).<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Resolution:</b><br/>curam.citizen.datahub.holdingcase.impl.HoldingCaseImpl.updateEvidence(EvidenceUpdate) has been updated to include a new error handler specific to this API. A new hook is now available for customers to implement, which will be invoked when an exception occurs during deferred process execution.<br/><br/><b>Technical:</b><br/>An API is provided for customers to define the actions to be taken when an exception occurs.<br/><br/>The following method in the hook can be implemented to handle custom error processing:<br/><br/><code>curam.citizen.datahub.holdingcase.impl.HoldingCaseCustomErrorHandler.handleError(String, long)</code><br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/curam8200.pdf">Known Issues documented for 8.2.0.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2025
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>

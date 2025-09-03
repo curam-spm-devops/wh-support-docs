@@ -1,0 +1,57 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-141346,,Update the version of the commons-configuration JAR file to the latest,Third Party Updates,,,,"The Apache Commons Configuration package contains tools to assist in the reading of configuration/preferences files in various formats. The library is used in Cúram in a variety of places for XML configuration processing. It is mainly used in the client project for processing the various configuration files for Client Widgets.
+
+The version of the commons configuration library has now been updated from 2.9.0 to 2.10.1. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+
+* CuramCDEJlibextjarcommons-configuration-2.10.1.jar - the version of the JAR file has been updated.
+* TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-configuration JAR has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-141315,,Update Guava to latest version,Third Party Updates,,,,"Google Guava is an open source set of core libraries for the Java platform released by Google under the Apache License. The version of Google Guava used in the Cúram product has been updated from 27.0.1-jre to 33.2.0-jre. 
+
+As a result of this upgrade, the following changes have been made in the Server Java Development Environment deliverable.
+
+* guava.jar (updated from 27.0.1-jre to 33.2.0-jre).
+* failureaccess.jar (updated from 1.0.1 to 1.0.2) - this is a dependency of guava.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+
+"
+SPM-141164,,Update the version of the xmlunit-core JAR file to the latest,Third Party Updates,,,,"XMLUnit Core provides helper classes to validate generated XML against an XML Schema, assert the values of XPath queries or compare XML documents against expected outcomes. It provides a diff-engine which provides full control over what kind of difference is required and which part of the generated document to compare against reference documents. It is used to ensure that Dynamic Domain Definitions are loaded correctly in the product.
+
+The version of the xmlunit-core library has now been updated from 2.6.0 to 2.10.0. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+
+* CuramSDEJlibxmlunit-core-2.10.0.jar - the version of the JAR file has been updated.
+* TI/lib/release/third&#95;party&#95;version.properties - the version of the specified xmlunit-core JAR file has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-139895,,Port Expired demo data in the HCR solution for the 7.0.11 iFix line,SOL,Income Support HCR,Organization,Administration,"*Issue Description:*
+Previously, the demo data shipped with the HCR solution contained entries which expired on 01-January-2025. The demo data in question related to the Organization Structure e.g. PositionHolderLink DMX entries. This meant that some of the demo users were now rendered invalid. The end date for the following DMX files were updated to address this issue.
+
+*EJBServercomponentsISProductdatademoPOSITIONHOLDERLINK.dmx
+*EJBServercomponentsISScreeningdatademoPOSITIONHOLDERLINK.dmx
+
+*User Interface Impact:* No"
+SPM-139759,,Replace the iText library with the OpenPDF library in Cúram (7.0.11.0 iFix),Third Party Updates,,,,"iText is a Java library for creating and manipulating PDF documents. It enables developers to generate complex PDF files programmatically, including adding text, images, and tables, as well as modifying existing PDFs. Its usage in Merative Cùram is primarily focused on generating printable documentation for outcome plans.
+
+The iText library used by Cúram has now been removed and replaced by OpenPDF version 1.3.43. OpenPDF is an open-source library for creating and manipulating PDF documents in Java, derived from the iText library version 4.2.0. It offers features for generating complex PDF files programmatically, including adding text, images and tables, as well as modifying existing PDFs.
+
+As a result of this upgrade, several changes were made across all components of the Social Program Management application.
+The changes to the JAR files include:
+
+* EJBServercomponentsWorkspaceServiceslibiText-2.1.7.jar - iText version removed.
+* CuramSDEJlibopenpdf-1.3.43.jar - openPDF version 1.3.43 added.
+
+Note that any references in custom build scripts to the versioned JAR file should be updated to point to the new JAR file as specified above.
+
+The impact on custom code should be minimal, but it could result in these main differences, particularly if the removed packages were previously utilized:
+
+# OpenPDF introduced type safety with generics. For example, in the original code, final List<Chunk> chunks = pdfFieldCellParagraph.getChunks(); might need to be replaced with final List<Element> chunks = pdfFieldCellParagraph.getChunks();.
+# The rtf.com.lowagie.text.rtf package, which is not included in OpenPDF, has been replaced by a related project called OpenRTF, available at [OpenRTF on Maven Repository|https://mvnrepository.com/artifact/com.github.librepdf/openrtf].
+# The rups.com.lowagie.rups package, featuring the RUPS tool for PDF inspection and manipulation, was part of the original iText library but has been excluded from OpenPDF. An alternative fork of RUPS can be found at [PDF Swing on Maven Repository|https://mvnrepository.com/artifact/com.github.librepdf/pdf-swing].
+
+"
