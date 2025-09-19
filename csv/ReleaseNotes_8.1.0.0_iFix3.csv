@@ -1,0 +1,72 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-131315,DT036335,Using an IEG script an intermittent error is displayed during the intake stage when screening a person for benefits,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+An intermittent error is displayed during the intake stage of screening a person for benefits using the Intelligence Evidence Gathering script. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Launch the IEG script and complete the script to apply for medical benefits.
+# Complete the About You and Household Information pages, and click Next.
+# Issue: A NullPointerException is displayed on the screen during the information-gathering process.
+
+*Resolution:*
+The SecureSantize class has been updated which has resolved the NullPointerException error occurring during the intake portion of the Intelligent Evidence Gathering script.
+
+"
+SPM-130898,,"When a modal is opened from within a sublist within a nested list and saved or dismissed, an incorrect view of the source page is rendered",CEF,Application Development Environment,,,"*Issue Description:*
+When a modal is opened from within a sublist within a nested list and the modal is saved or dismissed, the source page is refreshed with an incorrect view rendered, only the sublist data is displayed. 
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a system administrator.
+# Select the System Configurations tab. 
+# Expand the Application Data section and select Code Tables.
+# Search for Gender.
+# Expand the Gender list. 
+# Select Edit on the ?Female? sublist item, enter in a sort order of 1 and click on save.
+# Issue: The screen is being refreshed and the screen is rendering with only the gender sublist data visible on the Code Tables tab. 
+
+*Scenario 2:*
+
+# Log in as a Supervisor
+# Register a new person and create a Social Assistance case.
+# Navigate to the evidence tab and create an Employment Status record for the person. 
+# Navigate to the In Edit evidence list page. 
+# Expand the Employment Status record to view the sub list details. 
+# Select Continue Editing. 
+# The Edit Employment Status Evidence modal is displayed, enter a comment and select save. 
+# Issue: The evidence tab is being refreshed, the tab is rendering with only the Employment Status Change History visible. 
+
+
+*Resolution:*
+The page is refreshing and rendering correctly, the focus is on the sublist within the nested list and the user can see the updated values.   
+
+"
+SPM-130372,DT036803,A performance issue is present on large lists that contain action controls and menus,CEF,Application Development Environment,,,"*Issue Description:*
+When a list has to be rendered with a large number of records containing action controls and menus the resultant page is slow to appear.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as superuser.
+# Register a person.
+# Add 4000 notes for that person.
+# Log back in as superuser.
+# Search for the person you registered.
+# Click on the Client Contact tab.
+# Issue: The page is slow to load.
+
+*Resolution:*
+The page and list performance has been improved.
+
+*Technical:*
+
+The rendering of the layout of menu items within a list action menu has been redesigned so that pages or modals containing such lists, load with a better response time.
+
+"
