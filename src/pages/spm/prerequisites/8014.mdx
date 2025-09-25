@@ -24,17 +24,17 @@ Merative™ Social Program Management supported operating systems, prerequisites
 
 The Microsoft® Windows® platform is supported for designing, developing, testing, and building the application on a server.
 
-<!--#### Windows 11 Enterprise x86-64
+#### Windows 11 Enterprise x86-64
 
-|Bitness|Base|Future|
-|-------|----|------|
-|64-Exploit|Yes|Yes
+|Bitness|Base|23H2|24H2|Future|
+|-------|----|----|----|------|
+|64-Exploit|Yes|Yes|Yes|Yes|
 
 #### Windows 11 Pro x86-64
 
-|Bitness|Base|Future|
-|-------|----|------|
-|64-Exploit|Yes|Yes-->
+|Bitness|Base|23H2|24H2|Future|
+|-------|----|----|----|------|
+|64-Exploit|Yes|Yes|Yes|Yes|
 
 #### Windows 10 Enterprise x86-64
 
@@ -54,9 +54,9 @@ The Linux® platform is supported for building the application on a server.
 
 #### Red Hat® Enterprise Linux (RHEL) 8 x86-64
 
-|Bitness|Base|8.1|8.2|8.3|8.4|8.5|Future|
-|-------|----|---|---|---|---|---|------|
-|64-Exploit|No|No|No|Yes|Yes|Yes|Yes|
+|Bitness|Base|8.1|8.2|8.3|8.4|8.5|8.6|8.7|8.8|8.9|8.10|Future|
+|-------|----|---|---|---|---|---|---|---|---|---|----|------|
+|64-Exploit|No|No|No|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 
 #### Red Hat Enterprise Linux (RHEL) 7 x86-64
 
@@ -76,6 +76,7 @@ The supported platforms for the Merative™ Social Program Management installers
 
 |Prerequisite|Version|
 |-------|----|
+|Adoptium OpenJDK|8 and future fix packs|
 |IBM® Runtime Environment, Java Technology Edition|8 and future fix packs|
 |Oracle Java SDK/JRE/JDK|8.0 and future fix packs|
 
@@ -107,8 +108,8 @@ The following accessibility software is supported.
 
 |Supported software|Version|Browser|
 |------------------|-------|-------|
-|Freedom Scientific JAWS screen reader|2020 and future fix packs|Microsoft Edge and [JAWS](http://www.freedomscientific.com/products/blindness/jaws) 2020 is the only certified screen reader and browser combination.|
-|Apple VoiceOver|Any version and future fix packs|Google Chrome 107 and VoiceOver on iPad with iOS 15.7 is the certified combination for tablets.|
+|Freedom Scientific JAWS screen reader|2025 and future fix packs|Microsoft Edge and [JAWS](http://www.freedomscientific.com/products/blindness/jaws) 2025 is the only certified screen reader and browser combination.|
+|Apple VoiceOver|Any version and future fix packs|Google Chrome 140 and VoiceOver on iPad with iOS 15.7 is the certified combination for tablets.|
 
 [Back to Supported software](#supported-software)
 
@@ -137,13 +138,13 @@ Database-as-a-Service or Container and Kubernetes platforms are not supported on
 |Supported software|Version|Details|
 |------------------|-------|-------|
 |Db2 Enterprise Server Edition|11.1.0 and future fix packs|Reporting: <br />- SPM Reporting and Analytics is supported on Db2 version 11.1. <br />- The SPM data warehouse can be built on this version of Db2. <br />- Reporting ETLs can be built using a technology compatible with this version of Db2.|
-||11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />|Reporting: <br />- - SPM Reporting and Analytics is supported on DB2 version 11.5.5.0 and future fix packs, mod levels and their fix packs. <br />- The SPM data warehouse can be built on this version of Db2. <br />- Reporting ETLs can be built using a technology compatible with this version of Db2. Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+||11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />11.5.9.0 and future fix packs<br />|Reporting: <br />- - SPM Reporting and Analytics is supported on DB2 version 11.5.5.0 and future fix packs, mod levels and their fix packs. <br />- The SPM data warehouse can be built on this version of Db2. <br />- Reporting ETLs can be built using a technology compatible with this version of Db2. Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
 |Db2 Workgroup Server Edition|11.1.0 and future fix packs||
 |Db2 for z/OS|12.1 and future fix packs|When using SPM with Db2 for z/OS, the provided db2jcc4.jar file in the $CURAMSDEJ/drivers folder is used to access Db2 for z/OS whether access is local to z/OS or via a remote deployment. However, the level of Db2 for z/OS may have dependencies with the client JDBC driver level; therefore, see the [IBM Data Server Driver for JDBC and SQLJ versions and Db2 for z/OS APARs](https://www.ibm.com/support/pages/node/405457) page for supported Db2 and JDBC levels.|
 |H2 Database|1.3.176 or future fix packs|H2 is only supported for use in the development environment to aid application design, development and testing. The supported platforms are Windows 10. H2 is not supported for use with IBM Websphere Application Server or Oracle WebLogic Server. See the H2 site for further information and technical support. |
 |IBM Db2 Advanced Enterprise Server Edition|11.1.0 and future fix packs|Reporting: <br />- SPM Reporting and Analytics is supported on Db2 version 11.1. <br />- The SPM data warehouse can be built on this version of Db2. <br />- Reporting ETLs can be built using a technology compatible with this version of Db2.|
-||11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />|Reporting: <br />- - SPM Reporting and Analytics is supported on DB2 version 11.5.5.0 and future fix packs, mod levels and their fix packs. <br />- The SPM data warehouse can be built on this version of Db2. <br />- Reporting ETLs can be built using a technology compatible with this version of Db2. Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
-|IBM Db2 Standard Edition VPC Option|11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />|Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+||11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />11.5.9.0 and future fix packs<br />|Reporting: <br />- - SPM Reporting and Analytics is supported on DB2 version 11.5.5.0 and future fix packs, mod levels and their fix packs. <br />- The SPM data warehouse can be built on this version of Db2. <br />- Reporting ETLs can be built using a technology compatible with this version of Db2. Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
+|IBM Db2 Standard Edition VPC Option|11.5.5.0 and future fix packs<br />11.5.6.0 and future fix packs<br />11.5.7.0 and future fix packs<br />11.5.8.0 and future fix packs<br />11.5.9.0 and future fix packs<br />|Database-as-a-Service is not supported. Container and Kubernetes Platforms are not supported.|
 |Oracle Database 19c|(19.3) and future Release Updates (RU)||
 ||(19.3) Enterprise Edition and future Release Updates (RU)|Reporting: <br />- Only the Enterprise Edition of Oracle Database 19c is supported for Curam Reporting.<br />- See the [Oracle Database product site](https://www.oracle.com/database/) for certified configuration information on this product.<br />- Curam Reporting has been certified against Oracle 19c as a source database to host the Social Program Management Application database and as a target database to host Reporting databases.|
 
@@ -159,7 +160,7 @@ Note that the development of the application is restricted to the Windows platfo
 |------------------|-------|-------|
 |Apache Ant|1.10.6|Please note that only Apache Ant 1.10.6 is supported. Associated fix packs are not.|
 |Eclipse|4.18 and future fix packs|Eclipse 4.18.0 and [higher maintenance releases](https://www.eclipse.org/downloads/packages/release/Neon/3). Servlet Containers/Application Servers: Apache Tomcat [9.0.50](https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.50/), with [Eclipse Tomcat Plugin](https://sourceforge.net/projects/tomcatplugin/files/updatesite/plugins/) 9.0.1. Java SE: IBM and Oracle Java SE JDK 8.0 and [higher updates](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Java EE: Oracle Java EE 6 and 7 and [higher updates](http://www.oracle.com/technetwork/java/javaee/downloads/java-archive-downloads-eesdk-419427.html). |
-|Rational Software Architect Designer|9.5.0.1|Supported as a Modeling Environment. Servlet Containers/Application Servers: Apache Tomcat 9.0.50, with Eclipse Tomcat Plugin 9.0.1. Java SE: IBM and Oracle Java SE JDK 8.0 and higher updates. Java EE: Oracle Java EE 6 and 7 and higher updates.|
+|Rational Software Architect Designer|9.7.1.2|**Recommended version for the Windows 11 platform**. Supported as a Modeling Environment. Servlet Containers/Application Servers: Apache Tomcat 9.0.99, with Eclipse Tomcat Plugin 9.0.1. Java SE: IBM and Oracle Java SE JDK 8.0 and higher updates. Java EE: Oracle Java EE 6 and 7 and higher updates.|
 
 [Back to Supported software](#supported-software)
 
@@ -182,10 +183,9 @@ For more information, see the Development Environment Installation Guide and the
 |Supported software|Version|Details|
 |------------------|-------|-------|
 |Adoptium OpenJDK|8 and future fix packs|JRE 8.0 is required for Microsoft Word Integration. Available as a free download from the [Adoptium Home Page](https://adoptium.net). |
-|Microsoft Word|2013 and future fix packs|Required for creating and editing Social Program Management communication documents in Microsoft Word format. |
-||2016 and future fix packs||
+|Microsoft Word|2016 and future fix packs|Required for creating and editing Social Program Management communication documents in Microsoft Word format. |
 ||2019 and future fix packs||
-|Oracle Java SDK/JRE/JDK|8.0 and future fix packs|Oracle JRE 8.0 is required for Microsoft Word Integration. JRE 8.0 - the most recently released version tested is JRE 1.8 u351. Available as a free download from the [Oracle Java downloads page](https://www.oracle.com/java/technologies/downloads). |
+|Oracle Java SDK/JRE/JDK|8.0 and future fix packs|Oracle JRE 8.0 is required for Microsoft Word Integration. Available as a free download from the [Oracle Java downloads page](https://www.oracle.com/java/technologies/downloads). |
 
 [Back to Supported software](#supported-software)
 
@@ -208,14 +208,14 @@ Universal Access has been specifically developed for public facing applications 
 
 |Supported software|Version|Details|
 |------------------|-------|-------|
-|Google Chrome|107 and future fix packs|This browser is supported for both the Universal Access and Case Worker applications. Microsoft Word Integration  and Arabic (RTL) are supported for this browser in the Case Worker application.|
+|Google Chrome|140 and future fix packs|This browser is supported for both the Universal Access and Case Worker applications. Microsoft Word Integration  and Arabic (RTL) are supported for this browser in the Case Worker application.|
 |Microsoft Edge|107 and future fix packs|This browser is supported for both the Universal Access and Case Worker applications. Microsoft Word Integration  and Arabic (RTL) are supported for this browser in the Case Worker application.|
 |Mozilla Firefox|106 and future fix packs| This browser is supported only for the Universal Access application.|
 |Apple Safari|16 and future fix packs|This browser is supported only for the Universal Access application.|
 
 #### Tablet browser support
 
-Google Chrome 107 and future fix packs are supported for tablet devices.
+Google Chrome 140 and future fix packs are supported for tablet devices.
 
 [Back to Supported software](#supported-software)
 
