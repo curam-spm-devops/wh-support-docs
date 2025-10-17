@@ -1,0 +1,3 @@
+Verify Download Integrity (SHA-256 Checksums) for CE2508:
+9281cf7aa108be32929bd121208dda48a748546a162d2e78c6bd4ad5864b33b5  SPM_DS_7.10.0.zip\
+9747f7932e98ea52e645366ebec4ca4ad41311807fe376c53d3d9c78470ba261  UA_Web_App_7.10.0.zip}
