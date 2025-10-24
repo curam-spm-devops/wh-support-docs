@@ -1,0 +1,156 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.0.3.0 iFix7</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.0.3.0 iFix7</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.0.3.0 iFix7 release.
+</p>
+
+<p>
+This is a cumulative release that incorporates all improvements, resolved issues, and third-party updates in previous 8.0.3.0 iFix releases. For full details, see the release notes for each of the previous iFix releases online at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/release-notes/">Release Notes.</a>
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.0.3.0 iFix7 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>   
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#third_party_updates_improvedandresolvedissues">Third Party Updates</a><br/>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#business_intelligence_and_analytics_improvedandresolvedissues">Business Intelligence and Analytics</a><br/>
+<br/><a name="business_intelligence_and_analytics_improvedandresolvedissues"></a>
+<h4>Business Intelligence and Analytics</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-143927"></a>WorkItem:SPM-143927 - Remove JAR files from the BIRT Viewer deliverable that are not used by the Cúram application<br/><p>The Cúram BIRT Viewer is the BIRT Engine infrastructure component which executes BIRT charts and reports. This component wraps the open source BIRT Engine and is a Java Platform, Enterprise Edition application.<br/><br/>A number of changes have been made to the Cúram BIRT Viewer deliverable including the updating of a JAR file to a more recent version and the removal of a number of JAR files and plugins which were defunct and not required for the viewing of the BIRT reports delivered and utilized by the Cúram application. <br/><br/>The changes include the following:<br/><br/><ul><li>CuramBIRTViewer\WebContent\WEB-INF\lib\axis.jar - the version of this JAR file has been updated to org.apache.axis_1.4.1.v20231107-0937.jar.<li>CuramBIRTViewer\WebContent\WEB-INF\lib\axis-ant.jar - this JAR file has been removed.<li>CuramBIRTViewer\WebContent\WEB-INF\lib\saaj.jar - this JAR file has been removed.<li>CuramBIRTViewer\WebContent\WEB-INF\platform\plugins\org.apache.derby<i>10.11.1.1</i>v201605202053.jar - this JAR file has been removed.<li>CuramBIRTViewer\WebContent\WEB-INF\platform\plugins\org.eclipse.datatools.enablement.mysql.dbdefinition_1.2.1.201712071719.jar - this JAR file has been removed.<li>CuramBIRTViewer\WebContent\WEB-INF\platform\plugins\org.eclipse.datatools.enablement.postgresql.dbdefinition_1.2.1.201712071719.jar - this JAR file has been removed.<li>CuramBIRTViewer\WebContent\WEB-INF\platform\plugins\org.eclipse.datatools.enablement.postgresql_1.3.1.201712071719.jar - this JAR file has been removed.<li>CuramBIRTViewer\WebContent\WEB-INF\platform\plugins\org.eclipse.birt.report.data.oda.excel_4.8.0.v201806261756.jar - this JAR file has been removed.<li>CuramBIRTViewer\WebContent\WEB-INF\platform\plugins\uk.co.spudsoft.birt.emitters.excel_4.8.0.v201806261756 - this complete directory has been removed. This includes the removal of the following JAR files:<li>dom4j-1.6.1.jar<li>xmlbeans-2.3.0.jar</ul>We recommend the update or removal of any references in custom scripts and other artifacts to the JAR files that are specified above.<br/><br/><br/></p></p>
+<br/><a name="third_party_updates_improvedandresolvedissues"></a>
+<h4>Third Party Updates</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-143968"></a>WorkItem:SPM-143968 - Update the versions of the snakeyaml and Jackson libraries to a later version<br/><p>The snakeyaml library provides functionality to parse a YAML file, and convert to Jackson objects.  <br/><br/>The version of the snakeyaml JAR that is used by SPM has now been updated from 1.33 to 2.0. This new JAR file contains some minor bug fixes and enhancements.<br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.<br/><br/><ul><li>CuramSDEJ\lib\third<i>party</i>version.properties - the version of the specified snakeyaml JAR file has been updated.<li>EJBServer\components\Rest\graphql_lib\snakeyaml-2.0.jar - the version of the JAR has been updated.</ul>The Jackson API contains multiple functions to read and build JSON using Java. It has data binding capabilities and provides a framework to serialize custom Java objects to JSON strings and deserialize JSON strings back into Java objects. The Java Development Environment (JDE) and the REST infrastructure utilizes these utilities.<br/><br/>The versions of these JARs have now been updated from 2.14.0 to 2.15.2. As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.<br/><br/><ul><li>CuramSDEJ\lib\third<i>party</i>version.properties - the versions of the specified Jackson JARs have been updated.<li>CuramSDEJ\lib\jackson-annotations-2.15.2.jar - version of the JAR updated.<li>CuramSDEJ\lib\jackson-core-2.15.2.jar - version of the JAR updated.<li>CuramSDEJ\lib\jackson-databind-2.15.2.jar - version of the JAR updated.<li>CuramCDEJ\lib\ext\jar\jackson-annotations-2.15.2.jar - version of the JAR updated.<li>CuramCDEJ\lib\ext\jar\jackson-core-2.15.2.jar - version of the JAR updated.<li>CuramCDEJ\lib\ext\jar\jackson-databind-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-annotations-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-core-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-databind-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-jaxrs-base-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-jaxrs-json-provider-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-module-jaxb-annotations-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\graphql_lib\jackson-dataformat-yaml-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\graphql_lib\jackson-datatype-jdk8-2.15.2.jar - version of the JAR updated.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.<br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/spm8030.pdf">Known Issues documented for 8.0.3.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2025
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>
