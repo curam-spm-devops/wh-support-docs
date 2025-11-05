@@ -86,6 +86,8 @@ Java is required to run the Merative™ Cúram installers and the following vers
 
 * [Reporting and Analysis](#reporting-and-analysis)
 
+* [Java Requirements for Batch Processes and XML Server](#java-requirements-for-batch-processes-and-xml-server)
+
 * [Word Integration](#word-integration)
 
 * [Web browsers](#web-browsers)
@@ -168,6 +170,18 @@ For more information, see the Development Environment Installation Guide and the
 |Supported software|Version|Details|
 |------------------|-------|-------|
 |Eclipse Business Intelligence and Reporting Tools|4.8.0 and future fix packs|Cúram uses the all-in-one installation. For more information, see [BIRT versions and platform support](https://download.eclipse.org/birt/downloads/drops/).|
+
+[Back to Supported software](#supported-software)
+
+### Java Requirements for Batch Processes and XML Server
+
+The Batch Launcher is a stand-alone Java® program responsible for handling batch requests. The XML server is a Java application that processes jobs submitted by a client and produces formatted documents.
+
+Both components require Java® to run. The following Java distribution is **certified** for use with Cúram batch processes and the Cúram XML Server. Other JDK distributions (such as Oracle JDK, IBM JDK etc.) may be used at your discretion. While these distributions are not specifically tested as part of the certification process, there are no known issues related to their use in this context.
+
+|Certified JDK for Batch & XML Server|Version|
+|------------------|-------|
+|Adoptium OpenJDK|8 and future fix packs|
 
 [Back to Supported software](#supported-software)
 
