@@ -1,0 +1,14 @@
+Verify Download Integrity (SHA-256 Checksums) for CE2507:
+
+To ensure the integrity of your downloaded files:
+
+1. Download the file(s) from the links provided above.
+2. Generate the SHA-256 checksum for the downloaded file using a tool such as shasum or certutil. For example:
+   - On Linux, run shasum -a 256 <filename> in the Terminal.
+   - On Windows, run certutil -hashfile <filename> SHA256 in the Command Prompt.
+3. Compare the generated checksum with the corresponding value in the table below.
+4. If the checksums match exactly, the file is authentic and has not been tampered with.
+
+9cf7fd40f158e89cedb6dd6b866b61994eacbb9353649ec557f0c5e0f84f151f  SPM_DS_7.9.0.zip
+
+9ceeb36e914f604d5b4ccec8de88605cab53ca3e05e289f17e6c72683375a5e6  UA_Web_App_7.9.0.zip
