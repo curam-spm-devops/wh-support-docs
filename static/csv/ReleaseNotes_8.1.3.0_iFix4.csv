@@ -1,0 +1,29 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-148276,DT037346,The calendar in the date input field shows the displays the wrong format,CEF,,,,"*Issue Description:*
+When the date format is set to ?dd/MM/yyyy?, the calendar date input field displays the selected date in the wrong format ('MM/dd/yyyy') when the chosen day is between the 1st and 12th of the month.
+*User Interface Impact:* No.
+*Prerequisites:*
+# Open the following files:## /Development/webclient/JavaSource/curam/omega3/ApplicationConfiguration.properties
+## /Development/webclient/components/SECCommon/javasource/curam/omega3/ApplicationConfiguration.properties
+## /Development/webclient/WebContent/WEB-INF/classes/curam/omega3/ApplicationConfiguration.properties
+
+# Update the following properties to change the date format to be dd/MM/yyyy:## dateformat=dd MM yyyy
+## dateseparator=/
+
+# Open /Development/EJBServer/project/properties/Bootstrap.properties
+# Update the following properties:## curam.environment.default.dateformat=dd MM yyyy
+## curam.environment.default.dateseparator=/
+
+# Run the server, database, and webclient builds.
+
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a person.
+# On the Register Person wizard, navigate to the second page.
+# Navigate to a date picker input field and select a date where the day value is the 12th or lower (The 4th August 2025 or 04/08/2025, for example).
+# Close and re-open the date picker.
+# Issue: The selected date is being interpreted in ?MM/dd/yyyy? format, and the date picker is now displaying April 8th, 2025, as the selected date.
+
+*Resolution:*
+The calendar date input field now correctly displays selected dates in the ?dd/MM/yyyy? format, regardless of the day of the month, when this format is configured.
+"

@@ -1,171 +1,307 @@
-<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
-<head>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>C&#250;ram 8.1.1.0 iFix1</title>
-<style type="text/css">
-	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
-	  h1 {font-size: 22pt}
-	  h2 {font-size: 18pt}
-	  h3 {font-size: 14pt}
-	  h4 {font-size: 12pt}
-	  h5 {font-size: 10pt}
-	  h6 {font-size: 9pt}
-	  h7 {font-weight: bold; font-size: 8pt }
-	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
-	  em {font-style: normal;font-weight: bold}
-	</style>
-</head>
-<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
-<a name="ibm-content"></a>
-<h2>
-<b>C&#250;ram 8.1.1.0 iFix1</b>
-</h2>
-
-<h5>CONTENTS</h5>
-<a href="#intro">Introduction</a><br/>
-<a href="#supported_hwsw">System Requirements</a><br/>
-<a href="#download">Download</a><br/>
-<a href="#download">Security Bulletins</a><br/>
-<a href="#appinstallsteps">Installation</a><br/>
-<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
-<a href="#known_issues">Known Issues</a><br/>
-<a href="#notices">Notices</a><br/>
-<br/>
-<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
-<!ENTITY Eacute "&#201;">
-<!ENTITY Uacute "&#218;">
-<!ENTITY uacute "&#250;">
-<!ENTITY nbsp "&#160;">
-<!ENTITY ldquo "&#34;">
-<!ENTITY rdquo "&#34;">
-<!ENTITY lsquo "&#39;">
-<!ENTITY rsquo "&#39;">
-<!ENTITY ndash "&#150;">
-<p>
-Welcome to the C&#250;ram 8.1.1.0 iFix1 release.
-</p>
-
-</p>
-For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
-</p>
-
-
-<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
-
-<p>This 8.1.1.0 iFix1 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
-<ul>
-<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
-<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
-<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
-</ul>
-</p>
-
--->
-<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
-<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
-<!ENTITY Eacute "&#201;">
-<!ENTITY Uacute "&#218;">
-<!ENTITY uacute "&#250;">
-<!ENTITY nbsp "&#160;">
-<!ENTITY ldquo "&#34;">
-<!ENTITY rdquo "&#34;">
-<!ENTITY lsquo "&#39;">
-<!ENTITY rsquo "&#39;">
-<!ENTITY ndash "&#150;">
-
-<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
-<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
-<a name="download"></a><h2>Download</h2><p>
-This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
-</p>
-<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
-<a name="download"></a><h2>Security Bulletins</h2><p>
-Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
-<p>  
-<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
-<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-
-  <body>
-  
-<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
-
-<p> The basic installation steps are as follows:
-</p>
-<ul>
-  <li>Review the release notes and documentation for any prerequisite steps. </li>
-  <li>Download and extract the contents of the .zip file to a local drive location. </li>
-  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
-  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
-  <li>Run the appropriate build targets for your installation.</li>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.5">
+  <style type="text/css">
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Arial; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Arial; -webkit-text-stroke: #000000; min-height: 15.0px}
+    p.p5 {margin: 0.0px 0.0px 13.3px 0.0px; font: 13.3px Arial; -webkit-text-stroke: #000000}
+    p.p6 {margin: 0.0px 0.0px 13.3px 0.0px; font: 13.3px Arial; -webkit-text-stroke: #000000; min-height: 15.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Arial; -webkit-text-stroke: #000000}
+    p.p8 {margin: 0.0px 0.0px 13.3px 0.0px; font: 13.3px Arial; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Arial; color: #6d6d6d; -webkit-text-stroke: #6d6d6d; min-height: 15.0px}
+    p.p11 {margin: 0.0px 0.0px 13.3px 0.0px; font: 13.3px Arial; color: #0e6e6d; -webkit-text-stroke: #0e6e6d}
+    li.li7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Arial; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {text-decoration: underline ; font-kerning: none}
+    span.s3 {font: 13.3px Arial; text-decoration: underline ; font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
+    span.s4 {-webkit-text-stroke: 0px #000000}
+    span.s5 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s6 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #0000e9}
+    ol.ol1 {list-style-type: decimal}
+    ul.ul1 {list-style-type: disc}
+  </style>
+</head>
+<body>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Cúram 8.1.1.0 iFix1</b></span></h2>
+<h5 style="margin: 0.0px 0.0px 22.3px 0.0px; font: 13.3px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>CONTENTS</b></span></h5>
+<p class="p3"><span class="s2">Introduction</span></p>
+<p class="p3"><span class="s2">System Requirements</span></p>
+<p class="p3"><span class="s2">Download</span></p>
+<p class="p3"><span class="s2">Security Bulletins</span></p>
+<p class="p3"><span class="s2">Installation</span></p>
+<p class="p3"><span class="s2">Improvements, Resolved Issues and Third Party Updates</span></p>
+<p class="p3"><span class="s2">Known Issues</span></p>
+<p class="p3"><span class="s2">Notices</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Introduction</b></span></h2>
+<p class="p5"><span class="s1">Welcome to the Cúram 8.1.1.0 iFix1 release.</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p7"><span class="s1">For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation"><span class="s3">Merative Support Docs.</span></a></span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p8"><span class="s2">Back to top</span></p>
+<p class="p9"><span class="s1"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>System Requirements</b></span></h2>
+<p class="p5"><span class="s1">For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites"><span class="s3">Prerequisites and supported software</span></a>.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p8"><span class="s2">Back to top</span></p>
+<p class="p9"><span class="s1"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Download</b></span></h2>
+<p class="p5"><span class="s1">This release is available to download from <a href="https://merative.my.site.com/mysupport/s/"><span class="s3">Merative Support</span></a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p8"><span class="s2">Back to top</span></p>
+<p class="p9"><span class="s1"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Security Bulletins</b></span></h2>
+<p class="p5"><span class="s1">Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/"><span class="s3">Merative Support</span></a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p8"><span class="s2">Back to top</span></p>
+<p class="p9"><span class="s1"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Installation</b></span></h2>
+<p class="p5"><span class="s1">For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/"><span class="s3">Product Documentation and PDFs.</span></a></span></p>
+<p class="p5"><span class="s1">The basic installation steps are as follows:</span></p>
+<ul class="ul1">
+  <li class="li7"><span class="s4"></span><span class="s1">Review the release notes and documentation for any prerequisite steps.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Download and extract the contents of the .zip file to a local drive location.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Ensure that all files in your Cúram installation are writable.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Run the Cúram installer, which you can find in the INSTALLER folder.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Run the appropriate build targets for your installation.</span></li>
 </ul>
-
-<br/>
-
-<h4>Upgrading</h4>
-<p>
-If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
-</p>
-  
-    </body>
-</html>
-<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
-<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
-<a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/>
-<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
-<h4>Curam Enterprise Framework</h4><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/><a href="#dynamic_evidence_improvedandresolvedissues">Dynamic Evidence</a><br/><a href="#technical_services_improvedandresolvedissues">Technical Services</a><br/>
-<br/><a name="application_development_environment_improvedandresolvedissues"></a>
-<h4>Application Development Environment</h4><a href="#client_development_environment_improvedandresolvedissues">Client Development Environment</a><br/><a href="#infrastructure_improvedandresolvedissues">Infrastructure</a><br/>
-<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-134124"></a>DT036846, WorkItem:SPM-134124 - Cúram Session Timeout warning is not appearing at the expected time when a modal is open<br/><p><b>Issue Description:</b><br/>The Cúram Session Timeout warning is not appearing at the expected time when a modal is open.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Open the Register Person modal.<li>Issue: The Cúram Session Timeout warning may appear before the default time of 28 minutes.</ol><b>Resolution:</b><br/>Additional functionality has been added to the Cúram Session Timeout feature to ensure the timing of this warning is correct, even when a modal is already displayed. <br/><br/><br/></p></p>
-<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-137133"></a>DT036803, DT036843, WorkItem:SPM-137133 - A performance issue is present with lists that contain action controls and menus<br/><p><b>Issue Description:</b><br/>When a list has to be rendered with a large number of records containing action controls and menus the resultant page is slow to appear.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>A person with a considerable number of Notes needs to exist on the system, around 4000 or so.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Search for the person with the large number of Notes.<li>Click the Client Contact tab.<li>Issue: The page is slow to load.</ol><b>Resolution:</b><br/>The page and list performance has been improved.<br/><br/><b>Technical:</b><br/>The rendering of the layout of menu items within a list action menu has been redesigned so that pages or modals containing such lists, load with a better response time.<br/><br/><br/></p></p>
-<br/><a name="client_development_environment_improvedandresolvedissues"></a>
-<h4>Client Development Environment</h4><a href="#infrastructure_improvedandresolvedissues">Infrastructure</a><br/>
-<br/><a name="infrastructure_improvedandresolvedissues"></a>
-<h4>Infrastructure</h4>
-<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135326"></a>DT036985, WorkItem:SPM-135326 - IEG summary page rendering without CSS and non-functional links after edit action<br/><p><b>Issue Description:</b><br/>When a user creates an Income Support application in IEG, navigates to the Client’s Rights and Responsibilities page, and then navigates back to the summary page of the script and edits a record, the resulting page is loaded with no CSS and an error is displayed.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as Income Support combined caseworker.<li>Register a Person.<li>From the person tab-level menu, select a new Income Support Application and apply for Food Assistance.<li>Complete all sections of the application up to the Final section and then click the Next button to navigate to the Client’s Rights and Responsibilities page.<li>On the Client’s Rights and Responsibilities page, click the back button until the user is navigated back to the IEG Summary Page (notice the script title at the top changes to Cúram Internal Application).<li>Click the Edit button for the primary client.<li>Issue: An error message is displayed to the user and the page is loaded with no CSS.</ol><b>Resolution:</b><br/>The user can now navigate back from the Client’s Rights and Responsibilities page and update the IEG script as required without any issues.<br/><br/><br/></p></p>
-<br/><a name="infrastructure_improvedandresolvedissues"></a>
-<h4>Infrastructure</h4>
-<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135922"></a>DT036683, WorkItem:SPM-135922 - Eligibility cluster is laid out from top to bottom with the results appearing underneath each element<br/><p><b>Issue Description:</b><br/>On Dynamic UIM screens that contain nested conditional clusters, layout issues are observed where clusters are incorrectly displayed as being left aligned and much narrower than they should be.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><br/><b>Scenario 1:</b><br/><ol><li>Log in as an Income Support caseworker.<li>Register a new Person.<li>Create a New Application, select Food Assistance, and complete the application.<li>Navigate to the Applications tab on the person’s home page.<li>Click on newly created application.<li>Add Work Registration and Head of Household evidence for Food Assistance.<li>Verify all evidence. <li>From the actions menu on the evidence page select Apply Changes, tick all and press Save.<li>Check Eligibility to confirm you are eligible for Food Assistance.<li>Select Ready for Determination from the tab menu and click Yes on the confirmation modal.<li>Authorise the Food Assistance program.<li>Navigate to the Related Cases tab on the application and open the newly created Income Support integrated case.<li>Navigate to the Food Assistance product delivery case, approve and activate the case.<li>Click on the Determinations tab.<li>Click on the decision period date to open the Food Assistance decision summary page.<li>Issue: The clusters are left aligned and they are much narrower than they should be as most of the real estate on that page is not being used.</ol><b>Scenario 2:</b><br/><ol><li>Log in as an Income Support caseworker.<li>Register a new Person.<li>Create a New Application, select Food Assistance, Cash Assistance and Medical Assistance. <li>Select Yes to the “Is anyone disabled? question on the The Claimant’s Home section and select the person registered above. <li>Enter in disability details for the person and submit the application. <li>Navigate to the Applications tab on the person’s home page.<li>Click on newly created application<li>Add Head of Household evidence for Food Assistance and Cash Assistance.<li>Edit the disability evidence, select the 1619(b) recipient indicator and end date the record with a date prior to the current date . <li>Check Eligibility for Food Assistance, Cash Assistance and Medical Assistance. <li>Navigate to the Eligibility Checks tab and select the Ineligible tab. <li>Expand and select the ineligible decision periods for Food Assistance, Cash Assistance and Aged, Blind and Disabled. <li>Issue: The clusters on the ineligible decisions for each product are overlapping making them difficult to read.</ol><b>Resolution:</b><br/>On Dynamic UIM screens that contain nested conditional clusters, the layout of the displayed clusters has been improved. This will help with readability. <br/><br/><br/></p></p>
-<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135923"></a>DT036995, WorkItem:SPM-135923 - Copying the application URL into new tab causes a multiple redirects error<br/><p><b>Issue Description:</b><br/>In Cúram, when copying the application URL into a new browser tab, a multiple redirects error occurs.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>Only impacts Weblogic configuration.<br/><br/><b>Steps to Reproduce</b>:<br/><ol><li>Log in as a caseworker.<li>Copy the URL in the browser. <li>Open a new browser tab, paste the copied URL and press enter. <li>Issue: Copying the application URL into new tab causes a multiple redirects error.</ol><b>Resolution:</b><br/>When the application URL is copied into a new browser tab, the Cúram home page loads correctly. </p></p>
-<br/><a name="dynamic_evidence_improvedandresolvedissues"></a>
-<h4>Dynamic Evidence</h4><a href="#evidence_management_improvedandresolvedissues">Evidence Management</a><br/>
-<br/><a name="evidence_management_improvedandresolvedissues"></a>
-<h4>Evidence Management</h4>
-<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-135894"></a>DT037049, WorkItem:SPM-135894 -  Adding new dynamic evidence results in An Application Error Has Occurred being presented to the user<br/><p><b>Issue Description:</b><br/>When adding dynamic evidence from the evidence type workspace page, the evidence is saved but the user is presented with ‘An Application Error Has Occurred’.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce (Generic):</b><br/><ol><li>Log in as a caseworker.<li>Register a new Person.<li>Create an integrated case for the person.<li>From the evidence dashboard, add a dynamic evidence record, Email Addresses, for example.<li>Now click the Email Addresses hyperlink on the evidence dashboard. This opens the evidence type workspace page.<li>Click the New page action to capture a new email address.<li>Add the mandatory email address data to the New Email Addresses modal and click Save.<li>Issue: Even though the email address is saved, the user is presented with ‘An Application Error Has Occurred'.</ol><b>Resolution:</b><br/>The issue was that the system lost track of the page it needed to return to when capturing dynamic evidence. This has been resolved and now when dynamic evidence is captured from the evidence type workspace page, the system presents the list of evidence records to the user, including the newly captured evidence record.<br/><br/><br/></p></p>
-<br/><a name="technical_services_improvedandresolvedissues"></a>
-<h4>Technical Services</h4><a href="#rest_improvedandresolvedissues">Rest</a><br/>
-<br/><a name="rest_improvedandresolvedissues"></a>
-<h4>Rest</h4><a href="#infrastructure_improvedandresolvedissues">Infrastructure</a><br/>
-<br/><a name="infrastructure_improvedandresolvedissues"></a>
-<h4>Infrastructure</h4>
-<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133600"></a>DT036921, WorkItem:SPM-133600 - Resolve Jersey classloading issue with latest Patches from WebLogic 14.1<br/><p><b>Description:</b> <br/>A change in WLS PATCH SET UPDATE 14.1.1.0.231220, or later, led to conflicts with packages on the Oracle WebLogic Application Server when deploying the Cúram REST application.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b> N/A<br/><br/><b>Resolution:</b><br/>A configuration change was introduced by adding META-INF/services/org.glassfish.jersey as a preferred application resource to the REST weblogic-application.xml to resolve this conflict.<br/><br/><b>Technical:</b><br/>The following file has been updated:<br/><br/><ul><li>../EJBServer/components/Rest/resources/ear/wls/META-INF/weblogic-application.xml</ul><br/></p></p>
-
-<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
-<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
-<!ENTITY Eacute "&#201;">
-<!ENTITY Uacute "&#218;">
-<!ENTITY uacute "&#250;">
-<!ENTITY nbsp "&#160;">
-<!ENTITY ldquo "&#34;">
-<!ENTITY rdquo "&#34;">
-<!ENTITY lsquo "&#39;">
-<!ENTITY rsquo "&#39;">
-<!ENTITY ndash "&#150;">
-<p>
-Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/curam811.pdf">Known Issues documented for 8.1.1.0</a>.
-</p>
-<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
-<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
- <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
-
-<br/>
-
-<h3>Copyright</h3>
-<p>
-         © Merative US L.P. 2024
-</p>
-         Merative is a trademark of Merative US L.P. in the United States and other countries.
-</p>
-<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Upgrading</b></span></h4>
+<p class="p5"><span class="s1">If you are upgrading from a previous version, the Cúram Upgrade Helper contains documentation and tools to help you to upgrade your Cúram application codebase and database. The Cúram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/"><span class="s3">Merative Support.</span></a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p8"><span class="s2">Back to top</span></p>
+<p class="p9"><span class="s1"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Improvements, Resolved Issues and Third Party Updates</b></span></h2>
+<p class="p3"><span class="s2">Curam Enterprise Framework</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Curam Enterprise Framework</b></span></h4>
+<p class="p3"><span class="s2">Application Development Environment</span></p>
+<p class="p3"><span class="s2">Dynamic Evidence</span></p>
+<p class="p3"><span class="s2">Technical Services</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Application Development Environment</b></span></h4>
+<p class="p3"><span class="s2">Client Development Environment</span></p>
+<p class="p3"><span class="s2">Infrastructure</span></p>
+<p class="p11"><span class="s1"><b>DT036846, WorkItem:SPM-134124 - Cúram Session Timeout warning is not appearing at the expected time when a modal is open</b></span></p>
+<p class="p5"><span class="s1"><b>Issue Description:</b><br>
+The Cúram Session Timeout warning is not appearing at the expected time when a modal is open.<br>
+<br>
+<b>User Interface Impact:</b> No<br>
+<br>
+<b>Steps to Reproduce:</b><b></b></span></p>
+<ol class="ol1">
+  <li class="li7"><span class="s4"></span><span class="s1">Log in as a caseworker.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Open the Register Person modal.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Issue: The Cúram Session Timeout warning may appear before the default time of 28 minutes.</span></li>
+</ol>
+<p class="p7"><span class="s1"><b>Resolution:</b><b></b></span></p>
+<p class="p7"><span class="s1">Additional functionality has been added to the Cúram Session Timeout feature to ensure the timing of this warning is correct, even when a modal is already displayed.<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p11"><span class="s1"><b>DT036803, WorkItem:SPM-137133 - A performance issue is present with lists that contain action controls and menus</b></span></p>
+<p class="p5"><span class="s1"><b>Issue Description:</b><br>
+When a list has to be rendered with a large number of records containing action controls and menus the resultant page is slow to appear.<br>
+<br>
+<b>User Interface Impact:</b> No<br>
+<br>
+<b>Prerequisites:</b><br>
+A person with a considerable number of Notes needs to exist on the system, around 4000 or so.<br>
+<br>
+<b>Steps to Reproduce:</b><b></b></span></p>
+<ol class="ol1">
+  <li class="li7"><span class="s4"></span><span class="s1">Log in as a caseworker.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Search for the person with the large number of Notes.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Click the Client Contact tab.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Issue: The page is slow to load.</span></li>
+</ol>
+<p class="p7"><span class="s1"><b>Resolution:</b><b></b></span></p>
+<p class="p7"><span class="s1">The page and list performance has been improved.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p7"><span class="s1"><b>Technical:</b><b></b></span></p>
+<p class="p7"><span class="s1">The rendering of the layout of menu items within a list action menu has been redesigned so that pages or modals containing such lists, load with a better response time.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Client Development Environment</b></span></h4>
+<p class="p3"><span class="s2">Infrastructure</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Infrastructure</b></span></h4>
+<p class="p11"><span class="s1"><b>DT036985, WorkItem:SPM-135326 - IEG summary page rendering without CSS and non-functional links after edit action</b></span></p>
+<p class="p5"><span class="s1"><b>Issue Description:</b><br>
+When a user creates an Income Support application in IEG, navigates to the Client’s Rights and Responsibilities page, and then navigates back to the summary page of the script and edits a record, the resulting page is loaded with no CSS and an error is displayed.<br>
+<br>
+<b>User Interface Impact:</b> No<br>
+<br>
+<b>Steps to Reproduce:</b><b></b></span></p>
+<ol class="ol1">
+  <li class="li7"><span class="s4"></span><span class="s1">Log in as Income Support combined caseworker.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Register a Person.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">From the person tab-level menu, select a new Income Support Application and apply for Food Assistance.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Complete all sections of the application up to the Final section and then click the Next button to navigate to the Client’s Rights and Responsibilities page.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">On the Client’s Rights and Responsibilities page, click the back button until the user is navigated back to the IEG Summary Page (notice the script title at the top changes to Cúram Internal Application).</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Click the Edit button for the primary client.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Issue: An error message is displayed to the user and the page is loaded with no CSS.</span></li>
+</ol>
+<p class="p7"><span class="s1"><b>Resolution:</b><b></b></span></p>
+<p class="p7"><span class="s1">The user can now navigate back from the Client’s Rights and Responsibilities page and update the IEG script as required without any issues.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Infrastructure</b></span></h4>
+<p class="p11"><span class="s1"><b>DT036683, WorkItem:SPM-135922 - Eligibility cluster is laid out from top to bottom with the results appearing underneath each element</b></span></p>
+<p class="p5"><span class="s1"><b>Issue Description:</b><br>
+On Dynamic UIM screens that contain nested conditional clusters, layout issues are observed where clusters are incorrectly displayed as being left aligned and much narrower than they should be.<br>
+<br>
+<b>User Interface Impact:</b> No<br>
+<br>
+<b>Steps to Reproduce:</b><br>
+<br>
+<b>Scenario 1:</b><b></b></span></p>
+<ol class="ol1">
+  <li class="li7"><span class="s4"></span><span class="s1">Log in as an Income Support caseworker.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Register a new Person.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Create a New Application, select Food Assistance, and complete the application.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Navigate to the Applications tab on the person’s home page.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Click on newly created application.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Add Work Registration and Head of Household evidence for Food Assistance.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Verify all evidence.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">From the actions menu on the evidence page select Apply Changes, tick all and press Save.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Check Eligibility to confirm you are eligible for Food Assistance.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Select Ready for Determination from the tab menu and click Yes on the confirmation modal.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Authorise the Food Assistance program.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Navigate to the Related Cases tab on the application and open the newly created Income Support integrated case.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Navigate to the Food Assistance product delivery case, approve and activate the case.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Click on the Determinations tab.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Click on the decision period date to open the Food Assistance decision summary page.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Issue: The clusters are left aligned and they are much narrower than they should be as most of the real estate on that page is not being used.</span></li>
+</ol>
+<p class="p7"><span class="s1"><b>Scenario 2:</b><b></b></span></p>
+<ol class="ol1">
+  <li class="li7"><span class="s4"></span><span class="s1">Log in as an Income Support caseworker.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Register a new Person.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Create a New Application, select Food Assistance, Cash Assistance and Medical Assistance.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Select Yes to the “Is anyone disabled? question on the The Claimant’s Home section and select the person registered above.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Enter in disability details for the person and submit the application.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Navigate to the Applications tab on the person’s home page.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Click on newly created application</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Add Head of Household evidence for Food Assistance and Cash Assistance.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Edit the disability evidence, select the 1619(b) recipient indicator and end date the record with a date prior to the current date .</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Check Eligibility for Food Assistance, Cash Assistance and Medical Assistance.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Navigate to the Eligibility Checks tab and select the Ineligible tab.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Expand and select the ineligible decision periods for Food Assistance, Cash Assistance and Aged, Blind and Disabled.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Issue: The clusters on the ineligible decisions for each product are overlapping making them difficult to read.</span></li>
+</ol>
+<p class="p7"><span class="s1"><b>Resolution:</b><b></b></span></p>
+<p class="p7"><span class="s1">On Dynamic UIM screens that contain nested conditional clusters, the layout of the displayed clusters has been improved. This will help with readability.<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p11"><span class="s1"><b>DT036995, WorkItem:SPM-135923 - Copying the application URL into new tab causes a multiple redirects error</b></span></p>
+<p class="p5"><span class="s1"><b>Issue Description:</b><br>
+In Cúram, when copying the application URL into a new browser tab, a multiple redirects error occurs.<br>
+<br>
+<b>User Interface Impact:</b> No<br>
+<br>
+<b>Prerequisites:</b><br>
+Only impacts Weblogic configuration.<br>
+<br>
+<b>Steps to Reproduce</b>:</span></p>
+<ol class="ol1">
+  <li class="li7"><span class="s4"></span><span class="s1">Log in as a caseworker.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Copy the URL in the browser.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Open a new browser tab, paste the copied URL and press enter.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Issue: Copying the application URL into new tab causes a multiple redirects error.</span></li>
+</ol>
+<p class="p7"><span class="s1"><b>Resolution:</b><b></b></span></p>
+<p class="p7"><span class="s1">When the application URL is copied into a new browser tab, the Cúram home page loads correctly.</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Dynamic Evidence</b></span></h4>
+<p class="p3"><span class="s2">Evidence Management</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Evidence Management</b></span></h4>
+<p class="p11"><span class="s1"><b>DT037049, WorkItem:SPM-135894 - Adding new dynamic evidence results in An Application Error Has Occurred being presented to the user</b></span></p>
+<p class="p5"><span class="s1"><b>Issue Description:</b><br>
+When adding dynamic evidence from the evidence type workspace page, the evidence is saved but the user is presented with ‘An Application Error Has Occurred’.<br>
+<br>
+<b>User Interface Impact:</b> No<br>
+<br>
+<b>Steps to Reproduce (Generic):</b><b></b></span></p>
+<ol class="ol1">
+  <li class="li7"><span class="s4"></span><span class="s1">Log in as a caseworker.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Register a new Person.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Create an integrated case for the person.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">From the evidence dashboard, add a dynamic evidence record, Email Addresses, for example.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Now click the Email Addresses hyperlink on the evidence dashboard. This opens the evidence type workspace page.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Click the New page action to capture a new email address.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Add the mandatory email address data to the New Email Addresses modal and click Save.</span></li>
+  <li class="li7"><span class="s4"></span><span class="s1">Issue: Even though the email address is saved, the user is presented with ‘An Application Error Has Occurred'.</span></li>
+</ol>
+<p class="p7"><span class="s1"><b>Resolution:</b><b></b></span></p>
+<p class="p7"><span class="s1">The issue was that the system lost track of the page it needed to return to when capturing dynamic evidence. This has been resolved and now when dynamic evidence is captured from the evidence type workspace page, the system presents the list of evidence records to the user, including the newly captured evidence record.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Technical Services</b></span></h4>
+<p class="p3"><span class="s2">Rest</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Rest</b></span></h4>
+<p class="p3"><span class="s2">Infrastructure</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h4 style="margin: 0.0px 0.0px 21.3px 0.0px; font: 16.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Infrastructure</b></span></h4>
+<p class="p11"><span class="s1"><b>DT036921, WorkItem:SPM-133600 - Resolve Jersey classloading issue with latest Patches from WebLogic 14.1</b></span></p>
+<p class="p5"><span class="s1"><b>Description:</b> <br>
+A change in WLS PATCH SET UPDATE 14.1.1.0.231220, or later, led to conflicts with packages on the Oracle WebLogic Application Server when deploying the Cúram REST application.<br>
+<br>
+<b>User Interface Impact:</b> No<br>
+<br>
+<b>Steps to Reproduce:</b> N/A<br>
+<br>
+<b>Resolution:</b><br>
+A configuration change was introduced by adding META-INF/services/org.glassfish.jersey as a preferred application resource to the REST weblogic-application.xml to resolve this conflict.<br>
+<br>
+<b>Technical:</b><br>
+The following file has been updated:<br>
+</span></p>
+<ul class="ul1">
+  <li class="li7"><span class="s4"></span><span class="s1">../EJBServer/components/Rest/resources/ear/wls/META-INF/weblogic-application.xml</span></li>
+</ul>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p8"><span class="s2">Back to top</span></p>
+<p class="p9"><span class="s1"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Known Issues</b></span></h2>
+<p class="p8"><span class="s5">Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/curam811.pdf"><span class="s6">Known Issues documented for 8.1.1.0</span></a>.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p8"><span class="s2">Back to top</span></p>
+<p class="p9"><span class="s1"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 19.9px 0.0px; font: 24.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Notices</b></span></h2>
+<p class="p5"><span class="s1">Before using this information and the product it supports, read the information in <a href="https://curam-spm-devops.github.io/wh-support-docs/notices"><span class="s3">"Notices"</span></a></span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<h3 style="margin: 0.0px 0.0px 18.7px 0.0px; font: 18.7px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>Copyright</b></span></h3>
+<p class="p5"><span class="s1">© Merative US L.P. 2024</span></p>
+<p class="p7"><span class="s1">Merative is a trademark of Merative US L.P. in the United States and other countries.</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p8"><span class="s2">Back to top</span></p>
+<p class="p9"><span class="s1"></span><br></p>
 </body>
 </html>
