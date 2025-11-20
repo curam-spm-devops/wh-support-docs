@@ -2,7 +2,7 @@
   pages:
     - title: Overview
       path: /spm/overview
-    - title: 8.2.0.0 is now available
+    - title: 8.2.1.0 is now available
       path: /spm/announcements       
     - title: Release notes
       path: /spm/release-notes
