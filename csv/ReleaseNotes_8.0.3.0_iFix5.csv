@@ -1,0 +1,118 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-131865,DT036862,Long strings inside table data cells within the rich text Notes History are overlapping,Look and Feel,,,,"*Issue Description:*
+When long strings are present inside table data cells within the rich text Notes History, the strings are overlapping.
+
+*User Interface Impact:* Yes.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a Person and navigate to the Client Contact tab.
+# Create a new Note and insert a formatted table with long strings of text inside the table cells.
+# Save the Note.
+# Expand the Note in the Notes list to view the Notes History.
+# Issue: Long text inside the table cells overlap with text in adjacent cells.
+
+*Resolution:*
+When long strings are present inside table data cells within the rich text Notes History, the strings do not overlap and will wrap inside the table data cell.
+
+"
+SPM-131864,DT036859,Long words are not wrapping onto a new line in the Notes History,Look and Feel,,,,"*Issue Description:*
+When long words are present within the rich text Notes History list, the words are not wrapping onto a new line.
+
+*User Interface Impact:* Yes.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a Person and navigate to the Client Contact tab.
+# Create a new Note and insert a long text string.
+# Save the Note.
+# Expand the Note in the Notes list to view the Notes History.
+# Issue: The word does not wrap onto a new line.
+
+*Resolution:*
+When long words are present within the rich text Notes History list, the words wrap onto a new line.
+
+"
+SPM-131862,,Pasting (Ctrl + V) colored font texts not working on Quick Notes text area,SOL,Income Support,,,"*Issue Description:*
+Pasting colored font texts into the Quick Notes text area, the text is being pasted as the default font instead of the colored font. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an Income Support caseworker.
+# Register a Person.
+# From the Person home tab, expand the Smart Panel.
+# Copy and paste text with colored fonts from a Word document into the Quick Notes text area.
+# Issue: After pasting colored font text into the Quick Notes text area, it is taking the default font instead of the colored font.
+
+*Resolution:*
+When text is copied from a Word Document into the Quick Notes text area, the text font's color is now preserved.
+
+"
+SPM-131858,,The original values selected in the ?Assigned To? field are not retained when the user selects to edit the task query.,CEF,Integrated Case Management,,,"*Issue Description:*
+In Cu?ram, when editing an existing task query that was originally created with 5 or more assignee's, only the first 4 assignees are marked as originally assigned.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as caseworker.
+# Go to inbox, open """"New task Query"""" model.
+# Enter a query name and select 5 or more checkboxes in the """"Assigned To"""" field.
+# Save the query.
+# Edit the saved query.
+# Issue: Some checkboxes get deselected in the """"Assigned To"""" field. This also affects the result when the query is run.
+
+*Resolution:*
+The issue has been resolved now ensuring the original values selected in the ?Assigned To? field are retained when the user selects to edit or run the task query. 
+
+"
+SPM-123936,"PO09679, DT032844",Action menus within nested lists do not display all values without a user scrolling,Accessibility,,,,"*Issue Description:*
+Action menus within nested lists do not display all actions in the menu, a user needs to scroll downwards to view all the actions in the menu.  
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+*Scenario 1:* 
+
+# Log in as an Administrator. 
+# Select the Administration Workspace tab.  
+# Expand the Rules and Evidence section and select Dynamic Evidence. 
+# Select the New page level action to create a New Dynamic Evidence Type and save the record.
+# Expand the row to view the details for the Dynamic Evidence Type created in step 4. 
+# Select the ellipsis to view the action menu.
+# Issue: The action menu is not large enough to display all values without a user scrolling. 
+
+*Scenario 2:* 
+
+# Log in as a Child Welfare Structure Decision Making intake worker.
+#  Select the Intakes Tab to expand the Shortcuts panel. 
+#  Expand the Intakes section and select New Intake.  
+# Complete the Category, Types, Date, Time and Method fields and save the intake.
+# The Intake Assistant opens, on the Basics tab, enter a narrative in the Smart Panel.
+# Select the Participants tab and select the New Participant action. 
+# Enter mandatory details for the participant, First Name, Last Name and Role and select Next.
+# On the next screen select Finish. 
+# Select the New Participant action on the Participants tab to create a second participant.
+# Enter mandatory details for the second participant, First Name, Last Name and Role and select Next.
+# On the next screen select Finish. 
+# Select the Relationships tab and select the New action.
+# Create a relationship between the two participants registered above and save. 
+# Select the Assessments tab.
+# Select the checkbox for Inadequate Food for question 7, for all other questions either select the None checkbox or the No radio button. 
+# Select Finish.
+# Select Open Intake action. 
+# Navigate to the Assessments tab and select the ellipsis on the completed assessment row to view the action menu.
+# Issue: All actions are not displayed in the menu, the user has to scroll down to view the full list of actions. 
+
+
+*Resolution:*
+The CSS for all screens containing action menus which are contained within nested lists have been adjusted to ensure that there is a minimum amount of space in those containing action menus that need to expand downwards. This will help with readability and will ensure that action menus contained within nested lists display a greater number of values that will result in less need for scrolling by users.
+
+
+
+"
