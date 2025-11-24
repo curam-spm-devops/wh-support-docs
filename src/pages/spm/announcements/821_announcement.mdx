@@ -5,30 +5,42 @@ description: 8.2.1.0 is now available
 
 ## Cúram by Merative 8.2.1.0
 
-Cúram by Merative™ is a leading solution for supporting the end-to-end social program and care coordination service delivery process. V8.2.1.0 includes enhancements to our user experience and new options for technical platform.
+Cúram by Merative™  is a leading solution for supporting the end-to-end social program and care coordination service delivery process. V8.2.1.0 includes enhancements to our technical infrastructure and user experience.
 
 
-### Technical Evolution
+### Technical Infrastructure
 
-#### Support for Java 21 on Liberty for containers  
-Due to the Oracle announcement that support for Java 8 will end in Dec 2030, we have introduced support for Java 21 for IBM Liberty  application server using IBM MQ for containerised deployments. Future releases will support additional deployment models.  We continue to support Java 8 on WebSphere application server, Liberty and WebLogic. Customers can stay on Java 8 or transition to the modern java platform by choosing the appropriate version of the installer.
+#### Support for Java 21 on WebLogic 14.1.2  
+In advance of Oracle ending support for Java 8 in Dec 2030, Cúram is enhancing our solution to support Java 21
+* In *v8.2.0.0*, we introduced support for Java 21 for IBM Liberty  application server using IBM MQ for containerised deployments. 
+* Now, with *v8.2.1*, we have extended Java 21 support to include WebLogic application server, upgrading to WLS 14.1.2. 
+We continue to support Java 8 on WebSphere application server, Liberty and WebLogic and encourage customers to make plans to transition to modern java.
 
-#### Extended support for Containerisation
-With our 8.2 Modern Java release, we’ve expanded our container orchestration platform support beyond OpenShift to include:
-- Production support for Microsoft Azure Kubernetes Service (AKS)
-- Dev/Test support for Amazon Elastic Kubernetes Service (EKS)
 
-This expansion enables our clients to scale applications more efficiently, enhance system resilience, and accelerate innovation through cloud-native architectures.
+
+#### Extending support for Containerisation  
+With the *8.2.1 Modern Java release*, we’ve further expanded our container orchestration platform support. 
+* Starting v7.0.11 Curam introduced container support for OpenShift. 
+* In v8.2.0.0, we introduced support for Microsoft Azure Kubernetes Service (AKS). 
+* Now, with v8.2.1, we’re adding support for Amazon Elastic Kubernetes Service (EKS). 
+This enhancement provides greater flexibility and choice for deploying Curam in modern containerized environments. 
 
 ### User Experience
 
+#### New Enhancements to Streamline Eligibility and Entitlement Processing 
+We’re excited to announce two key improvements designed to make workflows more efficient for customers managing multiple benefit programs: 
+
+* *Evidence Management at Application Case* - Allows caseworker to decide whether specific evidence changes should be activated together, once, or separately providing control to streamline the process when appropriate. 
+
+* *Verification Proof Sharing* - We've introduced *automation* to streamline the sharing of verification documentation.  When adding *Verification Proof* to an active evidence record, you can now configure Curam to *automatically share* the corresponding verification documentation to other cases. 
+This means less manual work and faster sharing of critical proof, simplifies caseworker experience and improves accuracy for Health and Human Services organizations. 
+
+
+#### Task and Notification documentation     
+Documentation on the business processes in Platform and Insurance Affordability that trigger Tasks and Notifications is now available from the  Knowledge Base section of the support portal.  
+This provides customers with the information they need to decide which Tasks and Notifications they want to retain to best suit their requirements. 
+
 #### Accessibility – Caseworker and Clients 
-At Merative, we are committed to ensuring our systems meet recognized industry accessibility standards. The 8.2.0.0 release continues on this commitment with additional enhancements across numerous WCAG 2.1 criteria to improve accessibility for both clients and caseworkers. 
+Cúram is compliant with WCAG 2.1 level AA with exceptions. The 8.2.1 release continues our commitment to ensuring our systems meet recognized industry accessibility standards with additional enhancements across numerous WCAG 2.1 criteria to improve accessibility for both clients and caseworkers.  
 
-
-#### Improved readability    
-To improve readability of pages and modals in the caseworker application, the label font size was increased.  Font size and weight were also increased for the shortcut menu.
-
-
-
-For more details about these features, see the [What's new in 8.2.1.0](/pdf/spm/Curam_WhatsNew_821.pdf) and the [8.2.0.0 release notes](/pdf/releasenotes/curam8200.pdf).
+For more details about these features, see the [What's new in 8.2.1.0](/pdf/spm/Curam_WhatsNew_821.pdf) and the [8.2.1.0 release notes](/pdf/releasenotes/curam8210.pdf).
