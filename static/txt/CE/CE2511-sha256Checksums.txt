@@ -1,0 +1,7 @@
+ Verify Download Integrity (SHA-256 Checksums) for CE2511:
+
+
+
+0d970f7ca08c922c33c1efd8da9ccef92ebe2b3cc6ff2ad3266ca4c7c8e0903f  SPM_DS_7.11.1.zip
+
+d37fed85f4c63918852aae46001c4206fc8912e43cf117d31ccf9bc84169cde2  UA_Web_App_7.11.1.zip
