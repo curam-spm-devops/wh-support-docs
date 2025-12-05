@@ -1,0 +1,26 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-129848,DT036744,While using a screen reader searching for and selecting an item results in the page crashing and an error code being displayed,Accessibility,,,,"*Issue Description:*
+When using a screen reader, searching for and selecting an item by using the Enter key or Spacebar results in the page crashing and an error code being displayed.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Navigate to the Person Search page.
+# Search for a registered user and open their home page.
+# Navigate to the Administration tab.
+# Select to create a new task.
+# Select the search icon for an external user.
+# Enter % in the search field to return all external users.
+# Press tab until you reach the Select link.
+# Hit the link by pressing the Space bar.
+# Issue: The new task page does not open and an error is displayed with Error code: ?STATUS_ACCESS_VIOLATION?.
+
+*Resolution:*
+This has been resolved you can search for and select items using the Enter key or Spacebar while using a screen reader.
+
+When creating a task while using a screen reader, searching for and selecting an external user will return the user to the new task page where the selected external user is displayed. The user can continue to create the task.
+
+"

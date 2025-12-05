@@ -1,0 +1,179 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.1.0.0 iFix2</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.1.0.0 iFix2</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.1.0.0 iFix2 release.
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.1.0.0 iFix2 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>  
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#accessibility_improvedandresolvedissues">Accessibility</a><br/><a href="#look_and_feel_improvedandresolvedissues">Look and Feel</a><br/><a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/>
+<br/><a name="accessibility_improvedandresolvedissues"></a>
+<h4>Accessibility</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130061"></a>DT036744, WorkItem:SPM-130061 - While using a screen reader searching for and selecting an item results in the page crashing and an error code being displayed<br/><p><b>Issue Description:</b><br/>When using a screen reader, searching for and selecting an item by using the Enter key or Spacebar results in the page crashing and an error code being displayed.<br/>For example, when creating a task while using a screen reader, searching for and selecting an external user causes the page to crash and the task is not created. <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b> <br/><ol><li>Enable a screen reader.<li>Log in as a caseworker.<li>Navigate to the Person Search page.<li>Search for a registered user and open their home page.<li>Navigate to the Administration tab.<li>Select to create a new task.<li>Select the search icon for an external user.<li>Enter % in the search field to return all external users.<li>Press tab until you reach the Select link.<li>Hit the link by pressing the Space bar.<li>Issue: The new task page does not open and an error is displayed with Error code: ‘STATUS<i>ACCESS</i>VIOLATION’.</ol><b>Resolution:</b><br/>You can now search for and select items using the Enter key or Spacebar while using a screen reader.<br/>Now when creating a task while using a screen reader, searching for and selecting an external user will return the user to the new task page where the selected external user is displayed. The user can continue to create the task.<br/><br/><br/></p></p>
+<br/><a name="look_and_feel_improvedandresolvedissues"></a>
+<h4>Look and Feel</h4><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130056"></a>DT036777, WorkItem:SPM-130056 - Long page title or zooming can cause a scrollbar to appear in the Page Actions area that is not selectable with a mouse.<br/><p><b>Issue Description:</b><br/>When the length of the title in the main content area exceeds the space available, horizontal scrolling is required to reach the action buttons but, the scrollbar cannot be selected using a mouse.<br/><br/><b>User Interface Impact:</b> Yes<br/><br/><b>Prerequisites:</b><br/>Ensure your operating system is set to always display scrollbars (classic scrollbars).<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a person.<li>Navigate to Person’s Home tab, select the Client Contact tab and expand the Communication Exceptions section. <li>Open the Shortcuts Panel.<li>Use browser zoom to zoom to 200%.<li>Issue: The main content area header scrolls horizontally but the scrollbar cannot be selected with a mouse.</ol><b>Resolution:</b><br/>The main content area header no longer scrolls horizontally, instead the title wraps and the actions remain in view or stacking beneath the title when space is limited. <br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130059"></a>DT036664, WorkItem:SPM-130059 - Unable to select the last item in a multi-select, scrollable list<br/><p><b>Issue Description:</b><br/>The last item in a scrollable, selectable list is difficult to select due to the fade-out effect at the bottom.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/>There are no instances out of the box.  To see this in action, a developer may:-<br/><ol><li>Configure SCROLL_HEIGHT onto a UIM multi-select LIST. <li>Set the value to less than the combined height of the number of items in the list. <li>Rebuild the client application.<li>Restart the application.<li>Test by selecting the last item in the list.</ol><b>Resolution:</b><br/>Styles have been updated to allow the user to select the last item.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130335"></a>WorkItem:SPM-130335 - Inline page actions displayed when printing<br/><p><b>Issue Description:</b><br/>Inline page actions are displayed when printing.<br/><br/><b>User Interface Impact:</b> Yes<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a Person.<li>Navigate to the Persons Home tab, click the Print button and Cancel the first print dialog that appears.<li>Issue: Page actions, for example, Add Picture<i>,</i> are displayed in the print view.</ol><b>Resolution:</b><br/>Inline page actions are no longer displayed when printing.<br/><br/><br/></p></p>
+<br/><a name="application_development_environment_improvedandresolvedissues"></a>
+<h4>Application Development Environment</h4><a href="#client_development_environment_improvedandresolvedissues">Client Development Environment</a><br/>
+<br/><a name="client_development_environment_improvedandresolvedissues"></a>
+<h4>Client Development Environment</h4><a href="#widgets_improvedandresolvedissues">Widgets</a><br/>
+<br/><a name="widgets_improvedandresolvedissues"></a>
+<h4>Widgets</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130369"></a>WorkItem:SPM-130369 - Missing columns and content when printing pages that contain expandable lists<br/><p><b>Issue Description:</b><br/>When printing a page within the Cúram application that contains an expanded list, some columns may not display on the printed page.<br/><br/><b>User Interface Impact:</b> Yes<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as caseworker.<li>Navigate to Cases and Outcomes.<li>Expand the shortcuts panel.<li>Expand the Searches section and select Person.<li>Search for a person.<li>Expand one of the search result rows.<li>Select the Print icon.<li>Issue:  In the Search Results sections, the Date of Birth column is cut off.</ol><b>Resolution:</b><br/>The layout of expandable lists has been adjusted to ensure columns are not missing when printed.<br/><br/><br/></p></p>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/><a href="#dynamic_evidence_improvedandresolvedissues">Dynamic Evidence</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130248"></a>DT036775, WorkItem:SPM-130248 - The progress spinner is not displayed when fetching search results<br/><p><b>Issue Description:</b><br/>When you click a Search button on a modal or wizard to search for data in the system, the progress spinner is not displayed to indicate that the search is in progress.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Navigate to Person under Searches in the shortcuts panel.<li>Enter some search criteria into the fields provided in the form.<li>Click the Search button.<li>Issue: A progress spinner does not display as expected while the system fetches the data to populate the search results.</ol><b>Resolution:</b><br/>When a Search button on a modal or wizard is clicked to search for data in the system, the progress spinner now displays to indicate that the search is in progress. <br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130261"></a>DT036798, WorkItem:SPM-130261 - When a Javascript function is linked to an Action Control on a modal, the modal remains greyed out after the function has been executed<br/><p><b>Issue Description:</b><br/>When a Javascript function is linked to an Action Control on a modal, the modal content appears frozen after the function has been executed.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>Configure a custom UIM which opens in a modal and contains an Action Control which executes a Javascript function when clicked.<br/>To create the Action Control, configure an &lt;ACTION<i>CONTROL> element with a child &lt;SCRIPT> element. Add an EVENT=”ONCLICK” attribute to the &lt;SCRIPT> element and configure a SCRIPT</i>FILE attribute to contain the name of a custom Javascript file and an ACTION attribute to contain the name of the Javascript function to be executed.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker<li> Navigate to the custom UIM.<li>Click on the Action Control with the custom Javascript configured.<li>Issue: When the Javascript function has executed, the modal freezes and cannot be interacted with.</ol><b>Resolution:</b><br/>When a Javascript function is linked to an Action Control on a modal, the modal content is interactive after the function has been executed.<br/><br/><br/></p></p>
+<br/><a name="application_development_environment_improvedandresolvedissues"></a>
+<h4>Application Development Environment</h4><a href="#client_development_environment_improvedandresolvedissues">Client Development Environment</a><br/>
+<br/><a name="client_development_environment_improvedandresolvedissues"></a>
+<h4>Client Development Environment</h4><a href="#infrastructure_improvedandresolvedissues">Infrastructure</a><br/><a href="#look_&_feel_improvedandresolvedissues">Look & Feel</a><br/>
+<br/><a name="infrastructure_improvedandresolvedissues"></a>
+<h4>Infrastructure</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-129879"></a>DT036741, WorkItem:SPM-129879 - Search popup modal freezes when reset button is pressed<br/><p><b>Issue Description:</b><br/>When you select a button on a modal in order to reset fields that you have already populated, the modal enters into a frozen state indefinitely and the fields are not reset.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><br/><b>Scenario 1:</b><br/><ol><li>Log in as Provider Management Resource Manager.<li>Navigate to Provider And Services.<li>Expand the shortcuts panel.<li>Expand the Providers section and select Enroll Provider.<li>On the Enroll Provider modal, Provider Search page, click Next.<li>On the Provider Details page, progress to the ‘sort code’ popup field.<li>Select the search icon to activate the sort code popup modal.<li>Enter data into the sort code search field and select the Reset button to reset the populated field.  <li>Issue: The modal enters a frozen state indefinitely and the populated fields are not reset.</ol><b>Scenario 2:</b><br/><ol><li>Log in as an eligibility worker.<li>Register a new Person.<li>Submit an Income Support Application for Cash Assistance.<li>Open the Income Support integrated case.<li>Navigate to the Evidence tab and click the New Evidence page-level action.<li>On the New Evidence modal, select the Add row-level action for Student evidence.<li>On the Student Evidence modal, progress to the ‘School’ popup field in the School Details section.<li>Select the search icon to activate the Educational Institute search popup modal.<li>Enter data into the  search field and select the Reset button to reset the populated field.  <li>Issue: The modal enters a frozen state indefinitely and the populated fields are not reset.</ol><b>Resolution:</b><br/>When you select a button on a modal in order to reset fields that you have already populated, the fields are reset as expected and the modal is not frozen.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130052"></a>DT036781, WorkItem:SPM-130052 - Full list of notes are not printed if SCROLL<i>HEIGHT attribute is set on the LIST element in Participant</i>listNote1.vim<br/><p><b>Issue Description:</b><br/>After applying a SCROLL<i>HEIGHT attribute to a &lt;LIST> UIM element, if the number of rows in the list extends beyond this SCROLL</i>HEIGHT value the rows revealed by scrolling are not displayed when the page is printed.<br/><br/><b>User Interface Impact:</b> No.<br/><br/><b>Prerequisites:</b><br/>Customise a list by adding a SCROLL<i>HEIGHT attribute to its LIST UIM element, for example, add SCROLL</i>HEIGHT="150 to the &lt;LIST> UIM element in Participant<i>listNote1.vim (&lt;LIST SCROLL</i>HEIGHT="150">).<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in a caseworker.<li>Register a person.<li>Navigate to the Persons Home page and select the Client Contact tab.<li>From the Notes section, select the New action and create 5 notes for the person. A scrollbar will display beside the list of notes.<li>Select the Print icon.<li>Click Cancel on the first print preview page.<li>Issue: A scrollbar displays in the print preview and not all of the notes created for the person are displayed.</ol><b>Resolution:</b><br/>Print specific styling has been added to reveal all rows and remove the scroll bar on the printed version of the page.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130074"></a>DT036788, WorkItem:SPM-130074 - The return page URL is not being passed into modal windows from links outside the menu<br/><p><b>Issue Description:</b><br/>Open a modal from an inline action within a tab action menu and select a link or button, an application error occurs.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>A tab actions menu is configured to have an inline menu item that opens a modal which redirects the user to another page or modal when they perform a modal action. <br/><br/>For example, a tab actions menu on a person tab, where the New Note menu item is configured inline and opens a New Note modal which has been configured with a resolve UIM (containing a JSP<i>SCRIPTLET element) that depends on the “</i>o3rpu“ parameter to redirect the user.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a person.<li>Select the “New Note” inline action button within tab action menu.<li>Create the note by selecting the Save button.<li>Issue: An application error occurs.</ol><b>Resolution:</b><br/>When you open a modal from an inline action within a tab action menu and subsequently select a link or button, the user interface is correctly updated.<br/><br/><b>Technical:</b><br/><br/>When a user selects an inline action within a tab action menu, the “_o3rpu” HTTP request parameter is added to the request so it will be present when resolver UIM pages use it to redirect users to another page or modal.<br/><br/>//</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130128"></a>DT036791, WorkItem:SPM-130128 - Clicking Save or Cancel from a custom Client Contact Note does not return the user to the parent modal<br/><p><b>Issue Description:</b><br/><br/>When a form is submitted on a modal which is a child of another modal that was opened from a tab actions menu, the parent modal is not correctly displayed.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>A tab actions menu is configured to have an overflow menu item that opens a modal with a list containing a list actions menu. For example, a tab actions menu on a person tab, that has a New Demo overflow item that opens a modal containing a list of notes that can be edited.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a person.<li>From the tab actions overflow menu, select the “New Demo…” menu item.<li>From the Demo modal, select the Edit button from actions menu column on a note to edit.<li>Edit the Subject field or notes text area and select the Submit button.<li>Issue: The modal “Notes” is displayed instead of the parent modal “Demo”.</ol><b>Resolution:</b><br/>When a form on a modal - which is a child of another modal that was opened from a tab actions menu - is submitted, the parent modal is correctly updated and displayed to the user.<br/><br/><br/></p></p>
+<br/><a name="look_&_feel_improvedandresolvedissues"></a>
+<h4>Look & Feel</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-129570"></a>DT036750, WorkItem:SPM-129570 - Codetable values are not displaying correctly when the modal window is small<br/><p><b>Issue Description:</b><br/>When you navigate to a codetable hierarchy dropdown and activate it to select an option, it is difficult to view and select the options from the dropdown menu that is presented.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>A modal or a step in wizard is configured to have just codetable hierarchy fields. For example on the Enroll Provider wizard, the 2nd step is configured to have just the 2 codetable hierarchy fields and both configured horizontally.<br/><br/><b>Steps to Reproduce:</b><br/><br/><b>Scenario 1:</b> <br/><ol><li>Log in as Provider Management Resource Manager.<li> Navigate to Provider And Services.<li>Expand the shortcuts panel.<li>Expand the Providers section and select Enroll Provider.<li>On the Enroll Provider modal, Provider Search page, click Next.<li>On the Provider Details page, select the Provider Category codetable hierarchy dropdown.<li>Issue: The options are hard to view and select from dropdown menu presented because it is small in height and has a small vertical scrollbar to scroll the options.</ol><b>Scenario 2:</b><br/><ol><li>Log in as an eligibility worker.<li>Register a new Person.<li>Submit an Income Support Application for Food Assistance.<li>Open the Income Support integrated case.<li>Open Tab Actions menu, select Guided Change and select the Add a Member action to open the Add Household Member wizard.<li>Enter all mandatory details in the Participant Details, Personal Information and Relationship details wizard pages and proceed to step 4, Program Details. <li>In the Work Registration section, select the Work Non Participation radio button.<li>Issue: The options are hard to view and select from dropdown menu presented because it is small in height and has a small vertical scrollbar to scroll the options.</ol><b>Resolution:</b><br/>When you navigate to a codetable hierarchy dropdown and activate it to select an option, you can easily view and select an option from the menu presented.<br/><br/><br/></p></p>
+<br/><a name="dynamic_evidence_improvedandresolvedissues"></a>
+<h4>Dynamic Evidence</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-130057"></a>DT036780, WorkItem:SPM-130057 - Multiple primary buttons are present on Dynamic Evidence modal dialogs<br/><p><b>Issue Description:</b><br/>Multiple primary buttons are present for Dynamic Evidence modal dialogs when the evidence modal has been opened from another modal and the evidence has End Dating enabled or has a “Save and Next” or “Save and New“ button. <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as an administrator.<li>Select the Administration Workspace tab and expand the Shortcuts panel.<li>Navigate to the Dynamic Evidence page under the Rules and Evidence section.<li>Click Edit on an evidence list item (e.g Addresses, Identifications, Countable Assistance Period).<li> Ensure the “Enable End Dating when Creating Evidence” checkbox is selected.<li>Log in as a caseworker.<li>Register a person.<li>From the tab action menu of the Participant Data Case, select ‘New Evidence...’ to open the New Evidence dialog.<li>Click on an Add button next to an evidence type to open a new evidence dialog (e.g Addresses, Identifications, Countable Assistance Period).<li>Issue: There are duplicate primary buttons being displayed on the modal.</ol><b>Resolution:</b><br/>When a Dynamic Evidence modal has been opened from another modal and the evidence has End Dating enabled or has a “Save and Next” or “Save and New“ button, multiple primary buttons are no longer displayed.<br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/spm8100.pdf">Known Issues documented for 8.1.0.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2023
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>

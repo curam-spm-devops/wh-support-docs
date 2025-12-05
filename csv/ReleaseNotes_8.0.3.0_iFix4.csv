@@ -1,0 +1,29 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-131273,DT036838,"Microsoft Word fails to launch, if Microsoft Word has been previously closed in the same browsing session",CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When a caseworker is editing a Microsoft Word document for a 2nd successive time, it fails to launch and JavaScript errors can be seen within the browser developer tools console.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Navigate to Microsoft Word Templates under the Communications section in the shortcuts panel.
+# Select the Edit row level action for SDT. 
+# Update the values in the Category section dropdowns to All Communication - All Communications and save. 
+
+*Steps to Reproduce:*
+
+# Log in as a supervisor.
+# Register a person and create a Social Assistance case.
+# Navigate to the Contact tab and select the Communications section.
+# From the content level action menu select New Microsoft Word...
+# On the New Microsoft Word Communication modal, set the Case Participant dropdown value to be the registered person and select Next. 
+# Enter a Subject for the communication, select an Address from the Select Address dropdown and click save.
+# Microsoft Word will successfully open.
+# From the Communications section, select the Edit.. row level action for the newly created Communications Microsoft Word document.
+# Issue: Microsoft Word does not launch and JavaScript errors can be seen within the browser developer tools console.
+
+*Resolution:*
+A caseworker can edit a Microsoft Word document as many times as they like within a session in the Cúram application. 
+
+"

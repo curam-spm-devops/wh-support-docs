@@ -1,0 +1,5 @@
+ Verify Download Integrity (SHA-256 Checksums) for CE2510:
+
+5bb668a300b13feb2b20e8c2cc1485586ddebb3eb506fad1710167224860f7c5  SPM_DS_7.11.0.zip
+
+1fdc2d98861833f91ee1f2f078c381073ff53f8fc9c08dbcd0193f079789c33a  UA_Web_App_7.11.0.zip

@@ -1,0 +1,167 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.1.2.0 iFix1</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.1.2.0 iFix1</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.1.2.0 iFix1 release.
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.1.2.0 iFix1 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>  
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_improvedandresolvedissues">Curam Modules</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133264"></a>DT036816, WorkItem:SPM-133264 - Schedule Icon does not display on the Case Audit Context panel when the current date falls between the schedule's start and end date<br/><p><b>Issue Description:</b><br/>The schedule icon is not displayed on the Case Audit Plan context panel when a schedule is added to an audit plan and the current date falls between the schedule's start and end date. <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/><ol><li>Log in as administrator.<li>Navigate to the Administration Workspace, expand the Case Audits section and select Case Audit Configurations.<li>Select New action to create a New Case Audit Configuration.</ol><b>Steps to Reproduce:</b><br/><ol><li>Log in as an audit coordinator.<li>Select the Audit Plans and Case Audits tab to expand the shortcut menu. <li>Create a new Audit Plan from the shortcuts panel.<li>Select the Audit plan created to view the plan in it’s own tab.<li>Add a Schedule to the Audit Plan, set the current date to fall between the start and end date of the schedule.<li>Issue: The schedule icon is not displayed on the context panel.</ol><b>Resolution:</b><br/>The issue is now fixed, the schedule icon is now displayed on the Case Audit Plan context panel when a schedule is added to an audit plan and the current date falls between the schedule's start and end date. <br/><br/><br/></p></p>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133072"></a>WorkItem:SPM-133072 - Inline Actions are missing from the Overflow menu on the Objectives list page when the number of list actions to display inline is set to a value greater than 1<br/><p><b>Issue Description:</b><br/>Inline Actions are missing from the overflow menu on the Objectives list page when the number of list actions to display inline is set to a value greater than 1.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Scenario 1:</b><br/><ol><li>Log in as a system administrator.<li>Navigate to Property Administration under Application Data in the shortcuts panel.<li>Search for the property ‘curam.actionmenus.max-inline-items.list’.<li>Set the value to 2. Save and then publish the changes.<li>Log in as an administrator. <li>Select the Administration Workspace tab to expand the shortcuts panel.<li>Navigate to Outcome Plans under the Outcome Management section in the shortcuts panel.<li>Select an Outcome Plan, for example, Child Welfare Outcome Plan to view the plan.<li>Navigate to the Objectives tab and add 2 new Objectives. <li>Log in as a Child Welfare Structured Decision Making Caseworker.<li>Register a person who is under 18 years old and create an Ongoing Case for the person. <li>Select the Outcome Plan tab on the Ongoing Case and create a new Child Welfare Outcome Plan. <li>On the Outcome Plan, navigate to the Workspace tab. <li>Add an Objective to the Outcome Plan. <li>Click on the action menu for the Objective. <li>Issue: The New Note, Update Expected End Date, and Review actions are not displayed in the overflow menu.</ol><b>Scenario 2:</b><br/><ol><li>Log in as a system administrator.<li>Navigate to Property Administration under Application Data in the shortcuts panel.<li>Search for the property ‘curam.actionmenus.max-inline-items.list’.<li>Set the value to 10. Save and then publish the changes.<li>Log in as an administrator. <li>Select the Administration Workspace tab to expand the shortcuts panel.<li>Navigate to Outcome Plans under the Outcome Management section in the shortcuts panel.<li>Select an Outcome Plan, for example, Child Welfare Outcome Plan to view the plan.<li>Navigate to the Objectives tab and add 2 new Objectives. <li>Log in as a Child Welfare Structured Decision Making Caseworker.<li>Register a person who is under 18 years old and create an Ongoing Case for the person. <li>Select the Outcome Plan tab on the Ongoing Case and create a new Child Welfare Outcome Plan. <li>On the Outcome Plan, navigate to the Workspace tab. <li>Add an Objective to the Outcome Plan. <li>Click on the action menu for the Objective. <li>Issue: The overflow menu is not displaying any actions, the update Completion Details, View Printable Document and Delete actions cannot be accessed by the user.</ol><b>Resolution:</b><br/>When the curam.actionmenus.max-inline-items.list’ is set to 10 the overflow action menus now display correctly on the Objectives list page of an Outcome plan.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133104"></a>WorkItem:SPM-133104 - Separator Pattern - Overflow Actions menu for Nominees - Missing or duplicate action items   when the number of list actions to display inline is set to greater than 1<br/><p><b>Issue Description:</b><br/>The inline overflow menu and menu items are not displayed on the Nominee list page when the curam.actionmenus.max-inline-items.list is set to greater than 1. The user has no way to access the overflow menu.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><br/><b>Scenario 1:</b><br/><ol><li>Log in as a system administrator.<li>Navigate to Property Administration under Application Data in the shortcuts panel.<li>Search for the property ‘curam.actionmenus.max-inline-items.list’.<li>Set the value to 3. Save and then publish the changes.<li>Log out.<li>Log in as a caseworker.<li>Register a new person and create a Social Assistance case.<li>Add Employment Status evidence and apply changes to activate the evidence.<li>Create an Employment Benefit Product Delivery.<li>On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.<li>Issue: The Change Address row level action is not displayed inline or within the overflow menu.</ol><b>Scenario 2:</b><br/><ol><li>Log in as a system administrator.<li>Navigate to Property Administration under Application Data in the shortcuts panel.<li>Search for the property ‘curam.actionmenus.max-inline-items.list’.<li>Set the value to 5. Save and then publish the changes.<li>Log out. Log in as a caseworker.<li>Register a new person and create a Social Assistance case.<li>Add Employment Status evidence and apply changes to activate the evidence.<li>Create an Employment Benefit Product Delivery.<li>On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.<li>Issue: The Change Bank account row level action is displayed twice, once as in inline action and once within the overflow menu.</ol><b>Resolution:</b><br/>The overflow action menu and menu items now display correctly on the Nominee list page when the number of list actions to display inline is set to greater than 1.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133233"></a>WorkItem:SPM-133233 - Overflow Actions menu missing for Nominees in Nominee list page<br/><p><b>Issue Description:</b><br/>The inline overflow menu and menu items are not displayed on the Nominee list page when the curam.actionmenus.max-inline-items.list is set to 1. The user has no way to carry out any of the nominee actions other than New or Edit. <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/><ol><li>Log in as a system administrator.<li>Navigate to Property Administration under Application Data in the shortcuts panel.<li>Search for the property ‘curam.actionmenus.max-inline-items.list’.<li>Set the value to 1. Save and then publish the changes.<li>Log out. </ol><b>Steps to Reproduce:</b><br/><br/><b>Scenario 1:</b><br/><ol><li>Log in as a caseworker.<li>Register a new person and create a Social Assistance case.<li>Add Employment Status evidence and apply changes to activate the evidence.<li>Create an Employment Benefit Product Delivery.<li>On the Employment Benefit case, navigate to the Financials Tab and select the Nominees page.<li>Issue: The overflow menu is not displayed so the user has no way to access the actions for the Nominee.</ol><b>Scenario 2:</b><br/><ol><li>Log in as an eligibility worker.<li>Register a new person.<li>Submit an Income Support Application for Food Assistance.<li>Open the Income Support integrated case.<li>Add and activate the necessary evidence on the integrated case to make the Food Assistance product delivery eligible.<li>Authorise the product delivery.<li>On the Food Assistance product delivery, navigate to the Financials Tab and select the Nominees page.<li>Issue: The overflow action menu and menu items are not displayed, so the user has no way to access the actions for the Nominee. </ol><b>Resolution:</b><br/>The overflow action menu and menu items are now displaying correctly on the Nominee list page. <br/><br/><br/></p></p>
+<br/><a name="application_development_environment_improvedandresolvedissues"></a>
+<h4>Application Development Environment</h4><a href="#security_management_improvedandresolvedissues">Security Management</a><br/>
+<br/><a name="security_management_improvedandresolvedissues"></a>
+<h4>Security Management</h4><a href="#data_access_layer_improvedandresolvedissues">Data Access Layer</a><br/>
+<br/><a name="data_access_layer_improvedandresolvedissues"></a>
+<h4>Data Access Layer</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133234"></a>WorkItem:SPM-133234 - Users.modify can be a bottleneck during pods warmup<br/><p><b>Issue Description:</b><br/>When the same user name is used for multiple simultaneous logins, some of the login attempts fail with a RecordChangedException.  <br/><br/>The reason for the error is that each login updates the lastSuccessLoginDate on the Users table and multiple simultaneous logins with the same username may experience contention by trying to update the same Users record.<br/><br/><b>User Interface Impact:</b> No.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in to the application from multiple browsers with the same username at the same time. <li>Issue: One or more of the login attempts will fail. </ol><b>Resolution:</b><br/>For user names listed in application property 'curam.security.default.system.users' the Users record does not get updated during a successful login. The login will still be recorded in the AuthenticationLog table.<br/><br/>(This application property is also used to contain the list of internal system users for which the alternative login mechanism does not get called when 'curam.security.altlogin.enabled' is set to 'True'.)<br/><br/>For a failed login, the Users record will always get updated in order to increment the failed login attempts counter and possibly disable the account. Also for the first successful login after a failed login attempt the Users record will be updated in order to reset the failed login attempts counter to zero.<br/><br/><br/></p></p>
+<br/><a name="curam_modules_improvedandresolvedissues"></a>
+<h4>Curam Modules</h4><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/><a href="#intelligent_evidence_gathering_improvedandresolvedissues">Intelligent Evidence Gathering</a><br/>
+<br/><a name="application_development_environment_improvedandresolvedissues"></a>
+<h4>Application Development Environment</h4><a href="#client_development_environment_improvedandresolvedissues">Client Development Environment</a><br/>
+<br/><a name="client_development_environment_improvedandresolvedissues"></a>
+<h4>Client Development Environment</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133237"></a>DT036761, WorkItem:SPM-133237 - Automatic form submission triggered from within a modal dialog displays incorrect content after it's refreshed<br/><p><b>Issue Description:</b><br/>Changing the value of a drop-down within a modal did not save the updated value on the server and the modal was incorrectly closed.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>A customised drop-down which has an associated custom JavaScript event to submit the form when the user selects a value, for example, Special Interest on the Edit Person modal.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Register a new Person.<li>Navigate to the person home page and select Edit.<li>Set the currency value, Andorran Peseta, for example, and set Special Interest to High Risk.<li>Issue: Once a Special Interest value has been selected, the modal incorrectly closes and the Special Interest field is not updated to High Risk.</ol><b>Resolution:</b><br/>Changing the value of a drop-down within a modal saves the updated value to the server and the correct content is displayed to the user after the modal refresh has completed.<br/><br/><br/></p></p>
+<br/><a name="intelligent_evidence_gathering_improvedandresolvedissues"></a>
+<h4>Intelligent Evidence Gathering</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133462"></a>DT036912, WorkItem:SPM-133462 - Universal Access IEG form fails while deleting conditional pages<br/><p><b>Issue Description:</b><br/>Conditional page navigation is failing when the condition expression is using a custom function and the condition result changes.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Create a script that includes a conditional pages based on custom function expression.<li>Run the script and select conditional question value.<li>Navigate to the summary page.<li>Edit data from the summary page which navigates to the conditional question.<li>Update conditional question value so that condition is changed and click submit button.<li>Issue: Error is displayed on the page - "Something went wrong. Try again later.".</ol><b>Resolution:</b><br/>Now conditional pages are handled correctly when the condition expression is using a custom function, and the expected page is displayed whenever the condition result changes.<br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/curam812.pdf">Known Issues documented for 8.1.2.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2024
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>

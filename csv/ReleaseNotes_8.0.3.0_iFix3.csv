@@ -1,0 +1,34 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-130370,PO09775,The date picker is unnecessarily opened when certain modal dialogs open,CEF,Application Development Environment,Client Development Environment,Widgets,"*Issue Description:*
+The date picker is activated by default when you open a modal dialog where the first field accepts a date value. The open date picker can block some of the modal dialog content that the user needs to see.
+
+*User Interface Impact:* No.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# On the Evidence tab for the person, select New to add email address evidence.
+# Issue: When the New Email Address modal dialog opens, the date picker for the Received Date field opens and blocks some content on the modal dialog.
+
+ *Resolution:*
+When a user opens a modal dialog that has the date picker form control as the first field, the date picker stays closed until the user goes to the field and selects a date.
+
+"
+SPM-130343,DT036321,Date picker month and year selectors are not keyboard accessible,Accessibility,,,,"*Issue Description:*
+A keyboard user cannot use the date picker as the month and year selectors are not keyboard accessible.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to the Person Search.
+# Using the keyboard, tab to 'Date of Birth'.   
+# Issue: The month and year navigation on the date picker is not accessible by using the keyboard. 
+
+*Resolution:*
+A keyboard user can now use the the month and year selectors on the date picker.
+
+
+"

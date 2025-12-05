@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-spm-spm-803-mdx",
+    "path": "/spm/spm_803/",
+    "result": {"pageContext":{"frontmatter":{"title":"Social Program Management 8.0.3","description":null},"relativePagePath":"/spm/spm_803.mdx","titleType":"page","MdxNode":{"id":"aced0a64-2b0a-5448-bc4c-58793eba6114","children":[],"parent":"fac0d0f1-84e1-5b88-964f-977ae289d5c8","internal":{"content":"---\ntitle: Social Program Management 8.0.3\ndescription: \n---\n\nSocial Program Management 8.0.3 is now available and provides many new features...for example.\n","type":"Mdx","contentDigest":"3ee35372e3b6bf5d0c42510520c5b899","owner":"gatsby-plugin-mdx","counter":137},"frontmatter":{"title":"Social Program Management 8.0.3","description":null},"exports":{},"rawBody":"---\ntitle: Social Program Management 8.0.3\ndescription: \n---\n\nSocial Program Management 8.0.3 is now available and provides many new features...for example.\n","fileAbsolutePath":"/home/runner/work/wh-support-docs/wh-support-docs/src/pages/spm/spm_803.mdx"}}},
+    "staticQueryHashes": ["1364590287","137577622","2102389209","2456312558","2746626797","3018647132","3037994772","768070550"]}

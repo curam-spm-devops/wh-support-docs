@@ -1,0 +1,35 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-145968,DT037262,Unhandled server exception thrown when registering a prospect person as a person,CEF,Technical Services,Participant Management,,"*Issue Description:*
+Registering a prospect person as a person with an existing mailing address results in an unhandled server exception if a private address is added during the registration process.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a Prospect Person with details: First Name, Last Name, Date of Birth, Gender, and Mailing Address.
+## Note: Since no private address is provided, the system inserts an ?Address Unavailable? placeholder for the private address.
+# On the Prospect Person home page, click the Register page-level action.
+# During the registration process, provide a valid private address.
+# Click Save.
+# Issue: An unhandled server exception is thrown.
+
+*Resolution:*
+The underlying issue here had to do with the removal of the private address placeholder ?Address Unavailable? when the mailing address was being inserted for the person. This meant that the primary address for the Concern Role was left pointing at a deleted address, thereby resulting in an unhandled server exception. The logic has been updated to only remove the placeholder address if the address being inserted is marked as preferred.
+
+"
+SPM-145889,DT037187,LifeEvents and HoldingCaseDP do not have proper error handling mechanism,ENT,Life Event Management,,,"*Issue Description:*
+Developers were unable to handle the error that occurred when an exception was thrown during the deferred process in curam.citizen.datahub.holdingcase.impl.HoldingCaseImpl.updateEvidence(EvidenceUpdate).
+
+*User Interface Impact:* No
+
+*Resolution:*
+curam.citizen.datahub.holdingcase.impl.HoldingCaseImpl.updateEvidence(EvidenceUpdate) has been updated to include a new error handler specific to this API. A new hook is now available for customers to implement, which will be invoked when an exception occurs during deferred process execution.
+
+*Technical:*
+An API is provided for customers to define the actions to be taken when an exception occurs.
+
+The following method in the hook can be implemented to handle custom error processing:
+{{curam.citizen.datahub.holdingcase.impl.HoldingCaseCustomErrorHandler.handleError(String, long)}}
+
+"

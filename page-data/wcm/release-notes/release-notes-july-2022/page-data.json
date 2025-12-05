@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-wcm-release-notes-release-notes-july-2022-mdx",
+    "path": "/wcm/release-notes/release-notes-july-2022/",
+    "result": {"pageContext":{"frontmatter":{"title":"Release Notes July 2022","description":null},"relativePagePath":"/wcm/release-notes/release-notes-july-2022.mdx","titleType":"page","MdxNode":{"id":"8d05c074-8a9d-5eae-b52a-e85b1c6b528e","children":[],"parent":"cbeb9707-df0d-5a45-853b-0e947e79d583","internal":{"content":"---\ntitle: Release Notes July 2022\ndescription: \n---\n\nTest file","type":"Mdx","contentDigest":"e972d917c4dfb7368a86aa497fb4693f","owner":"gatsby-plugin-mdx","counter":124},"frontmatter":{"title":"Release Notes July 2022","description":null},"exports":{},"rawBody":"---\ntitle: Release Notes July 2022\ndescription: \n---\n\nTest file","fileAbsolutePath":"/home/runner/work/wh-support-docs/wh-support-docs/src/pages/wcm/release-notes/release-notes-july-2022.mdx"}}},
+    "staticQueryHashes": ["1364590287","137577622","2102389209","2456312558","2746626797","3018647132","3037994772","768070550"]}

@@ -1,0 +1,197 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.0.1.2</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.0.1.2</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.0.1.2 release. This is a Fix Pack release on the Long Term Support (LTS) line. 
+</p>
+
+<p>
+This is a cumulative release that incorporates all improvements, resolved issues, and third-party updates in the previous 8.0.1.1 Fix Pack release. For full details, see the release notes for the previous Fix Pack release online at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/release-notes/">Release Notes.</a>
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+<p>
+A CSV file is also available from the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/release-notes/">Merative Support Docs</a> site, which summarizes these release notes.
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.0.1.2 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p> 
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+    <p>This 8.0.1.2 release can be installed on top of the following Cúram releases:</p>
+
+<ul>
+	<li>8.0.1.1</li>
+	<li>8.0.1.0</li>
+
+</ul>
+
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your Social Program Management installation are writable. </li>
+  <li>Run the Social Program Management installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#look_and_feel_improvedandresolvedissues">Look and Feel</a><br/><a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_improvedandresolvedissues">Curam Modules</a><br/><a href="#solutions_improvedandresolvedissues">Solutions</a><br/><a href="#third_party_updates_improvedandresolvedissues">Third Party Updates</a><br/>
+<br/><a name="look_and_feel_improvedandresolvedissues"></a>
+<h4>Look and Feel</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-129072"></a>PO09779, WorkItem:SPM-129072 -  Form control labels are not displayed when a nested LABEL child element is used<br/><p><b>Issue Description:</b><br/><br/>A form control's label is not displayed on a page or modal if the associated FIELD element in UIM has a nested LABEL child element. For example, the Show Nicknames label is not displayed for a checkbox form control on the Person Search page if the label is nested.<br/><br/><br/><b>User Interface Impact:</b> No<br/><br/><br/><b>Prerequisite(s):</b><br/><br/><br/><ul><li>Install Social Program Management from a development installer.<li>Locate the file: ../webclient/components/core/Person/Search/Person_searchCriteriaView.vim.<li>Find the Nickname field: </ul><br/><code>{<br/>&lt;FIELD LABEL="Field.Label.Nickname"> <br/>  &lt;CONNECT> <br/>&nbsp;&nbsp;&lt;SOURCE NAME="DISPLAY" PROPERTY="result$dtls$searchWithNicknamesInd" /> <br/>  &lt;/CONNECT> <br/>  &lt;CONNECT> <br/>&nbsp;&nbsp;&lt;TARGET NAME="ACTION" PROPERTY="personSearchKey$nicknameInd" /> <br/>  &lt;/CONNECT> <br/>&lt;/FIELD><br/></code>}<br/><ul><li>Modify the field so that the LABEL is a child element instead of a FIELD attribute:</ul><br/><code>{<br/>&lt;FIELD> <br/>  &lt;LABEL> <br/>&nbsp;&nbsp;&lt;CONNECT> <br/>&nbsp;&nbsp;  &lt;SOURCE NAME="TEXT" PROPERTY="Field.Label.Nickname" /> <br/>&nbsp;&nbsp;&lt;/CONNECT> <br/>   &lt;/LABEL> <br/>   &lt;CONNECT> <br/>&nbsp;&nbsp; &lt;SOURCE NAME="DISPLAY" PROPERTY="result$dtls$searchWithNicknamesInd" /> <br/>   &lt;/CONNECT> <br/>   &lt;CONNECT> <br/>&nbsp;&nbsp; &lt;TARGET NAME="ACTION" PROPERTY="personSearchKey$nicknameInd" /> <br/>   &lt;/CONNECT> <br/>&lt;/FIELD><br/></code>}<br/><ul><li>Run the client build (build clean client). </ul><b>Steps to Reproduce:</b><br/><br/><ol><li>Log in as a caseworker.<li>Click Person under Searches in the Shortcuts panel.<li>Issue: The Show Nicknames label for the checkbox on the Person Search page is not displayed.</ol><b>Resolution:</b><br/><br/>The JSP generator has been updated. A label that is associated with a form control on an application page or modal is now correctly displayed when a FIELD element has a nested LABEL child element in UIM. <br/><br/></p></p>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-129073"></a>PO09820, WorkItem:SPM-129073 - An error is displayed when saving updates to user preferences<br/><p><b>Issue Description:</b><br/><br/>The user preferences modal that is available in the web client allows each user of the application to update certain user settings, such as their time zone. When a user tries to make any changes to the User Preferences, an 'Error 500 - internal server error' message is displayed. <br/> <br/><br/><b>User Interface Impact:</b> No <br/><br/><br/><b>Steps to Reproduce:</b><br/><br/><ol><li>Log in as an administrator.<li>Open the Application menu and select the Preferences option.<li>Modify a setting on the Preferences modal. For example, set Enhanced mode to Yes, and click Save.<li>Issue: An 'Error 500 - internal server error' message is displayed. </ol><b>Resolution:</b><br/><br/>Users can now save updates to their user preferences without any errors being displayed. <br/><br/></p></p>
+<br/><a name="application_development_environment_improvedandresolvedissues"></a>
+<h4>Application Development Environment</h4><a href="#client_development_environment_improvedandresolvedissues">Client Development Environment</a><br/>
+<br/><a name="client_development_environment_improvedandresolvedissues"></a>
+<h4>Client Development Environment</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-129071"></a>DT036620, WorkItem:SPM-129071 - Page parameters are not passed correctly when a modal opens another modal<br/><p><b>Issue Description:</b><br/><br/>When a modal  passes more than one page parameter to a second modal, only the first page parameter is named correctly when received by the called modal.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisite</b><br/>A customised modal that passes two parameters to a receiving modal, the second parameter being 'caseID'<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Navigate to the customised prerequisite page. <li>Open a modal, trigger the action to pass two  parameters to a second modal. The second parameter being 'caseID'.<li>Issue: The first parameter is correctly passed but subsequent page parameters are incorrectly named e.g. "amp;caseID" instead of "caseID"</ol><b>Resolution:</b><br/>When a modal  passes multiple page parameters to a second modal, all parameters are named correctly when received by the called modal.</p></p>
+<br/><a name="curam_modules_improvedandresolvedissues"></a>
+<h4>Curam Modules</h4><a href="#intelligent_evidence_gathering_improvedandresolvedissues">Intelligent Evidence Gathering</a><br/>
+<br/><a name="intelligent_evidence_gathering_improvedandresolvedissues"></a>
+<h4>Intelligent Evidence Gathering</h4><a href="#apis_improvedandresolvedissues">APIs</a><br/>
+<br/><a name="apis_improvedandresolvedissues"></a>
+<h4>APIs</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-128974"></a>WorkItem:SPM-128974 -  IEG Application Form produces a Null Pointer Exception when navigating from one section to another via Left Panel Navigation<br/><p><b>Issue Description:</b><br/>An IEG application form produces a Null Pointer Exception error when navigating from one section to another via the left panel section navigation if there are disabled sections in between.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisite(s):</b><br/>An IEG script with the following structure:<br/><ol><li>Section navigation panel enabled (show-sections="true").<li>The script contains 4 sections: Section A, Section B, Section C, and Section D.<li>Section A contains a question page that is always enabled, with a Question A1 that will be used as criteria to display the Section B and Section C question pages.<li>Section B contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.<li>Section C contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.<li>Section D contains a question page that is always enabled with at least one question.</ol><b>Steps to Reproduce:</b><br/><ol><li>Start the IEG script.<li>In Section A, question A1 provides an answer that will ensure the question pages of Section B and Section C are not displayed, therefore not enabling the sections.<li>Click Next.<li>Section B and Section C are not displayed, and the navigator jumps to Section D.<li>On the Section D question page, click the left panel navigation to go to Section A.<li>On the Section A question page, click the left panel navigation to go to Section D.<li>Issue: A Null Pointer Exception is displayed and the user cannot navigate to the desired section.</ol><b>Resolution:</b><br/>This issue is resolved. Disabled sections in an IEG script are now handled properly to avoid a Null Pointer Exception and the user can navigate to previous sections as expected.<br/><br/><br/><br/></p></p>
+<br/><a name="solutions_improvedandresolvedissues"></a>
+<h4>Solutions</h4><a href="#income_support_improvedandresolvedissues">Income Support</a><br/>
+<br/><a name="income_support_improvedandresolvedissues"></a>
+<h4>Income Support</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-129059"></a>WorkItem:SPM-129059 - Pasting(Cntrl + V) coloured font texts does not work on Quick notes text area<br/><p><b>Issue Description:</b><br/>Pasting coloured font texts on quick notes text area is being pasted as default font instead of coloured font.<br/><br/><b>User Interface Impact:</b> No.<br/><br/><b>Steps to Reproduce:</b><br/><br/>Step 1 Log in as an Income Support caseworker<br/>Step 2 Register a Person<br/>Step 3 From the Person home tab, expand the Smart Panel .<br/>Step 4 Copy and paste from a Word document a text with coloured fonts in Quick Notes text area.<br/>Step 5 Issue: After pasting coloured font texts on quick notes text area it is displayed as default font instead of coloured font.<br/><br/><b>Resolution:</b><br/><br/>Now, when a text is copied from a Word Document, the text fonts colour is preserved.</p></p>
+<br/><a name="third_party_updates_improvedandresolvedissues"></a>
+<h4>Third Party Updates</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-128360"></a>WorkItem:SPM-128360 - Remove image2 plugin from ckeditor<br/><p>CKEditor is a WYSIWYG rich text editor which enables writing content directly inside of web pages or online applications.<br/><br/>The following folders have been removed:<br/><br/><ul><li>webclient/WebContent/cefwidgets/ckeditor/plugins/image2<li>webclient/WebContent/cefwidgets/ckeditor/_source/plugins/image2</ul>This plugin was not being used in Cúram and it has been removed.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-128362"></a>WorkItem:SPM-128362 - Update the versions of axis.jar and xmlbeans to the latest versions in BIRT<br/><p>BIRT is an open source component, which provides a development and execution environment for report content. BIRT is used primarily as a tool for the development and execution of charting and tabular data.<br/><br/>The following JAR updates were made in the BirtViewer:<br/> <ul><li>BIApp/CuramBIRTViewer/WebContent/WEB-INF/platform/plugins/uk.co.spudsoft.birt.emitters.excel_4.8.0.v201806261756/lib/xmlbeans-3.1.0.jar <li>BIApp/CuramBIRTViewer/WebContent/WEB-INF/lib/axis.jar</ul>Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-127997"></a>WorkItem:SPM-127997 - Update the version of the snakeyaml library to 2.0<br/><p>The snakeyaml library provides functionality to parse a YAML file, and convert to Jackson objects.  <br/><br/>The version of the snakeyaml JAR that is used by SPM has now been updated from 1.33 to 2.0. This new JAR file contains some minor bug fixes and enhancements.<br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.<br/> <ul><li>CuramSDEJ\lib\third<i>party</i>version.properties - the version of the specified snakeyaml JAR file has been updated. <li>EJBServer\components\Rest\graphql_lib\snakeyaml-2.0.jar - the version of the JAR has been updated.</ul>Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-128363"></a>WorkItem:SPM-128363 - Update the version of the xmlgraphics-commons library to 2.8<br/><p>Apache XML Graphics Commons is a library that consists of several reusable components used by Apache Batik and Apache FOP.<br/><br/>The version of the Apache XML Graphics Commons JAR that is used by SPM has now been updated from 2.4 to 2.8. This new JAR file contains some minor bug fixes and enhancements.<br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.<br/> <ul><li>CuramSDEJ\lib\third<i>party</i>version.properties - the version of the specified XML Graphics Commons JAR file has been updated. <li>CuramSDEJ\xmlserver\xmlgraphics-commons-2.8.jar - the version of the JAR has been updated.</ul>Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above. <br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-128369"></a>WorkItem:SPM-128369 - Update the version of the commons-net library to 3.9.0<br/><p>The Apache Commons Net library contains a collection of network utilities and protocol implementations. Supported protocols include FTP, SMTP(S), Telnet and others. <br/><br/>The version of the commons-net JAR that is used by SPM has now been updated from 3.6 to 3.9.0. This new JAR file contains some minor bug fixes and enhancements.<br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.<br/> <ul><li>CuramSDEJ\lib\third<i>party</i>version.properties - the version of the specified commons-net JAR file has been updated. <li>CuramSDEJ\lib\commons-net-3.9.0.jar - the version of the JAR has been updated.</ul>Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-128367"></a>WorkItem:SPM-128367 - Update the version of the xercesImpl JAR file to the latest version - 2.12.2<br/><p>The xercesImpl library is used for parsing, validating and manipulating XML documents. <br/><br/>The version of the xercesImpl JAR that is used by SPM has now been updated from 2.9.1 to 2.12.2. This new JAR file contains some minor bug fixes and enhancements. It also introduces a dependency on another JAR file, namely xml-apis.jar.<br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment (JDE) deliverable.<br/> <ul><li>CuramSDEJ\lib\third<i>party</i>version.properties - version of the specified xercesImpl JAR file has been updated and the version of the new xml-apis.jar file has been added.  <li>CuramCDEJ\lib\ext\jar\xercesImpl-2.12.2.jar - version of the JAR file has been updated. <li>CuramSDEJ\lib\xercesImpl-2.12.2.jar -  version of the JAR file has been updated. <li>CuramSDEJ\xmlserver\xercesImpl-2.12.2.jar -  version of the JAR file has been updated. <li>CuramCDEJ\lib\ext\jar\xml-apis-1.4.01-1.jar - new JAR file introduced. <li>CuramSDEJ\lib\xml-apis-1.4.01-1.jar - new JAR file introduced. <li>CuramSDEJ\xmlserver\xml-apis-1.4.01-1.jar - new JAR file introduced.</ul>Note that any references in custom scripts and other artifacts must be updated to point to the updated and new JAR files as specified above.<br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-128366"></a>WorkItem:SPM-128366 - Update the versions of the Jackson JARs to the latest version<br/><p>The Jackson API contains multiple functions to read and build JSON using Java. It has data binding capabilities and provides a framework to serialize custom Java objects to JSON strings and deserialize JSON strings back into Java objects. The Java Development Environment (JDE) and the REST infrastructure utilizes these utilities.<br/><br/>The versions of these JARs have now been updated from 2.13.2 and 2.13.2.2 to 2.15.2. As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.<br/><br/><ul><li>CuramSDEJ\lib\third<i>party</i>version.properties - the versions of the specified Jackson JARs have been updated.<li>CuramSDEJ\lib\jackson-annotations-2.15.2.jar - version of the JAR updated.<li>CuramSDEJ\lib\jackson-core-2.15.2.jar - version of the JAR updated.<li>CuramSDEJ\lib\jackson-databind-2.15.2.jar - version of the JAR updated.<li>CuramCDEJ\lib\ext\jar\jackson-annotations-2.15.2.jar - version of the JAR updated.<li>CuramCDEJ\lib\ext\jar\jackson-core-2.15.2.jar - version of the JAR updated.<li>CuramCDEJ\lib\ext\jar\jackson-databind-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-annotations-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-core-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-databind-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-jaxrs-base-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-jaxrs-json-provider-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-module-jaxb-annotations-2.15.2.jar - version of the JAR updated.</ul> <br/><ul><li>EJBServer\components\Rest\graphql_lib\jackson-dataformat-yaml-2.15.2.jar - version of the JAR updated.<li>EJBServer\components\Rest\graphql_lib\jackson-datatype-jdk8-2.15.2.jar - version of the JAR updated.</ul>Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated. <br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-127996"></a>WorkItem:SPM-127996 - Update the version of the bcel library to 6.7.0<br/><p>The Byte Code Engineering Library (Apache Commons BCEL) is intended to give users a convenient way to analyze, create, and manipulate (binary) Java class files (those ending with .class). Classes are represented by objects which contain all the symbolic information of the given class: methods, fields and byte code instructions, in particular. <br/><br/>The version of the BCEL JAR that is used by SPM has now been updated from 6.1 to 6.7.0. This new JAR file contains some minor bug fixes and enhancements.<br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.<br/> <ul><li>CuramSDEJ\lib\third<i>party</i>version.properties - the version of the specified BCEL JAR file has been updated. <li>CuramSDEJ\lib\bcel-6.7.0.jar - the version of the JAR has been updated.</ul>Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.<br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><a name="KnownIssues"></a><a name="SUPER_ISSUE"></a>
+<a href="#curam_enterprise_framework_knownissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_knownissues">Curam Modules</a><br/><a href="#solutions_knownissues">Solutions</a><br/>
+<br/><a name="curam_enterprise_framework_knownissues"></a>
+<h4>Curam Enterprise Framework</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-124644"></a>WorkItem:SPM-124644 (was previously 277418) - A modal page closes when the escape key is used to close a drop-down inside the modal<br/><p>Currently, when a user opens a drop-down field from within a modal window and uses the escape key on the keyboard to close the field, the field closes along with the modal itself. This may result in the potential loss of data. This problem does not occur on IEG forms. <br/><br/><br/></p></p>
+<br/><a name="curam_modules_knownissues"></a>
+<h4>Curam Modules</h4><a href="#provider_management_knownissues">Provider Management</a><br/>
+<br/><a name="provider_management_knownissues"></a>
+<h4>Provider Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-89478"></a>WorkItem:SPM-89478 (was previously 103350) - Incorrect underpayment amount created when multiple service invoice line items reassessed due to change in service rate<br/><p>When there are multiple service invoice line items created and paid for a provider using a fixed amount service rate and payment option of 'pay fixed amount', if the service rate that was used to determine the payment amount is retrospectively modified, to a higher rate, for example, underpayments are not being generated for all of the affected service invoice line items. <br/><br/><br/><br/></p></p>
+<br/><a name="solutions_knownissues"></a>
+<h4>Solutions</h4><a href="#child_welfare_knownissues">Child Welfare</a><br/>
+<br/><a name="child_welfare_knownissues"></a>
+<h4>Child Welfare</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-124601"></a>WorkItem:SPM-124601 (was previously 277357) - Buttons not dynamically displayed based on Reporter Type selected in Capture Reporter dialog<br/><p>When capturing Reporter information on a Child Welfare intake, depending on the reporter type selected, the modal buttons displayed should change. For example, when an 'Anonymous' type is selected, only the 'Cancel' and 'Finish' buttons should display. Currently, all three buttons (Cancel, Next, and Finish) are displayed regardless of the Reporter type selected.<br/><br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2023
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>

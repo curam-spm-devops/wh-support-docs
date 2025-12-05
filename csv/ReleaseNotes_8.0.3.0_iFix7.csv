@@ -1,0 +1,59 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-143968,,Update the versions of the snakeyaml and Jackson libraries to a later version,Third Party Updates,,,,"The snakeyaml library provides functionality to parse a YAML file, and convert to Jackson objects.  
+
+The version of the snakeyaml JAR that is used by SPM has now been updated from 1.33 to 2.0. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.
+
+* CuramSDEJlibthird_party_version.properties - the version of the specified snakeyaml JAR file has been updated.
+* EJBServercomponentsRestgraphql_libsnakeyaml-2.0.jar - the version of the JAR has been updated.
+
+The Jackson API contains multiple functions to read and build JSON using Java. It has data binding capabilities and provides a framework to serialize custom Java objects to JSON strings and deserialize JSON strings back into Java objects. The Java Development Environment (JDE) and the REST infrastructure utilizes these utilities.
+
+The versions of these JARs have now been updated from 2.14.0 to 2.15.2. As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.
+
+* CuramSDEJlibthird_party_version.properties - the versions of the specified Jackson JARs have been updated.
+
+* CuramSDEJlibjackson-annotations-2.15.2.jar - version of the JAR updated.
+* CuramSDEJlibjackson-core-2.15.2.jar - version of the JAR updated.
+* CuramSDEJlibjackson-databind-2.15.2.jar - version of the JAR updated.
+
+* CuramCDEJlibextjarjackson-annotations-2.15.2.jar - version of the JAR updated.
+* CuramCDEJlibextjarjackson-core-2.15.2.jar - version of the JAR updated.
+* CuramCDEJlibextjarjackson-databind-2.15.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-annotations-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-core-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-databind-2.15.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-base-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-json-provider-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-module-jaxb-annotations-2.15.2.jar - version of the JAR updated.
+* EJBServercomponentsRestgraphql_libjackson-dataformat-yaml-2.15.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestgraphql_libjackson-datatype-jdk8-2.15.2.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+
+"
+SPM-143927,,Remove JAR files from the BIRT Viewer deliverable that are not used by the Cúram application,CEF,Business Intelligence and Analytics,,,"The Cúram BIRT Viewer is the BIRT Engine infrastructure component which executes BIRT charts and reports. This component wraps the open source BIRT Engine and is a Java Platform, Enterprise Edition application.
+
+A number of changes have been made to the Cúram BIRT Viewer deliverable including the updating of a JAR file to a more recent version and the removal of a number of JAR files and plugins which were defunct and not required for the viewing of the BIRT reports delivered and utilized by the Cúram application. 
+
+The changes include the following:
+
+* CuramBIRTViewerWebContentWEB-INFlibaxis.jar - the version of this JAR file has been updated to org.apache.axis_1.4.1.v20231107-0937.jar.
+* CuramBIRTViewerWebContentWEB-INFlibaxis-ant.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFlibsaaj.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.derby_10.11.1.1_v201605202053.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.mysql.dbdefinition_1.2.1.201712071719.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.postgresql.dbdefinition_1.2.1.201712071719.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.postgresql_1.3.1.201712071719.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.report.data.oda.excel_4.8.0.v201806261756.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsuk.co.spudsoft.birt.emitters.excel_4.8.0.v201806261756 - this complete directory has been removed. This includes the removal of the following JAR files:
+* dom4j-1.6.1.jar
+* xmlbeans-2.3.0.jar
+
+We recommend the update or removal of any references in custom scripts and other artifacts to the JAR files that are specified above.
+
+"

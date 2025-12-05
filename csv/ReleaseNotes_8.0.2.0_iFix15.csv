@@ -1,0 +1,14 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-130125,DT036748,Curam Session Timeout issue when minimizing browser,CEF,Application Development Environment,,,"*Issue Description:*
+An IntensiveWakeUpThrottling feature has been introduced into the Microsoft Edge and Google Chrome browsers. This feature aggressively throttles JavaScript timers running in background tabs.
+
+This new browser feature has affected some features in the Cúram application, specifically those associated with timers. One such feature is the Session Timeout feature which can be adversely affected if the browser window containing the countdown timer is minimized.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* N/A
+
+*Resolution:*
+Additional functionality has been added into the Cúram Session Timeout feature to mitigate the affect of the browser IntensiveWakeUpThrottling setting and ensuring that the timer works correctly even if the Session Timeout browser window has been minimized.
+
+"
