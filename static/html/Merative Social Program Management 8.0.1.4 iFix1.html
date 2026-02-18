@@ -1,0 +1,148 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.0.1.4 iFix1</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.0.1.4 iFix1</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.0.1.4 iFix1 release.
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.0.1.4 iFix1 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management X.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>  
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps.</li>
+  <li>Download and extract the contents of the .zip file to a local drive location.</li>
+  <li>Ensure that all files in your C&#250;ram installation are writable.</li>
+  <li>Run any appropriate preinstall steps outlined in the Release Notes.</li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder.</li>
+  <li>Run any appropriate post-install steps outlined in the Release Notes.</li>  
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#third_party_updates_improvedandresolvedissues">Third Party Updates</a><br/>
+<br/><a name="third_party_updates_improvedandresolvedissues"></a>
+<h4>Third Party Updates</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150793"></a>WorkItem:SPM-150793 - Update the log4j JAR files to the latest version<br/><p>Apache Log4j is a Java-based logging utility that is used as the logging provider for the Cúram product.<br/>The version of the Log4j used by the Cúram application has now been updated from 2.23.1 to 2.25.3. This new JAR file contains some minor bug fixes and enhancements.<br/>As a result of this upgrade, the following changes have been made to the Java Development Environment (JDE) deliverable.<br/><b>Old JAR’s removed</b><br/><ol><li>CuramSDEJ\lib\log4j-api-2.23.1.jar<li>CuramSDEJ\lib\log4j-core-2.23.1.jar<li>CuramSDEJ\xmlserver\log4j-api-2.23.1.jar<li>CuramSDEJ\xmlserver\log4j-core-2.23.1.jar<li>CuramCDEJ\lib\ext\jar\log4j-api-2.23.1.jar<li>CuramCDEJ\lib\ext\jar\log4j-core-2.23.1.jar</ol><b>New JAR’s added</b><br/><ol><li>CuramSDEJ\lib\log4j-api-2.25.3.jar <li>CuramSDEJ\lib\log4j-core-2.25.3.jar <li>CuramSDEJ\xmlserver\log4j-api-2.25.3.jar <li>CuramSDEJ\xmlserver\log4j-core-2.25.3.jar <li>CuramCDEJ\lib\ext\jar\log4j-api-2.25.3.jar <li>CuramCDEJ\lib\ext\jar\log4j-core-2.25.3.jar</ol>CuramSDEJ\lib\third&#95;party&#95;version.properties - the versions of the specified Log4j JAR files have been updated.<br/>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150794"></a>WorkItem:SPM-150794 - Update the version of the commons-fileupload JAR file to the latest version<br/><p>The Apache Commons FileUpload API enables file upload capabilities in Java EE web applications.<br/>It is used in the Cúram application for that purpose. It is also part of the Cúram Axis 2 web services deliverable.<br/>The version of the commons-fileupload JAR that is used by Cúram has now been updated from 1.5 to 1.6 in the Axis 2 deliverable and JDE deliverables. This new JAR file contains some minor bug fixes and enhancements.<br/>As a result of this upgrade, the following changes have been made to the Cúram deliverable.<br/><ul><li>CuramSDEJ\lib\third&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.<li>CuramSDEJ\xmlserver\third&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.</ul>The changes to the commons-fileupload JAR file include:<br/><ul><li>CuramSDEJ/lib/axis2/commons-fileupload-1.5.jar - version updated from 1.5 to 1.6.<li>CuramCDEJ/lib/ext/jar/commons-fileupload-1.5.jar - version updated from 1.5 to 1.6.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.</p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/curam8014.pdf">Known Issues documented for 8.0.1.4</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2026
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>
