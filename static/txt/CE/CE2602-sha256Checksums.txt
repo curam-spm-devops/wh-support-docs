@@ -1,4 +1,4 @@
- Verify Download Integrity (SHA-256 Checksums) for CE2512:
+ Verify Download Integrity (SHA-256 Checksums) for CE2602:
 
 
 
