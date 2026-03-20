@@ -1,0 +1,169 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 7.0.11.0 iFix16</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 7.0.11.0 iFix16</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 7.0.11.0 iFix16 release.
+</p>
+
+<p>
+This is a cumulative release that incorporates all improvements, resolved issues, and third-party updates in previous 7.0.11.0 iFix releases. For full details, see the release notes for each of the previous iFix releases online at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/release-notes/">Release Notes.</a>
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 7.0.11.0 iFix16 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>   
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps.</li>
+  <li>Download and extract the contents of the .zip file to a local drive location.</li>
+  <li>Ensure that all files in your C&#250;ram installation are writable.</li>
+  <li>Run any appropriate preinstall steps outlined in the Release Notes.</li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder.</li>
+  <li>Run any appropriate post-install steps outlined in the Release Notes.</li>  
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#code_removal_improvedandresolvedissues">Code Removal</a><br/><a href="#third_party_updates_improvedandresolvedissues">Third Party Updates</a><br/>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#business_intelligence_and_analytics_improvedandresolvedissues">Business Intelligence and Analytics</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150871"></a>WorkItem:SPM-150871 - Referer header domain name was not being validated<br/><p><b>Issue Description:</b><br/>Due to a minor issue in the Referer header domain validation, one of the wildcards in the domain names was not validated correctly. <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Resolution:</b><br/>The Referer header domain name validation logic for both REST and Cúram applications has been improved to address this issue.</p></p>
+<br/><a name="business_intelligence_and_analytics_improvedandresolvedissues"></a>
+<h4>Business Intelligence and Analytics</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-151363"></a>WorkItem:SPM-151363 - BIRT charts were occasionally not loading on startup<br/><p><b>Issue Description:</b><br/>BIRT charts were occasionally not loading on startup.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>On the home page, check the Caseload Summary pod.<li>Issue: The Caseload Summary pod chart occasionally fails to display and appears blank. </ol><b>Resolution:</b><br/>A warm-up call was added so that the first time a BIRT chart is loaded, it initializes properly. Charts now display as expected.</p></p>
+<br/><a name="code_removal_improvedandresolvedissues"></a>
+<h4>Code Removal</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-151255"></a>WorkItem:SPM-151255 - Remove the defunct xalan-2.6.0.jar from the Cúram deliverable<br/><p>The following JAR file has been removed from the Cúram deliverable as it is no longer used by the Evidence Generator.<br/><ul><li>Tools\Generators\EGTools\lib\xalan-2.6.0.jar</ul>The Evidence Generator uses the xalan JAR file delivered in the CuramSDEJ. <br/><br/>We recommend that you update any custom scripts and other artifacts to remove references to the JAR file which has been removed above and point to the version in the CuramSDEJ if required.</p></p>
+<br/><a name="third_party_updates_improvedandresolvedissues"></a>
+<h4>Third Party Updates</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150866"></a>WorkItem:SPM-150866 - Update to the latest version of the Rampart Axis 2 security library - esapi<br/><p>Cúram web services are based on Apache Axis2. With the Rampart security module of Axis2, SPM web services can be secured for authentication, integrity (signature), confidentiality (encryption/decryption), and non-repudiation (timestamp).<br/>The version of one of the JAR files in Rampart has been updated. As a result of this update, the following changes have been made to the JDE Axis 2 deliverable.<br/><ul><li>CuramSDEJ\lib\axis2\esapi-2.6.0.0.jar - version updated from 2.4.0.0 to 2.6.0.0. </ul>Note that any references in custom scripts and other artifacts to the updated JAR file listed above must be updated.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150872"></a>WorkItem:SPM-150872 - Update opensaml library to the latest version<br/><p>The OpenSAML-J library provides tools to support developers working with the Security Assertion Markup Language (SAML). The library is used in Cúram as part of the Rampart functionality which provides the ability to develop secure Axis 2 Web Services.<br/>The version of the opensaml JAR has now been updated from 2.6.1-2 to 2.6.6. The new version of the JAR contains a number of defect fixes. As a result of this upgrade, the following changes have been made in the JDE deliverable.<br/><ul><li>CuramSDEJ/lib/third&#95;party&#95;version.properties - the version of the JAR file has been updated.<li>CuramSDEJ/lib/axis2/opensaml-2.6.6.jar - version of the JAR updated.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150875"></a>WorkItem:SPM-150875 - Update the version of the commons-jxpath JAR file to the latest<br/><p>The Commons JXPath is a Java-based implementation of XPath 1.0 that, in addition to XML processing, can inspect/modify Java object graphs (the library's explicit purpose) and mixed Java/XML structures. There are no direct references to the commons-jxpath jar file in the Cúram application. The commons-configuration JAR file has an indirect dependency on commons-jxpath jar.<br/><br/>The versions of this JAR have now been updated from 1.3 to 1.4.0. As a result of this upgrade, the following change has been made in the JDE:<br/><ul><li>TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-jxpath JAR has been updated.<li>CuramCDEJ\lib\ext\jar\commons-jxpath-1.4.0.jar - version of the JAR updated.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150878"></a>WorkItem:SPM-150878 - Update the commons-io JAR file to the latest version<br/><p>The Apache Commons IO library contains utility classes, stream implementations, file filters, file comparators, endian transformation classes, and much more. Its usage in the Cúram application is related to the client generators, the XML Server, and also Axis 2 web services. <br/>The version of the commons-io library used by Cúram has now been updated from 2.8.0 to 2.18.0. The new version contains some defect fixes and minor enhancements. <br/>As a result of this upgrade, the following changes have been made to the Cúram deliverable.<br/><ul><li>CuramSDEJ\lib\third&#95;party&#95;version.properties - the version of the commons-io JAR file has been updated.<li>CuramSDEJ\xmlserver\third&#95;party&#95;version.properties - the version of the commons-io JAR file has been updated.</ul>The changes to the commons-io JAR file include:<br/><ul><li>CuramCDEJ\lib\ext\jar\commons-io-2.18.0.jar <li>CuramSDEJ\xmlserver\commons-io-2.18.0.jar<li>CuramSDEJ\lib\commons-io-2.18.0.jar<li>CuramSDEJ\lib\axis2\commons-io-2.18.0.jar </ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150884"></a>WorkItem:SPM-150884 - Update the commons-httpclient JAR file<br/><p>The commons-httpclient library provides a framework by which new request types (methods) or HTTP extensions can be created easily. The library is delivered in Cúram as part of the Axis 2 Web Services functionality.<br/>The version of the commons-httpclient JAR has now been updated from 3.1 to 3.1-1. The new version of the JAR contains a defect fix. As a result of this upgrade, the following changes have been made in the JDE deliverable.<br/><ul><li>CuramSDEJ\lib\axis2\commons-httpclient-3.1-1.jar - version of the JAR updated.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150889"></a>WorkItem:SPM-150889 - Update the Batik libraries to the latest version<br/><p>Apache FOP (Formatting Objects Processor) is a print formatter driven by XSL formatting objects and an output-independent formatter. It is used by the Cúram XML Server in the generation of PDF documents. <br/><br/>The version of batik-all within Apache FOP used by the Cúram XML Server has been updated from 1.16 to 1.17. Batik-all 1.17 contains some bug fixes and several improvements. <br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment (JDE) deliverable.<br/><ul><li>CuramSDEJ\lib\third&#95;party&#95;version.properties - the versions of the specified Batik-related JAR have been updated.</ul>The changes to Batik related JAR files include:<br/><ul><li>CuramSDEJ\xmlserver\batik-all-1.16.jar - this JAR file has been removed.<li>CuramSDEJ\xmlserver\batik-all-1.17.jar - new JAR added.<li>We recommend that you update any references in custom scripts and other artefacts to point to the new version of the JAR files that are specified above.</ul></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150890"></a>WorkItem:SPM-150890 - Update the commons-lang JAR file to the latest version<br/><p>The Apache Commons Lang JAR has been updated. This JAR provides a host of helper utilities for the java.lang API, notably String manipulation methods, basic numerical methods, object reflection, concurrency, creation and serialization and System properties. Additionally, it contains basic enhancements to java.util.Date and a series of utilities dedicated to help with building methods, such as hashCode, toString and equals.<br/><ul><li>Apache Commons Lang JAR has been updated from 3.14.0 to 3.19.0.</ul>As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.<br/><ul><li>CuramSDEJ\lib\third&#95;party&#95;version.properties - versions of the specified Apache Commons JARs updated.<li>CuramSDEJ\lib\commons-lang-3.19.0.jar - version of the JAR updated.<li>CuramCDEJ\lib\ext\jar\commons-lang-3.19.0.jar - version of the JAR updated.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150893"></a>WorkItem:SPM-150893 - Update the xalan and serializer JAR files to a later version<br/><p>Xalan-Java (which contains both the Xalan and Serializer JAR files) is an XSLT processor for transforming XML documents into HTML, text, or other XML document types.<br/><br/>The library is used across many different Cúram builds to transform XML documents into other formats required by Cúram.<br/><br/>The version of the xalan and serializer libraries has now been updated from 2.7.2 to 2.7.3-1. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.<br/><ul><li>TI/lib/release/third&#95;party&#95;version.properties - the versions of the xalan and serializer JAR files have been updated.<li>CuramCDEJ\lib\ext\jar\xalan-2.7.3-1.jar - the version of the JAR file has been updated.<li>CuramCDEJ\lib\ext\jar\serializer-2.7.3-1.jar - the version of the JAR file has been updated.<li>CuramSDEJ\lib\xalan-2.7.3-1.jar - the version of the JAR file has been updated.<li>CuramSDEJ\lib\serializer-2.7.3-1.jar - the version of the JAR file has been updated.<li>CuramSDEJ\xmlserver\xalan-2.7.3-1.jar - the version of the JAR file has been updated.<li>CuramSDEJ\xmlserver\serializer-2.7.3-1.jar - the version of the JAR file has been updated.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that have been specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-150894"></a>WorkItem:SPM-150894 - Update the version of the commons-fileupload JAR file to the latest version<br/><p>The Apache Commons FileUpload API enables file upload capabilities in Java EE web applications.<br/>It is used in the Cúram application for that purpose. It is also part of the Cúram Axis 2 web services deliverable.<br/>The version of the commons-fileupload JAR that is used by Cúram has now been updated from 1.5 to 1.6 in the Axis 2 deliverable and JDE deliverables. This new JAR file contains some minor bug fixes and enhancements.<br/>As a result of this upgrade, the following changes have been made to the Cúram deliverable.<br/><ul><li>CuramSDEJ\lib\third&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.<li>CuramSDEJ\xmlserver\third&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.</ul>The changes to the commons-fileupload JAR file include:<br/><ul><li>CuramSDEJ/lib/axis2/commons-fileupload-1.6.jar - version updated from 1.5 to 1.6 .<li>CuramCDEJ/lib/ext/jar/commons-fileupload-1.5.jar - version updated from 1.5 to 1.6 .</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-151378"></a>WorkItem:SPM-151378 - Update the version of the commons-configuration JAR file to the latest<br/><p>The Apache Commons Configuration package contains tools to assist in the reading of configuration/preferences files in various formats. The library is used in Cúram in a variety of places for XML configuration processing. It is mainly used in the client project for processing the various configuration files for Client Widgets.<br/><br/>The version of the commons configuration library has now been updated from 2.10.1 to 2.12.0. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.<br/><ul><li>CuramCDEJ\lib\ext\jar\commons-configuration-2.12.0.jar - the version of the JAR file has been updated.<li>TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-configuration JAR has been updated.</ul>We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.</p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://www.merative.com/support/spm/release-notes/7-0-10-0#ki">Known Issues documented for 7.0.10.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2026
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>
