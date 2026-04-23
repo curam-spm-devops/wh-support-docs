@@ -1,0 +1,7 @@
+ Verify Download Integrity (SHA-256 Checksums) for CE2603:
+
+
+
+60bbc46b65afc15f45763e7e9ac4df70bf156efe61e2444f5e059d2b19f864ac  SPM_DS_8.1.0.zip
+
+11a25f041ee08936d39e7c514e4a9da43a2a40fa7c2a3ad044340a95e0d85963  UA_Web_App_8.1.0.zip

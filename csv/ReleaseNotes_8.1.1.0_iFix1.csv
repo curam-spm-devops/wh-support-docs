@@ -1,0 +1,156 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-137133,DT036803,A performance issue is present with lists that contain action controls and menus,CEF,Application Development Environment,,,"*Issue Description:*
+When a list has to be rendered with a large number of records containing action controls and menus the resultant page is slow to appear.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+A person with a considerable number of Notes needs to exist on the system, around 4000 or so.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Search for the person with the large number of Notes.
+# Click the Client Contact tab.
+# Issue: The page is slow to load.
+
+*Resolution:*
+The page and list performance has been improved.
+
+*Technical:*
+The rendering of the layout of menu items within a list action menu has been redesigned so that pages or modals containing such lists, load with a better response time.
+
+"
+SPM-135923,DT036995,Copying the application URL into new tab causes a multiple redirects error,CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
+In Cúram, when copying the application URL into a new browser tab, a multiple redirects error occurs.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+Only impacts Weblogic configuration.
+
+*Steps to Reproduce*:
+
+# Log in as a caseworker.
+# Copy the URL in the browser. 
+# Open a new browser tab, paste the copied URL and press enter. 
+# Issue: Copying the application URL into new tab causes a multiple redirects error.
+
+*Resolution:*
+When the application URL is copied into a new browser tab, the Cúram home page loads correctly. "
+SPM-135922,DT036683,Eligibility cluster is laid out from top to bottom with the results appearing underneath each element,CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
+On Dynamic UIM screens that contain nested conditional clusters, layout issues are observed where clusters are incorrectly displayed as being left aligned and much narrower than they should be.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as an Income Support caseworker.
+# Register a new Person.
+# Create a New Application, select Food Assistance, and complete the application.
+# Navigate to the Applications tab on the person?s home page.
+# Click on newly created application.
+# Add Work Registration and Head of Household evidence for Food Assistance.
+# Verify all evidence. 
+# From the actions menu on the evidence page select Apply Changes, tick all and press Save.
+# Check Eligibility to confirm you are eligible for Food Assistance.
+# Select Ready for Determination from the tab menu and click Yes on the confirmation modal.
+# Authorise the Food Assistance program.
+# Navigate to the Related Cases tab on the application and open the newly created Income Support integrated case.
+# Navigate to the Food Assistance product delivery case, approve and activate the case.
+# Click on the Determinations tab.
+# Click on the decision period date to open the Food Assistance decision summary page.
+# Issue: The clusters are left aligned and they are much narrower than they should be as most of the real estate on that page is not being used.
+
+*Scenario 2:*
+
+# Log in as an Income Support caseworker.
+# Register a new Person.
+# Create a New Application, select Food Assistance, Cash Assistance and Medical Assistance. 
+# Select Yes to the ?Is anyone disabled? question on the The Claimant?s Home section and select the person registered above. 
+# Enter in disability details for the person and submit the application. 
+# Navigate to the Applications tab on the person?s home page.
+# Click on newly created application
+# Add Head of Household evidence for Food Assistance and Cash Assistance.
+# Edit the disability evidence, select the 1619(b) recipient indicator and end date the record with a date prior to the current date . 
+# Check Eligibility for Food Assistance, Cash Assistance and Medical Assistance. 
+# Navigate to the Eligibility Checks tab and select the Ineligible tab. 
+# Expand and select the ineligible decision periods for Food Assistance, Cash Assistance and Aged, Blind and Disabled. 
+# Issue: The clusters on the ineligible decisions for each product are overlapping making them difficult to read.
+
+*Resolution:*
+On Dynamic UIM screens that contain nested conditional clusters, the layout of the displayed clusters has been improved. This will help with readability. 
+
+"
+SPM-135894,DT037049, Adding new dynamic evidence results in An Application Error Has Occurred being presented to the user,CEF,Dynamic Evidence,Evidence Management,,"*Issue Description:*
+When adding dynamic evidence from the evidence type workspace page, the evidence is saved but the user is presented with ?An Application Error Has Occurred?.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce (Generic):*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Create an integrated case for the person.
+# From the evidence dashboard, add a dynamic evidence record, Email Addresses, for example.
+# Now click the Email Addresses hyperlink on the evidence dashboard. This opens the evidence type workspace page.
+# Click the New page action to capture a new email address.
+# Add the mandatory email address data to the New Email Addresses modal and click Save.
+# Issue: Even though the email address is saved, the user is presented with ?An Application Error Has Occurred'.
+
+*Resolution:*
+The issue was that the system lost track of the page it needed to return to when capturing dynamic evidence. This has been resolved and now when dynamic evidence is captured from the evidence type workspace page, the system presents the list of evidence records to the user, including the newly captured evidence record.
+
+"
+SPM-135326,DT036985,IEG summary page rendering without CSS and non-functional links after edit action,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+When a user creates an Income Support application in IEG, navigates to the Client?s Rights and Responsibilities page, and then navigates back to the summary page of the script and edits a record, the resulting page is loaded with no CSS and an error is displayed.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as Income Support combined caseworker.
+# Register a Person.
+# From the person tab-level menu, select a new Income Support Application and apply for Food Assistance.
+# Complete all sections of the application up to the Final section and then click the Next button to navigate to the Client?s Rights and Responsibilities page.
+# On the Client?s Rights and Responsibilities page, click the back button until the user is navigated back to the IEG Summary Page (notice the script title at the top changes to Cúram Internal Application).
+# Click the Edit button for the primary client.
+# Issue: An error message is displayed to the user and the page is loaded with no CSS.
+
+*Resolution:*
+The user can now navigate back from the Client?s Rights and Responsibilities page and update the IEG script as required without any issues.
+
+"
+SPM-134124,DT036846,Cúram Session Timeout warning is not appearing at the expected time when a modal is open,CEF,Application Development Environment,,,"*Issue Description:*
+The Cúram Session Timeout warning is not appearing at the expected time when a modal is open.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Open the Register Person modal.
+# Issue: The Cúram Session Timeout warning may appear before the default time of 28 minutes.
+
+*Resolution:*
+Additional functionality has been added to the Cúram Session Timeout feature to ensure the timing of this warning is correct, even when a modal is already displayed. 
+
+"
+SPM-133600,DT036921,Resolve Jersey classloading issue with latest Patches from WebLogic 14.1,CEF,Technical Services,Rest,Infrastructure,"*Description:* 
+A change in WLS PATCH SET UPDATE 14.1.1.0.231220, or later, led to conflicts with packages on the Oracle WebLogic Application Server when deploying the Cúram REST application.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* N/A
+
+*Resolution:*
+A configuration change was introduced by adding META-INF/services/org.glassfish.jersey as a preferred application resource to the REST weblogic-application.xml to resolve this conflict.
+
+*Technical:*
+The following file has been updated:
+
+* ../EJBServer/components/Rest/resources/ear/wls/META-INF/weblogic-application.xml
+
+"

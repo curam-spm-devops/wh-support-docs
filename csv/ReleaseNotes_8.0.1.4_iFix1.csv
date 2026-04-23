@@ -1,0 +1,35 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-150793,,Update the log4j JAR files to the latest version,Third Party Updates,,,,"Apache Log4j is a Java-based logging utility that is used as the logging provider for the Cúram product.
+The version of the Log4j used by the Cúram application has now been updated from 2.23.1 to 2.25.3. This new JAR file contains some minor bug fixes and enhancements.
+As a result of this upgrade, the following changes have been made to the Java Development Environment (JDE) deliverable.
+*Old JAR?s removed*
+# CuramSDEJliblog4j-api-2.23.1.jar
+# CuramSDEJliblog4j-core-2.23.1.jar
+# CuramSDEJxmlserverlog4j-api-2.23.1.jar
+# CuramSDEJxmlserverlog4j-core-2.23.1.jar
+# CuramCDEJlibextjarlog4j-api-2.23.1.jar
+# CuramCDEJlibextjarlog4j-core-2.23.1.jar
+
+*New JAR?s added*
+# CuramSDEJliblog4j-api-2.25.3.jar 
+# CuramSDEJliblog4j-core-2.25.3.jar 
+# CuramSDEJxmlserverlog4j-api-2.25.3.jar 
+# CuramSDEJxmlserverlog4j-core-2.25.3.jar 
+# CuramCDEJlibextjarlog4j-api-2.25.3.jar 
+# CuramCDEJlibextjarlog4j-core-2.25.3.jar
+
+CuramSDEJlibthird&#95;party&#95;version.properties - the versions of the specified Log4j JAR files have been updated.
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above."
+SPM-150794,,Update the version of the commons-fileupload JAR file to the latest version,Third Party Updates,,,,"The Apache Commons FileUpload API enables file upload capabilities in Java EE web applications.
+It is used in the Cúram application for that purpose. It is also part of the Cúram Axis 2 web services deliverable.
+The version of the commons-fileupload JAR that is used by Cúram has now been updated from 1.5 to 1.6 in the Axis 2 deliverable and JDE deliverables. This new JAR file contains some minor bug fixes and enhancements.
+As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.
+* CuramSDEJxmlserverthird&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.
+
+The changes to the commons-fileupload JAR file include:
+* CuramSDEJ/lib/axis2/commons-fileupload-1.5.jar - version updated from 1.5 to 1.6.
+* CuramCDEJ/lib/ext/jar/commons-fileupload-1.5.jar - version updated from 1.5 to 1.6.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
