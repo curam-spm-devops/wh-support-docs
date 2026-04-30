@@ -1,0 +1,116 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-150866,,Update to the latest version of the Rampart Axis 2 security library - esapi,Third Party Updates,,,,"Cúram web services are based on Apache Axis2. With the Rampart security module of Axis2, SPM web services can be secured for authentication, integrity (signature), confidentiality (encryption/decryption), and non-repudiation (timestamp).
+The version of one of the JAR files in Rampart has been updated. As a result of this update, the following changes have been made to the JDE Axis 2 deliverable.
+* CuramSDEJlibaxis2esapi-2.6.0.0.jar - version updated from 2.4.0.0 to 2.6.0.0. 
+
+Note that any references in custom scripts and other artifacts to the updated JAR file listed above must be updated.
+"
+SPM-150871,,Referer header domain name was not being validated,CEF,,,,"*Issue Description:*
+Due to a minor issue in the Referer header domain validation, one of the wildcards in the domain names was not validated correctly. 
+*User Interface Impact:* No
+*Resolution:*
+The Referer header domain name validation logic for both REST and Cúram applications has been improved to address this issue."
+SPM-150872,,Update opensaml library to the latest version,Third Party Updates,,,,"The OpenSAML-J library provides tools to support developers working with the Security Assertion Markup Language (SAML). The library is used in Cúram as part of the Rampart functionality which provides the ability to develop secure Axis 2 Web Services.
+The version of the opensaml JAR has now been updated from 2.6.1-2 to 2.6.6. The new version of the JAR contains a number of defect fixes. As a result of this upgrade, the following changes have been made in the JDE deliverable.
+* CuramSDEJ/lib/third&#95;party&#95;version.properties - the version of the JAR file has been updated.
+* CuramSDEJ/lib/axis2/opensaml-2.6.6.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-150875,,Update the version of the commons-jxpath JAR file to the latest,Third Party Updates,,,,"The Commons JXPath is a Java-based implementation of XPath 1.0 that, in addition to XML processing, can inspect/modify Java object graphs (the library's explicit purpose) and mixed Java/XML structures. There are no direct references to the commons-jxpath jar file in the Cúram application. The commons-configuration JAR file has an indirect dependency on commons-jxpath jar.
+The versions of this JAR have now been updated from 1.3 to 1.4.0. As a result of this upgrade, the following change has been made in the JDE:
+* TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-jxpath JAR has been updated.
+* CuramCDEJlibextjarcommons-jxpath-1.4.0.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-150878,,Update the commons-io JAR file to the latest version,Third Party Updates,,,,"The Apache Commons IO library contains utility classes, stream implementations, file filters, file comparators, endian transformation classes, and much more. Its usage in the Cúram application is related to the client generators, the XML Server, and also Axis 2 web services. 
+The version of the commons-io library used by Cúram has now been updated from 2.8.0 to 2.18.0. The new version contains some defect fixes and minor enhancements. 
+As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - the version of the commons-io JAR file has been updated.
+* CuramSDEJxmlserverthird&#95;party&#95;version.properties - the version of the commons-io JAR file has been updated.
+
+The changes to the commons-io JAR file include:
+* CuramCDEJlibextjarcommons-io-2.18.0.jar 
+* CuramSDEJxmlservercommons-io-2.18.0.jar
+* CuramSDEJlibcommons-io-2.18.0.jar
+* CuramSDEJlibaxis2commons-io-2.18.0.jar 
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+"
+SPM-150884,,Update the commons-httpclient JAR file,Third Party Updates,,,,"The commons-httpclient library provides a framework by which new request types (methods) or HTTP extensions can be created easily. The library is delivered in Cúram as part of the Axis 2 Web Services functionality.
+The version of the commons-httpclient JAR has now been updated from 3.1 to 3.1-1. The new version of the JAR contains a defect fix. As a result of this upgrade, the following changes have been made in the JDE deliverable.
+* CuramSDEJlibaxis2commons-httpclient-3.1-1.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-150889,,Update the Batik libraries to the latest version,Third Party Updates,,,,"Apache FOP (Formatting Objects Processor) is a print formatter driven by XSL formatting objects and an output-independent formatter. It is used by the Cúram XML Server in the generation of PDF documents. 
+The version of batik-all within Apache FOP used by the Cúram XML Server has been updated from 1.16 to 1.17. Batik-all 1.17 contains some bug fixes and several improvements. 
+As a result of this upgrade, the following changes have been made in the Java Development Environment (JDE) deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - the versions of the specified Batik-related JAR have been updated.
+
+The changes to Batik related JAR files include:
+* CuramSDEJxmlserverbatik-all-1.16.jar - this JAR file has been removed.
+* CuramSDEJxmlserverbatik-all-1.17.jar - new JAR added.
+* We recommend that you update any references in custom scripts and other artefacts to point to the new version of the JAR files that are specified above.
+
+"
+SPM-150890,,Update the commons-lang JAR file to the latest version,Third Party Updates,,,,"The Apache Commons Lang JAR has been updated. This JAR provides a host of helper utilities for the java.lang API, notably String manipulation methods, basic numerical methods, object reflection, concurrency, creation and serialization and System properties. Additionally, it contains basic enhancements to java.util.Date and a series of utilities dedicated to help with building methods, such as hashCode, toString and equals.
+* Apache Commons Lang JAR has been updated from 3.14.0 to 3.19.0.
+
+As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - versions of the specified Apache Commons JARs updated.
+* CuramSDEJlibcommons-lang-3.19.0.jar - version of the JAR updated.
+* CuramCDEJlibextjarcommons-lang-3.19.0.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-150893,,Update the xalan and serializer JAR files to a later version,Third Party Updates,,,,"Xalan-Java (which contains both the Xalan and Serializer JAR files) is an XSLT processor for transforming XML documents into HTML, text, or other XML document types.
+The library is used across many different Cúram builds to transform XML documents into other formats required by Cúram.
+The version of the xalan and serializer libraries has now been updated from 2.7.2 to 2.7.3-1. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* TI/lib/release/third&#95;party&#95;version.properties - the versions of the xalan and serializer JAR files have been updated.
+* CuramCDEJlibextjarxalan-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramCDEJlibextjarserializer-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramSDEJlibxalan-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramSDEJlibserializer-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramSDEJxmlserverxalan-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramSDEJxmlserverserializer-2.7.3-1.jar - the version of the JAR file has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that have been specified above.
+"
+SPM-150894,,Update the version of the commons-fileupload JAR file to the latest version,Third Party Updates,,,,"The Apache Commons FileUpload API enables file upload capabilities in Java EE web applications.
+It is used in the Cúram application for that purpose. It is also part of the Cúram Axis 2 web services deliverable.
+The version of the commons-fileupload JAR that is used by Cúram has now been updated from 1.5 to 1.6 in the Axis 2 deliverable and JDE deliverables. This new JAR file contains some minor bug fixes and enhancements.
+As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.
+* CuramSDEJxmlserverthird&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.
+
+The changes to the commons-fileupload JAR file include:
+* CuramSDEJ/lib/axis2/commons-fileupload-1.6.jar - version updated from 1.5 to 1.6 .
+* CuramCDEJ/lib/ext/jar/commons-fileupload-1.5.jar - version updated from 1.5 to 1.6 .
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-151255,,Remove the defunct xalan-2.6.0.jar from the Cúram deliverable,Code Removal,,,,"The following JAR file has been removed from the Cúram deliverable as it is no longer used by the Evidence Generator.
+* ToolsGeneratorsEGToolslibxalan-2.6.0.jar
+
+The Evidence Generator uses the xalan JAR file delivered in the CuramSDEJ. 
+We recommend that you update any custom scripts and other artifacts to remove references to the JAR file which has been removed above and point to the version in the CuramSDEJ if required."
+SPM-151363,,BIRT charts were occasionally not loading on startup,CEF,Business Intelligence and Analytics,,,"*Issue Description:*
+BIRT charts were occasionally not loading on startup.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# On the home page, check the Caseload Summary pod.
+# Issue: The Caseload Summary pod chart occasionally fails to display and appears blank. 
+
+*Resolution:*
+A warm-up call was added so that the first time a BIRT chart is loaded, it initializes properly. Charts now display as expected.
+"
+SPM-151378,,Update the version of the commons-configuration JAR file to the latest,Third Party Updates,,,,"The Apache Commons Configuration package contains tools to assist in the reading of configuration/preferences files in various formats. The library is used in Cúram in a variety of places for XML configuration processing. It is mainly used in the client project for processing the various configuration files for Client Widgets.
+The version of the commons configuration library has now been updated from 2.10.1 to 2.12.0. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* CuramCDEJlibextjarcommons-configuration-2.12.0.jar - the version of the JAR file has been updated.
+* TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-configuration JAR has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"

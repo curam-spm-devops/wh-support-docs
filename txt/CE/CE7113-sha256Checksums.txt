@@ -1,0 +1,7 @@
+ Verify Download Integrity (SHA-256 Checksums) for CE 7.11.3
+
+
+
+acb6bc3f24d1798556e64d5cac88ebee3a75ee25d38826af1c64130c68e6fcc4  SPM_DS_7.11.3.zip
+
+5da7bfd14c6180eb7cd8cd2312ec3f13a860e6b084bc92a568231962104c1f30  UA_Web_App_7.11.3.zip

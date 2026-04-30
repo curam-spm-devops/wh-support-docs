@@ -1,0 +1,7 @@
+ Verify Download Integrity (SHA-256 Checksums) for CE2512:
+
+
+
+e50e8d81e2e1b6d9c31c9a573a67480a31b86057234d69512807677d677793db  SPM_DS_7.11.2.zip
+
+1e04ea7dcd41ec4e1130d28aff7b5824ff03e1203302fc557caf49a2d7da95bf  UA_Web_App_7.11.2.zip

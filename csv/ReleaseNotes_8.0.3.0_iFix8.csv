@@ -1,0 +1,14 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-151781,,Specific inline configuration for a tab action menu is not working correctly,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+The maximum number of inline items configured for the action menu on one tab leaked into another tab, resulting in an incorrect number of inline actions being displayed when the user switched between application tabs.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Prerequisite step: *Configure 3 inline items for Person home menu and 0 inline items for the Incident menu.
+# Log in as a caseworker.
+# Open a Person home page  (e.g., James Smith).
+# Create a new Incident from the Person home page.
+# Check the inline action buttons on both the Person home page and the Incident tabs.
+# Issue: The inline action buttons on both Person home page and Incident tabs has 0 inline items.  
+
+*Resolution:*
+The logic has been updated so that inline tab action menu configurations are scoped and applied per tab. The Person home and Incident tabs now display their configured number of inline action buttons independently."
