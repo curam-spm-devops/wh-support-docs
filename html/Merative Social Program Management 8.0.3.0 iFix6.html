@@ -1,0 +1,159 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>C&#250;ram 8.0.3.0 iFix6</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>C&#250;ram 8.0.3.0 iFix6</b>
+</h2>
+
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#download">Security Bulletins</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues and Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the C&#250;ram 8.0.3.0 iFix6 release.
+</p>
+
+<p>
+This is a cumulative release that incorporates all improvements, resolved issues, and third-party updates in previous 8.0.3.0 iFix releases. For full details, see the release notes for each of the previous iFix releases online at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/release-notes/">Release Notes.</a>
+</p>
+
+</p>
+For product documentation, see <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation">Merative Support Docs.</a> 
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.0.3.0 iFix6 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites" target="_blank">Prerequisites and supported software</a>.</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+This release is available to download from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Security Bulletins</h2><p>
+Security Bulletins are now available from <a href="https://merative.my.site.com/mysupport/s/">Merative Support</a>. You must log in to access Security Bulletins, request access if needed. Select Cúram Support and Software Download, enter your credentials, and open Knowledge Articles to see the Security Bulletins.
+<p>   
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+<p> For full installation instructions, see the Development Environment Installation Guide at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs.</a></p>
+
+<p> The basic installation steps are as follows:
+</p>
+<ul>
+  <li>Review the release notes and documentation for any prerequisite steps. </li>
+  <li>Download and extract the contents of the .zip file to a local drive location. </li>
+  <li>Ensure that all files in your C&#250;ram installation are writable. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder. </li>
+  <li>Run the appropriate build targets for your installation.</li>
+</ul>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database. The C&#250;ram Upgrade Guide describes the recommended process for application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes, and tools to generate initial SQL scripts for applying changes to your database. Download the appropriate version of the Cúram Upgrade Helper from <a href="https://merative.my.site.com/mysupport/s/">Merative Support.</a> You must log in to download software, request access if needed. Select Cúram Support and Software Download, enter your credentials and download the software.
+</p>
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues and Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#accessibility_improvedandresolvedissues">Accessibility</a><br/><a href="#look_and_feel_improvedandresolvedissues">Look and Feel</a><br/><a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/>
+<br/><a name="accessibility_improvedandresolvedissues"></a>
+<h4>Accessibility</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133241"></a>DT036869, WorkItem:SPM-133241 - Screen reader announces invisible non-actionable elements <br/><p><b>Issue Description:</b><br/>The screen reader announces non-focused elements when attention is shifted from the shortcuts panel splitter to a different element <br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Enable a screen reader.<li>Log in as a caseworker.<li>Select the Cases and Outcomes tab, making sure all the tabs are closed on the workspace.<li>Navigate to the shortcuts splitter.<li>Use the down arrow key to navigate to the content.<li>Issue: The screen reader announces non-focused elements when attention is shifted from the shortcuts panel splitter to a different element when all the tabs are closed on the workspace.</ol><b>Resolution:</b><br/>The issue is resolved, the screen reader does not read the non-focused elements in the shortcuts panel when attention is shifted to a different element when all the tabs are closed on the workspace.<br/><br/><br/></p></p>
+<br/><a name="look_and_feel_improvedandresolvedissues"></a>
+<h4>Look and Feel</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133295"></a>DT036336, WorkItem:SPM-133295 - There is no clear differentiation between notes making it more difficult to read<br/><p><b>Issue Description:</b><br/>When a note is appended to and contains text with tables and links, there is little differentiation/spacing between them making them difficult to read.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as a caseworker.<li>Navigate to a person home page.<li>Click the Client Contact tab and select the Notes page.<li>Use the New page action to add a note.<li>Include the following in this note, add a table and some hyperlinks, and click Save.<li>Issue: The notes have little separation/spacing between them. This makes it difficult for users to differentiate them.</ol><b>Resolution:</b><br/>The CSS for the notes history has been updated to add a horizontal line separator, making the note author/timestamp bold and padding was added in, above and below to help users to differentiate between the notes.<br/><br/><br/></p></p>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#administration_suite_improvedandresolvedissues">Administration Suite</a><br/>
+<br/><a name="administration_suite_improvedandresolvedissues"></a>
+<h4>Administration Suite</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-133240"></a> DT036738, WorkItem:SPM-133240 - Selecting a user's business email link is not opening the mail client<br/><p><b>Issue Description:</b><br/>When an administrator clicks on the ‘Business Email’ field in a user’s context panel, the mail client is not opened. A JavaScript error is reported in the browser console.<br/><br/><b>User Interface Impact:</b> No<br/><br/><b>Prerequisites:</b><br/>User should have a valid business email address.<br/><br/><b>Steps to Reproduce:</b><br/><ol><li>Log in as an Administrator.<li>Navigate to Administration Workspace.<li>From the Shortcuts panel click on User Search.<li>Search for and open an existing user. Check for a valid business email address, add a valid business email address if blank. Save and close the user.<li>In the context panel, select the business email hyperlink in the Business Email field.<li>Issue: Nothing happens, the mail client does not open. A JavaScript error was reported in the browser console. </ol><b>Resolution:</b><br/>This has been resolved, the ‘Business Email’ field will now open up a new dialog to send an email when an administrator clicks on the email address.<br/><br/> <br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Please refer to the <a href="https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/spm8030.pdf">Known Issues documented for 8.0.3.0</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://curam-spm-devops.github.io/wh-support-docs/notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2024
+</p>
+         Merative is a trademark of Merative US L.P. in the United States and other countries.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>

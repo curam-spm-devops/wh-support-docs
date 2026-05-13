@@ -1,0 +1,111 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-141877,DT036289,IEG Application Form produces Null Pointer Exception when navigating between sections,ENT,Intelligent Evidence Gathering,APIs,,"*Issue Description:*
+An IEG application form produces a Null Pointer Exception error when navigating from one section to another via the left panel section navigation if there are disabled sections in between.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+An IEG script with the following structure:
+
+# Section navigation panel enabled (show-sections=""""true"""").
+# The script contains 4 sections: Section A, Section B, Section C, and Section D.
+# Section A contains a question page that is always enabled, with a Question A1 that will be used as criteria to display the Section B and Section C question pages.
+# Section B contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.
+# Section C contains a question page wrapped by a condition that evaluates Question A1 as criteria to display the question page.
+# Section D contains a question page that is always enabled with at least one question.
+
+*Steps to Reproduce:*
+
+# Start the IEG script.
+# In Section A, question A1 provides an answer that will ensure the question pages of Section B and Section C are not displayed, therefore not enabling the sections.
+# Click Next.
+# Section B and Section C are not displayed, and the navigator jumps to Section D.
+# On the Section D question page, click the left panel navigation to go to Section A.
+# On the Section A question page, click the left panel navigation to go to Section D.
+# Issue: A Null Pointer Exception is displayed and the user cannot navigate to the desired section.
+
+*Resolution:*
+This issue is resolved. Disabled sections in an IEG script are now handled properly to avoid a Null Pointer Exception and the user can navigate to previous sections as expected.
+"
+SPM-141705,DT037158,Users with a lower sensitivity level than the sensitivity level of a person on a case can see the client details on an application case search,CEF,Application Development Environment,Security Management,,"*Issue Description:*
+Users with a lower sensitivity level can view case details linked to a client with a higher sensitivity level. This includes personally identifiable information, such as the client?s name, program details, and date of birth.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as an administrator.
+# Navigate to the Shortcuts panel. Select User Interface.
+# Navigate to Sections. Select DefaultAppSection. 
+# Navigate to the Shortcuts Panels tab of the DefaultAppSection.
+# Select New Link for Searches Group.
+# Enter ?ApplicationSearch? in Link ID.
+# Enter ?CommonIntake_applicationCaseSearch? in Page ID.
+# Enter 'Application Search?? in Title. Save the details. 
+# Navigate back to the User Interface menu in the Shortcuts Panel. Select Publish.
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Search for the Admin user.
+# Change the administrator?s Sensitivity Level to 5.
+# Search for the ?superuser? and change their Sensitivity Level to 5.
+# Log in as a ?superuser?. 
+# Register a person.
+# Navigate to the actions menu on the Person tab and select to Edit.
+# Update the Sensitivity Level to 5.
+# From the Actions menu, select New Application Form.
+# Complete and submit the application form to generate an application case.
+# Note the Application Reference Number under Care and Protection - Applications.
+# Log in as caseworker (sensitivity level 1). 
+# Select Person Search? from Searches menu of the Shortcut Panel.
+# Select Application Search? from the Searches menu of the Shortcut Panel.
+# Enter the Reference Number and click Search.
+# Issue: The search results display the client?s name and the program they applied for. Clicking on the Application Case link also reveals the client?s Date of Birth.
+
+*Resolution*:                                                                                                                                                                                            
+This issue has been resolved. When a user searches for an application case linked to a client with a higher sensitivity level, case details such as the application reference number, form, type, client?s name, and program details are grayed out and masked. If the user attempts to expand and view additional information of a restricted case, the following validation message is displayed: ?You do not have access to this client?s details.?
+
+"
+SPM-141701,DT037253," Cases assigned a higher sensitivity level can be viewed by an audit coordinator with a lower sensitivity level",CEF,Application Development Environment,Security Management,,"*Issue Description:*
+An audit coordinator with a lower sensitivity level can view and select cases for auditing linked to a person with a higher sensitivity level. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# In the shortcuts panel, navigate to Case Audit Configurations under the Case Audits section and select New Case Audit Configuration.
+# Configure an audit with the following values:
+## Case Audit type: Select Product Delivery in the dropdown and search and select Employment Benefit and click Next.
+## Algorithm: Systematic Sampling
+## Allow Audit Coordinator to Specify Cases for Audit: Yes
+## Dynamic Query: Benefit Product Delivery Case Query
+## Focus Area: Select All
+## Select Save
+# Navigate to Users and select User Search.
+# Search for the administrator user. Update the administrator?s sensitivity level to 5. 
+# Search for the caseworker user. Update their sensitivity level to 5. 
+# Log in as this updated caseworker.
+# Register a person.
+# Set the person?s sensitivity level to 5.
+# Create an integrated case for the person.
+# Create an associated product delivery. Note down the Case Reference Number. 
+# Add the necessary evidence to make the person eligible.
+# Apply the evidence changes.
+# Submit the product delivery for approval.
+# Activate the product delivery.
+# Log in as an audit coordinator.
+# In the shortcuts panel, select New Audit Plan under Audits section. 
+# Configure an Audit Plan with the following values:
+## Purpose: Compliance Review
+## Audit Item: Employment Benefit
+## User Involvement: Provide Feedback
+# From the Audit Plan home page, open the page actions overflow menu and click the Select Specific Cases to Audit action.
+# Search for the product delivery case created above (Step 11).
+# Issue: The audit coordinator can view and select to audit the product delivery case linked to a person with a higher sensitivity level.
+
+*Resolution:*
+When an audit coordinator with a lower sensitivity level searches for a case linked to a client with a higher sensitivity level, the details are masked. Additionally, if an audit coordinator tries to add a restricted case, the following validation message displays: ?You do not have access to this client?s details.?     
+
+ "

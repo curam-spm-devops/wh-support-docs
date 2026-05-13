@@ -1,0 +1,299 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-135665,DT036929,Container (compound) columns with text fields in lists are not sortable,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+List columns with both field text and a link are not sortable. This is most prevalent on lists with the ?Add Translation? icon next to a translatable text field.  
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Navigate to the Administration Workspace.
+# Expand the shortcuts panel.
+# Expand the Workflow section and select Work Queues.
+# Click the ?Name? column header.
+# Issue: Nothing happens. The rows are not sorted by ?Name? as expected.
+
+*Resolution:*
+Support has been added for sorting a variety of compound columns within lists. These are columns containing mixed contents including a text field. It excludes compound columns with checkboxes, radio buttons or any other widgets.  
+
+It should be noted that as per standard sortable columns, this will increase the width of the newly sortable columns by a small amount due to the additional space reserved for the sorting icons. All updated columns will have the UIM structure, {{//LIST/CONTAINER[FIELD and not(WIDGET)]}}. "
+SPM-135444,DT036812,Modal window does not resize correctly when navigating back from a larger window,Look and Feel,,,,"*Issue Description:*
+When navigating through a wizard, sometimes a modal window does not resize correctly when navigating back from a larger modal window.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+There must be a wizard that contains at least two pages that have different widths specified in the WINDOW_OPTIONS parameter of the UIM page. The first page should be smaller than the second page.
+
+*Steps to Reproduce:*
+
+# Launch the wizard.
+# Navigate from the first page to the second page. The second page will be displayed in a larger modal than the first.
+# Navigate back to the first page.
+# Issue: The first modal does not resize back to the original size, it is the same size as the second modal.
+
+*Resolution:*
+Modals were not rendered at the correct size because the CSS style applied to previous modals was not being cleared properly. This has now been corrected so that a modal will be assigned a size based on the width specified in the WINDOW_OPTIONS parameter of the corresponding UIM page.
+
+This may impact a customer?s existing wizards by fixing pages that had previously displayed at the wrong size.
+
+"
+SPM-135370,DT036878,Empty h1 heading on Calendar page is causing an accessibility failure,CEF,Administration Suite,Calendaring/Scheduling,Accessibility,"*Issue Description:*
+Empty h1 heading element on the calendar page is causing an accessibility violation.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to the Calendar tab.
+# Issue: Scanning the page with an Accessibility Evaluation tool reveals an accessibility violation due to empty heading element.
+
+*Resolution:*
+The properties file is updated to populate appropriate text and the accessibility violation has been resolved.
+
+"
+SPM-135260,DT036924,IEG window height is compressed when opened from an actions menu,ENT,Intelligent Evidence Gathering,,,"*Issue Description:*
+When an IEG modal window is launched from an actions menu, the height of that IEG modal window is compressed which makes it difficult for the user to populate the form.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+There is no equivalent flow in the default Cúram application so the following steps can be performed to allow the issue to be reproduced.
+
+# Create an action menu item which opens a modal window where the user can select an intake application with just one program linked to it. 
+# On selection of the Intake application, call the following default application UIM files which direct the user to the IEG modal.
+# The page flow should be the following in this instance: 
+
+* Custom Modal Window > CommonIntake&#95;listInternalIntakePrograms > CommonIntake&#95;startInternalIntakeScriptPage
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a caseworker.
+# Register a person.
+# Click on New Application Form action menu item.
+# Select the Application and click Next to launch the IEG modal.
+# Issue: If there is only a single program configured in the above scenario, the IEG modal that is launched has a very short height making it difficult for the user to fill in the required details.
+
+*Resolution:*
+The IEG modal window is now launched with a minimum default height which ensures the modal height is sufficient to populate all of the required details in a more user friendly manner.
+"
+SPM-135243,DT036923,Space occupied by the expanded nested list item remains as white space when the nested list item is collapsed,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When a nested expandable list row is collapsed, its content is replaced with whitespace, rather than collapsing completely .
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a caseworker.
+# Register a person which opens the person home page.
+# Click the Issues and Proceedings tab and navigate to the Special Cautions page.
+# Click New to add a special caution. Add a long vertical description for this special caution. 
+# Click New to add a second special caution.
+# Expand the first special caution to show the long associated description.
+# Minimize the first special caution.
+# Issue: Whitespace remains where the expanded content was shown.
+
+*Scenario 2:*
+
+# Log in as a caseworker.
+# Open the Inbox tab.
+# Create a task, while creating the task select the ?Add to My Tasks? checkbox.
+# Open Task and open the History and Comments tab and expand the toggle.
+# Collapse the toggle.
+# Issue: Whitespace remains where the expanded content was shown.
+
+*Resolution:*
+The issue has been resolved by ensuring a collapsed row no longer takes up any additional space on the page.
+
+"
+SPM-135180,DT036962,Issue in migration of address via PECMigration Batch,CEF,Application Development Environment,Participant Management,,"*Issue Description:*
+The PECMigrationBatch job provides the foundation for the migration of data from Participant Data Case (PDC) to Person Evidence Case (PEC). During the migration of PDCAddress evidence, the value of the ?address? field in the DynamicEvidenceDataAttribute table is incorrectly copied. This field serves as a foreign key to an Address entity. Instead, the Address and its associated AddressElement records should be migrated, and the value of the DynamicEvidenceDataAttribute for the ?address? should be updated to reflect the primary key of the migrated Address entity.
+
+*User Interface Impact:* No.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Run the PECMigrationBatch job.
+# Review the migrated DynamicEvidenceDataAttribute records for PDCAddress.
+# Issue: The value of the DynamicEvidenceDataAttribute row with name ?address? has the same value as the original PDC record.
+
+*Resolution:*
+When the PECMigrationBatch job migrates DynamicEvidenceDataAttribute rows for PDCAddress evidence, it now migrates the Address and AddressElement records where the ADDRESSID matches the ?value? in the DynamicEvidenceDataAttribute row with the name ?address?. It then re-links the value to the ADDRESSID of the migrated Address record.
+
+"
+SPM-134755,DT036886,"Third party link does not open when using custom code to facilitate opening of this link in a separate tab ",CEF,,,,"*Issue Description:*
+In Cúram, when a custom third party link is configured to open in a separate browser tab from the ACTION&#95;CONTROL tag inside the ACTION&#95;SET, it is failing to open the URL in a new tab. 
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+Configure a custom third-party URL to open in a separate browser tab and close the modal it was actioned from. 
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to the custom UIM.
+# Click the action control with the custom JavaScript configured.
+# Issue: When the JavaScript function has been executed, the third-party URL does not open in a new tab.
+
+*Resolution:*
+This issue has been fixed so that users can configure a third-party URL along with any custom JavaScript. The execution order ensures that the third-party URL opens first in a new tab, followed by the execution of any configured JavaScript.
+
+
+"
+SPM-134596,DT036899,Unable to search on a single character in Address Line 1,CEF,,,,"*Issue Description:*
+When users attempt to search using only a single character in the Address Line 1 field, a validation message is displayed stating, ?Address Line 1 field must contain at least 2 alphanumeric characters.? This validation prevents users from searching for addresses that require only one character in Address Line 1.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to Service Supplier Search under Searches in the shortcuts panel.
+# Enter a single character in the Address Line 1 field and click Search.
+# Issue: A validation prevents the user from searching. 
+
+*Resolution:*
+Configurable validations have been introduced that will allow system administrators to configure whether or not minimum length validations are displayed for Address Line 1, Address Line 2, and City. These validations are enabled by default, they can be disabled in the Validation Configuration section of the System Administration application to prevent minimum length checks.   
+
+References for configurable validations added in Platform:
+
+* generalsearch.err&#95;search&#95;fv&#95;address&#95;line&#95;1&#95;short|a|
+* generalsearch.err&#95;search&#95;fv&#95;address&#95;line&#95;1&#95;short|b|
+* generalsearch.err&#95;search&#95;fv&#95;address&#95;line&#95;2&#95;short|a|
+* generalsearch.err&#95;search&#95;fv&#95;address&#95;line&#95;2&#95;short|b|
+* generalsearch.err&#95;search&#95;fv&#95;city&#95;short|a|
+* generalsearch.err&#95;search&#95;fv&#95;city&#95;short|b|
+* generalsearch.err&#95;search&#95;fv&#95;street&#95;number&#95;short|a| (CA&#95;CIVIC address layout only)
+* generalsearch.err&#95;search&#95;fv&#95;street&#95;number&#95;short|b| (CA&#95;CIVIC address layout only)
+* generalsearch.err&#95;search&#95;fv&#95;street&#95;name&#95;short|a| (CA&#95;CIVIC address layout only)
+* generalsearch.err&#95;search&#95;fv&#95;street&#95;name&#95;short|b| (CA&#95;CIVIC address layout only)
+"
+SPM-134274,DT036605,"On some pages mandatory fields have no visible label ",Look and Feel,,,,"*Issue Description:*
+
+There are a number of fields in the application that are mandatory but do not display the mandatory asterisk indicator, these fields do not have a label which means that the mandatory asterisk indicator cannot be displayed. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a Child Welfare intake worker.
+# Create an Intake.
+# Enter the minimum data needed to open the Intake.
+# Select the Recommendation tab.
+# Recommend Screened-In.
+# Submit the recommendation. 
+# Log in as a Child Welfare intake supervisor.
+# Approve the recommendation task.
+# Select the intake home link on the task to open the intake home page.
+# On the intake home page, click the ellipsis and select Start Investigation. 
+# On the Investigation, select Plan, then Services and click New. 
+# Search for ?care? and select a service.
+# Issue: On the next page of the New Service wizard, the ?Reason? field is mandatory but does not have a field title and asterisk.
+
+*Resolution:*
+The affected pages have been updated to have a label so that the mandatory asterisk indicator can be displayed.
+
+*Technical:*
+The following pages have been updated:
+
+* webclient/components/ChildServices/Intake/CCSIntake_modifyNarrative.uim
+* webclient/components/AssessmentPlanning/Delivery/OutcomePlan/Factors/OutcomePlanFactor_addNote.uim
+* webclient/components/AssessmentPlanningCPM/overridden/CPM/Referral/ProviderManagement_editReferralNotificationsNotSent.uim
+* webclient/components/AssessmentPlanningCPM/overridden/CPM/ServiceDelivery/ProviderManagement_editService1.uim
+* webclient/components/CPM/Referral/AddReferralWizard/ProviderManagement_referralWizardCommonDetails.vim
+* webclient/components/CPM/Referral/ProviderManagement_editReferralNotificationsNotSent.uim
+* webclient/components/CPM/ServiceDelivery/CreateServiceDeliveryWizard/CreateServiceDeliveryWizard_details1.uim
+* webclient/components/CPM/ServiceDelivery/ProviderManagement_editService1.uim
+"
+SPM-134020,,Update Guice and Guava to latest version,Third Party Updates,,,,"Google Guava is an open source set of core libraries for the Java platform released by Google under the Apache License. The version of Google Guava used in the Cúram product has been updated from 27.0.1-jre to 33.2.0-jre. 
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.
+
+* guava.jar (updated from 27.0.1-jre to 33.2.0-jre).
+* failureaccess.jar (updated from 1.0.1 to 1.0.2) - this is a dependency of guava.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+
+"
+SPM-134019,,Update the version of the commons-configuration JAR file to the latest,Third Party Updates,,,,"The Apache Commons Configuration package contains tools to assist in the reading of configuration/preferences files in various formats. The library is used in Cúram in a variety of places for XML configuration processing. It is mainly used in the client project for processing the various configuration files for Client Widgets.
+
+The version of the commons configuration library has now been updated from 2.9.0 to 2.10.1. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+
+* CuramCDEJlibextjarcommons-configuration-2.10.1.jar - the version of the JAR file has been updated.
+* TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-configuration JAR has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-133950,DT036931,An error occurs when multiple evidence pages simultaneously try to access the AppResource table for the first time,CEF,Dynamic Evidence,Evidence Maintenance,Infrastructure,"*Issue Description:*
+During Dynamic Evidence Maintenance operations ?The page you have requested is not available.? is sporadically seen. To resolve this problem a server restart is required and the page can then be reloaded successfully.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# AppResource entries with name prefixed with DynEvd_ are removed from the AppResource database table.
+# The Application is started in a Cluster configuration where multiple Application Server nodes are started.
+#  The Application experiences high load with regard to Dynamic Evidence Maintenance operations across clustered nodes.
+# Issue: A sporadic 404 response is returned for a user requested Dynamic Evidence Page during an evidence maintenance operation. This results in the User seeing the ?The page you have requested is not available.? message. The issue occurs because of problems trying to access AppResource table data under load conditions. The failed access attempt is final on affected node and no further attempts to load that Dynamic Evidence Page can be made on that node until restart.
+
+*Resolution:*
+The solution is to prevent the need for server restart whenever an attempt to load a Dynamic Evidence Page fails. During infrastructure UI Component Model Cache loading, the infrastructure will attempt further retries on Dynamic Evidence pages that failed to load, thereby allowing the User to reload a failed page.
+
+"
+SPM-133928,DT036920,Session timeout not logging the user out correctly when machine is restored from sleep mode,CEF,Application Development Environment,,,"*Issue Description:*
+The Cúram Session Timeout feature behaves unexpectedly when restored after sleep mode has been activated.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* N/A
+
+*Resolution:*
+Additional functionality has been added to ensure the Session Timeout feature behaves as expected.
+
+"
+SPM-133581," DT036738",Selecting a business email link for a user is not opening the mail client,CEF,Administration Suite,,,"*Issue Description:*
+When an administrator clicks on the ?Business Email? field in a user?s context panel, the mail client is not opened. A JavaScript error is reported in the browser console.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+User should have a valid business email address.
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Click User Search in the shortcuts panel.
+# Search for and open an existing user.
+# In the context panel, select the email hyperlink in the Business Email field.
+# Issue: Nothing happens, the mail client does not open. A JavaScript error was reported in the browser console. 
+
+*Resolution:*
+This has been resolved, the ?Business Email? field will now open up a new dialog to send an email when an administrator clicks on the email address.
+
+ "
+SPM-133193,DT036917,Validation messages are not displayed when an invalid value is entered into drop-downs,CEF,,,,"*Issue Description:*
+When an invalid value is entered into drop-downs, no validation is displayed to indicate the value is invalid and the default drop-down value is saved, this can result in wrong values getting saved by the system inadvertently.
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker. 
+# Register a person.
+# In the Gender field which defaults to Male,  type 'abc'.
+# Click Save.
+# Issue:  A validation is not displayed to indicate an invalid value has been entered and the default value (Male) is recorded as the person?s Gender.
+
+*Resolution:*
+A validation is displayed to indicate an invalid value has been entered into a drop-down.
+
+"

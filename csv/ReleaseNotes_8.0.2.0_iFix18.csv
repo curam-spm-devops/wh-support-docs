@@ -1,0 +1,12 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-133927,DT036920,Session timeout not logging the user out correctly when machine is restored from sleep mode,CEF,Application Development Environment,,,"*Issue Description:*
+The Cúram Session Timeout feature behaves unexpectedly when restored after sleep mode has been activated.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* N/A
+
+*Resolution:*
+Additional functionality has been added to ensure the Session Timeout feature behaves as expected.
+
+"

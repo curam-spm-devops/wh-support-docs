@@ -1,0 +1,1430 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-128390,,"Remove the duplicate LocalizableText screens  ",Code Removal,,,,"A number of UIM, VIM and related property files associated with the Text Translation functionality were duplicated across the 'core' and 'WorkspaceServices' components. The duplicate files present in the 'WorkspaceServices' component have now been removed as part of this release.
+
+For more information about the artifacts that are removed and modified as part of this code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-128333,,"Deprecation of superseded APIs and UIM files related to the introduction of multi locale support for Work Queues, Quick Links, and Organizational Structure functionality",CEF,,,,"As part of the introduction of multi locale support for Work Queue, Quick Link, and Organizational Structure functionality, a number of related APIs have been deprecated as new APIs have been introduced to include locale processing.
+
+These deprecated APIs and those new APIs that have replaced them are listed below.
+"
+SPM-128307,,Renaming of some of the JAR files contained in the CuramCDEJ deliverable,Third Party Updates,,,,"A number of JAR file names delivered as part of the CuramCDEJ SPM deliverable have been changed to include the version of the JAR file in the name. This is to ensure consistency in the JAR file naming across the SPM deliverable and to allow version identification of the JAR file by examining it's name.
+
+The following changes have been made in the CuramCDEJ deliverable (CuramCDEJlibextjar).
+ * ant-contrib.jar renamed to ant-contrib-1.0b2.jar
+ * antlr.jar renamed to antlr-3.3.jar
+ * commons-beanutils.jar renamed to commons-beanutils-1.9.4.jar
+ * commons-collections.jar renamed to commons-collections-3.2.2.jar
+ * commons-collections4.jar renamed to commons-collections4-4.1.jar
+ * commons-logging.jar renamed to commons-logging-1.2.jar
+ * commons-validator.jar renamed to commons-validator-1.6.jar
+ * derby.jar renamed to derby-10.12.1.1.jar
+ * dom4j.jar renamed to dom4j-2.1.3.jar
+ * htmlcleaner2_1.jar renamed to htmlcleaner-2.1.jar
+ * taglibs-standard-impl.jar renamed to taglibs-standard-impl-1.2.5.jar
+ * taglibs-standard-spec.jar renamed to taglibs-standard-spec-1.2.5.jar
+
+Note that any references in custom scripts and other artifacts to the renamed JAR files listed above must be updated."
+SPM-128221,,Deprecate the application properties to disable inline menu action items,CEF,,,,"The following application properties to disable inline menu action items are deprecated.
+ * curam.actionmenus.display-inline.enabled.tab
+ * curam.actionmenus.display-inline.enabled.page
+ * curam.actionmenus.display-inline.enabled.list 
+
+In 8.0.3, these application properties were needed to enable inline menu items on actions menus, but from 8.1 onwards, this behaviour is enabled by default.
+"
+SPM-128196,DT036696,Evidence Source History displaying values in default server locale instead of the user selected locale,CEF,Dynamic Evidence,Evidence Maintenance,,"**Issue Description:**
+When viewing the change history for an evidence record originating from Person or Prospect Person, the Source column displays the value in the default system locale rather than the user selected locale.
+
+**User Interface Impact:** Yes
+
+**Prerequisites:**
+ # Log in as a system administrator.
+ # Navigate to Property Administration under Application Data in the shortcuts panel.
+ # Search for the property ?curam.environment.app.menu.locale.toggle.enabled?.
+ # Use the row-level action to edit the value and set it to true. Click Save.
+ # Publish the changes.
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Navigate to the Application menu and click Language.
+ # Select a language that is different from the default system locale language.
+ # Register a new Person and include the Phone Number details.
+ # From the Person home page, click the Evidence Tab.
+ # Expand the Phone Number details evidence.
+ # Select the Change History in-page navigation tab.
+ # Issue: The Source column is displaying values in the default system locale. This should appear in the user?s locale.
+
+**Resolution:**
+The Change History page now displays the Source values in the user's locale.
+"
+SPM-128173,DT036703,"Income Support Guided Change wizard is not loading Relationship Details ",CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+When a user is adding a household member to the guided evidence wizard, the loading spinner persists indefinitely so that the guided evidence changes cannot be completed.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as an Income Support caseworker.
+ # Register two people for example AB Smith and AC Smith.
+ # For one Person for example AB Smith, create a new Income Support Application for Medical Assistance (enter the required information and submit the case)
+ # Open the Income Support Application and then from the Evidence tab action Verify / Apply Changes / Check Eligibility ( Medical Assistance).
+ # Open the Income Support Case from the Person Home Page and then select Guided Change and select Add a Member.
+ # In step 1 of the wizard enter Participant Details.
+ # In step 2 of the wizard enter Personal Information.
+ # Issue: On step 3 of the wizard the Relationship Details is not loading.
+
+**Resolution:**
+A user can progress through all the steps in Guided Evidence Management wizard. 
+"
+SPM-128081,,"Update the Entity Relationship Diagram (ERD) with entities that have been added, removed or deprecated in recent SPM releases",CEF,Application Development Environment,,,"**Issue Description:**
+Social Program Management uses Entity Relationship Diagrams (ERDs) to illustrate how data is stored and to show dependencies between entities. The Entity Relationship Diagrams are provided in PDF format, however some of the Entity Relationship Diagrams do not reflect the entities that have been added, removed or deprecated in recent SPM releases.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:** NA
+
+**Resolution:**
+The Entity Relationship Diagrams are now updated to reflect entities that have been added, removed and deprecated in recent SPM releases. The following updates have been made:
+
+**ERD-ProviderManagement**
+The **Taxonomy** section has been removed to reflect the removal of that feature in SPM. This has also resulted in the following entities being removed:
+ * ExtSysClassification
+ * ExtSysClassifnElement
+ * ExtSysClassifnTermLink
+ * POTaxonomyIndexLink
+ * POTaxonomyInEditIndex
+ * RelatedConcept
+ * RelatedConceptElement
+ * RelatedConceptNameLink
+ * RelatedTermLink
+ * TaxonomyGSSSynch
+ * TaxonomyImportLog
+ * TaxonomyInEditData
+ * TaxonomyTerm
+ * TaxonomyTermNameLink
+ * TaxonomyTermOldCode
+ * TaxonomyTermRelatedConcept
+ * TaxonomyVersion
+ * TaxonomyVersionData
+ * UseReference
+ * UseReferenceNameLink
+
+The **Contracts** section has been updated to reflect the removal of the following 
+CPM Performance Measure entity as this feature has been removed from the product.
+* ContractPerformanceMeasure
+
+The **CPM Admin** section has been updated to reflect the removal of the following 
+CPM Performance Measure entities as this feature has been removed from the product.
+ * PerformanceMeasure
+ * PerformanceMeasureLink
+ * ScoreOutcome
+ * SOPerformanceMeasureLink
+ * SOPerformMsrEvalCrtLnk
+ * ERD-Infrastructure
+
+The **Generic Search Server** section has been removed to reflect the removal of that feature in SPM. This has also resulted in the following entities being removed:
+ * GSSEntity
+ * GSSMapperType
+ * SearchService
+ * SearchServiceField
+ * SearchServiceRow
+ * SearchSrvcRowExt
+
+A new section called **AutoRecovery** has been added. This has resulted in the following entity being added:
+ * AutoRecovery
+"
+SPM-128074,DT036699,"Wizard titles display the evidence type description in the default system locale instead of the user selected locale ",CEF,Dynamic Evidence,Evidence Maintenance,,"**Issue Description:**
+
+While creating dynamic evidence that uses a wizard such as when the evidence type being created is configured for automatic end-dating or is a parent-child relationship, the wizard step titles and page titles display the evidence type description in the default system locale rather than the locale selected by the user.
+
+**User Interface Impact:** Yes
+
+**Prerequisites:**
+# Log in as a system administrator.
+# Navigate to Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.environment.app.menu.locale.toggle.enabled?.
+# Use the row-level action to edit the value and set it to true. Click Save.
+# Publish the changes.
+
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Navigate to the Application menu and click Language.
+ # Select a language that is different from the default system locale language.
+ # Register a new Person.
+ # Click the Evidence tab and select the New page action.
+ # On the New Evidence modal, select the Add row-level action for the Phone Numbers evidence.
+ # On the New Phone Numbers modal, add the mandatory details.
+ # Click Save.
+ # Add a second Phone Number.
+ # Issue: The wizard displays the wizard step titles and the page titles in mixed locales. The evidence type description appears in the default system locale and the rest of the text appears in the user's locale.
+
+**Resolution:**
+The wizard pages now display the evidence type description in the user's selected locale.
+"
+SPM-128072,,"Multi locale support for Work Queue, Quick Link, and Organizational Structure functionality",CEF,Administration Suite,,,"**Issue Description**
+Multiple locales are now supported for fields which previously supported a single locale.
+The capture and storage of the 'name' field for the following SPM database tables now supports multiple locales
+ * Work Queue
+ * Quick Link
+ * Organisation Structure
+ * Organisation Unit
+ * Announcement
+ * Slot
+ * Location
+ * Job
+ * Position
+
+Similarly, the 'comments' field on the Announcement database table now supports multiple locales
+
+**Updates for v8.1**
+A new column has been added to the database tables listed above to store the primary key of a LocalizableText record. The text added to each required locale for each field will be stored in the associated TextTranslation table.
+
+This change requires migrating the existing data in those fields. A new batch process has been provided for this purpose called 'FieldLocalizationUpgradeBatch'. Full details of how to run this batch job and the associated data migration can be found in the chapter entitled 'TODO' in the //Upgrade Helper Guide//.
+"
+SPM-128051,"DT036706 ",Error Messages appending 'Date' to field name of date fields,CEF,,,,"**Issue Description:**
+When infrastructure, page-level validations occur referring to editing a Date Time field, these append ' Date' to the field's name. When this suffix is set to blank, controlled by property 'dateTimeSelector.date' within 'DateTimeSelector.properties', a space character is incorrectly appended to the field's name.
+
+**User Interface Impact:** Yes
+
+**Steps to Reproduce:**
+ # Add 'webclient/components/custom/DateTimeSelector.properties'.
+ # Set 'dateTimeSelector.date' to blank within this.
+ # Rebuild the client and start up the application.
+ # Log in as caseworker.
+ # Open Inbox.
+ # Select New Task from actions menu.
+ # Enter 123 in the date field for Deadline.
+ # Press Save.
+ # Issue: Validation states """"The field 'Deadline ' is not valid.""""
+
+**Resolution:**
+The validation now states """"The field 'Deadline' is not valid."""" 
+"
+SPM-128039,,Introduce support for JAWS 2023 and Microsoft Edge,Third Party Updates,,,,The version of Freedom Scientific JAWS that is used by the application is now updated to JAWS 2023. The new version is certified against Microsoft Edge. 
+SPM-128033,,Updates to the versions of MS Word supported for the Microsoft Word Integration feature,Third Party Updates,,,,"The following changes have been made to the Microsoft Word version support for the Microsoft Word Integration feature in SPM.
+ * Support for Microsoft Word 2013 and future fix packs has been dropped. Official support for this version of MS Word has been dropped by Microsoft.
+ * Support for Microsoft Word 2016 and future fix packs has been dropped. Official support for this version of MS Word has been dropped by Microsoft.
+ * Support for Microsoft Word 2021 and future fix packs has been added.
+
+This means that the Microsoft Word versions supported for SPM 8.1.0.0 are as follows:
+ * 2019 and future fix packs.
+ * 2021 and future fix packs.
+"
+SPM-128027,,Remove support for all editions of Db2 Version 11.1.0,Third Party Updates,,,,"Support for all editions of Db2 11.1 (Advanced Enterprise Server Edition, Enterprise Server Edition, and Workgroup Server Edition) is removed.  
+
+The supported prerequisites for SPM 8.1.0 are updated to reflect this. See [link|https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites/810]. 
+"
+SPM-128025,,Remove support for Oracle WebLogic Server 12cR2 (12.2),Third Party Updates,,,,"Support for the Oracle WebLogic Server 12cR2 (12.2.1 and future patches) is removed.
+
+This means that the supported Oracle WebLogic Server version for the 8.1.0.0 release of SPM is as follows:
+ * Oracle WebLogic Server 14c (14.1.1.0.0 and future patches)
+
+The supported prerequisites for SPM 8.1.0 are updated to reflect this. See [link|https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites/810]. 
+"
+SPM-127973,,Remove the IBM SLM Tag Generation feature from the Social Program Management (SPM) deliverable,Code Removal,,,,"The code artifacts associated with the Software License Metric (SLM) Tag generation feature have now been removed. All of the references to this feature in the SPM documentation have also been removed.
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-127970,,Update to certified version of Apple VoiceOver,Third Party Updates,,,,"The certified version of Apple VoiceOver is now updated to iOS 15.7. This is certified against Chrome 114. 
+"
+SPM-127969,,Update browser plug-in Java? Runtime Environment (JRE) level used in Microsoft Word Integration,Third Party Updates,,,,"The following JRE level for Microsoft Word Integration is supported for this release:
+* JRE 1.8 u371
+"
+SPM-127968,,Updates to supported browser versions,Third Party Updates,,,,"The following browser versions are now updated and certified for this release.
+
+Caseworker Application Browser Support
+ * Google Chrome is updated to 114
+ * Microsoft Edge is updated to 114
+
+Universal Access Application Browser Support
+ * Google Chrome is updated to 114
+ * Microsoft Edge is updated to 114
+ * Mozilla Firefox is updated to 114
+"
+SPM-127964,DT036662,Items within conditional list questions sometimes display incorrectly when there are multiple lists on a single page of an IEG script,ENT,Intelligent Evidence Gathering,,,"**Issue Description:**
+
+When different criteria are controlling the display of items within list questions on a single page of an IEG script, the first defined criteria are being used for all the list questions on the page. As a result, some items are displaying incorrectly.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Use an IEG script with a page that contains multiple list questions with different display criteria for each list question.
+ # Launch the IEG script and complete the script to the page that contains the list questions.
+# Issue: The items that match the first-defined criteria are displayed for all list questions.
+
+**Resolution:**
+Now, when different criteria are controlling the display of items within list questions on a single page of an IEG script the correct items are displayed based on the defined criteria.
+"
+SPM-127935,,Updates to the names of some of the JAR files delivered as part of the CuramCDEJ deliverable,Third Party Updates,,,,"The names of the JAR files delivered as part of the CDEJ were previously inconsistent in that some of the names contained the JAR file version in the name and others did not. The names of some of the JAR files in the CDEJ deliverable have been updated to now include the version number. The versions of these JAR files have not changed as a result of this exercise.
+ 
+The following is the list of JAR file names which have been updated in the 'CuramCDEJlibextjar' directory.
+ * ant-contrib-1.0b2.jar
+ * antlr-3.3.jar
+ * commons-beanutils-1.9.4.jar
+ * commons-collections-3.2.2.jar
+ * commons-collections4-4.1.jar
+ * commons-logging-1.2.jar
+ * commons-validator-1.6.jar
+ * derby-10.12.1.1.jar
+ * dom4j-2.1.3.jar
+ * htmlcleaner-2.1.jar
+ * taglibs-standard-impl-1.2.5.jar
+ * taglibs-standard-spec-1.2.5.jar
+
+It should be noted that any references in custom scripts and other artifacts to the specified JAR files above should be updated to point to the newly named JAR files.
+"
+SPM-127933,,Update the version of the Javassist JAR file delivered in the Rest Toolkit,Third Party Updates,,,,"The Javassist (Java Programming Assistant) library enables Java bytecode manipulation. It is a class library for editing bytecodes in Java. The JAR is used in the REST infrastructure as part of the Jersey Web Service Framework.
+
+The version of the Javassist JAR file delivered in the Rest Toolkit has been updated from 3.18.1-GA to 3.22.0-GA. The new version contains some minor bug fixes and enhancements. 
+
+As a result of this upgrade, the following changes have been made in the Rest Toolkit deliverable.
+ * EJBServercomponentsRestrestlibdependencyLibsCorejavassist-3.22.0-GA.jar - the version of the specified JAR has been updated.
+
+It should be noted that any references in custom scripts and other artifacts to the specified JAR should be updated to point to the new version of the JAR file.
+"
+SPM-127929,,Update the version of the snakeyaml library to 2.0,Third Party Updates,,,,"The snakeyaml library provides functionality to parse a YAML file, and convert to Jackson objects.  
+
+The version of the snakeyaml JAR that is used by SPM has now been updated from 1.33 to 2.0. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified snakeyaml JAR file has been updated.
+ * EJBServercomponentsRestgraphql_libsnakeyaml-2.0.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.
+"
+SPM-127917,,Remove the duplicate jacob.jar file from the Social Program Management (SPM) deliverable,Third Party Updates,,,,"JACOB is a Java library that allows Java applications to communicate with Microsoft Windows DLLs or COM libraries. It is used by the Merative Social Program Management (SPM) Microsoft Word Integration solution which is Native Messaging based, and supported by the Google Chrome and Microsoft Edge based on Chromium browsers only.
+
+In the previous SPM releases, there were two Jacob JAR files present in the JDE deliverable. These were located in the following locations:
+ * CuramCDEJlibextjarjacob.jar
+ * CuramCDEJlibextjarjacob-1.20.jar
+
+The JAR files were the same so the 'CuramCDEJlibextjarjacob.jar' file has been removed in this release.
+
+It should be noted that any references in custom scripts and other artifacts to the JAR file that has been removed should be updated to point to the  remaining Jacob JAR file. 
+"
+SPM-127858,,Change in ownership of SPM Product,CEF,Application Development Environment,,,"Ownership of the Social Program Management product transferred from IBM to Merative. 
+Legal Notices in source code, documentation and license information have been updated accordingly.
+"
+SPM-127783,,Application todo list layout is incorrect,Look and Feel,,,,"**Issue Description:**
+Application Todo List items are displayed without a space between them and the icons are not vertically aligned.
+
+**User Interface Impact:**  No
+
+**Steps to Reproduce:** 
+ # Log in as a caseworker.
+ # Register a person.
+ # Submit a new application.
+ # Open the application case.
+ # Issue: Application Todo List items are displayed without a space between them and the icons were not vertically aligned
+
+**Resolution:**
+Application Todo List items are now evenly spread out and the icons are vertically aligned.
+"
+SPM-127726,,Background color is incorrect on hover or focus for buttons in a cluster,Look and Feel,,,,"**Issue Description:**
+The hover and focus styling is incorrect for buttons within a cluster. The background colour of buttons in the hover and focus states does not match the border colour.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker
+ # Open the Register Person modal dialog
+ # Hover over the Search button
+ # Issue: the background colour of the button is different to the button border.
+
+**Resolution:**
+The background colour of action buttons within modal dialogs now matches their border colour in the hover and focus states.
+"
+SPM-127515,,Update the version of the xercesImpl JAR file to the latest version - 2.12.2,Third Party Updates,,,,"The xercesImpl library is used for parsing, validating and manipulating XML documents. 
+
+The version of the xercesImpl JAR that is used by SPM has now been updated from 2.9.1 to 2.12.2. This new JAR file contains some minor bug fixes and enhancements. It also introduces a dependency on another JAR file, namely xml-apis.jar.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment (JDE) deliverable.
+ * CuramSDEJlibthird_party_version.properties - version of the specified xercesImpl JAR file has been updated and the version of the new xml-apis.jar file has been added. 
+ * CuramCDEJlibextjarxercesImpl-2.12.2.jar - version of the JAR file has been updated.
+ * CuramSDEJlibxercesImpl-2.12.2.jar -  version of the JAR file has been updated.
+ * CuramSDEJxmlserverxercesImpl-2.12.2.jar -  version of the JAR file has been updated.
+ * CuramCDEJlibextjarxml-apis-1.4.01-1.jar - new JAR file introduced.
+ * CuramSDEJlibxml-apis-1.4.01-1.jar - new JAR file introduced.
+ * CuramSDEJxmlserverxml-apis-1.4.01-1.jar - new JAR file introduced.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the updated and new JAR files as specified above.
+"
+SPM-127469,DT036676,Private address validation is not displayed when a household member and a private address do not exist for the entire period,SOL,Income Support,,,"**Issue Description:**
+The validation message: 'Private type address(es) do not exist for entire period beginning <Date> for <Applicant Name>'. is not being displayed in Income Support when the evidence is being validated if the Addresses evidence does not exist for the entire Household Member evidence period.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+1. Log in as an Income Support caseworker.
+2. Register a new Person. With registration date two months in past 
+3. Create an Income Support application for the person with the same date two months in the past.
+4. Submit the application.
+5. On the application, Navigate to the Evidence tab.
+6. On Addresses evidence, discard the address evidence so that no Addresses evidence exists.
+7. Select 'Apply changes' from list action menu on Evidence dashboard.
+8. Select all evidence and apply changes.
+9. Issue: There is no validation message displayed for the type private address when the period covered by Addresses is shorter than the period covered by Household Member.
+ 
+**Resolution:**
+The validation message 'Private type address(es) do not exist for entire period beginning <Date> for <Applicant Name>' is displayed when Addresses private address record does not cover the entire Household Member period. Evidence end dates are compared as well as start dates. This message displays when the Addresses evidence does not exist or if the Addresses date period is less than the Household Member date period.
+"
+SPM-127370,,Update the versions of commons-fileupload to 1.5,Third Party Updates,,,,"The Apache Commons FileUpload API enables file upload capabilities in Java EE web applications. It is used in the SPM application for that purpose. It is also part of the SPM Axis 2 web services deliverable.
+
+The version of the commons-fileupload JAR that is used by SPM has now been updated from 1.3.3 in the Axis 2 deliverable and 1.4 in the JDE deliverable to 1.5. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment (JDE) and Axis 2 deliverables.
+ * CuramSDEJlibthird_party_version.properties - the version of the specified commons-fileupload JAR file has been updated.
+ * CuramCDEJlibextjarcommons-fileupload-1.5.jar - the version of the JAR has been updated.
+ * CuramSDEJlibaxis2commons-fileupload-1.5.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above.
+"
+SPM-127353,DT036673,Preferred indicator is not set on the Phone Number evidence when an Insurance Affordability application is submitted,CEF,Intake,,,"**Issue Description:**
+When an Insurance Affordability application is submitted, the preferred indicator is not set on the Phone Number evidence during the intake.  When this attribute is not set to true and an update is made to the applicant's Contact Details, the phone number previously entered during the intake is  incorrectly displayed in the Alternative Phone Number field.
+
+**User Interface Impact:**No
+
+**Steps to Reproduce:**
+
+**Scenario 1:**
+ # Navigate to the Citizen Portal.
+ # Apply for 'Apply for assistance with your Health Care'.
+ # Create a new account and complete all the mandatory fields.
+ # Navigate to the Applicant Details, Other Contact Information section.
+ # Enter a Phone Number for the applicant (not an Alternative Phone Number).
+ # Complete the rest of the application.
+ # Log in to the caseworker application as caseworker.
+ # Search for the citizen registered in the Citizen Portal.
+ # From the Home Page, open the Insurance Affordability Application already created.
+ # From the page action menu, 'Authorize' the application.
+ # Log out from the caseworker application.
+ # Log in to the Citizen Portal using the details for the account created above.
+ # Navigate to Home and then select 'My Information' section.
+ # Select 'Update my Information' at the top of the page. 
+ # Select 'No' to the question 'Do you want to update any of the information listed?'.
+ # The application is displayed.
+ # Navigate to the 'You' section on the Summary page and select the 'Change' link.
+ # Select 'Yes' to the question 'Do you wish to change your contact information?'.
+ # Issue: The Phone Number previously entered is displayed in the Alternative Phone Number field.
+
+**Scenario 2:**
+ # Navigate to the Citizen Portal.
+ # Apply for 'Apply for assistance with your Health Care'.
+ # Create a new account and complete all the mandatory fields.
+ # Navigate to the Applicant Details, Other Contact Information section.
+ # Enter a Phone Number and an Alternative Phone Number for the applicant.
+ # Complete the rest of the application.
+ # Log in to the caseworker application as caseworker.
+ # Search for the citizen registered in the Citizen Portal.
+ # From the Home Page, open the Insurance Affordability Application already created.
+ # From the page action menu, 'Authorize' the application.
+ # Log out from the caseworker application.
+ # Log in to the Citizen Portal using the details for the account created above.
+ # Navigate to Home and then select 'My Information' section.
+ # Select 'Update my Information' link at the top of the page. 
+ # Select 'No' to the question 'Do you want to update any of the information listed?'.
+ # The application is displayed.
+ # Navigate to the 'You' section on the Summary page and select the 'Change' link.
+ # Select 'Yes' to the question 'Do you wish to change your contact information?'.
+ # Issue: The Phone Number is displayed in the Alternative Phone Number field, and the Alternative Phone Number is displayed on the Phone Number field.
+
+**Resolution:**
+This issue has been resolved. The phone number is displayed as expected in the Phone number field instead of the Alternate Phone number field. The preferred indicator is now set correctly on the Phone Number. "
+SPM-127327,,Add evidence icon not actionable on the evidence dashboard when zoomed to 200%,CEF,Integrated Case Management,Evidence Management,,"**Issue Description:**
+When viewed zoomed to 200%, the third column of the Evidence Dashboard is not fully shown and the Add '+' icon cannot be accessed.
+
+**User Interface Impact:** Yes
+
+**Steps to Reproduce:**
+ # Login as a caseworker.
+ # Register a person.
+ # Create an integrated case for the person and navigate to the Evidence Tab and open the Dashboard page.
+ #  Use the Browser Zoom feature and zoom to 200%.
+ # Issue: The third column of the Evidence Dashboard is not fully shown and the Add '+ ' icon cannot  be accessed.
+
+**Resolution:**
+Evidence Dashboard columns reflow into a single column layout when the available space is limited."
+SPM-127296,DT036669,"Running a saved task query can result in an error if more than 3 values are selected from the """"Assigned To"""" field. ",CEF,Integrated Case Management,,,"**Issue Description:**
+An error occurs when the user runs saved task queries containing more than three selected values from the ?Assigned To? field on the New Task Query page.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Open the Inbox tab.
+ # Navigate to 'New Task Query' in the Shortcuts panel.
+ # The ?New Task Query? page displays. Enter a query name and select all checkboxes in the ?Assigned To? field and save.
+ # Navigate to 'My Task Queries' in the Shortcuts panel and run the query just created.
+ # Issue: An Unhandled Server exception is displayed.
+
+**Resolution:**
+The execution of the saved query has been fixed to run without error when multiple  ?Assigned To? checkboxes are selected when creating the query."
+SPM-127249,,Update the versions of the Jackson JARs to 2.15.0,Third Party Updates,,,,"The Jackson API contains multiple functions to read and build JSON using Java. It has powerful data binding capabilities and provides a framework to serialize custom Java objects to JSON strings and deserialize JSON strings back into Java objects. The Java Development Environment (JDE) and the REST infrastructure use these utilities.
+
+The versions of these JARs have now been updated to a later version. As a result of this upgrade, the following changes have been made in the JDE and REST deliverables.
+ * CuramSDEJlibthird_party_version.properties - the versions of the specified Jackson JARs have been updated.
+
+ * CuramSDEJlibjackson-annotations-2.15.0.jar - new JAR added.
+ * CuramSDEJlibjackson-core-2.15.0.jar - new JAR added.
+ * CuramSDEJlibjackson-databind-2.15.0.jar- new JAR added.
+
+ * CuramSDEJlibjackson-annotations-2.14.0.jar - old JAR removed.
+ * CuramSDEJlibjackson-core-2.14.0.jar - old JAR removed.
+ * CuramSDEJlibjackson-databind-2.14.0.jar- old JAR removed.
+
+ * CuramCDEJlibextjarjackson-annotations-2.15.0.jar - new JAR added.
+ * CuramCDEJlibextjarjackson-core-2.15.0.jar - new JAR added.
+ * CuramCDEJlibextjarjackson-databind-2.15.0.jar - new JAR added.
+
+ * CuramCDEJlibextjarjackson-annotations-2.14.0.jar - old JAR removed.
+ * CuramCDEJlibextjarjackson-core-2.14.0.jar - old JAR removed.
+ * CuramCDEJlibextjarjackson-databind-2.14.0.jar - old JAR removed.
+
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-annotations-2.15.0.jar - new JAR added.
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-core-2.15.0.jar - new JAR added.
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-databind-2.15.0.jar - new JAR added.
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-annotations-2.14.0.jar - old JAR removed.
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-core-2.14.0.jar - old JAR removed.
+ * EJBServercomponentsRestrestlibdependencyLibsExtjackson-databind-2.14.0.jar - old JAR removed.
+
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-base-2.15.0.jar - new JAR added.
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-json-provider-2.15.0.jar - new JAR added.
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-module-jaxb-annotations-2.15.0.jar - new JAR added.
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-base-2.14.0.jar - old JAR removed.
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-json-provider-2.14.0.jar - old JAR removed.
+ * EJBServercomponentsRestrestlibdependencyLibsCorejackson-module-jaxb-annotations-2.14.0.jar - old JAR removed.
+
+GraphQL JARs:
+ * EJBServercomponentsRestgraphql_libjackson-datatype-jdk8-2.15.0 - new JAR added.
+ * EJBServercomponentsRestgraphql_libjackson-dataformat-yaml-2.15.0 - new JAR added.
+ * EJBServercomponentsRestgraphql_libjackson-datatype-jdk8-2.14.0 - old JAR removed
+ * EJBServercomponentsRestgraphql_libjackson-dataformat-yaml-2.14.0 - old JAR removed
+
+Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated.
+"
+SPM-127234,DT036620,Page parameters are not passed correctly when a modal opens another modal,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+
+When a modal  passes more than one page parameter to a second modal, only the first page parameter is named correctly when received by the called modal.
+
+**User Interface Impact:** No
+
+**Prerequisite:**
+A modal page that passes two parameters to a receiving modal page. Create a custom modal page that passes two parameters, the second parameter being 'caseID'.
+
+**Steps to Reproduce:**
+ # Navigate to the customised prerequisite page.
+ # Open a modal, trigger the action to pass two parameters to a second modal. The second parameter being 'caseID'.
+ # Issue: The first parameter is correctly passed but subsequent page parameters are incorrectly named in this case '&amp;caseID' instead of '&caseID'.
+
+**Resolution:**
+When a modal  passes multiple page parameters to a second modal, all parameters are named correctly when received by the called modal.
+"
+SPM-127122,,Duplicate titles appearing in dynamic evidence wizard,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+Duplicate steps being are displayed in the dynamic evidence wizard.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Log in as an insurance affordability caseworker. 
+# Register a person and submit an insurance affordability application.
+# On the insurance affordability application case, add a child dynamic evidence for example application filer consent.
+# Issue: The steps being displayed in the dynamic evidence wizard are duplicated.
+
+**Resolution:**
+No duplicate steps are displayed on the wizard progress bar.
+"
+SPM-127121,,Distribute the offline File Edit Native Messaging Bridge extension for Chrome,CEF,Business Services,,,"Previously when using the Microsoft Word Integration feature with Google Chrome or Microsoft Edge, the SPM File Edit Native Messaging Bridge extension needed to be installed from the Chrome Web Store.
+
+While this is still the recommended source for the extension, an offline copy of the packed extension is now available in the following location:
+
+CuramCDEJ/lib/curam/installers/chrome-bridge.crx
+
+This offline extension can be used by organisations that prefer to manage the extension rollout manually."
+SPM-127118,DT036659,The focus is lost when using a tab key on an Intelligent Evidence Gathering form,ENT,Intelligent Evidence Gathering,,,"**Issue Description:**
+When a user navigates an Intelligent Evidence Gathering (IEG) form using the tab key and tabs past the last visible field, the next field does not scroll into view. The user needs to tab three times (skipping two fields) before the page scrolls. 
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Register a person.
+ # Open a new HCR application.  
+ # Complete the required fields until you reach the 'Information About You' page, then use the Tab key to complete the necessary fields. 
+ # Issue: After completing the 'Last Name' field, the user has to press the Tab key three times before the content scrolls into view.  The focus is now on the 'Do you have a fixed address?' field, skipping the DOB and Gender fields.
+
+**Resolution:**
+When a user navigates an Intelligent Evidence Gathering (IEG) form using the tab key and tabs past the last visible field, the next field scrolls into view. 
+"
+SPM-127117,,Intelligent Evidence Gathering navigation button labels are slightly blurred,ENT,Intelligent Evidence Gathering,,,"**Issue Description:**
+The Intelligent Evidence Gathering (IEG) navigation action button labels appear slightly blurred to the user.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Register a person.
+# Open a New Application for the registered person.
+# Issue: The 'Close' and 'Next' application form action button labels appear slightly blurred.
+
+**Resolution:**
+Action button labels in IEG are now clearly presented.
+"
+SPM-127111,,Turn on contact log subject by default,CEF,,,,"**Issue Description:**
+The Contact Log Subject feature which was introduced in SPM v8.0.3 to add an optional Subject field to Contact Logs is now turned on by default. The system property controlling this is:
+ * Enable Contact Log Subject
+
+If you do not want to make use of this feature follow the steps below to turn the property off.
+
+**User Interface Impact:** No
+
+**Steps to turn off Contact Log Subject:**
+ # Log in as a system administrator.
+ # Click System Configurations and expand the shortcuts panel.
+ # Expand the Application Data section and click Property Administration.
+ # Search for the property 'curam.contactlog.subject.enabled'
+ # Use the row-level action to edit the value and set it to false. Click Save.
+ # Publish the changes.
+"
+SPM-127110,,Turn on editable notes and contact logs by default,CEF,,,,"**Issue Description:**
+The Editable Notes and Contact Logs feature which was introduced in SPM v8.0.3 to allow users to edit a note or a contact log after it has been created for a pre-configured period of time, is now turned on by default. There are four system properties relating to Editable Notes and Contact Logs. They are:
+ * Enable Editable Note Text
+ * Notes Editable Period Length
+ * Enable Editable Contact Narrative in Contact Logs
+ * Contact Narrative Editable Period Length
+
+If you do not want to make use of this feature or you want to change the length of the editable period, follow the steps below.
+
+**User Interface Impact:** No
+
+**Steps to turn off Editable Notes and Contact Logs:**
+ # Log in as a system administrator.
+ # Click System Configurations and expand the shortcuts panel.
+ # Expand the Application Data section and click Property Administration.
+ # Search for the property 'curam.miscapp.editnoteenabled'
+ # Use the row-level action to edit the value and set it to false. Click Save.
+ # Search for the property 'curam.contactlog.narrative.edit.enabled'
+ # Use the row-level action to edit the value and set it to false. Click Save.
+ # Publish the changes.
+
+**Steps to change the editable period length for notes and contact logs:**
+ # Log in as a system administrator.
+ # Click System Configurations and expand the shortcuts panel.
+ # Expand the Application Data section and click Property Administration.
+ # Search for the property 'curam.miscapp.editnoteperiodlength'
+ # Use the row-level action to edit the value. Click Save.
+ # Search for the property 'curam.contactlog.narrative.edit.period.length'
+ # Use the row-level action to edit the value. Click Save.
+ # Publish the changes.
+"
+SPM-127106,DT036658,Initial focus is incorrect on modals with paginated lists,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+When a user opens a modal with a paginated list, the initial focus goes to the pagination control rather than to the start of the list. A screen reader user is not informed of the content of the page. For example, the Locations popup modal on the New User modal.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as administrator
+ # On the Administration Workspace expand the Shortcuts panel.
+ # Under User, select New User.
+ # On the New User modal, select the Location search icon.
+ # The Locations modal is displayed.
+ # Issue: The initial focus is on the pagination control at the end of the modal. The content of the modal is skipped.
+
+**Resolution:**
+The initial focus now goes to the start of the list as expected.
+"
+SPM-127105,DT036660,Focus disappears when tabbing through expandable lists in the application,Accessibility,,,,"**Issue Description:**
+Focus disappears when navigating through sections of an expandable list using the keyboard.
+
+**User Interface Impact:** No.
+
+**Steps to Reproduce:**
+
+**Scenario 1:**
+1. Log in as a case worker.
+2. Register a person.
+3. Navigate to the Evidence tab.
+4. Expand the Addresses evidence by clicking on toggle icon.
+5. Press tab key to navigate to the Details tab.
+6. Press tab key again.
+Issue: Focus goes to invisible elements and user has to tab multiple times before focus goes to Case Participant cluster.
+
+**Scenario 2:**
+1. Log in as an eligibility caseworker.
+2. Register a person and create a Food Assistance application case.
+3. On the submitted application case navigate to the Evidence tab.
+4. Expand Household Member evidence by clicking on toggle icon.
+5. Press tab key to navigate to the Evidence Description link.
+6. Press tab key again.
+Issue: Focus goes to invisible elements and user has to tab multiple times before focus goes to Change Summary sortable column.
+
+**Scenario 3:**
+1. Log in as a caseworker.
+2. Register a person and navigate to the Notes tab.
+3. Add a New Note.
+4. Expand the Note by clicking on toggle icon.
+5. Press tab key to navigate to Overflow icon for the Note.
+6. Press tab key again.
+Issue: Focus goes to invisible elements and user has to tab multiple times before focus goes to Case Participant cluster.
+
+**Scenario 4:**
+1. Log in as an administrator.
+2. Navigate to the Administration Workspace. 
+3. Expand the Shortcuts menu and navigate to Rules and Evidence.
+4. Click on Evidence sharing to open Evidence Sharing configs in new tab.
+5. Expand an Evidence Sharing config by clicking on toggle icon.
+6. Press tab key to navigate to Identical tab.
+7. Press the tab key again.
+Issue: Focus goes to invisible elements and the user has to tab multiple times before focus goes to Evidence Type sortable column.
+
+**Resolution:**
+Now, the invisible elements that were being focused on have been removed and tabbing goes directly to the next focusable element on the expandable list.
+"
+SPM-127104,,"Turn on Autorecovery by default ",CEF,,,,"**Issue Description:**
+The Autorecovery feature which was introduced in SPM v8.0.3 to ensure there is no loss of data in the event of a system interruption is now turned on by default. There are two system properties relating to Autorecovery. They are:
+ * Enable Autorecovery
+ * Enable CuramFormsAPI
+
+If you do not want to make use of this feature follow the steps below to turn these properties off.
+
+**User Interface Impact:** No
+
+**Steps to turn off Autorecovery:**
+ # Log in as a system administrator.
+ # Click System Configurations and expand the shortcuts panel.
+ # Expand the Application Data section and click Property Administration.
+ # Search for the property 'curam.sessionmanagement.tabsession.autorecovery.enabled'
+ # Use the row-level action to edit the value and set it to false. Click Save.
+ # Search for the property 'curam.sessionmanagement.tabsession.curamformsapi.enabled'
+ # Use the row-level action to edit the value and set it to false. Click Save.
+ # Publish the changes.
+"
+SPM-127101,DT036655,End date validation message incorrectly displays when Assigned Income has an end date and related income does not have an end date,CEF,Dynamic Evidence,,,"**Issue Description:**
+When a caseworker enters an end date on Assigned Income evidence, the following validation message is incorrectly displayed if the related income evidence does not have an end date set: 'Assigned Income - End date must not be later than the related income end date. End of the related income is 1/1/0001.'
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as an eligibility worker.
+ # Register a new Person.
+ # Submit an Income Support application for the person, for example, Cash, Food, or Medical Assistance.
+ # From the Person home page, select the Income Support case.
+ # Add Benefit evidence without an end date.
+ # Add Trust evidence.
+ # Add Income Trust Schedule evidence.
+ # Add Assigned Income evidence.
+ # On Assigned Income evidence, select Income Trust Schedule and Benefit and click Next.
+ # Enter Assign Amount, Start Date and any End date and click Finish.
+ # Issue: The following validation message is displayed: 'Assigned Income - End date must not be later than the related income end date. End of the related income is 1/1/0001'. This validation should not be displayed as the related income end date is blank.
+
+**Resolution:**
+This issue has been resolved by updating the logic to consider an empty end date on the Benefit evidence when Assigned Income evidence is end dated, the validation will not be displayed when related income evidence end date is blank."
+SPM-127023,DT036614,Chevron icons for Shortcut panel and  Smart Panel do not include an alt text.,Accessibility,,,,"**Issue Description:**
+The Shortcuts panel chevron icon, Smart Panel chevron icon and the single chevron icon within the Shortcut Panel are missing a valid alt text value.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as a caseworker.
+ # Navigate to the Cases and Outcomes tab.
+ # Use the browser tools to inspect the HTML.
+ # Inspect the chevron icon for expanding and closing the Shortcuts Panel.
+ # Inspect the value for the single chevron icon facing down in the Shortcuts Panel.
+ # Inspect the value for the single chevron icon facing up in the Shortcuts Panel.
+ # Register a person.
+ # Inspect the HTML for the Smart Panel chevron icon on the person's Home tab.
+ # Issue: There is no valid alt text value for these chevron icons.
+
+**Resolution:**
+Alt text values have been added for these icons. An indicator as to whether the section is 'expanded' or 'contracted' has also been added to the single chevron icons in the Shortcuts Panel.
+"
+SPM-127010,,Refactor the WebLogic configure target to remove the dependency on the ant-contrib library,CEF,Application Development Environment,,,"**Issue Description:**
+A dependency on the ant-contrib library was introduced to the WebLogic configure target in SPM version 8.0.0.0. The dependency is not necessary and the functionality that introduced this dependency can be refactored to use standard Apache Ant tasks. 
+
+**User Interface Impact:**No
+
+**Steps to Reproduce:** N/A
+
+**Resolution:**
+The functionality has been refactored using standard Apache Ant tasks and the dependency on the ant-contrib library has been removed from the configure target. There is no change in the output of the functionality as a result of this refactoring.
+"
+SPM-126918,DT036642,The Assessments and Decision Assist Questionnaire appears in an incorrect blue/orange colour scheme,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+The color scheme on the  Assessments and Decision Assist Questionnaire does not match the version 8 styling.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):** 
+Create an integrated case with a Juvenile Detention Assessment.
+
+**Steps to Reproduce:**
+# Log in as caseworker.
+# Register a person.
+# Create a case of the perquisite type for the newly registered person.
+# Navigate to the Assessments tab and create New Assessment.
+# Select Assessment and then Questionnaire.
+# Issue: The colour scheme displayed is not as expected for version 8.
+
+**Resolution:**
+The colour scheme on the  Assessments and Decision Assist Questionnaire has been updated to  the version 8 styling.
+"
+SPM-126893,DT036636,Invalid HTML construct in <ul> element of the paginated list page navigation widget.,Accessibility,,,,"**Issue Description:**
+The page navigation widget that is used to navigate between the pages of a paginated list is constructed using invalid HTML. A DIV element is incorrectly being used as a child element of a UL element which results in incorrect information about the number of pages in the list being communicated to screen reader users.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as a System Administrator.
+ # Expand the Shortcuts panel and select Code Tables from the Application Data pane.
+ # Select the Search button to populate the search results area.
+ # Locate the pagination widget that is used to navigate between each page of results.
+ # Use the browser Developer Tools to inspect the HTML of the widget.
+ # Issue: A DIV element is present as a child of the UL element.
+
+**Resolution:**
+The page navigation widget HTML has been updated to use valid HTML.
+"
+SPM-126856,DT036638,No visible indication that the columns on a list page can be sorted,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+There is no visible indication to a user that the columns on a list page can be sorted by selecting column headers.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as Administrator.
+ # On the Administration workspace tab expand the Shortcuts panel.
+ # Under Organization select My Organization.
+ # Select the Structures tab and under Organization Structures select an organization.
+ # A new tab will open displaying the selected organization, select the Positions tab to view the table that shows positions within the organization.
+ # Issue: There is no indication to the user that the table data can be sorted by clicking a column header.
+
+**Resolution:**
+A visible indicator has been added to table headers that indicates content that can be sorted by selecting a column header.
+"
+SPM-126814,,Restore version number to prevent overwriting data during autorecovery,CEF,,,,"**Issue Description:**
+It is possible for one user to overwrite changes made by another user when saving data in a modal that has been autorecovered.
+
+**User Interface Impact**: No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker and register a person.
+ # Navigate to Client Contact, Communication Exceptions and create a new Email Communication Exception.
+ # Edit the newly created Email Communication Exception by adding comments but do not save the changes yet.
+ # Open a different browser and log in as a different caseworker.
+ # Navigate to the Communication Exception created in the steps above and edit the communication method. Save the changes.
+ # Go back to the first browser and refresh the window. Because autorecovery is enabled, the Communication Exception modal window is autorecovered.
+ # Click save.
+ # Issue: The save is permitted and results in the overwriting of the changes made to the communication method by the second caseworker in step 5.
+
+**Resolution:**
+This is now prevented in the same way it would have been had the modal not been autorecovered. The standard error message 'This record has been changed by another user. Please start again.' is displayed at step 7. This has been achieved by restoring the hidden version number field during autorecovery.
+"
+SPM-126780,DT036635,Alien Sponsor Earned Income is not being counted for Food Assistance,SOL,Income Support,,,"**Issue Description:**
+When an application has an alien sponsor with earned income, the Food Assistance rules do not consider the earned income in the calculation of household income.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as an Income Support caseworker.
+ # Register a person (Sponsored Alien).
+ # Create an Income Support application for Food Assistance for this person.
+ # Select the checkbox for the question ?Are there any other people living in the home??.
+ # For the question ?Does the claimant have an SSN??, answer No.
+ # For the question ?If the claimant has no SSN, has the claimant applied for one?, answer Yes.
+ # For the question 'What is the claimant's citizen status?', answer Other and enter the following details.
+ ** Alien Category is Alien
+ ** Current Alien Status is Cuban/Haitian Entrant
+ ** Alien registration number is 1234
+ ** Date of entry is 1/1/2012
+ ** Country/Region of Origin is Cuba
+ # For the question 'Does the claimant have a sponsor?', answer Yes.
+ # Residency Status is Permanent.
+ # Living Arrangement is Home.
+ # Add a second person, Sibling, who is a US Citizen, purchases and prepares food with the claimant and is a sibling of Sponsored Alien.
+ # Submit the application.
+ # Add Alien Sponsor evidence for Sibling.
+ # Add Alien Sponsorship evidence.
+ # Add Head Of Household evidence for Food Assistance for Sibling.
+ # Add Work Registration for Food Assistance for Sponsored Alien and Sibling with status set to Registered.
+ # Add Employment, Working Hours, Paid Employment and Earned Income of $2000 Monthly, Wages & Salaries for Sibling.
+ # Apply Changes.
+ # Check Eligibility.
+ # View the Income tabs for the decision periods.
+ # Issue: The Earned Income for Sibling is not counted and shows as $0 in the household income calculations.
+
+**Resolution:**
+
+The rules were not considering Paid Employment evidence recorded against case participant roles of type Alien Sponsor. The rules have been updated accordingly.
+
+**Technical:**
+Changes were made to the FAEligibilityUnitCalculator rule class within the EJBServer/components/ISFoodStamps/CREOLE_Rule_Sets/FoodAssistanceRuleSet.xml file.
+
+The full list of rule attributes that were updated/added are
+ # FoodAssistanceRuleSet.FAEligibilityUnitCalculator.allCaseParticipantRoleRecordsForIRU (updated)
+ # FoodAssistanceRuleSet.FAEligibilityUnitCalculator.allCaseParticipantRoleRecords (new)
+# FoodAssistanceRuleSet.FAEligibilityUnitCalculator.caseParticipantRoleRecordsForIRU (new)
+ "
+SPM-126766,,Generated post data access methods for <<nsread>> and non-void <<ns>> entity operations do not have access to the resulting data struct,CEF,Application Development Environment,Server Development Environment,Data Access Layer,"**Issue Description:**
+Post-data-access exit points are generated methods produced by the Cu?ram Server Development Environment for Java (SDEJ) Code Generator. These methods get invoked by the infrastructure after accessing the database and before returning to the caller.
+Post-data-access exit points which are generated for non-standard read entity operations (identified by the <<nsread>> stereotype) and for non-standard handcrafted SQL entity operations (identified by the <<ns>> stereotype) do not have access to the resulting data struct which may have been populated after accessing the database.
+
+**User Interface Impact:** No
+
+**Resolution:**
+An additional argument in the method signature of post-data exit points for <<ns>> and <<nsread>> entity operations is now generated, which enables the resulting data struct from the database call to be accessed before returning to the caller.
+If your custom code utilises Post-data-access exit points for these operation stereotypes it may be impacted by this change.
+
+For more information about the changes associated with this update, see 'Generating an additional argument in the method signature of post-data exit points for <<ns>> and <<nsread>> entity operations' in the //Cúram Upgrade Guide//.
+"
+SPM-126748,DT036630,"When using a screen reader and pagination is enabled for a list, the paginated list control widget does not identify the currently selected page",Accessibility,,,,"**Issue Description:**
+When pagination is enabled for a list, screen reader users are not informed of the current selected page when navigating through the paginated list control widget.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Enable a screen reader.
+ # Log in as an administrator.
+ # Expand the shortcuts panel in the Administration Workspace section.
+ # Expand the User Interface section and select the Tabs link.
+ # Go to the paginated list control widget and step over each numbered page link.
+ # Issue: The screen reader does not identify which is the current selected page.
+
+**Resolution:**
+Screen reader users are now informed of the current selected page when navigating through the paginated list control widget.
+"
+SPM-126699,DT036667,An empty HTML heading element is  reported by screen readers on search pages,Accessibility,,,,"**Issue Description:**
+On search pages, an empty HTML heading element exists which may cause confusion for screen reader users when navigating as the heading element will be reported as being present, but no heading text will be announced as the element is blank.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as a caseworker.
+ # Navigate to a search page from the shortcuts panel, such as the All Participants Search page.
+ # Use the browser developer tools to inspect the HTML.
+ # Issue: An empty <H2> HTML heading element is present on the page.
+
+**Resolution:**
+This issue has been resolved, the empty HTML heading element has been hidden and is no longer detected by screen readers on search pages.
+"
+SPM-126683,DT036668,"Content overlaps on the  Evidence dashboard when viewed zoomed to 200% ",CEF,Integrated Case Management,Evidence Management,,"**Issue Description:**
+The expand/collapse toggle on the Evidence Dashboard is overlapping with the 'Evidence in Edit' label when viewed zoomed to 200%.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as a caseworker.
+ # Register a person.
+ # Create an integrated case for the person and navigate to the Evidence Tab and open the Dashboard page.
+ # Use the Browser Zoom feature and zoom to 200%.
+ # Issue: The expand/collapse toggle on the Evidence Dashboard is overlapping with the 'Evidence in Edit' label.
+
+**Resolution:**
+Evidence dashboard content does not overlap when viewed zoomed to 200%.
+"
+SPM-126664,DT036628,Screen reader is not announcing descriptive information when Help dialog is opened in Intelligent Evidence Gathering script,Accessibility,,,,"**Issue Description:**
+When using a supported screen reader to navigate through the Intelligent Evidence Gathering script, the screen reader is not announcing descriptive information when a Help icon is selected. The HTML role attribute value on the dialog is also incorrectly set to region.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker.
+ # Register a person and create a new application.
+ # Select a Help Icon on the 'Information About You' IEG page.
+ # Issue: Screen reader announces 'dialogHelp' and a string of numbers instead of descriptive information.
+
+**Resolution:**
+A screen reader now announces descriptive information when a user launches a Help dialog by selecting the Help icon beside an input field in an Intelligent Evidence Gathering script. The HTML role attribute value on the dialog is now set to dialog.
+"
+SPM-126641,,"Child Protection Services Intake Assessment checkboxes are not working as expected ",SOL,Child Welfare SDM,,,"**Issue Description:**
+When populating a child protection assessment, some of the answer check boxes are not disabled or enabled when mutually exclusive answers have been selected or un-selected.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as a Child Welfare Structured Decision Making intake worker.
+ # Create new Intake with Category: Child Protection Services.
+ # Choose Child Abuse or Neglect and click Save.
+ # Navigate to the Participants tab.
+ # From Participant menu select New Participant.
+ # Add required participant details and set the role as: Alleged Victim. Click Finish.
+ # With the Assessment tab now enabled, click on the Assessment tab.
+ # In the Structured Decision Making Screening Assessment, navigate to question 7 - 'Has the child been a victim of any of the following forms of general neglect?'
+ # Select the check boxes for any of the following options of question 7: 'Inadequate medical/mental health care', 'The child has no parent or guardian capable of providing appropriate care', 'Failure to protect.'
+ # Issue: The 'None' checkbox should be automatically set to a disabled state, but it is still enabled.
+
+**Resolution:**
+The assessment script has been corrected to properly toggle any mutually exclusive answers.
+"
+SPM-126628,DT036625,"Instructional text for the multiple search popup control is only available to screenreader and mouse users ",CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+When the user is performing a search that requires the search scope to be selected in a dropdown. The instructional text in the tool tip displayed for the search icon contains instructions only available to screenreader and mouse users. 
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a Caseworker.
+ # Navigate to the Inbox tab. 
+ # Open the Tab action menu and select the New Task to open the New Task modal.
+ # Issue: The Search icon tool tip information to 'ensure you have selected a value from the previous listbox' is available to mouse and screenreader users but not to a keyboard only user tabbing through the modal.
+
+**Resolution:** Dropdowns without a blank option can no longer be cleared. The instructional text ' ensure you have selected a value from the previous listbox' has been removed as it is no longer required.
+"
+SPM-126597,,Update the versions of axis.jar and xmlbeans to the latest versions in BIRT,Third Party Updates,,,,"BIRT is an open source component, which provides a development and execution environment for report content. BIRT is used primarily as a tool for the development and execution of charting and tabular data.
+
+The following JAR updates were made in the BirtViewer:
+ * BIApp/CuramBIRTViewer/WebContent/WEB-INF/platform/plugins/uk.co.spudsoft.birt.emitters.excel_4.8.0.v201806261756/lib/xmlbeans-3.1.0.jar
+ * BIApp/CuramBIRTViewer/WebContent/WEB-INF/lib/axis.jar
+
+Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated.
+"
+SPM-126596,,Remove image2 plugin from ckeditor,Third Party Updates,,,,"CKEditor is a rich text editor which enables writing content directly inside web pages or online applications.
+
+The CKEditor Enhanced Image plugin was not used by Social Program Management and it has been removed.
+
+The following plugin folders have been removed:
+ * webclient/WebContent/cefwidgets/ckeditor/plugins/image2
+ * webclient/WebContent/cefwidgets/ckeditor/_source/plugins/image2
+ "
+SPM-126552,DT036619,The application banner logo overlaps the search bar while zooming at certain resolutions,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+The logo overlaps the application search in the application banner while zooming at certain resolutions.
+
+**User Interface Impact:** No
+
+**Prerequisites:**
+A logo is displayed on the application banner.
+
+**Steps to Reproduce:**
+ # Log in as Caseworker.
+ # Reduce the browser resolution, for example to 1280x720p.
+ # Increase the browser zoom to 200%.
+ # Issue: At 200% zoom, the logo overlaps the application search in the application banner.
+
+**Resolution:**
+The application banner content does not overlap at 200% zoom. 
+When horizontal space is limited, the application search reduces in width. If the available space is reduced further, the application banner contents scrolls horizontally. If a reduced application search is selected it is displayed with the original width.
+"
+SPM-126453,DT036612,"Service Invoice status is not updated correctly when the status of a related Service Invoice Line Item (SILI) is set to Open ",ENT,Financial Management,,,"**Issue Description:**
+
+When correcting the status of a Service Invoice Line Item (SILI), the status of the corresponding Service Invoice is not correctly updated.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+ # Register a Person and create a Social Assistance case for them. Note the reference numbers of the Person and Case.
+ # Note the reference number of a Provider who provides child care. 
+
+**Steps to Reproduce**:
+ # Login as a financial user.
+ # Select the Transactions and Accounts tab to expand the Shortcuts panel.
+ # Expand the Invoices section and select New Service Invoice.
+ # Populate the Originator Reference field with the reference number of the Provider from above. Click Save.
+ # The Service Invoice tab will open, select the New Line Item option from the Service Invoice context panel. 
+ # Populate the fields of the Line Item as follows, then click Save:
+ ** Service: search for Child Care.
+ ** Case Reference: use the Case reference number from above.
+ ** Number of Units: 1
+ ** Unit Amount: 80
+ ** Amount Invoiced: 80
+ ** Provider Details - Reference: use the reference number of the Provider from above.
+ ** Client Details - Reference: use the reference number of the Person from above.
+ # Select the Invoice Line Items tab, the Open Line Items section will be displayed by default.
+ # Select the Submit action from the Open Line Items actions. 
+ # Select the checkbox for the Line Item created above and Submit.
+ # Go to the Pending Line Items tab and Approve the Line Item.
+ # After approving the Service Invoice Line Item, the Service Invoice will have a status of Complete.
+ # Select the All Line Items tab and choose the Edit option on the completed line item.
+ # Change the Unit Amount and Amount Invoiced to a different value. Add a Correction Reason and click Save.
+ # Issue: The Service Invoice Line Item status goes back to Open, but the Service Invoice status remains Complete
+
+**Resolution:**
+The status of the Service Invoice has been corrected to be calculated from the status of any corresponding Service Invoice Line Items. If any of those are Open or under correction, the status of the Service Invoice will be 'In Progress'.
+"
+SPM-126217,,Citizen Context Viewer (CCV) windows for case members remains open after the user has logged out of the application,CEF,,,,"**Issue Description:** 
+Citizen context viewer (CCV) windows for case members remain open even after the user has logged out of the Cúram application.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as a caseworker.
+ # Register a new person.
+ # Create an integrated case for the person.
+ # Click the Citizen Context Viewer icon to launch a new CCV window for the case member.
+ # Navigate back to the main application window and log out of the application.
+ # Issue: The CCV window remains open.
+
+**Resolution:**
+The issue has been resolved. The CCV window now closes when the user logs out of the application.
+"
+SPM-125981,DT036339,Unexpected overpayment is created when a case is suspended after the eligibility determination end date,ENT,Financial Management,,,"**Issue Description:**
+Unexpected overpayment is created after a case is suspended when a person was eligible for one component and ineligible for a second component but later became eligible for the second component
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+A product exists with two components where the eligibility of each component can be controlled separately.
+
+**Steps to Reproduce:**
+ # Login as a caseworker.
+ # Register a person and create an integrated case.
+ # Add any required evidence to the integrated case to make the person eligible for the first component and ineligible for the second component.
+ # Create a product delivery case.
+ # Submit, approve and activate the product delivery case.
+ # Navigate to the Financials tab on the product delivery case and issue a payment.
+ # Navigate back to the integrated case and modify the evidence such that the previously ineligible component becomes eligible.
+ # Apply changes.
+ # Suspend the product delivery case such that the date of suspension is after the eligibility end date on both components.
+ # Navigate to the Over and Under Payments page on the Financials tab.
+# Issue: An overpayment is created for the payment issued in step 6.
+
+**Resolution:**
+This issue has been resolved by correcting the logic for suspending a product delivery case where multiple components exist. An incorrect over payment is not generated.
+"
+SPM-125978,DT036340,"Unexpected overpayment is created after a product delivery case is closed ",ENT,Financial Management,,,"**Issue Description**
+?Unexpected overpayment is created after a case is closed when a person was eligible for one component and ineligible for a second component but later became eligible for the second component.
+
+**User Interface Impact:** No
+
+**Prerequisite(s):**
+?A product exists with two components where the eligibility of each component can be controlled separately.
+
+**Steps to Reproduce:**
+ # Login as a caseworker
+ # Register a person and create an integrated case.
+ # Add any required evidence to the integrated case to make the person eligible for the first component and ineligible for the second component.
+ # Create a product delivery case.
+ # Submit, approve and activate the product delivery case.
+ # Navigate to the Financials tab on the product delivery case and issue a payment.
+ # Navigate back to the integrated case and modify the evidence such that the previously ineligible component becomes eligible.
+ # Apply changes.
+ # Close the product delivery case such that the closure date is after the eligibility end date on both components.
+ # Navigate to the Over and Under Payments page on the Financials tab.
+ # Issue: An overpayment is created for the payment issued in step 6.
+
+**Resolution:**
+This issue has been resolved by correcting the logic for closing a product delivery case where multiple components exist and an incorrect overpayment will no longer be generated.
+"
+SPM-125963,,Remove the deprecated Cúram Provider Management (CPM) Performance Measurement feature and related artifacts from the Social Program Management (SPM) Deliverable,Code Removal,,,,"The Cúram Provider Management (CPM) Performance Monitoring functionality that provided the ability to configure performance measures and evaluation criteria for a provider to enable agencies to measure provider performance was deprecated in SPM v7.0.0.0. The code artifacts associated with the feature have now been removed. All of the references to this feature in the SPM documentation have also been removed.
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf] 
+"
+SPM-125955,,Remove the deprecated Cúram Provider Management (CPM) Taxonomy feature and related artifacts from the Social Program Management (SPM) Deliverable,Code Removal,,,,"The Cúram Provider Management (CPM) Taxonomy functionality that provided the ability to establish a hierarchy of terms and index those terms to provider service offerings for use in searching for services was deprecated in SPM 7.0.0.0 The code artifacts associated with the feature have now been removed. All of the references to this feature in the SPM documentation have also been removed.
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf] 
+"
+SPM-125858,DT036325,Focus is lost when using the Tab key in the date picker,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+When keyboard users navigate through days on the date picker, pressing the Tab key causes the focus to move from the date picker to the page refresh icon.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a Caseworker.
+ # Navigate to the Person Search.
+ # Using the keyboard, tab to 'Date of Birth'.   
+ # Press the down arrow key to navigate the day selection.
+ # Issue: If the Tab key is pressed while on the day selection, the focus moves from the date picker to the page refresh icon. 
+
+**Resolution:**
+The focus now moves as expected when a keyboard user navigates through days on the date picker with the Tab key.
+"
+SPM-125843,DT036321,Date picker month and year selectors are not keyboard accessible,Accessibility,,,,"**Issue Description:**
+A keyboard user cannot use the date picker as the month and year selectors are not keyboard accessible.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as a Caseworker.
+ # Navigate to the Person Search.
+ # Using the keyboard, tab to 'Date of Birth'.   
+ # Issue: The month and year navigation on the date picker is not accessible by using the keyboard. 
+
+**Resolution:**
+A keyboard user can now use the month and year selectors on the date picker.
+"
+SPM-125803,DT036319,Links to the Citizen Context Viewer from a Case Context Panel have a generic text description,Accessibility,,,,"**Issue Description:**
+The links to the Citizen Context Viewer available in the Context Panel of a case have a generic text  description of 'Citizen Context Viewer'. This causes an accessibility issue when there are multiple participants on a case. Screen reader users cannot differentiate between the Citizen Context Viewer links displayed in the Context Panel.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Login as caseworker.
+ # Register a person.
+ # Select 'New Application Form?'.
+ # Enter information for a parent and child.
+ # Submit the application. 
+ # Open the Insurance Affordability Application.
+ # Tab to the icon link to the Citizen Context Viewer on the parent and child images.
+ # Issue: Screen reader will announce the generic text 'Citizen Context Viewer'.
+
+**Resolution:**
+The participant's name and age have been added to the existing text on the icon link to the Citizen Context Viewer. This new text has been implemented for all icon links to the Citizen Context Viewer across the application.
+"
+SPM-125798,,Inline menu items on action menus are enabled by default,CEF,,,,"The following application properties are set to True so that inline menu items on action menus are enabled by default.
+* curam.actionmenus.display-inline.enabled.tab  
+* curam.actionmenus.display-inline.enabled.page 
+* curam.actionmenus.display-inline.enabled.list 
+"
+SPM-125548,DT036293,Session timeout warning modal displays two primary buttons,CEF,Application Development Environment,Client Development Environment,,"**Issue Description:**
+Both action buttons on the session timeout warning modal display as primary actions.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:** 
+# Log in as a Caseworker.
+# Wait until the session timeout triggers and displays  the  session timeout warning modal.
+# Issue: Both the  'Stay logged in' and 'Log out' action buttons display as primary actions.
+
+**Resolution:**
+Only 'Stay logged in' displays as the primary action on the session timeout warning modal.
+"
+SPM-125242,,SPM Components update to Carbon 11,CEF,Application Development Environment,Client Development Environment,,"The version of Carbon has been upgraded from version 10 to version 11?.
+
+In Carbon version 11, the CSS class name prefix 'bx' has changed to 'cds'. For example bx-{-}cluster has changed to cds{-}-cluster.
+
+Users of customized CSS should review their customizations to assess if they are impacted by this change.
+"
+SPM-125169,,AES - Period of Interest 15 months - need to convert to a configurable property,ENT,Evidence Broker,,,"**Issue Description:**
+Evidence sharing is configured to share any end-dated evidence when the end date falls within 15 months of the case start date. It is not possible to configure this value.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:** N/A
+
+**Resolution:**
+A new system property has been added to allow this behaviour to be configured. The default value for this property remains at 15 months so no updates are required to maintain the existing behaviour. "
+SPM-125115,DT036255,View All Milestones modal may wrap text depending on size of browser window,Look and Feel,,,,"**Issue Description:**
+The content of the Milestones modal is wrapping.
+
+**User Interface Impact:** No
+
+**Steps to reproduce:**
+# Open a browser that is reasonably wide but not the full width of the screen. 
+# Log in as caseworker.
+# Register a Person.
+# From the tab action menu of the Participant Data Case, select 'New Application...'.
+# Complete and submit the intake application.
+# Go to the Application case and Verify the outstanding verifications.
+# From the tab action menu of the Application case, select 'Check Eligibility...' and then authorize the application.
+ # Open the Integrated case select the Administration tab and click  Milestones and then 'New...'
+ # Add an Inconsistency Period milestone. Note that the Name should not be wrapped. 
+ # Click View All... to open the Milestones modal. Note that the Name is wrapped. 
+ # Issue: The size of the milestone modal is causing the content to wrap.
+
+**Resolution:**
+The Milestones modal has been increased in size reducing the chances of content wrapping.
+"
+SPM-124603,,Remove remaining artifacts of  the legacy Employment Contribution Entities feature,Code Removal,,,,"All of the entities and most of the code artifacts that enabled customers to implement contribution-based solutions in employment areas such as pensions and unemployment insurance tax that were deprecated in v7.0.0.0 were removed in v8.0.0.0. However, there were some struct classes associated with this feature which were not removed in the v8.0.0.0 release. These are now removed.
+
+For more information about the artifacts that are removed and modified as part of this code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124580,,Remove the deprecated Generic Search Server (GSS) feature and related artifacts from the Social Program Management (SPM) Deliverable,Code Removal,,,,"The entities and code artifacts for the Cúram Generic Search Server that were deprecated in v7.0.0.0 have now been removed. All of the references to this feature in the SPM documentation have also been removed.
+
+For more information about the artifacts that are removed and modified as part of this code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124578,,Remove the deprecated Oracle Warehouse Builder (OWB) and DB2 ETLs from the Social Program Management (SPM) Deliverable,Code Removal,,,,"The code artifacts associated with the Oracle Warehouse Builder (OWB) and Db2 ETLs that were deprecated in v7.0.0.0 have now been removed. All of the references to these ETLs in the SPM documentation have also been removed.
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124564,,Remove the deprecated Rich Text Editor Spell Checker feature and related artifacts from the Social Program Management (SPM) deliverable,Code Removal,,,,"The code artifacts associated with the Spell Checker feature that was deprecated in v7.0.0.0 have now been removed. All of the references to this feature in the SPM documentation have also been removed.
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124547,,Remove the deprecated Smart Navigator Search Page Target from the Social Program Management (SPM) deliverable,Code Removal,,,,"The deprecated Person Search (P_SEARCH) smart navigator keyword and associated functionality are removed.
+
+The following artifacts are no longer shipped:
+ * Person Search (P_SEARCH) from CT_SearchTarget.ctx
+ * PersonSearchrPageTargetImpl.java
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removal// PDF document that is attached to these release notes.
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124544,,Remove the deprecated struct class ?curam.core.facade.infrastructure.struct.EvidenceFlowDetails? from the Social Program Management (SPM) Deliverable,Code Removal,,,,"The code artifacts associated with the following deprecated struct class that was deprecated in v7.0.0.0 have now been removed. This struct class was part of the Evidence Flow feature which was removed in a previous SPM release.
+ * curam.core.facade.infrastructure.struct.EvidenceFlowDetails
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124484,,"Remove the deprecated duplicated static application domains from the Social Program Management (SPM) Deliverable ",Code Removal,,,,"The code artifacts associated with the following duplicate static application domain definitions that were deprecated in v7.0.3.0 have now been removed. All of the references to these domains in the SPM documentation have also been removed.
+ * ADDRESS_STATE
+ * ADDRESS_STATE_NO_IEG_OVERRIDE
+ * BENEFIT_TYPE
+ * CITIZENSHIP_STATUS
+ * CITIZENSHIP_STATUS_NO_IEG_OVERRIDE
+ * COC_TYPE
+ * COVERAGE_CODE
+ * CW_MOTIVATION_RESULTS_MEMBER_STATUS
+ * FREQUENCY_CODE
+ * FREQUENCY_CODE_NO_IEG_OVERRIDE
+ * INCOME_SOURCE
+ * INCOME_TYPE
+ * INCOME_TYPE_NO_IEG_OVERRIDE
+ * PLAN_LEVEL
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124482,,Remove the deprecated ScanMilestoneDeliveryStartDate and ScanMilestoneDeliveryEndDate batch jobs from the Social Program Management (SPM) deliverable,Code Removal,,,,"The code artifacts associated with the following batch jobs that were deprecated in v8.0.0.0 have now been removed. All of the references to these batch jobs in the SPM documentation have also been removed.
+ * ScanMilestoneDeliveryStartDate 
+ * ScanMilestoneDeliveryEndDate
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124481,,Remove the deprecated IndexProductDeliverySynchronization class from the Social Program Management (SPM) deliverable,Code Removal,,,,"The code artifact associated with the following class that was deprecated in v8.0.0.0 has now been removed. All of the references to this class in the SPM documentation have also been removed.
+ * IndexProductDeliverySynchronization
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124478,,Remove the outdated APIs used to return application verifications from the Social Program Management (SPM) deliverable,Code Removal,,,,"The code artifacts associated with the following APIs that were deprecated in v8.0.0.0 have now been removed. All of the references to this feature in the SPM documentation have also been removed.
+ *  ApplicationEvidence.listCaseEvidenceVerificationDetails() 
+ *  ApplicationEvidence.listCaseEvidenceOutstandingVerificationDetails()
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124477,,Remove the deprecated Rest APIs for resetting passwords from the Social Program Management (SPM) deliverable,Code Removal,,,,"The Social Program Management (SPM) deliverable provided three reset password Rest APIs. These were deprecated in v8.0.0.0 as customers should provide their own authentication implementation via third-party software. The code artifacts for these APIs  have now been removed. All of the references to the APIs in the SPM documentation have also been removed.
+
+For more information about the artifacts that are removed and modified as part of this code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124474,,Remove the deprecated application property ?curam.outcomeplanning.defaultTimelineView? from the Social Program Management (SPM) deliverable,Code Removal,,,,"The application property ?curam.outcomeplanning.defaultTimelineView? was applicable to a Flex-based Activity workspace which was removed from the product in version v8.0.0.0. The JavaScript workspace which replaced the Flex workspace does not refer to this property. Therefore, the deprecated property has now been removed.
+ *  ENV_OUTCOME_PLAN_WORKSPACE_DEFAULT_TIMELINE_VIEW-curam.outcomeplanning.defaultTimelineView
+
+For more information about the artifacts that are removed and modified as part of the code removal process, see the //Merative Social Program Management 8.1.0.0 Code Removals// PDF document that is attached to these release notes.
+
+[Merative SPM Code Removals 8.1.0.0|https://curam-spm-devops.github.io/wh-support-docs/pdf/releasenotes/SPM_CodeRemovals_810.pdf]
+"
+SPM-124150,PO09733,New Task and New activity action controls incorrectly displayed on Appeals page,CEF,Application Development Environment,Client Development Environment,Widgets,"**Issue Description:**
+The New Task and New activity page action controls are displayed to the right of the list of appeals, when they should not be displayed.
+
+**User Interface Impact:** No
+ 
+**Steps to Reproduce:** 
+ # Log in as a Caseworker.
+ # Register a Person.
+ # On the Person's Participant Data Case navigate to Issues and Proceedings.
+ # Navigate to Appeals.
+ # Issue: An obscured view of the New Task and New activity action controls are displayed to the right of the list of appeals.
+
+**Resolution:**
+The New Task and New Activity action controls are not displayed on the Appeals page.
+"
+SPM-123980,PO09707,Unnecessary error messages in system logs when IBM Watson Assistant is disabled,CEF,,,,"**Issue Description:**
+Since v8.0.0, Social Program Management can be configured to use IBM Watson Assistant. However, when the property curam.watson.assistant.enabled is configured off and a user logs in who is not a member of the security identifier WatsonAssistant.readWatsonAssistantDetails, unnecessary error messages are created. 
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a system administrator.
+ # Go to System Configurations then Shortcuts. Then select Application Data then Property Administration.
+ # Search for curam.watson.assistant.enabled.
+ # Ensure this property is set to 'false'. If necessary, edit this property, set the value to 'false' and then publish the changes.
+ # Logout.
+ # Log in as Resource Manager.
+ # Review the WebSphere logs.
+ # Issue: An unhandled server exception occurs.
+
+**Resolution:**
+The extra stack trace is no longer created.
+"
+SPM-119333,DT036660,The Tab key temporarily loses focus on the New Evidence modal,Accessibility,,,,"**Issue Description:**
+When adding new evidence with a keyboard, if a user presses Tab when on the Category dropdown clear action, the focus is temporarily lost for one keystroke and then moves correctly to the Type column header.
+
+**User Interface Impact:** No 
+
+**Steps to Reproduce:**
+ # Log in as Caseworker.
+ # Register a Person and create an integrated case.
+ # On the integrated case, open the Evidence Tab and select New Evidence from the page-level menu.
+ # The New Evidence modal opens with the focus on the Category dropdown.
+ # Press the Tab key to move the focus to the clear action.
+ # Issue: Pressing Tab when on the Category clear action moves the focus to an invisible element rather than to the Type column header.
+
+**Resolution:**
+When navigating with the Tab key on the New Evidence modal, the focus moves correctly to the Type column header.
+"
+SPM-119323,DT036591,Focus is hidden on shortcuts menu category items,Accessibility,,,,"**Issue Description:**
+When users navigate through categories in the Shortcuts menu with the Tab key, the cursor focus is not displayed on the selected item and they can't see which item is highlighted.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as a caseworker. 
+ # Select the Cases and Outcomes tab.
+ # Navigate to the Shortcuts menu and press Enter to open the menu.
+ # Press the Tab key to navigate through the menu options into a shortcut section category.
+ # Issue: The user can't see which option is highlighted as the cursor focus is not visible on the selected option, for example, Person under Searches.
+
+**Resolution:**
+When users navigate through categories in the Shortcuts menu with the Tab key, the cursor focus is displayed on the selected item.
+"
+SPM-116495,PO08379,Accessibility ? Wizard Step Name is not read along with the wizard title,Accessibility,,,,"**Issue Description:**
+When a supported screen reader is being used and a new contact is created in the Contact Log, the contact wizard step name is not read in the correct order. The step name is incorrectly read after the element in focus rather than before the element.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Start a screen reader.
+ # Login as Child Welfare caseworker.
+ # Navigate to an existing case.
+ # Create a new contact.
+ # Issue: The order of the steps in the wizard is read incorrectly.
+
+**Resolution:**
+The screen reader reads the new contact wizard step names in the correct order.
+"
+SPM-115478,PO08121,"The Announcement Player Previous, Play and Next buttons are not declared as buttons by a screen reader",Accessibility,,,,"**Issue Description:**
+When a supported screen reader is being used in the caseworker application, the Announcement Player buttons Previous, Play, and Next are not declared as buttons. Also, the announcement messages are not read when they change.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+# Enable a screen reader.
+# Log in as an administrator.
+# Navigate to any of the three Announcement Player buttons, Previous, Play, or Next, and press Enter.
+# Issue 1: The screen reader does not declare any of the buttons as buttons.
+# Issue 2: The announcement messages are not read by the screen reader.
+
+**Resolution:**
+A screen reader now declares the Previous, Play, and Next buttons as buttons, and the announcement messages are read when a new message is displayed on the screen. 
+"
+SPM-115216,PO08054,Documentation does not describe how to enable and serve static content for the Universal Access application,Product Documentation,,,,"**Issue Description:**
+Documentation describing how to configure and serve static content for the Curam application does not provide details on how to serve static content for other applications such as the Universal Access application.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:** N/A
+
+**Resolution:**
+The documentation has been updated with details regarding configuring and serving static content for the Cúram application and other applications such as the Universal Access application. For more information, see the //Web Client Reference Manual//. You can find more information in the //Static Content_Server// section.
+"
+SPM-112663,PO07707,Inconsistent tab ordering when running an Intelligent Evidence Gathering script in a modal,ENT,Intelligent Evidence Gathering,Player,,"**Issue Description:**
+When running an IEG script in a modal, tabbing from the last field on the form, the focus  switches to the sections panel rather than the Save & Exit button.
+
+**User Interface Impact:** No
+
+**Steps to Reproduce:**
+ # Log in as an administrator.
+ # Select the Administration Workspace tab.
+ # Expand the Shortcuts menu.
+ # Expand the Intelligent Evidence Gathering section and select Scripts.
+ # Enter 'IEG Sample Script' in the name field and select Search.
+ # From the actions menu select Run in Modal.
+ # In the Schema Name field Select IEG Sample and click the Run Script button. 
+ # Enter all mandatory fields on the About you page and click on the Next button.
+ # On the Information About You page click the Next button.
+ # On the Household Details page, navigate to question 'How many other people are in your household?'.
+ # Press the tab button.
+ # Issue: The page navigates to the 'About You' section in the Sections panel which is incorrect.
+
+**Resolution:**
+The tab focus order has been fixed to navigate in visual order to the buttons after the last form field.
+"

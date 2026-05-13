@@ -1,0 +1,2553 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-144188,,Reintroduce support for Oracle WebLogic Server 12.2.1.4,Third Party Updates,,,,"Support has been reintroduced for Oracle WebLogic Application Server 12.2.1.4 (and future patches) in the Cúram 8.2.0.0 release. WebLogic 12.2.1.4 is the Long-Term Support (LTS) release with extended support up to 2027.
+
+Cúram 8.2.0.0 also supports Oracle Oracle WebLogic Server WebLogic 14.1.1 and future patches.
+
+"
+SPM-143563,,The 'configtest' target fails when run against a Db2 for z/OS version 13 database,CEF,Application Development Environment,,,"The ?build configtest? target was failing when run against Db2 for z/OS database version 13. This was due to the version of the database being incorrectly specified in the associated ?CuramSDEJlibthird_party&#95;tools&#95;version.properties? file.
+
+This has now been resolved, and the version of Db2 for z/OS specified in this file has been updated to 13.1.
+
+"
+SPM-143534,,Cúram Installer process improvements,CEF,Application Development Environment,,,"*Change*
+The Cúram post-installation process has been improved.
+The aim is to allow customers to generate a new secret key and keystore for enhanced security and to encrypt Cúram passwords using the key. 
+
+*Use*
+The key in the keystore is a symmetric key used for Advanced Encryption Standard encryption. 
+This key is utilized to encrypt and decrypt configuration passwords, including those for the database and web services. 
+
+*New Ant targets*
+A new Ant target is provided to either create a new keystore or reuse an existing one: ?createkeystore?.
+A new Ant target is added to initialise some credentials required for use in Cúram: 'init_passwords'.
+
+*What new targets are used for?*
+These are used to generate a new encryption key and set up credentials such as for database connectivity, the application server and some out-of-the-box users. 
+
+*Required action*
+The target ?init_passwords? can be run in an interactive or automated mode. 
+In interactive mode, it will prompt to provide the username and/or password for the required credentials.
+In automated mode, it requires each credential to be specified for update.
+The credentials set by ?init_passwords? will be encrypted or digested appropriately using the settings in CryptoConfig.properties and written to the corresponding source files.
+
+*For more detailed information*
+See the _Cúram Development Environment Installation Guide 8.2_ updates for more details. 
+
+"
+SPM-143378,,Customise users in LoginClient,CEF,Application Development Environment,,,"*Issue Description:*
+The RMILoginClient used to log in to the server previously provided the means to quickly login for a fixed set of users. This has been enhanced to allow customisation of the users able to quickly login.
+
+The same change applies to the RestLoginClient in Cúram for Modern Java.
+
+*User Interface Impact:* No
+
+*Resolution:*
+The RMILoginClient (or RestLoginClient under Modern Java) now allows customisation of the quick login buttons by reading usernames and passwords from a properties file on the classpath. 
+
+A default set of users are provided with quick login buttons. If you wish to change the users available to quick login, add a file to the classpath called 'LoginClient.properties' and add usernames (and optionally passwords) as per this example:
+
+username1=password   &#35; internal user
+internal.username2=   &#35; internal user (without password)
+external.username3=password  &#35; external user
+
+"
+SPM-142775,DT037279,Date anomaly for May 3rd 1942 in timezone America/Puerto_Rico,CEF,Application Development Environment,,,"*Issue Description:*
+The date May 3, 1942 is misinterpreted in the America/Puerto_Rico timezone due to an anomaly in certain versions of the Java timezone database. Specifically, the database incorrectly applies a 1-hour daylight saving time (DST) adjustment at midnight on that date. As a result, the date is shifted back to May 2, 1942 during calculations, leading to inaccurate historical date handling.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Add ?-Duser.timezone=America/Puerto_Rico? to the Default VM Arguments for the JRE being used.
+# Log in as a caseworker.
+# Register a person with their date of birth as the 3rd of May 1942.
+# Issue: Their date of birth is displayed as the 2nd of May 1942.
+
+*Resolution:*
+A special case has been added to handle this anomaly and ensure accurate date calculations.
+
+"
+SPM-142681,,LifeEvents and HoldingCaseDP do not have proper error handling mechanism,CEF,Life Event Management,,,"*Issue Description:*
+Developers were unable to throw AppException and InformationalException messages from the curam.citizen.datahub.impl.CustomUpdateProcessor.processUpdate() API, as the method signature did not declare these exceptions.
+
+*User Interface Impact:* No
+
+*Resolution:*
+The processUpdate() API method signature has been revised to throw AppException and InformationalException messages, thereby allowing developers to raise these exceptions when necessary.
+
+"
+SPM-142178,,Update to the latest version of the Rampart Axis 2 security library - esapi,Third Party Updates,,,,"Cúram web services are based on Apache Axis2. With the Rampart security module of Axis2, SPM web services can be secured for authentication, integrity (signature), confidentiality (encryption/decryption), and non-repudiation (timestamp).
+
+The version of one of the JAR files in Rampart has been updated. As a result of this update, the following changes have been made to the JDE Axis 2 deliverable.
+
+* CuramSDEJlibaxis2esapi-2.6.0.0.jar - version updated from 2.4.0.0 to 2.6.0.0. 
+
+Note that any references in custom scripts and other artifacts to the updated JAR file listed above must be updated.
+
+"
+SPM-141951,,Remove support for the MV2 Chrome extension in the Word Integration feature,CEF,Business Services,Word Integration,,"The Microsoft Word integration functionality for Google Chrome and Microsoft Edge is based on the extension and native messaging features of those browsers. To use the native messaging solution, no extra server configuration is required, but a browser extension and a client desktop Java? application, that is, the Word Integration Assistant, must be installed on all client computers.
+
+In previous Cúram versions, both an MV2 and an MV3 version of the browser extension were supported (where Manifest V3 is the latest version of the Chrome extensions platform). Support for the MV2 browser extension has now been dropped. This is the response to the Manifest V2 support timeline ([https://developer.chrome.com/docs/extensions/develop/migrate/mv2-deprecation-timeline|https://developer.chrome.com/docs/extensions/develop/migrate/mv2-deprecation-timeline]) where it has been outlined that the downloading and usage of such extensions will be disabled in the near future.
+
+The MV3 version of the File Edit Native Messaging Bridge extension may be downloaded from [https://chromewebstore.google.com/detail/spm-file-edit-native-mess/chefnfmmodjpepjmmdehfapjafboobhe|https://chromewebstore.google.com/detail/spm-file-edit-native-mess/chefnfmmodjpepjmmdehfapjafboobhe]  and is the one which should be used going forward.
+
+For further details on how to configure the Word Integration feature for Cúram, please refer to the ?Configuring the FILE&#95;EDIT widget with Google Chrome and Microsoft? Edge? section of the _System Administration Guide_. 
+
+"
+SPM-141831,,The configure target fails on the Windows platform when using WebSphere Liberty application server,CEF,Application Development Environment,,,"*Issue Description:*
+The ?configure' target, when run on the Windows platform against the WebSphere Application Server, fails as it reports that the 'securityUtility? function cannot be found.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce*:
+
+# On a Windows platform, install the WebSphere Liberty Application Server.
+# Install the Cúram application.
+# Run the 'configure? target.
+# Issue: the target fails as the ?securityUtility? function invoked as part of that target cannot be found. 
+
+*Resolution:*
+The ?configure? target used to configure the WebSphere Liberty Application Server on the Windows platform has been updated to ensure that all of the WebSphere Liberty functions executed as part of that overall target are Windows compatible. 
+
+"
+SPM-141814,,Select bank account for nominee drop-down display issues when IBAN enabled,CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+When the IBAN system property, ?curam.participant.enableibanfunctionality? is enabled, there is an issue with the select bank account drop-down for nominees. The IBAN and BIC values are not displayed in the bank accounts presented in the drop-down.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Click Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.participant.enableibanfunctionality?.
+# Use the row-level action to set the property?s value to ?YES?.
+# Use the Publish page-level action to publish the changes.
+# Log in as an administrator.
+# Click Dynamic Evidence under Rules and Evidence in the shortcuts panel.
+# Click the Bank Account toggle, there should be three dynamic evidence types present, two active and one in-edit.
+# Use the row-level action to activate the in-edit version.
+# Click Banks under Financial in the shortcuts panel.
+# There are two banks named Midway Savings Bank. Use the toggle to view the details of second Midway Savings Bank.
+# Click the Bank Branches in-line page.
+# Use the row-level action to add a BIC for the branch Downtown Midway.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Evidence tab.
+# Use the page-level action to create a new bank account, ensuring to specify the IBAN and BIC, the same BIC specified in the prerequisites above.
+# Repeat step 4 to add a second bank account for the person with a different IBAN.
+# Click the Care and Protection tab.
+# Use the page-level action to add a new integrated case.
+# Now add an associated product delivery to the integrated case, ?Weekly By EFT In Advance on a Monday?.
+# Click the Financial tab and select Nominees.
+# Use the row-level action to Change Bank Account.
+# In the Change Nominee Bank Account dialog, click the Select Bank Account drop-down.
+# Issue: The bank accounts in the drop-down don?t reference the IBANs or BICs.
+
+*Resolution:*
+The issue has been resolved, and the IBAN and BIC values now appear in the drop-down list when selecting a bank account in the Change Nominee Bank Account dialog.
+
+"
+SPM-141618,DT037267,Citizen Context Viewer text is not translated into French,CEF,,,,"*Issue Description:*
+Citizen Context Viewer (CCV) text is not translated into French. 
+
+*User Interface Impact:* No 
+
+*Prerequisites:*
+
+# Change the user locale to French.
+
+*Steps to Reproduce:*
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Register a person, for example, John Jones.
+# On the person home page, click the arrow icon. The screen reader announces  ?Citizen Context Viewer - John Jones, 43 ans (S'ouvre dans une nouvelle fenêtre) link visited?. 
+# Issue: The Citizen Context Viewer text is not translated into French.
+
+*Resolution:*
+This issue is now resolved, and the Citizen Context Viewer text is now translated correctly. 
+
+"
+SPM-141590,,Update the commons-httpclient JAR file,Third Party Updates,,,,"The commons-httpclient library provides a framework by which new request types (methods) or HTTP extensions can be created easily. The library is delivered in Cúram as part of the Axis 2 Web Services functionality.
+
+The version of the commons-httpclient JAR has now been updated from 3.1 to 3.1-1. The new version of the JAR contains a defect fix. As a result of this upgrade, the following changes have been made in the JDE deliverable.
+
+* CuramSDEJlibaxis2commons-httpclient-3.1-1.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-141446,,Allocating a payment received to a liability with multiple components causes it to appear twice for that liability,CEF,Financial Management,Financials,,"*Issue Description:*
+A duplicate allocation line item appears for every allocated payment received against a liability line item.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce (Generic):*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Create an integrated case.
+# Add evidence that makes the client eligible for two components.
+# Activate the evidence.
+# Add a product delivery where ?Use Rolled Up Reassessments? is configured to false on the underlying product.
+# Add the necessary certification.
+# Submit, approve and activate the product delivery.
+# Generate payment.
+# Move the certification from date forward to generate a payment correction case.
+## This should have two liability line items, one for the overpayment of each component paid to the client.
+# Log in as a financial user.
+# Capture a payment received for $5 for the client above.
+# Allocate this against one of the outstanding liability line items.
+# Search for and open the payment correction case.
+# Click the Financials tab.
+# The Liability page should display the two benefit overpayment line items.
+# Click the inline Allocations tab.
+# Issue: The Allocations in-line tab displays two identical entries for the $5 allocation, these are the same underlying record.
+
+*Resolution:*
+This issue is now resolved. The Allocations in-line tab now displays the allocated amount for a payment received.
+
+"
+SPM-141427,,Update the opensaml JAR file to a later version,Third Party Updates,,,,"The OpenSAML-J library provides tools to support developers working with the Security Assertion Markup Language (SAML). The library is used in Cúram as part of the Rampart functionality which provides the ability to develop secure Axis 2 Web Services.
+
+The version of the opensaml JAR has now been updated from 2.6.1-2 to 2.6.6. The new version of the JAR contains a number of defect fixes. As a result of this upgrade, the following changes have been made in the JDE deliverable.
+
+* CuramSDEJlibthird&#95;party&#95;version.properties - the version of the JAR file has been updated.
+* CuramSDEJlibaxis2opensaml-2.6.6.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-141277,,Remove the logic associated with the Word Integration Applet feature from the Cúram deliverable,Code Removal,,,,"The Java applet implementation of the FILE_EDIT widget for the Microsoft? Word Integration feature was deprecated in Cúram 7.0.2. Customers should use the native messaging implementation of this feature, which is available for the Google Chrome and Microsoft Edge browsers.
+
+The deprecated logic associated with the applet implementation is now being removed. This code removal exercise has resulted in the following changes in the Cúram Java Development Environment (JDE) deliverable.
+
+Files Removed:
+
+* CuramCDEJlibcuramjarsignedsha-2WordIntegrationApplet.jar
+* CuramCDEJlibextjarsignedsha-2commons-codec-1.16.0.jar
+* CuramCDEJlibextjarsignedsha-2commons-io-2.13.0.jar
+* CuramCDEJlibcuramwebjspfile-edit-ie.jsp
+* CuramCDEJlibcuramwebjspfile-edit-chrome-applet.jsp
+* CuramCDEJlibextjsCFInstall.js
+* CuramCDEJlibextjsdeployJava.js
+
+Files Modified to remove references to applet-related logic:
+
+* CuramCDEJbinbuild.xml
+* CuramCDEJbinbuild-properties.xml
+* CuramCDEJlibcuramwebjscriptcuramutilWordFileEdit.js
+* CuramCDEJdocdefaultpropertiescuramomega3i18nFileEdit.properties
+* CuramCDEJdocdefaultpropertiescuramomega3i18nDebug.js.properties
+* CuramCDEJlibcuramwebjspfile-edit-dialog.jsp
+* CuramCDEJlibcuramwebthemesv6csshelp-style.css
+
+The following two properties, which are now defunct, have been removed from the ?CuramCDEJdocdefaultpropertiescuramomega3ApplicationConfiguration.properties' file:
+
+* fileEditUseActiveXForMSIE
+* fileedit.chrome.messaging.enabled
+
+A new version of the Word Integration Bridge Installer ('CuramCDEJlibcuraminstallersWordIntegrationAssistant.msi') has also been released as part of this change. The previous version was 3.0.2, and the new version is 4.0.0.
+
+We recommend that you remove any references to the items listed above from custom scripts and other artifacts.
+
+"
+SPM-141276,,CKEditor - Upgrade the CKeditor to 4.25.1-lts,CEF,,,,"The CKEditor component (_located at webclientcomponentsCEFWidgetsWebContentcefwidgetsckeditor_), which underpins the Rich Text Editor in Cúram, has been upgraded from version 4.5.10 to 4.25.1-lts and fully integrated into the application. 
+
+CKEditor v4.25.1-lts includes multiple defect fixes, minor enhancements and latest security patches.
+
+Pasting from Word documents keeps the formatting in most cases, as long as the format type is supported within the Rich Text editor.
+
+*Note:*
+
+The following Rich Text Editor usability changes are present after this upgrade
+
+* The paste button is now disabled; selecting it will display an informational dialog indicating to the user how to paste content into the rich text editor.
+* Users must use keyboard shortcuts (e.g., Ctrl&#43;V or Cmd&#43;V) to paste content into the rich text editor.
+
+"
+SPM-141188,DT037252,Disabled inline action menu configuration can cause NullPointerException errors to be sent to server logs,CEF,,,,"*Issue Description:*
+When the system administration configuration properties for inline action menus are disabled, for example, when the properties are removed from the Cúram applications? Application.prx or Environment.xml file, a NullPointerException may occur, potentially leading to degraded application performance over time.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+Customize the Environment.xml file to remove th_e ?_curam.actionmenus.display-inline.enabled.tab? and 'curam.actionmenus.max-inline-items.tab' properties. Then build the database again.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Keep using the application until you get an error, either an ?Application Error? or a ?Sorry, an error has occurred? error when opening a browser tab.
+# Inspect the server logs.
+# Issue: A NullPointerException is thrown when the configuration properties for inline action menus are disabled, resulting in the exception stack trace being written to the logs.
+
+*Resolution:*
+The Cúram application has been updated so that when the system administration configuration properties for inline action menus are disabled, a NullPointerException will not be thrown.
+
+"
+SPM-141185,DT037253," Cases assigned a higher sensitivity level can be viewed by an audit coordinator with a lower sensitivity level",CEF,Application Development Environment,Security Management,,"*Issue Description:*
+An audit coordinator can view and select cases for auditing linked to a person with a higher sensitivity level. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# In the shortcuts panel, navigate to Case Audit Configurations under the Case Audits section and select New Case Audit Configuration.
+# Configure an audit with the following values:
+## Case Audit type: Select Product Delivery in the drop-down, search and select any product, and click Next.
+## Algorithm: Systematic Sampling
+## Allow Audit Coordinator to Specify Cases for Audit: Yes
+## Dynamic Query: Benefit Product Delivery Case Query
+## Focus Area: Select All
+## Select Save
+# Navigate to Users and select User Search.
+# Search for the administrator user. Update the administrator?s sensitivity level to 5. 
+# Search for the caseworker user. Update their sensitivity level to 5. 
+# Log in as this updated caseworker.
+# Register a person.
+# Set the person?s sensitivity level to 5.
+# Create an integrated case for the person.
+# Create an associated product delivery. Note down the Case Reference Number. 
+# Add the necessary evidence to make the person eligible.
+# Apply the evidence changes.
+# Submit the product delivery for approval.
+# Activate the product delivery.
+# Log in as an audit coordinator.
+# Select New Audit Plan under the Audits section in the shortcuts panel. 
+# Configure an Audit Plan with the following values:
+## Purpose: Compliance Review
+## Audit Item: Product selected at Step 3 above.
+## User Involvement: Provide Feedback
+# From the Audit Plan home page, open the page actions overflow menu and click the Select Specific Cases to Audit action.
+# Search for the product delivery case created above (Step 11).
+# Issue: The audit coordinator can view and select to audit the product delivery case linked to a person with a higher sensitivity level.
+
+*Resolution:*
+When an audit coordinator with a lower sensitivity level searches for a case linked to a client with a higher sensitivity level, the details are masked. Additionally, if an audit coordinator tries to add a restricted case, the following validation message displays: ?You do not have access to this client?s details.?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               "
+SPM-141158,DT037250,Dependency Manager reassesses cases immediately after activation,CEF,Integrated Case Management,Eligibility & Entitlement,Cúram Express Rules,"*Issue Description:*
+When a case is activated either online or by the DetermineProductDeliveryEligibility batch job the next execution of the dependency manager causes the case to be reassessed.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce (Generic):*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Add an integrated case for the person.
+# Add the necessary evidence to make the person eligible.
+# Activate the evidence.
+# Create a product delivery for a person.
+# Submit it for approval.
+# Activate the case by either
+#* Queue and run the DetermineProductDeliveryEligibility batch program or
+#* Use the Activate Online menu.
+# Check the case in the browser; its status will be Active, it will have a current determination, and the determination history will show one reassessment.
+# If the case was activated by the DetermineProductDeliveryEligibility, now run the dependency manager batch suite.
+# Check the case in the browser.
+# Issue: The current determination for the case will show a more recent timestamp. Also, the DependencyTrace table will show 2 REASSESS records for the case. This is because activating the case changes its status to 'Active', which creates a PrecedentChangeItem (PCI) for the case header. This PCI causes the Dependency Manager to reassess the case unnecessarily.
+
+*Resolution:*
+Activating a case no longer creates a PCI for the PDCS case header while assessing the case for the first time during activation. Hence, the Dependency Manager no longer reassesses the case. This applies to cases which are activated online or by the DetermineProductDeliveryEligibility batch program.
+
+If required, this behaviour can be suppressed by setting the application property ?curam.ruleobjectpropagation.disable.casestatus.filter? to ?True?, in which case the above PCI will be created during case activation. "
+SPM-141118,,Ensure the behaviour of IBAN bank accounts is equivalent to standard bank accounts,CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+When IBAN bank account functionality is enabled via the ?curam.participant.enableibanfunctionality? system property, the IBAN and BIC fields should be handled in the same way as the account number and sort code fields are when the functionality is disabled. Also, error messages referencing the terms ?account number? and ?sort code? should be tailored to mention IBAN and BIC. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+N/A
+
+*Resolution:*
+All critical paths for creating, modifying and deleting bank accounts have been examined and the necessary updates made to ensure they work in the same manner when IBAN is turned on via the system property ?curam.participant.enableibanfunctionality?. All error messages have been tailored to reference the terms IBAN/BIC, making them clearer and more understandable for caseworkers.
+
+*Technical:*
+The following rulesets and associated properties have been updated: 
+
+* PDCBankAccountValidationRuleSet.xml
+* PDCBankAccountValidationRuleSet.properties
+* PDCBankAccountIBANValidationRuleSet.xml
+* PDCBankAccountIBANValidationRuleSet.properties
+
+The full list of rule attributes that were updated/added are:
+
+# PDCBankAccountIBANValidationRuleSet.xml
+## doesIBANAndBICOrSortCodeAndAccNumEntered renamed to doesIBANAndBICEntered
+## ibanAndBICOrSortCodeAndAccNumEnteredValidation renamed to ibanAndBICEnteredValidation
+# PDCBankAccountIBANValidationRuleSet.xml
+## Zero length check on accountNumber and sortCode removed from doesIBANAndBICEntered attribute
+# PDCBankAccountIBANValidationRuleSet.properties
+## ERR&#95;BANKACCOUNT&#95;FV&#95;IBAN&#95;NUM&#95;EMPTY message updated to read, ?An IBAN and BIC must be entered?.
+# PDCBankAccountValidationRuleSet.properties
+## ERR&#95;BANKACCOUNT&#95;ACCOUNTEXISTS&#95;DUPLICATE message updated to read, ?A bank account already exists for this client with this account number at the selected bank.?
+# PDCBankAccountValidationRuleSet.preCreateValidations (bankAccountAlreadyExistsValidation added)
+# PDCBankAccountValidationRuleSet.preModifyValidations (bankAccountAlreadyExistsValidation added)
+
+"
+SPM-141115,,Closing a joint bank account from the non-PDC side unexpectedly sets the preferred indicator on bank account evidence,CEF,Business Services,Participant Management,,"*Issue Description:*
+A joint bank account may be shared between a PDC (or Person Evidence Management (PEM)) person and a service supplier. When the bank account is closed on the service supplier side, the person's bank account is also closed. However, an unintended side effect occurs, the preferred indicator is set where it was previously unset.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker, register a person, and add a bank account with details:
+## Account Name: BankAccount
+## Account Type: Personal Current
+## Account Number: 12341111
+## Sort Code: 90-14-87
+## Joint Account indicator: true
+## Preferred indicator: Not Selected
+# Register a service supplier and add a bank account with details:
+## Account Name: BankAccount
+## Account Type: Personal Current
+## Account Number: 12341111
+## Sort Code: 90-14-87
+## Joint Account indicator: true
+# From the service supplier, select the bank account and update its status to ?Closed?.
+# Navigate to the person and review the PDC bank account details.
+# Issue: The person?s bank account details show that the account status has been set to ?Closed?. However, it has incorrectly marked the account as preferred.
+
+*Resolution:*
+The preferred indicator is no longer set to ?true? when the bank account is closed. In addition, if the preferred indicator is already set to ?true?, it will be automatically unset when a bank account is closed allowing another bank account to be marked as preferred.
+
+"
+SPM-141069,DT037246,UHSE thrown when capturing and allocating a payment received when a charge adjustment exists,CEF,Financial Management,Financials,,"*Issue Description:*
+An unhandled server exception is thrown when a caseworker captures a payment received and allocates it against an existing liability. The API for retrieving the list of outstanding debts throws an exception if the client has a charge adjustment. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Log in as a financial user.
+# Search for the registered person.
+# Navigate to the Financial tab for the person.
+# Use the New Account Adjustment page-level action to create a charge adjustment for $50.
+# Click the ?Receive Payment for a Person? shortcut link.
+# Search for the person on the first page of the wizard.
+# Select the person.
+# On the next page, specify an amount and provide a ledger number for the cash payment.
+# Click Save & Allocate.
+# Issue: An unhandled server exception is thrown when retrieving the list of debts to present to the caseworker.
+
+*Resolution:*
+This issue has been addressed, and the list of ?Liabilities to Allocate? is now presented to the caseworker. A new system property has also been added to filter Charge Adjustments from the outstanding liabilities page of the ?Receive Payment for a Person' wizard. This property is 'curam.filter.chargeadjustments? and is off by default. Turning this on will result in Charge Adjustments not being displayed in the outstanding liabilities list.
+
+"
+SPM-141019,,End date not being set when a bank account's status is updated to 'Closed',ENT,Dynamic Evidence,Evidence Management,,"*Issue Description:*
+When a Bank Account?s status is updated to ?Closed?, its end date is not being set.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Evidence tab.
+# Use the New Evidence page action to add Bank Account evidence.
+# From the Evidence list page, click the Edit row-level action.
+# Set the Account Status to ?Closed' and click Save, without specifying a To date.
+# Issue: The To date is not set. The To date should be set when the account status is set to ?Closed'.
+
+*Resolution:*
+The To date is now automatically set to the current date when a bank account's status is changed to ?Closed?.
+
+"
+SPM-140845,,Validation message 'Bank account type of the shared account does not match the bank account type entered' is not being consistently applied across all participants linked to a joint bank account,CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+If a joint bank account which has been added to a person is being added to another person, a validation should be thrown if the bank account type specified for the second person is different to that specified for the first person. The validation should read, ?Bank account type of the shared account does not match the bank account type entered.?
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person (Person 1).
+# Register a second Person (Person 2).
+# Add a bank account to Person 1 with details:
+## Account Name: Test Account
+## Account Type: Personal Current
+## Account Number: 11112222
+## Sort Code: 90-14-87
+## From: 1/1/2025
+## Joint = true
+# Add a bank account to Person 2 with details:
+## Account Name: Test Account
+## Account Type: Personal Deposit
+## Account Number: 11112222
+## Sort Code: 90-14-87
+## From: 1/1/2025
+## Joint = true
+# Issue: No validation is thrown to inform the caseworker that the bank account type specified for Person 2 differs from that of Person 1. Since both individuals are sharing the same joint bank account, the account type must be the same.
+
+*Resolution:*
+An existing validation has been included to ensure consistency in account types when adding a joint bank account for multiple participants. If a joint account already associated with one person is added to another person using a different account type, the following message is displayed to the caseworker 'Bank account type of the shared account does not match the bank account type entered.?
+
+"
+SPM-140757,,Updates to supported browser versions,Third Party Updates,,,,"The following browser versions are now updated and certified for this release.
+
+Caseworker Application Browser Support
+
+* Google Chrome is updated to 137
+* Microsoft Edge is updated to 137
+
+Universal Access Application Browser Support
+
+* Google Chrome is updated to 137
+* Microsoft Edge is updated to 137
+* Mozilla Firefox is updated to 138
+
+"
+SPM-140752,,Cúram Citizen Engagement - The program list in the Benefit acknowledgement message is not localisable and not accessible,CEF,Universal Access,,,"*Issue Description:*
+In Cúram Citizen Engagement, when the selected language is switched from English, the program list used in the benefit application acknowledgement notification on the user?s dashboard is not accessible and the 'and ' conjunction displayed when there are multiple programs, is not displayed in the selected language.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in to the Cúram citizen engagement portal.
+# Submit a benefit application for multiple programs.
+# Navigate to the user?s ?Your Account? page.
+# Within the Notifications card, observe the benefit application acknowledgement notification. The programs are separated by commas and the `and` conjunction.
+# Issue 1: Program list in the acknowledgement notification is not accessible.
+# Switch language to something other than English (for example French).
+# Issue 2: The ?and? conjunction used as the program list separator is not translated.
+
+*Resolution:*
+The program list used in the benefit application acknowledgement notification is now accessible and when the language is switched from English, it is displayed in the selected language.
+
+"
+SPM-140746,,Update the certified version of Apple VoiceOver and Chrome for tablet accessibility,Third Party Updates,,,,"The certified version of Apple VoiceOver is now updated to iOS 18.5 This is certified against Chrome 137. 
+"
+SPM-140737,,"Drop support for Windows 10 as a development platform for Cúram ",Third Party Updates,,,,"Support for the Microsoft® Windows® 10 platform for the designing, developing, testing, and building of the Cúram application has been dropped.
+
+"
+SPM-140687,,The <prefer-web-inf-classes> element has been added into the WebLogic deployment descriptor file,CEF,Technical Services,Server Development Environment,Infrastructure,"*Description:* 
+The Oracle WebLogic application server sporadically uses system or application classes over classes provided by Cúram applications such as the Cúram, CitizenPortal and REST applications.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* N/A
+
+*Resolution:* 
+A change has been made to the Oracle WebLogic deployment descriptors in the Cúram applications to ensure the classes located in the WEB-INF directory of the Web applications are loaded in preference to classes loaded in the application or system classloader. 
+
+*Technical:* 
+The following files have been updated:
+
+* ../CuramCDEJ/ear/WLS/war/WEB-INF/weblogic.xml: The prefer-web-inf-classes element has been introduced and set to true.
+* ../EJBServer/components/Rest/resources/ear/wls/META-INF/weblogic-application.xml: The prefer-application-packages element has been removed to resolve any conflicts with the prefer-web-inf-classes element introduced to the weblogic.xml.
+
+"
+SPM-140419,DT037241,Dynamic evidence 'From' and 'To' dates on a joint bank account do not sync with the 'From' and 'To' dates on the same joint bank account shared with other participants,CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+Dynamic evidence 'From' and 'To' dates on a joint bank account do not sync with the 'From' and 'To' dates on the same joint bank account shared with other participants.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Click Properties under Application Data in the shortcuts panel.
+# Search for the property ?curam.pec.enabled?.
+# Use the row-level action to update the property?s value to ?YES?.
+# Use the page-level action to publish the change.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person (Person 1).
+# Add Bank Account evidence with details:
+## Account Name: Bank1
+## Account Type: Corporate Current
+## Account Number: 12345678
+## Sort Code: 90-14-87
+## From: 12/01/2024
+## Joint Account = true
+# Click Save.
+# Apply changes.
+# Register a second person (Person 2).
+# Add Bank Account evidence with details:
+## Account Name: Bank1
+## Account Type: Corporate Current
+## Account Number: 12345678
+## Sort Code: 90-14-87
+## From: 12/01/2024
+## Joint Account = true
+# Click Save.
+# Apply changes.
+# On Person 2, update the joint bank account details as follows:
+## From: 11/01/2024
+## To: 12/27/2024
+# Click Save.
+# Apply changes.
+# Navigate to Person 1 and view the bank account evidence.
+# Issue: The From and To Dates are not updated on Person 1?s bank account.
+
+*Resolution:*
+This issue is now resolved. The ?From? and ?To? dates are kept in sync across a joint bank account shared by multiple participants.
+
+"
+SPM-140393,,Validations to prevent modifications and deletions of joint bank accounts across persons,CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+With Participant Evidence Management (PEM) turned on, it shouldn?t be possible to modify or delete a joint bank account if another participant sharing that same joint account already has a pending update or pending delete on the same bank account.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Click Properties under Application Data in the shortcuts panel.
+# Search for the property ?curam.pec.enabled?.
+# Use the row-level action to update the property?s value to ?YES?.
+# Use the page-level action to publish the change.
+
+*Steps to Reproduce:* 
+
+# Log in as a caseworker.
+# Register two new persons (Person 1 and Person 2).
+# Add Bank Account evidence to Person 1 with details:
+## Account Name: Acme Bank Account
+## Account Number: 12345678
+## Sort Code: 90-14-87
+## From: 01/01/2025
+## Joint Account indicator: true
+# Apply changes.
+# Add the same Bank Account evidence to Person 2.
+# Apply changes.
+# Modify the Bank Account evidence on Person 1, updating the Name to ?Acme Bank Account Name Update?
+# Modify the Bank Account evidence on Person 2, updating the Name to ?Test Update?.
+# Apply changes.
+# Issue: The system allowed the changes to be activated. The system should prevent the changes from being activated in the instance where the shared bank account has a pending update or pending deletion on another participant sharing the same bank account.
+
+*Resolution:*
+This issue is now resolved. New validations have been added to the system to prevent the activation of an update or a delete on a shared bank account if that same bank account already has a pending update or pending deletion on another participant. If the bank account in question already has a pending update on another participant, the following validation is presented to the caseworker, ?Bank account details cannot be modified because it is a shared bank account with pending updates for other participants. Please resolve these outstanding updates before proceeding'. If the bank account has a pending deletion on another participant, the following validation is presented to the caseworker, ?Bank account details cannot be deleted because it is a shared bank account with pending updates for other participants. Please resolve these outstanding updates before proceeding?.
+
+"
+SPM-140352,DT037185,Duplicate bank account incorrectly allowed for the same person or across multiple people,ENT,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+It is possible to enter duplicate bank account details on the system, not only for a person, but also across people.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1 (at the person level)*
+
+# Register a new Person.
+# Click the Evidence tab.
+# Add Bank Account evidence, ensuring that the Joint Account indicator is set to ?false?.
+# Now re-add exactly the same bank account.
+# Issue: The system allows the second bank account to be added.
+
+*Scenario 2 (across people)*
+
+# Register a new Person (Person 1).
+# Click the Evidence tab.
+# Add Bank Account evidence, ensuring that the Joint Account indicator is set to ?false?.
+# Register another person (Person 2).
+# Add the same bank account details to Person 2.
+# Issue: The system allows the second bank account to be added.
+
+*Resolution:*
+Validations have been added to prevent duplicate bank accounts from being added to the system. To prevent duplicate bank accounts for the same person when creating or modifying a bank account, the following validation is now displayed - ?A bank account already exists for this client with this account number at the selected bank.? To prevent the same bank account number from being used by multiple persons within the same bank branch, the system displays the following validation - ?An account exists in this branch with this account number.?
+
+*Technical:*
+PDCBankAccountValidationRuleSet.xml has been updated to include the following (existing) attribute check as part of preCreateValidations and preModifyValidations:
+
+* bankAccountAlreadyExistsValidation
+
+The following message update has been made inside PDCBankAccountValidationRuleSet.properties
+
+* ERR&#95;BANKACCOUNT&#95;ACCOUNTEXISTS&#95;DUPLICATE=An account exists in this branch with this account number.
+
+has been updated to the following:
+
+* ERR&#95;BANKACCOUNT&#95;ACCOUNTEXISTS&#95;DUPLICATE=A bank account already exists for this client with this account number at the selected bank.
+
+"
+SPM-140350,,Evidence types marked as required in a Dashboard Group are not displaying a mandatory indicator in the Evidence Dashboard,Accessibility,,,,"*Issue Description:*
+Evidence types marked as required in a Dashboard Group are not displaying a mandatory indicator in the Evidence Dashboard.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Click Integrated Cases under Cases in the shortcuts panel.
+# Select an Integrated Case type.
+# Navigate to the Dashboard Group page in the Evidence tab.
+# Create several Dashboard Groups and configure at least one required evidence type.
+# Log out and log in as a caseworker.
+# Register a person and create an Integrated Case for which the Dashboard Groups were configured.
+# On the Integrated Case, navigate to the Dashboard page in the Evidence tab.
+# Navigate to the Display Evidence group drop-down field and select a group where a required evidence type is present.
+# Issue: No mandatory indicator is displayed beside the required Evidence Types.
+
+*Resolution:*
+In the Evidence Dashboard, evidence types marked as required in a Dashboard Group display a mandatory indicator and are announced as being required by screen readers.
+
+"
+SPM-140090,DT037228,"Unable to apply changes for a person with a bank account whose account status is 'Closed' ",ENT,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+A validation error is thrown when attempting to update a bank account?s status to ?Closed?. When applying changes, the following validation message is presented to the user: ?You cannot modify a bank account when the bank account status is closed.?
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Select Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.pec.enabled?.
+# Use the row-level action to update the property value to ?YES?.
+# Now, search for the property ?curam.miscapp.evidenceCalloutsEnabled?.
+# If not already set to ?YES?, use the row-level action to update this property to ?YES?.
+# Publish the changes.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new person.
+# From the Evidence Dashboard, add a bank account.
+# Activate the evidence.
+# Modify the bank account and set its status to ?Closed?.
+# Apply changes.
+# Issue: The following validation error is displayed: ?You cannot modify a bank account when the bank account status is closed.?
+
+*Resolution:*
+This issue has been resolved. It is now possible to apply changes when modifying a bank account?s status to ?Closed?.
+
+"
+SPM-140024,,Secure wrapper classes added for all supported XML parsers to enforce protections against XXE vulnerabilities,ENT,Technical Services,Server Development Environment,,"*Issue Description:*
+With our enhanced security posture, Cúram offers extra secure wrappers for all supported XML parsers in the security-inf package to protect against XXE vulnerabilities.  Using the 7 secure wrapper classes provided in 8.2 ensures that important security restrictions are enforced by default. 
+
+Below is the list of supported Parser Types and their Secure Wrapper Classes.
+
+*Parser Type: Secure Wrapper Class*
+
+* DocumentBuilderFactory: curam.security.parsers.SecureDocumentBuilderFactory
+* XMLReader: curam.security.parsers.SecureXMLReader
+* SAXReader (dom4j): curam.security.parsers.SecureSAXBuilder
+* TransformerFactory: curam.security.parsers.SecureTransformerFactory
+* SchemaFactory: curam.security.parsers.SecureSchemaFactory
+* SAXParserFactory: curam.security.parsers.SecureSAXParserFactory
+* DOMParser (Xerces): curam.security.parsers.SecureDOMParser
+
+For further technical details, please consult the _Curam Security Handbook 8.2_. 
+
+
+"
+SPM-139950,,Update the version of Tomcat supported in the Cúram Development Environment,Third Party Updates,,,,"The version of Apache Tomcat certified for usage in the Cúram Development Environment has been updated from 9.0.50 to 9.0.99.
+
+"
+SPM-139919,DT037222,"Cancelled bank account for External Party incorrectly considered when attempting to re-add identical bank account details for the same External Party ",CEF,Business Services,Participant Management,,"*Issue Description:*
+A cancelled bank account is being incorrectly considered when re-adding the same bank account to an External Party.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register an External Party.
+# On the External Party home page, click the Financial tab and select Bank Accounts.
+# Use the New page-level action to add a bank account.
+# On the Bank Accounts list page, use the Delete row-level action to cancel the bank account added in the previous step.
+# Again, using the New page-level action, re-add a bank account with the same details as in Step 4.
+# Issue: The following validation is incorrectly thrown, ?A bank account already exists for this client with this account number at the selected bank'.
+
+*Resolution:*
+This issue has been addressed and now it is possible to re-add a bank account to an External Party if a bank account with the same details was previously cancelled for that same External Party.
+
+"
+SPM-139885,DT037223,Application tab details not properly updated when selected language is changed by user,CEF,,,,"*Issue Description:*
+When a user selects a new language from the Language modal window, the application reloads, and the previously opened tabs are restored, but not all tab titles are reloaded with the latest chosen language. Additionally, some interface elements have untranslated ARIA labels, causing screen reader users to hear a mix of English and the selected language.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as a system administrator. 
+# Select Property Administration under Application Data in the shortcuts panel.
+# Search for the ?curam.environment.app.menu.locale.toggle.enabled? property.
+# Set the value to 'true'.
+# Publish the changes.
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Open several tabs in the application.
+# From the user menu in the application banner, select the language option to open the Select Language modal window.
+# Choose a new language and select Save.
+# Issue: When the application reloads and the tabs are restored, the active tab title displays in the newly selected language. However, the titles of the other tabs remain in the previously selected language and are only updated to the latest language when they are selected by the user.
+
+*Scenario 2:* 
+
+# Enable a screen reader. 
+# Log in as a caseworker.
+# Navigate to the Inbox tab.
+# Create a new task, complete all required fields, and assign it to a Work Queue the caseworker is subscribed to.
+# Click Save.
+# From the shortcuts menu, expand the Work Queues section and select My Work Queues.
+# On the User Subscribed Work Queues tab, click View Tasks.
+# Open the task created in Step 4.
+# From the user menu in the application banner, select the language option to open the Select Language modal.
+# Choose a new language and select Save.
+# Issue: After the application reloads and restores the open tabs, the title of the current tab is correctly announced in the selected language by the screen reader. However, some interface elements continue to be announced in English. 
+
+*Resolution:*
+When a user selects a new language from the Language modal, the application reloads and all tab titles are restored in the newly selected language. Additionally, screen readers now announce all interface elements using the updated language.
+
+"
+SPM-139838,,"Introduce support for Windows 11 as a development platform for Cúram ",Third Party Updates,,,,"Support for the Microsoft® Windows® 11 platform for the designing, developing, testing, and building of the Cúram application has been added. Support for this new version has also been added retrospectively for the Cúram 8.1.2.0 and 8.1.3.0 releases.
+
+"
+SPM-139760,,The Evidence Dashboard group listbox does not provide a visual indication of the currently selected option,Accessibility,,,,"*Issue Description:*
+When an option in the Evidence Dashboard's Display Evidence Group drop-down menu is selected, no visual indicator is displayed in the menu to indicate the currently selected option.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as an administrator.
+# Click Integrated Cases below Cases in the shortcuts panel.
+# Select an Integrated Case type.
+# Navigate to the Dashboard Group page in the Evidence tab.
+# Create several Dashboard Groups.
+# Log out
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person and create an Integrated Case for which the Dashboard Groups were configured.
+# On the Integrated Case, navigate to the Dashboard page in the Evidence tab.
+# Navigate to the Display Evidence group drop-down field.
+# Open the drop-down and select an option.
+# Issue: No visual indicator is displayed in the menu indicating the currently selected option.
+
+*Resolution:*
+The current selected option is now visually indicated in the drop-down menu for the Evidence Dashboard's Display Evidence Group drop-down field.
+
+"
+SPM-139712,DT037215,Bank Account cannot be modified (e.g. closed) once a payment is generated for client,CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+A bank account cannot be modified (e.g. closed) once a payment has been generated for a client into that bank account. It should be possible to modify certain fields even after the bank account has been used for payments.
+
+*Related WorkItem:* SPM-115615
+
+*User Interface Impact:* No
+
+*Steps to Reproduce (Generic):*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Add Bank Account evidence for the person.
+# Click the Care and Protection tab.
+# Use the New Case page-level action to create an integrated case for the person.
+# Add the necessary evidence to make the client eligible.
+# Apply evidence.
+# Create an associated product delivery, ?Weekly by EFT in advance on a Monday?.
+## If necessary, add a certification to the product delivery.
+# Submit, approve and activate the product delivery.
+# Log in as as system administrator.
+# Click Processes below Batch in the shortcuts panel.
+## Execute the Generate Instruction Line Items and Generate Instruments batch processes.
+# Run the batch processes using the batch launcher.
+# Log in as a caseworker.
+# Navigate back to the product delivery?s Financials tab.
+## A payment should be visible here.
+# Navigate back to person home page and click the Evidence tab.
+# Edit the bank account evidence created earlier.
+## Example: Check the Joint Account indicator, update the Account Status from ?Open? to ?Closed?, update the Account Name, set the To date, update the Preferred indicator.
+# Click Save.
+# Issue: The following validation message is thrown, ?A payment has been issued to this bank account therefore the modification cannot be applied. A new bank account should be created.'.
+
+*Resolution:*
+This issue has been resolved and it is now possible to update the following fields on a bank account when a payment has been received into that bank account:
+
+* Joint Account indicator (setting it to true)
+* Account Name
+* Account Status
+* To date
+* Preferred indicator
+
+"
+SPM-139568,DT037101,Internal error codes returned from the REST Infrastructure are not documented,CEF,Application Development Environment,Rest,,"*Issue Description:*
+The 'Code' attribute of the failure response message body is used for both standard HTTP response codes and internal Cúram error codes.
+Consumer applications normally expect HTTP response codes and do not know how to handle internal error codes.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+Make a Rest invocation using an incorrectly formatted date, for example, send the following message with an incorrectly formatted 'endDate'
+
+ 
+
+{noformat} {
+  """"specialCautionType"""": { """"tableName"""" : """"SpecialCautionType"""", """"value"""" : """"SCSC12"""", """"description"""" : """"Escape Threat"""", """"parentCodeTable"""" : """"SpecialCautionCategory"""" },
+  """"specialCautionCategory"""": { """"tableName"""" : """"SpecialCautionCategory"""", """"value"""" : """"SCC03"""", """"description"""" : """"Behavioral Alert"""" },
+  """"special&#95caution&#95id"""": """"100"""",
+  """"versionNo"""": 0,
+  """"startDate"""": """"2021-03-18"""",
+  """"endDate""""  : """"202-03-20"""",
+  """"Comments"""" : """"test comments"""",
+  """"concern&#95role&#95id"""": """"101""""
+  }  to the Rest path, E.g:  https://10.0.0.229:10101/Rest/v1/persons/101/special&#95cautions{noformat}
+
+*Issue:* The resulting error message will contain internal code -150212 to indicate that 'endDate' could not be decoded:
+
+{noformat}{
+  """"code"""" : -150212,
+  """"field"""" : """"endDate"""",
+  """"message"""" : """"There was an issue while parsing a 'endDate' attribute, which contains a value of '202-03-20': This is not in the supported ISO-8601 date format, e.g. yyyy-MM-dd."""",
+  """"level"""" : """"error""""
+  }{noformat}
+
+*Resolution:*
+All negative values for the 'code' fields can be interpreted as ?HTTP 400 The data request is invalid?.?If needed, the full set of internal code values and their associated message can be obtained from the following property files:
+
+* EJBServer/components/Rest/rest/properties/RestErrorMessages.properties
+* CuramCDEJ/doc/defaultproperties/curam/omega3/i18n/RuntimeMessages.properties
+
+"
+SPM-139531,DT037217,Issue with Dynamically Generated SQL,CEF,Integrated Case Management,Eligibility & Entitlement,Infrastructure,"*Issue Description:*
+In the SQL queries which are generated dynamically for accessing evidence during rules calculations, each column is qualified with its containing table name, which is unnecessary, and each query includes an ORDER BY clause, which is not always necessary.
+
+*User Interface Impact:* No.
+
+*Steps to Reproduce:*
+
+# Log in as a system administrator.
+# Enable SQL tracing for the application by setting the application property 'curam.trace.sql' to 'True'.
+# Publish the property changes.
+# Log in as a caseworker.
+# Register a new Person.
+# Add an integrated case for the person.
+# Add the necessary evidence to make the person eligible.
+# Activate the evidence.
+# Create a product delivery for the person.
+# Issue: see details below:
+
+The server log file will contain queries like the following:
+
+?SELECT CASEHEADER.APPEALINDICATOR , CASEHEADER.CASEID ,..., CASEHEADER.VERSIONNO FROM CASEHEADER WHERE CASEID= 12345678 ORDER BY CASEID WITH CS?
+
+It is not necessary to qualify each field with the table name 'CASEHEADER' because CASEHEADER is the only table referenced by the query.
+It is not necessary to specify 'ORDER BY CASEID' because CASEID is the primary key, so the query can return a maximum of one record.
+This increases the communication and processing workload of the database.
+
+*Resolution:*
+Dynamically generated SQL queries no longer qualify each attribute name and, when the search clause is the primary key, do not specify an ORDER BY clause.
+The query in the above example would now look like the following:
+
+ ?SELECT APPEALINDICATOR, CASEID,..., VERSIONNO FROM CASEHEADER WHERE CASEID= 12345678?
+
+"
+SPM-139236,,Focus is not visible when the user navigates to the employer search results link,Accessibility,,,,"*Issue Description:*
+The focus is not visible when keyboard users navigate to the Employer link on employer search results. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to Employer under the Searches section in the shortcuts panel.
+# Search for an existing employer using search criteria such as the Trading Name. 
+# Use the Tab key to navigate to an Employer link in the search results.
+# Issue: The focus indicator on the Employer link is not visible.
+
+*Resolution:*
+The focus is now visible on the Employer link when navigating employer search results.
+
+"
+SPM-139154,,Introduce support for Db2 12.1,Third Party Updates,,,,"Db2 12.1 support is now introduced. See the associated database prerequisites for this version of the product for further details of this support.
+
+As a result of the introduction of this support, the following driver and other related files have been updated in the Java Development Environment (JDE) deliverable.
+
+* CuramSDEJdriversdb2jcc4.jar - the version has been updated from 4.28.11 to 4.34.30.
+* CuramSDEJdriverssqlj4.zip.zip - this file has been updated to the Db2 12.1 version.
+
+"
+SPM-139088,DT037190,Cúram Citizen Engagement - System messages are not displayed for non linked users,CEF,Universal Access,,,"*Issue Description:*
+In the Cúram Citizen Engagement portal, system messages are not displayed for logged in non-linked users. Non-linked users are those users who are not yet linked to a person or prospect person in the Cúram backend. The system messages are only being displayed for logged in linked users.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Click System Messages under Universal Access in the shortcuts panel.
+# Add a new system message with visibility set to ?Logged-in users? or ?Public and logged-in users?.
+# Publish the changes.
+# Access the Citizen Engagement web application.
+# Sign up for a new user account.
+# Log in to the new user account.
+# Issue: The system message created in step 3 is not displayed in the communication banner on the user?s dashboard.
+
+*Resolution:*
+The issue has been resolved and now system messages where the visibility field is set to ?Logged-in users? or ?Public and logged-in users? are displayed in the communication banner within the Citizen Engagement portal for all logged-in users whether their account is linked or not linked to a person/prospect person in the Cúram backend.
+
+"
+SPM-138914,,Introduce support for JAWS 2025 and Microsoft Edge,Third Party Updates,,,,"The version of Freedom Scientific JAWS that has been certified for usage for accessibility purposes is now updated to JAWS 2025. The new version is certified against Microsoft Edge. 
+
+"
+SPM-138815,DT037177,Advanced Life Event and AES pull workflow error,CEF,Life Event Management,,,"*Issue Description:*
+When a client launches a life event for the first time, a holding case is created, and the AES pull workflow is initiated to pull evidence onto the holding case. This workflow throws an exception in the background, preventing the sharing of evidence.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Ensure that logically equivalent evidence sharing is configured between the Insurance Affordability integrated case (Income) and the Holding Case (Holding Case evidence type ? ET10000), with Trusted Source set to ?Yes?.
+# The necessary configurations must be in place to support the Advanced Life Event.
+
+*Steps to Reproduce:*
+
+# Log in as an Insurance Affordability caseworker.
+# Register a new Person.
+# Submit an Insurance Affordability application for the person.
+# Authorize the application to create the Insurance Affordability integrated case.
+# On the Citizen Portal, create an external account for the person.
+# Log in to the Citizen Portal.
+# Start the life event to capture the person's income.
+# Issue: Income evidence added to the Insurance Affordability integrated case is not shared to the Holding Case and doesn?t populate in the life event. This is due to an exception occurring as part of the AES pull workflow.
+
+*Resolution:*
+This issue is now resolved, and the income evidence details will be displayed in the life event.
+
+"
+SPM-138796,DT037174,Generic aria labels used to clear a selected field or open a drop-down menu,Accessibility,,,,"*Issue Description:*
+In Cúram, labels used to clear a selected field or open a drop-down menu have the same generic text specified, which lacks context for the associated field. This makes it difficult for screen reader users to distinguish which field the label relates to. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Click the Cases and Outcomes section.
+# Click Person under Registration in the shortcuts panel.
+# Click the Next button on the search page.
+# Hover on any of the drop-down arrow buttons on the page.
+# Issue: All the drop-downs show the same label 'Open Menu' in the tooltip.
+
+*Resolution:*
+The field label has been added to the hover message, for example, 'Open Gender list', making it easier for screen reader users to distinguish between the labels and the associated fields.
+
+"
+SPM-138668,DT037172,List tables with action menus missing visible column header (actions) for the column that shows action menus,Accessibility,,,,"*Issue Description:*
+In Cúram, list tables with action menus are missing a visible column header labelled ?Actions? for the column that shows the action menus. The column header text is present but visually hidden using CSS.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Navigate to the Evidence tab and view the Evidence list.
+# Observe the last column, which contains action menus.
+# Issue: The last column, which contains action menus, is missing a visible table header.
+
+*Resolution:*
+The hidden CSS class has been removed from the ?Actions? column header, making it visible in the Cúram application.
+
+"
+SPM-138534,DT037157,Submission of a life event fails in a development environment,CEF,Life Event Management,,,"*Issue Description:*
+Submission of a life event fails in a development environment.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Ensure that logically equivalent evidence sharing is configured between the Holding Case (holding case evidence type - ET10000) and the Insurance Affordability integrated case (Income), with Trusted Source set to ?Yes?.
+# The necessary configurations need to be in place to support the Advanced Life Event.
+
+*Steps to Reproduce:*
+
+# Start the server in Eclipse.
+# Log in as an Insurance Affordability caseworker using the RMILoginClient utility.
+# Register a new Person.
+# Submit an Insurance Affordability application for the person.
+# Authorize the application to create the Insurance Affordability integrated case.
+# On the Citizen Portal, create an external account for the person.
+# Log in to the Citizen Portal.
+# Submit a life event to capture the person's income.
+# Issue: An unhandled server exception appears in the logs as the system attempts to add an entry to the CREOLECaseDetermination entity (username column), using the external user?s name. In a runtime environment, this user will be SYSTEM.
+
+*Resolution:*
+The server-side logic has been updated to check the user type when inserting a record into the CREOLECaseDetermination entity. If the user type is external, the username is updated to SYSTEM, thereby preventing the unhandled server exception.
+
+"
+SPM-138529,DT037260,Pseudo-translation characters are appearing in the language packs,Look and Feel,,,,"*Issue Description:*
+Some files within the language packs contain pseudo-translation characters instead of the correct translations for the respective language. This issue affects UI elements, system messages, and other localized text, potentially impacting users who access the application in languages other than English.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a user in a non-English locale.
+# Navigate around the application.
+# Issue: Some UI elements are displayed with pseudo-translation characters instead of the correct translations.
+
+*Resolution:*
+The correct translations now appear consistently throughout the application.
+
+
+ "
+SPM-138508,DT037158," Users with a lower sensitivity level than the sensitivity level of a person on a case can view the client details on an application case search ",CEF,Application Development Environment,Security Management,,"*Issue Description:*
+Users with a lower sensitivity level can view case details linked to a client with a higher sensitivity level. This includes personally identifiable information, such as the client?s name, program details, and date of birth.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as an administrator.
+# Navigate to the shortcuts panel. Select User Interface.
+# Navigate to Sections. Select DefaultAppSection. 
+# Navigate to the shortcuts panel tab of the DefaultAppSection.
+# Select New Link for Searches Group.
+# Enter ?ApplicationSearch? in Link ID.
+# Enter ?CommonIntake_applicationCaseSearch? in Page ID.
+# Enter 'Application Search?? in Title. Save the details. 
+# Navigate back to the User Interface menu in the shortcuts panel. Select Publish.
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Search for the Admin user.
+# Change the administrator?s Sensitivity Level to 5.
+# Search for the ?superuser? and change their Sensitivity Level to 5.
+# Log in as a ?superuser?. 
+# Register a person.
+# Navigate to the actions menu on the Person tab and select to Edit.
+# Update the Sensitivity Level to 5.
+# From the Actions menu, select New Application Form.
+# Complete and submit the application form to generate an application case.
+# Note the Application Reference Number under Care and Protection - Applications.
+# Log in as a caseworker (sensitivity level 1). 
+# Click Person Search under Searches in the shortcuts panel.
+# Click Application Search under Searches in the shortcuts panel.
+# Enter the Reference Number and click Search.
+# Issue: The search results display the client?s name and the program they applied for. Clicking on the Application Case link also reveals the client?s Date of Birth.
+
+*Resolution*:                                                                                                                                                                                            
+This issue has been resolved. When a user searches for an application case linked to a client with a higher sensitivity level, case details such as the application reference number, form, type, client?s name, and program details are greyed out and masked. If the user attempts to expand and view additional information of a restricted case, the following validation message is displayed: ?You do not have access to this client?s details.?
+
+"
+SPM-138459,DT037150,Evidence sharing fails for life events when sharing from Holding Case to Case A and then to Case B with Trusted Source set to Yes,CEF,Life Event Management,,,"*Issue Description:*
+Evidence sharing fails for life events when sharing from a Holding Case to an integrated case and then to a further integrated case with ?Trusted Source? set to Yes.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Ensure that logically equivalent evidence sharing is configured between the Holding Case (holding case evidence type - ET10000) and the Insurance Affordability integrated case (Income), with Trusted Source set to ?Yes?. 
+# Ensure that logically equivalent evidence sharing is configured between Insurance Affordability integrated case (Income) and Income Support (Paid Employment - Earned Income), with Trusted Source set to ?Yes?. 
+# The necessary configurations need to be in place to support the Advanced Life Event.
+
+*Steps to Reproduce:*
+
+# Log in as an Insurance Affordability caseworker.
+# Register a Person.
+# Submit an Insurance Affordability application for the person.
+# Authorise the application to create the Insurance Affordability integrated case.
+# Log out and log in as an eligibility worker.
+# Submit an Income Support application for the person.
+# Authorize the application to create the Income Support integrated case.
+# On the Citizen Portal, create an external account for the person.
+# Log in to the Citizen Portal.
+# Submit a life event to capture the person's income.
+# Issue: Sharing fails between Insurance Affordability integrated case (Income) and Income Support (Paid Employment - Earned Income)
+
+*Resolution:*
+This issue is resolved, and evidence is now shared between the integrated cases when Trusted Source is set to Yes. 
+
+
+"
+SPM-138458,"   DT037152",Rich Text Editor <iframe> title text is not translated,Accessibility,,,,"*Issue Description:*
+The ?Rich Text Editor? label is not being translated when logged in as a user in the French locale.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Enable a screen reader. 
+# Log in as a caseworker in the French locale.
+# Register a new Person.
+# Click the Client Contact tab and select Notes.
+# Click the New page-level action.
+# Issue: The screen reader announces the ?Rich Text Editor? title in English.
+
+*Resolution:*
+The ?Rich Text Editor? title is now translated to ?Éditeur de texte enrichi? when logged in as a user in the French locale.
+
+
+"
+SPM-138457,DT037239,XMLServer does not function with latest version of WebSphere Liberty (24.0.0.9) and WebSphere Version 9.0.5.21,CEF,Application Development Environment,Server Development Environment,XML Server,"*Issue Description:*
+XMLServer does not function with the version of WebSphere Liberty (24.0.0.9) and WebSphere Version 9.0.5.21 and upwards.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Deploy the Cúram application in WebSphere Liberty 24.0.0.9 or IBM WebSphere 9.0.5.21
+# Use the XMLServer to generate a PDF document.
+# Issue: An error is displayed on the client screen, and the server log files will contain a message ?SSL HANDSHAKE FAILURE?. E.g.:
+
+  CWPKI0824E: SSL HANDSHAKE FAILURE: Hostname verification error while connecting to host [127.0.0.1].
+  The hostname used to access the server does not match the server certificate's [Subject Alternative Name []].
+  The extended error message from the SSL handshake exception is: [No subject alternative names present].
+
+The reason is that when IBM WebSphere or WebSphere Liberty is acting as a client connecting to an outbound server, the runtime now checks to make sure that the hostname or IP address from the server certificate's Subject Alternative Name (SAN) matches the hostname or IP address used when establishing the connection.
+
+*Resolution:*
+A new property 'san.name' has been added to TLSKeystore.properties to specify the SAN information to be included in the XML Server certificate. The default value of this property is 'san.name='dns:xmlserver,dns:localhost'. For more details, see the section 'Securing the XML server' in the _Cúram XML Infrastructure Guide_.
+
+"
+SPM-138374,DT037147,Dynamic Evidence Calculated Attributes failure on submitting a life event,CEF,Life Event Management,,,"*Issue Description:*
+Evidence sharing fails for life events when sharing from a Holding Case to an integrated case, if the dynamic evidence has a calculated attribute.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Ensure that logically equivalent evidence sharing is configured between the Holding Case (holding case evidence type - ET10000) and the Insurance Affordability integrated case (Income), with Trusted Source set to ?Yes?.
+# The necessary configurations need to be in place to support the Advanced Life Event.
+
+*Steps to Reproduce:*
+
+# Log in as an Insurance Affordability caseworker.
+# Register a Person.
+# Submit an Insurance Affordability application for the person.
+# Authorise the application to create the Insurance Affordability integrated case.
+# Submit an Income Support application for the person.
+# Authorize the application to create the Income Support integrated case.
+# On the Citizen Portal, create an external account for the person.
+# Log in to the Citizen Portal.
+# Submit a life event to capture the person's income.
+# Issue: Sharing fails between the life event (Holding evidence) and the Insurance Affordability integrated case (Income).
+
+*Resolution:*
+This issue has been resolved, the calculated attribute is inserted with a value and evidence is shared across integrated cases.
+
+"
+SPM-138370,DT037145,The placeholder text that prompts a user for the correct date format is not translated,Look and Feel,Common Intake,,,"*Issue Description:*
+The placeholder text that prompts a user for the correct date format is not translated within the date input field.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+a. On the register person modal.
+
+# Log in as an administrator.
+# Search for the caseworker user.
+# Change the user locale to a non-English locale.
+# Log in as a caseworker.
+# Select the Register Person link from the shortcuts panel.
+# Issue: The placeholder text in the date input field, which prompts the correct date format to a user, is not translated.
+
+b. On Universal Access Classic Citizen Portal IEG screens. 
+
+# Open the Citizen Portal application home page with a non-English locale selected.
+# Click ?Apply For Benefits?.
+# Select the option to start an application without creating an account.
+# Select an application that includes at least one date field and navigate to that field.
+# Issue: The placeholder text in date fields, which displays the correct date format for a citizen, is not translated.
+
+*Resolution:*
+New properties have resolved the issue to provide translation for the date format placeholder text within the date input fields. 
+
+*Technical:*
+The following properties have been added to CDEJResources.properties to handle the date format display only (i.e. placeholder text).
+
+* {{Dateformat.LocalizedText}}
+* {{Dateseparator.LocalizedText}}
+
+Both properties are defaulted to blank, in which case the date format inside the ApplicationConfiguration.properties file will be used as a fallback for the placeholder text in a date input field.
+
+*Notes for Upgrading:*
+
+*Single-Locale Customer (English locale)*
+
+Single-locale customers running in an English locale will have no upgrade impact.
+
+*Single-Locale Customer (non-English locale)*
+
+Single-locale customers running in a non-English locale most likely have this issue already, insofar as the placeholder text format in their date input fields is the same format as the date format inside ApplicationConfiguration.properties. If those customers want the placeholder text to be in keeping with their locale, they can provide the format in a localized version of CDEJResources.properties, e.g. CDEJResources_fr.properties, which should be updated with {{Dateformat.LocalizedText=""""aaaa MM jj""""}}, in keeping with the date format in their ApplicationConfiguration.properties file.
+
+*Multi-Locale Customer*
+
+On a multi-locale application (English/French, for example), with date format specified inside ApplicationConfiguration.properties as {{dateformat=""""yyyy MM dd"""",}} the localized version of CDEJResources.properties, e.g. CDEJResources_fr.properties, should be updated with {{Dateformat.LocalizedText=""""aaaa MM jj""""}}.
+
+More information on the properties can be found in both the _CuramRegionalizationGuide_ and the _CuramWebClientReferenceManual_.
+
+ 
+"
+SPM-138317,DT036916,Record has been changed by another user when attempting to reallocate a deferred task by a supervisor,CEF,Supervisor Workspace,Task Management,,"*Issue Description:*
+When a supervisor attempts to reallocate a deferred task, the following error message is displayed: ?This record has been changed by another user. Please start again.?
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Click the Administration tab and select Tasks.
+# Create a task using the page-level action and select Add to My Tasks. 
+# Select the Defer action to defer the task.
+# Log in as a supervisor.
+# Navigate to the caseworker workspace by searching for the caseworker in the User search.
+# Navigate to the Deferred Task and select the page-level action Reallocate.
+# The Reallocate Reserved Task modal (Supervisor_reallocateTasksReservedByUser) is displayed. Select the deferred task and click Save.
+# Issue: The following error is displayed: ?This record has been changed by another user. Please start again.?
+
+*Resolution:*
+This issue has been resolved, and now a supervisor can reallocate deferred tasks.
+"
+SPM-137766,DT037124,"Labels for Next Month, Previous Month buttons, Year input fields and Calendar container are not translated to the corresponding locale",Accessibility,,,,"*Issue Description:*
+The labels for the Next Month and Previous Month buttons, Year input fields, and the Calendar container are not translated to the corresponding locale.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Click ?Search for a Person? (in French: Rechercher une personne...) in the Quick Links pod to open the Person Search page (Recherche de personnes).
+# Click in the ?Date of Birth? field to open the Calendar widget.
+# Inspect the aria-labels for the Calendar container, Year field, and Previous Month and Next Month buttons.
+# Issue: All fields (Year field, Previous Month and Next Month buttons) and the Calendar container have labels in English.
+
+*Resolution:*
+The labels for all fields (Year field, Previous Month and Next Month buttons), as well as the Calendar container, now translate into the appropriate locale.
+
+"
+SPM-137742,DT037104,The Swagger spec generator in the REST infrastructure incorrectly always assumes the same request and response body for a PUT request,CEF,Application Development Environment,Rest,,"*Issue Description:*
+The Swagger spec generator in the REST infrastructure incorrectly assumes that all PUT requests have the same request and response body. This results in the object definition for the request body being reused for the response body, regardless of whether the input and output structs are different in the actual API.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Open the Swagger specification.
+# Expand a PUT API with differing input and output structs.
+# View the definitions section for the request and response bodies. 
+# Issue: The Swagger spec generator reuses the request body object for the response body, even if the API has different input and output structs.
+
+*Resolution:*
+The Swagger spec generator has been updated to detect when a PUT API has differing input and output structs and generate separate object definitions for the request and response bodies when required.
+
+"
+SPM-137538,DT037091,The Swagger specification for the REST APIs is missing the description for the mandatory referrer request header,CEF,Application Development Environment,Rest,,"*Issue Description:*
+The Swagger specification for REST APIs does not include descriptions for the mandatory Referer header, which is required for all API requests.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Open the Swagger specification. 
+# Expand the details for any GET, PUT, POST, or DELETE API request.
+# Issue: The Referer header is not listed in the Parameters section, even though it is mandatory for all API requests.
+
+*Resolution:*
+The Swagger specification has been updated to include the Referer header as a mandatory parameter with an appropriate description for all API requests.
+
+{noformat}{
+          """"name"""": """"Referer"""",
+          """"in"""": """"header"""",
+          """"description"""": """"The Referer header is mandatory for all API requests."""",
+          """"type"""": """"string"""",
+          """"required"""": true
+ }{noformat}
+
+"
+SPM-137294,DT037090,The error object defined in the Swagger specification is incorrect,CEF,Application Development Environment,Rest,,"*Issue Description:*
+The error object definition in the Swagger specification is incorrect and inconsistent with the actual error response returned by REST APIs.
+There are two key problems:
+
+# The error object definition contains an incorrectly named Error attribute instead of errors.
+# The error object definition is missing field and stack_trace attributes, which may not always contain values but should be included for consistency and accuracy.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+To reproduce the issue, a REST API needs to be invoked.
+
+*Using Swagger UI or a REST client (e.g., Postman):*
+
+# Log in as a caseworker.
+# Open a new browser tab. The authentication cookies from logging in will be reused by the REST client or Swagger UI tool.
+# Invoke a REST API and pass an invalid parameter to force an error (e.g., /Rest/v1/persons/12345xxx).
+
+*Using a command-line tool (e.g., cURL):*
+
+# Programmatically call the /Res/j&#95security&#95check URL.
+# Retrieve the LTPA token from the response cookie header.
+# Add the LTPA token to the cookie request header for all API calls.
+# Call an existing REST API with an invalid parameter (e.g., /Rest/v1/persons/12345xxx).
+Issue: The API response contains an errors attribute, along with field and stack&#95trace attributes (if ?curam.trace? is set to ?trace&#95on?), however, the Swagger specification defines the error object as having an Error attribute instead of errors and does not include field or stack&#95trace.
+
+*Resolution:*
+The Swagger specification has been updated to:
+
+# Rename the incorrectly named Error attribute to errors.
+# Add definitions for the field and stack&#95trace (will now always appear but will not have a value unless ?curam.trace? is set to ?trace&#95on?) attributes, with descriptions indicating that these fields may not always contain values.
+
+{noformat}{
+    """"errors"""": [
+        {
+            """"code"""": 404,
+            """"field"""": null,
+            """"message"""": """"HTTP 404 Not Found"""",
+            """"level"""": """"error"""",
+            """"message&#95id"""": null,
+""""stackTrace"""": null
+}
+]
+}{noformat}
+
+"
+SPM-137076,"   DT037089",REST API error messages return HTML code for a single quote (&#39;) instead of the single quote character,CEF,Application Development Environment,Rest,,"*Issue Description:*
+Certain REST API error messages contain parts subjected to HTML escaping, causing characters to be converted to their unreadable HTML-escaped representation.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* N/A
+
+Issue:?There was an issue while parsing a 'concern&#95;role&#95;id' attribute, which contains a value of '12345xxx': The field &#39;concern&#95role&#95id&#39; must be a whole number.
+
+*Resolution:*
+The REST infrastructure has been updated to ensure that error messages are displayed correctly for API consumers.
+
+Resolved line should resemble this example.?There was an issue while parsing a 'concern&#95;role&#95;id' attribute, which contains a value of '12345xxx': The field 'concern&#95;role&#95;id' must be a whole number.
+
+"
+SPM-136905,DT037156,Duplicate records are being created when sharing back to the Holding Case,CEF,Life Event Management,,,"*Issue Description:*
+Duplicate evidence is shared to a Holding Case when the evidence is added to an integrated case with logically equivalent evidence sharing configured.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Ensure that logically equivalent evidence sharing is configured between the Insurance Affordability integrated case (Income) and Holding Case (holding case evidence type - ET10000), with Trusted Source set to Yes.
+# Ensure that logically equivalent evidence sharing is configured between Income Support Integrated Case (Earned income) and Insurance Affordability integrated case (Income), with Trusted Source set to Yes.
+# The necessary configurations need to be in place to support the Advanced Life Event.
+
+*Steps to Reproduce:*
+
+# Log in as an Insurance Affordability caseworker.
+# Register a new Person.
+# Submit an Insurance Affordability application for the person.
+# Authorize the application to create the Insurance Affordability integrated case.
+# Log in as an Income Support caseworker.
+# Submit an Income Support application for the person to create an Income Support integrated case.
+# Create a New Universal Access Account for the registered person.
+# Log in to the Citizen Portal.
+# Submit a life event to capture the person's income.
+# Log in as an Income Support caseworker.
+# Add and activate the Earned Income evidence to the Income support integrated case.
+# Income evidence is shared to the Insurance Affordability integrated case.
+# Issue: Duplicate evidence is getting shared to the Holding Case with the status ?Identical Shared In Edit?, even with the Trusted Source set to Yes.
+
+*Resolution:*
+The evidence is now shared to the Holding Case with the correct status based on the configuration setting of Trusted Source set to Yes, and duplicate evidence is no longer shared to the Holding Case.
+
+"
+SPM-136824,,Focus is not visible when a user navigates to the email address on the employer context panel,Accessibility,,,,"*Issue Description:*
+The focus outline is not visible when a user navigates to the email address on the employer context panel using a keyboard.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Employer.
+# Navigate to the Contact tab and select Email Addresses.
+# Add an Email Address for the employer.
+# Click the Tab key on the employer home page and navigate to the email link in the context panel.
+# Issue: The focus outline on the email link is not visible.
+
+*Resolution:*
+The focus now moves to the email link on the context panel, and it is fully visible.
+
+"
+SPM-136776,DT037086,New evidence can be added to a closed application case,CEF,Intake,Evidence Management,,"*Issue Description:*
+The Evidence Dashboard allows users to create new evidence on a closed application case; the system automatically activates and maps this evidence to the open integrated case.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as an Insurance Affordability caseworker.
+# Register a new person.
+# Create a new application case.
+# Complete the script and submit it.
+# Navigate to the Applications section under the Care and Protection tab for the person.
+# Click the application link to open the application case.
+# Authorize the application case. Upon authorization, the status changes to Closed, and the integrated case and product delivery case are created. The New Evidence link disappears from the evidence section, indicating no new evidence can be added. 
+# Open the Dashboard section under the Evidence tab on the closed application case.
+# Click the plus symbol (+) next to an evidence type on the Dashboard and create a new evidence record.
+# Issue: Users can create new evidence on a closed application case, which is then automatically activated and mapped to the open integrated case.
+
+*Resolution:*
+When the application case is closed, the plus symbol (+) no longer appears on the dashboard, preventing users from creating new evidence.
+
+"
+SPM-136459,DT037076,Labels for Organization checkboxes on New Case Appeal modal are identical and not distinguishable by a screen reader,Accessibility,,,,"*Issue Description:*
+When a caseworker creates an Appeal, the Organization checkboxes under the Appellant and Respondent clusters are visually distinct, but they have the same labels when read by the screen reader, which may confuse screen reader users.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as an administrator.
+# Select Appeals Processes under Case in the shortcuts panel.
+# Select New Appeal Process Assignment to open the New Appeal Process Assignment wizard.
+# Check the boxes for the first two stages.
+# Set up the stages as follows:
+## Stage 1: Hearing
+## Stage 2: Hearing Review
+# Click Next in the wizard.
+# Fill in the selected time constraints as follows:
+## Request Hearing Case: 5
+## Request Hearing Review: 5
+## Time to decide and implement a Hearing Case: 5
+## Time to decide and implement a Hearing Review: 5
+# Click Next in the wizard. This opens the New Appeal Process Assignment Stage.
+# Under Item for Assignment, check the box for a product and click Next.
+# Click Save. 
+# Verify that the New Appeals Process is listed on the Appeals Page. 
+
+*Steps to Reproduce (Generic):*
+
+# Enable a screen reader. 
+# Log in as a caseworker.
+# Register a person and create an integrated case.
+# Create an associated product delivery - the same product as referenced in the Prerequisites.
+# On the product delivery, select New Case Appeal from the action menu.
+# On the New Case Appeal modal an Organization checkbox is present next to both the Appellant and Respondent fields.
+# Issue: The screen reader announces ?Organization? for both the Appellant and Respondent fields.
+
+*Resolution:*
+The issue is fixed by placing the checkboxes inside a container, allowing the screen reader to distinguish the labels correctly. 
+
+"
+SPM-136456,DT037073,Client Name hyperlink incorrectly referencing Person_homePage on the My Current Cases pod,SOL,Income Support,Participant Management,,"*Issue Description:*
+In the My Current Cases pod, the hyperlink on the Client?s Name under the Client column redirects to the person home page instead of the person PDC home page when the Person Data Case is enabled.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as an administrator.
+# Navigate to User Interfaces and select Personalized Pod Pages.
+# Select the row for the Income Support caseworker home page (CGISSEligibilityWorkerHome) and click Edit.
+# Select the check box for My Current Cases and click Next.
+# On the default pods window, click Next. 
+# Click Save on the page layout window. 
+# From the shortcuts menu, select Publish.
+
+*Steps to Reproduce:*
+
+# Log in as an Income Support caseworker. 
+# On the home page, select the customize button (cog icon on the top right).
+# Select the check box beside My Current Case and click Save.
+# Register a new Person. 
+# Submit an Income Support application for Food Assistance.
+# Issue: The hyperlink on the Client?s Name under the Client column on the My Current Cases pod redirects to the person home page when the Person Data Case is enabled. When the Person Data Case is enabled, it should redirect to the person PDC home page.
+
+*Resolution:*
+The hyperlink on the Client?s Name under the Client column on My Current Cases Pod now redirects to the person's home Page when the participant data case is enabled.
+
+"
+SPM-136168,,Benefit Unit Cluster is failing to display member details for Insurance Assistance,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+The Benefit Unit cluster is failing to display member details for the Insurance Assistance summary.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an Insurance Affordability caseworker.
+# Register a new Person. 
+# Submit an Insurance Affordability Application for a person with an income of 25,000 yearly.
+# Authorize the Insurance Affordability Application case.
+# From the determination tab of the Insurance Assistance product delivery, select to open the eligible decision.
+# Issue: Open the person tab and expand the Benefits unit cluster the eligible member name is not displayed.
+
+*Resolution:*
+Within the person tab, expand the Benefit Unit cluster so the eligible member's name is displayed correctly for the Insurance Assistance Display summary.
+
+This issue also occurred for the Insurance Assistance product delivery Determination expanded view, and from the Insurance Affordability integrated case active evidence. The eligible member now displays correctly.
+
+The same issue manifested in the Employer details not being saved for Insurance Policy Details evidence. The employer details are now saved and displayed in the expanded view.
+
+*Technical*
+In Dynamic UIM, A FIELD element that had a child LINK element but did not have a LABEL attribute was not rendered correctly. This has been fixed.
+
+"
+SPM-136159,DT037064,Column header text on appeal case fails minimum contrast,Accessibility,,,,"*Issue Description:*
+The column header text on an appeal case context panel fails to meet the required minimum contrast, as the contrast ratio between the text and the background color of the table header column is insufficient. 
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as an administrator.
+# In the shortcuts panel, expand the Cases section and select the Appeals Processes link.
+# Select the New Appeal Process Assignment button and check the following three stages on the New Appeal Process Assignment Wizard.
+## Hearing
+## Hearing Review
+## Judicial Review 
+# Click Next and update the time constraints for the following:
+## Request hearing case: 5
+## Request Hearing Review: 5
+## Request Judicial Review: 5
+## Time to decide and implement a hearing case: 5
+## Time to decide and implement a hearing review: 5
+# Click Next, and the New Appeal Process Assignment Stage will open.
+# Check any product delivery checkbox and click Next.
+# Select Save.  
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person.
+# Create an integrated case.
+# Create a product delivery - the same product delivery as configured in the New Appeals Process.
+# Navigate to the product delivery home page.
+# Select the tab actions menu and select New Case Appeal.
+# On the New Case Appeal modal, set the appellant column to the registered person and check the Organization checkbox for the respondent.
+# Click Save.
+# Navigate to the Appeals home page and select the List view button in the context panel.
+# Issue: The contrast ratio between the text and the background color of the table header columns - Members, Relationship, and Age is failing.
+
+*Resolution:*
+The table column header text color has been updated, and the column header text and the background now have sufficient color contrast ratios.
+
+"
+SPM-136069,DT037061,"Empty options in combo boxes have no names/labels ",Accessibility,Application Development Environment,Infrastructure,Accessibility,"*Issue Description:*
+In Cúram, when a list box opens and the focus shifts to the first empty value in the drop-down, a screen reader announces 'Current 1 of x' without providing any name or label.
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Open the Register Person wizard.
+# Navigate to the Gender combo box.
+# Click the Down arrow key.
+# Issue: The screen reader reads 'Current 1 of 3' without providing any name or label.
+
+*Resolution:*
+A screen reader now reads the empty value as ?Blank value current 1 of x' with a label.
+
+"
+SPM-136016,DT037057,Case status in the context panel lacks context for screen reader users,Accessibility,,,,"*Issue Description:*
+In some case context panels, the case status appears visually near the case name or reference number. While sighted users can easily view both elements simultaneously, screen reader users must navigate further down the page to access the case status. This status is announced without any descriptive context, which can confuse a caseworker. For example, terms like ?Open? or ?Closed? are read aloud without indicating what they refer to.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Enable a screen reader.
+# Log in as an Insurance Affordability caseworker.
+# Register a new person.
+# Add the necessary evidence to make the associated product delivery eligible.
+# Authorize the application case.
+# Navigate to the product delivery case.
+# Issue: Screen reader users must navigate past other content to locate the case status, which is positioned separately from the case name or reference number in the context panel and announced without context.
+
+*Resolution:*
+The case name, reference number, and status are now grouped in the context panel. A hidden label for screen readers is announced before the case status. As a result, when users navigate to this section, the screen reader now announces the case name, reference number, status label, and status value together, providing clear, contextual information.
+
+The changes to the context panel layout may introduce a scrollbar to accommodate all panel content.
+
+"
+SPM-135979,DT037056,"CE security check, when customised, is causing application submission failures",CEF,Universal Access,,,"*Issue Description:*
+Application submission using the classic citizen portal or the responsive web app may fail when the submit application flow contains customization, involving invoking the {{CitizenImpl.performSecurityCheck}} method.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Customize the application submission flow so it invokes the {{CitizenImpl.performSecurityCheck}} method.
+# Log in to the Cúram citizen engagement portal.
+# Submit a benefit application.
+# Issue: Application submission fails.
+
+*Resolution:*
+This has been addressed, and now the application can be submitted when it uses customization with {{CitizenImpl.performSecurityCheck}} method invocation.
+
+"
+SPM-135787,DT037032,"Focus is not visible when navigating filtered values in a combobox at 200% zoom ",Accessibility,,,,"*Issue Description:*
+When navigating filtered lists with a zoom level of 200%, the keyboard focus is not visible if the focused item is outside the current view. The list does not automatically scroll to bring the focused value into view, making it difficult for users to track their position within the list.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to the ?Register Person and Create Case? link under the Cases section in the shortcuts panel.
+# In the ?Register Person and Create Case? dialog, zoom the browser to 200%.
+# Navigate to the Type drop-down and type the letter ?a?. The values will be filtered to display only those containing the letter ?a?.
+# Use the down arrow key to navigate through the filtered list.
+# Issue: The focus is not visible when navigating through the filtered list, especially when items are outside the visible portion of the list. Additionally, the list does not scroll automatically to bring the focused item into view.
+
+*Resolution:*
+As users navigate through the filtered list, the component now ensures that the focused value is automatically scrolled into view if it is not currently visible. This guarantees that the focused item remains visible even at 200% zoom.
+
+"
+SPM-135602,DT037025,Cúram Citizen Engagement - Benefit/Program name is not translated when the language is switched from English,CEF,Universal Access,,,"*Issue Description:*
+In Cúram Citizen Engagement, when the selected language is switched from English, the benefit or program name used in the payment message on the user?s dashboard does not display in the selected language.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in to the Cúram citizen engagement portal.
+# Submit a benefit application.
+# Log in to the Cúram application as a caseworker.
+# Search for the submitted application from step 2.
+# Process the application up to the issuing of the payment.
+# Go back to the citizen engagement portal and log in as the same user as per step 1.
+# Observe that a payment message is displayed within the Payments card on the user?s ?Your Account? page informing them when their next payment is due.
+# Switch language to something other than English (for example French).
+# Issue: The program or benefit name used in the payment message is not translated.
+
+*Resolution:*
+This has been addressed and now when the selected language is switched from English, the program or benefit name used in the payment message is displayed in the selected language.
+
+"
+SPM-135586,,Hierarchical relationships between evidence types is visually indicated on the Evidence Dashboard but this is not available for screen reader users,Accessibility,,,,"*Issue Description:*
+The hierarchical relationship between two or more evidence types on the Evidence Dashboard is not conveyed to screen reader users. For example, a parent-child relationship may exist between two evidence types, but this information is not announced to the user.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an Income Support caseworker.
+# Register a new Person.
+# Submit an Income Support application for Food Assistance.
+# Open the Income Support Application and navigate to the Dashboard page in the Evidence tab.
+# Note how evidence types with a hierarchical relationship are displayed with indentations.
+# Enable a screen reader and navigate to an evidence type with a hierarchical relationship.
+# Issue: The hierarchical relationship is not announced to the screen reader user.
+
+*Resolution:*
+The hierarchical relationship between evidence types is now expressed in the HTML structure, and this information is conveyed to screen reader users.
+
+"
+SPM-135513,DT037018,The iFrame title text is concatenated with the previous iFrame title text when navigating between in-page navigation tabs in an expanded list row,CEF,Application Development Environment,Client Development Environment,Accessibility,"*Issue Description:*
+The title of the iFrame within an expandable list is concatenated with the titles of all previously opened iFrames, which can cause accessibility issues for screen reader users.
+
+*User Interface Impact:* No 
+
+*Prerequisites:*
+
+# Log in as a system administrator.
+# Select Property Administration under Application Data in the shortcuts panel.
+# Search for the properties ?curam.pec.enabled? and ?curam.pec.demographicsenabled?, set both to 'YES', and then publish the changes.
+# Logout.
+
+*Steps to Reproduce:*
+
+# Enable a screen reader. 
+# Log in as a caseworker.
+# Register a new person.
+# Navigate to the Evidence tab, select In-Edit Evidence and expand any of the existing evidence, for example, Addresses.  
+# Click the Change History in-page navigation tab.
+# Click the Details in the page navigation tab.
+# Issue: Screen reader reads 'view addresses evidence details view addresses view addresses evidence details view addresses frame?.
+
+*Resolution:*
+This issue is resolved, and the iFrame titles are no longer concatenated. 
+
+"
+SPM-135470,DT037010,Application case status in the context panel is visually adjacent to the case name and reference number but lacks context for screen reader users,Accessibility,,,,"*Issue Description:*
+The application case status in the context panel is visually adjacent to the case reference number. While sighted users can easily view both elements simultaneously, screen reader users must navigate further down the page to access the case status information. This status is announced without any additional context, which can lead to confusion, as there is no explanation of what ?Open? or ?Disposed?, etc., refers to.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Register a person and create an application.
+# Navigate to the application context panel.
+# Issue: Screen reader users must navigate past other content to locate the status, as it is positioned separately from the reference number and is announced without descriptive context.
+
+*Resolution:*
+The application name, reference number, and status are now grouped together in the context panel. A hidden screen reader label has been added before the case status. When users navigate to this section, the screen reader will announce the application name, reference number, status label, and status value together, providing clear and comprehensive context.
+
+"
+SPM-135464,DT037012,Accessibility issues on application menu,Accessibility,,,,"*Issue Description:*
+The application menu in the application banner has accessibility issues which may cause difficulties for screen reader users. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Open developer tools.
+# Inspect the application menu on the top right corner of the application banner.
+# Issues: 
+
+* Only one item is enclosed in a list.
+* The application menu button is labelled as ?Application Menu'.
+* Title attributes are present in the {{<img>}} element of the application menu button, but they are unnecessary.
+* The {{aria-expanded}} attribute is not applied to the application menu button when it is expanded or collapsed.
+* The {{aria-controls}} attribute is missing from the application menu button.
+
+*Resolution:*
+The accessibility issues on the application menu in the application banner are now resolved.
+
+"
+SPM-135318,DT036997,Sortable column table headers have excessive wording due to incorrect use of aria,Accessibility,,,,"*Issue Description:*
+Sortable column table headers contain excessive wording due to the incorrect use of aria, causing screen readers to announce sorting behavior incorrectly. This results in a confusing experience for screen reader users. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce (Generic)*:
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Click the ?Search for a Person? link in the Quick Links pod to open the Person Search page.
+# Navigate to the sortable column headers in the Search Results (Person, Address and Date of Birth).
+# Issue: The screen reader announces: ?Person Sortable column unsorted.? When the user presses the Spacebar/Enter to sort a column, the screen reader announces: ?Person Sortable column sorted ascending? three times.
+
+*Resolution:*
+The screen reader now announces the column header button, and if sorted, it states the sorting order (ascending/descending). For example: ?Person button ascending?.
+
+ "
+SPM-135177,DT036990,Focus not clearly visible when user navigates to selected checkboxes and radio buttons in IEG,Accessibility,,,,"*Issue Description:*
+The focus is not visible when a selected checkbox or radio button receives focus.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Log in as a Child Welfare Structure Decision-Making caseworker.
+# Expand the Intakes section and select New Intake.
+# Complete the Category, Types, Date, Time and Method fields and save the Intake.
+# The Intake Assistant opens; navigate to the Participants tab.
+# ?Register a New Participant.
+# Click the Assessments tab.
+# Select a checkbox, for example, severe, for the question ?Were any of the following non-accidental injuries sustained by the child? (Please check all that apply.)?
+# Select a radio button, for example, Yes, for the question ?Was the child a victim of cruel or excessive corporal punishment??
+# Navigate to the selected checkbox and radio buttons using the keyboard. 
+# Issue: The focus is not visible when the selected checkbox/radio button receives focus.
+
+*Resolution:*
+The selected checkbox or radio button now receives focus.
+
+"
+SPM-134575,,The person avatar is displayed on the left side on an application case on a Right-To-Left (RTL) language,Look and Feel,,,,"*Issue Description:*
+The person avatar, or picture, if added, is displayed on the left side of the application case context panel in Right-To-Left (RTL) mode.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Select ?New Application Form? on the person home page.
+# Submit the application.
+# Navigate to the application case home page.
+# Click the User Profile avatar, select the Language option, choose Arabic, and Save.
+# Issue: The person avatar is displayed on the left side in the context panel. 
+
+*Resolution:*
+The issue is resolved, and the person avatar, or picture if added, is displayed correctly on the right side of the application case context panel in RTL mode.
+
+"
+SPM-134114,,Unhandled Server Exception displays after subscribed user and  the work queue are subsequently deleted,CEF,Administration Suite,,,"*Issue Description:*
+An application error occurs on the View Tasks page when the associated work queue is deleted from the administration application.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Select Work Queues under Workflow in the shortcuts panel.
+# Click the New Work Queue action.
+# Provide a Work Queue name, select the User Subscription Allowed checkbox, and search for and select an administrator.
+# Log out.
+# Log in as a caseworker.
+# Select the Inbox tab and expand the shortcuts panel.
+# Expand the Work Queues section and select Subscribe to a Work Queue.
+# Search for and subscribe to the work queue created in the administration application.
+# Select My Work Queues under the Work Queues section.
+# Click View Tasks for the subscribed work queue; it should return an empty list.
+# Register a Person from the Registration section in the Cases and Outcomes shortcuts panel.
+# Open the Administration tab and create a New Task assigned to the subscribed work queue.
+# The View Tasks page for the subscribed work queue in the Inbox tab should display the created task.
+# Log out.
+# Log in as an administrator.
+# Select Work Queues under Workflow in the shortcuts panel.
+# Expand the list item view for the Work Queue created earlier and select the Work Queue Subscriptions tab.
+# Delete the caseworker user subscription and create a subscription for the supervisor.
+# Log out and log in as a supervisor.
+# Select View Tasks for the Work Queue created earlier from the My Work Queues page under the Work Queues section in the Inbox tab.
+# Click Add to My Tasks from the action menu.
+# Open the 'My Tasks' page under the Tasks section and click Close for the task created earlier from the action menu.
+# Log out and log in as an administrator.
+# Select Work Queues under Workflow in the shortcuts panel.
+# Expand the list item view for the Work Queue created earlier and select the Work Queue Subscriptions tab.
+# Delete the supervisor subscription and delete the work queue. 
+# Log out.
+# Log in as a caseworker and navigate to the opened View Tasks page for the deleted work queue.
+# Issue: The following error is presented to the caseworker: ?An Application Error Has Occurred.?
+
+*Resolution:*
+The page now loads without an error and works as expected.
+
+"
+SPM-133970,DT036951,Edit Skill modal is missing mandatory indicators for Level and Type fields,CEF,Administration Suite,,,"*Issue Description:*
+When editing a User Skill, the asterisk, which indicates a field is mandatory, is missing for the Level and Type fields. A validation message will be displayed if either field is blank when submitting the form.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Search for a User.
+# Open the Skills tab in the User profile.
+# Click New Skill and add a Skill for the User.
+# Click Edit for the new skill created.
+# Clear the value in either the Level or Type fields and click Save. 
+# Issue: A validation message appears indicating that these fields are mandatory, but asterisks indicating the fields are mandatory are not visible. 
+
+*Resolution:*
+Asterisks are now displayed beside the Level and Type fields, indicating that they are mandatory.
+
+"
+SPM-133302,,"Modern Java, RMILoginClient replaced by RestLoginClient",CEF,Application Development Environment,Server Development Environment,,"*Issue Description:*
+Modern Java does not support Remote Method Invocation(RMI/IIOP). Cúram Application Development support for RMI as been removed for the Modern Java release. RMILoginClient has been removed. It has been replaced with RESTful support. 
+
+*User Interface Impact:* no
+
+*Resolution:*
+In the Cúram Modern Java Development Environment, The RMILoginClient Login Application has been replaced with RestLoginClient. The RestLoginClient provides the same functionality as the RMILoginClient.
+
+"
+SPM-133099,DT036916,"Deferred tasks functionality not working as expected ",CEF,Supervisor Workspace,Task Management,,"*Issue Description:*
+Deferred tasks, when forwarded or reallocated, remain in a status of Deferred instead of being reset to Open.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Navigate to the Inbox tab.
+# Create a new task, providing all necessary information and check the Add to My Tasks option.
+# Click Save and New.
+# Create a second task, providing all necessary information and check the Add to My Tasks option.
+# Confirm the task appears in the My Open Tasks list.
+# From the task action menu, select Defer and set a restart date for the first task. 
+# From the task action menu, select Defer and set a restart date for the second task. 
+# Open the My Deferred Tasks tab, and both tasks created above should display on the list. 
+# Select the task link under the subject column, which will open the home page tab view for each task.
+# Forward a deferred task to another user.
+# Reallocate the second deferred task.
+# Issue: Deferred tasks that have been forwarded or reallocated remain in a status of deferred, and they continue to appear on the My Deferred Tasks list for the newly allocated user.
+
+*Resolution:*
+The system now correctly sets the status of deferred tasks to Open when they are forwarded or reallocated.
+
+"
+SPM-133001,DT036913,Task History information displays a username instead of a full name when a supervisor views a task in a user's workspace,CEF,Supervisor Workspace,Task Management,,"*Issue Description:*
+Task history information displays a username instead of the user's full name when a supervisor views a task in a user?s workspace for certain task actions, such as reserving, unreserving, forwarding, and reallocating a task.
+
+*User Interface Impact:* Yes
+
+*Prerequisites:* 
+
+# Log in as an administrator.
+# Navigate to Work Queues under Workflow in the shortcuts panel.
+# From the list of work queues, click a work queue and add new subscriptions for a caseworker and a supervisor if they do not already exist.
+
+*Steps to Reproduce:*
+
+# Log in as a supervisor and navigate to the Inbox tab.
+# Create a new task and assign it to a work queue that the supervisor subscribes to.
+# From the My Work Queues pod, open the work queue the task was assigned to. 
+# Perform the following actions to build a task history.
+## From the Assigned Tasks tab, click the ?Reserve For? menu option and choose the caseworker as the user.
+## From the reserved Tasks tab, select the task in the graph and click the ?Un-reserve? menu option from the Open Tasks Reserved By Work Queue User action menu.
+## From the Assigned Tasks tab, click the ?Forward? menu option and choose the supervisor to forward the task to.
+## Select the Home tab, select the supervisor link in the User Subscribers list, on the supervisor User Workspace page, select the Tasks tab and then from the Assigned Tasks list, click the ?Reallocate? menu option.
+## From the Assigned Tasks tab, click the ?Reserve For? menu option and choose the caseworker as the user.
+# Select the Home tab, and select the caseworker link in the User Subscribers list to open the Caseworker User Workspace page.
+# Navigate to the Tasks tab and choose Open Tasks from the left-hand menu.
+# Find the task created above, expand the task details, and go to the Task History tab.
+# Issue: Task history items, where the change has been to reserve, unreserve, forward, or reallocate, display a username instead of the user's full name.
+
+*Resolution:*
+All task history items will display the user?s full name instead of just the username.
+
+"
+SPM-132758,,Focus is not shown when navigating through the options in the Month drop-down in the Calendar widget,Accessibility,,,,"*Issue Description:*
+The focus is not shown when navigating through the options in the month drop-down in the Calendar widget.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Log in as a caseworker. 
+# Click the Calendar workspace.
+# Click the small calendar icon next to the ?Go to Date? field to open the Calendar widget.
+# On the Calendar widget, navigate to the month drop-down and open it using the down arrow key.
+# Navigate through all the month options using the up/down arrow keys.
+# Issue: The focus is not visible when navigating through the month options. 
+
+*Resolution:*
+The focus is now visible when navigating through the options in the month drop-down of the Calendar widget.
+
+"
+SPM-130756,,MultiValueMap class in the org.apache.commons.collections4.map package has been deprecated since commons collections 4.1,CEF,Technical Services,,,"In the Server Java Development Environment (SDEJ) deliverable, the API provided by curam.util.collection.MultiValuedMap class has been marked as deprecated. It is replaced with curam.util.collection.CuramMultiValuedMap. The CuramMultiValuedMap class offers the same multimap support as MultiValuedMap. The new CuramMultiValuedMap implementation is based on that of org.apache.commons.collections4.multimap.ArrayListValuedHashMap offering its generic API for accessing and setting multimap values.  
+
+Customers using curam.util.collection.MultiValuedMap should now use the  curam.util.collection.CuramMultiValuedMap  class to provide their required multimap support and remove any dependencies on curam.util.collection.MultiValuedMap which will be removed in a future Cúram release .
+
+Example:- 
+
+Old code using {{curam.util.collection.MultiValuedMap}}
+
+{noformat}MultiValuedMap<K, V> multiValuedMap = MultiValuedMap<K, V>(revertedMap);    {noformat}
+
+can be replaced with
+
+{noformat}final CuramMultiValuedMap<K, V> multiValuedMap = new CuramMultiValuedMap<K, V>();
+multiValuedMap.putAll(revertedMap);{noformat}
+
+"
+SPM-130733,,Remove use of java.util.Observer and Observable in CuramConfiguration,CEF,,,,"Due to deprecation in the JDK, the following interface method has been removed to eliminate the dependency on java.util.Observable:
+
+* curam.util.configuration.CuramConfiguration#getObservable()
+
+The following new methods replace the functionality:
+
+* curam.util.configuration.CuramConfiguration#addObserver(java.beans.PropertyChangeListener)
+* curam.util.configuration.CuramConfiguration#deleteObserver(java.beans.PropertyChangeListener)
+
+Any custom implementations of ?curam.util.configuration.CuramConfiguration? will need to be modified to implement the new methods. Additional information on the use of PropertyChangeListener can be found at [https://docs.oracle.com/javase/8/docs/api/java/beans/PropertyChangeListener.html|https://docs.oracle.com/javase/8/docs/api/java/beans/PropertyChangeListener.html|smart-link] .
+
+"
+SPM-130425,,Update the commons-validator JAR file to the latest version,Third Party Updates,,,,"Apache Commons Validator provides the building blocks for both client-side validation and server-side data validation. It is used in the Cúram product as part of the client infrastructure.
+
+The version of the commons-validator library has now been updated from 1.7 to 1.9. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+
+* CuramSDEJ/lib/third&#95;party&#95;version.properties  - the version of the commons-validator JAR file has been updated.
+* CuramSDEJ/lib/commons-validator-1.9.jar  - new JAR added. 
+* CuramSDEJ/lib/commons-validator-1.7.jar  - old JAR removed.
+* CuramCDEJ/lib/ext/jar/commons-validator-1.9.jar  - new JAR added. 
+* CuramSDEJ/lib/ext/jar/commons-validator-1.7.jar  - old JAR removed.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+
+"
+SPM-130423,,Update the commons-net JAR file to the latest version,Third Party Updates,,,,"The Apache Commons Net library contains a collection of network utilities and protocol implementations. Supported protocols include FTP, SMTP(S), Telnet and others. 
+
+The version of the commons-net JAR that is used by Cúram has now been updated from 3.9.0 to 3.11.1. This new JAR file contains some minor bug fixes and enhancements.
+
+As a result of this upgrade, the following changes have been made in the Java Development Environment and Rest deliverables.
+
+* CuramSDEJlibthird&#95;party&#95;version.properties - the version of the specified commons-net JAR file has been updated.
+* CuramSDEJlibcommons-net-3.11.1.jar - the version of the JAR has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-130415,,Update the commons-io JAR file to the latest version,Third Party Updates,,,,"The Apache Commons IO library contains utility classes, stream implementations, file filters, file comparators, endian transformation classes, and much more. Its usage in the Cúram application is related to the client generators, the XML Server, and also Axis 2 web services. 
+
+The version of the commons-io library used by Cúram has now been updated from 2.13.0 to 2.18.0. The new version contains some defect fixes and minor enhancements. 
+
+As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+
+* CuramSDEJlibthird&#95;party&#95;version.properties - the version of the commons-io JAR file has been updated.
+* CuramSDEJxmlserverthird&#95;party&#95;version.properties - the version of the commons-io JAR file has been updated.
+
+The changes to the commons-io JAR file include:
+
+* CuramCDEJlibextjarcommons-io-2.18.0.jar - version updated from 2.13.0 to 2.18.0.
+* CuramSDEJxmlservercommons-io-2.18.0.jar - version updated from 2.13.0 to 2.18.0.
+* CuramSDEJlibcommons-io-2.18.0.jar - version updated from 2.13.0 to 2.18.0.
+* CuramSDEJlibaxis2commons-io-2.18.0.jar - version updated from 2.13.0 to 2.18.0.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+
+"
+SPM-130129,DT036793,No structural markup to establish the relationship between labels and their values for read-only fields in a cluster,Accessibility,,,,"*Issue Description:*
+There is no structural markup to logically associate labels with their corresponding values for read-only fields in a cluster. As a result, screen reader users, unlike visual users, are unable to perceive the relationship between the label and the value.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Click the Inbox tab.
+# Expand the shortcuts panel and select New Task Query to open the New Task Query dialog.
+# Fill in the mandatory fields to define the query, then save it.
+# From the shortcuts menu, select My Task Queries.
+# Locate the newly created query and click Run.
+# Inspect the read-only fields in the Criteria Cluster (Status, Category, Assigned To, etc.).
+# Issue: There is no structural markup to logically associate labels with their corresponding values for read-only fields in the cluster.
+
+*Resolution:*
+The issue was resolved by implementing a descriptive list structure that associates each label with its corresponding value. This allows screen reader users to understand the relationship between labels and values accurately, improving overall accessibility.
+
+
+"
+SPM-130092,DT036790,Inconsistency in keyboard navigation focus colors across the application,Accessibility,,,,"*Issue Description:*
+The inconsistency in focus colors throughout the interface creates usability challenges by disrupting visual coherence and making it harder for users to identify the focused element. This can lead to confusion, frustration, and errors during interaction.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce*:
+
+# Log in as a caseworker.
+# Navigate to the home page using the Tab key.
+# Issue: Observe the inconsistent focus colors.
+
+*Resolution:*
+The focus color across the interface has been updated to ensure consistency throughout the application.
+
+"
+SPM-129617,DT036752,Missing validation and security checks in Verifications,SOL,Universal Access,APIs,,"*Issue Description:*
+The Verifications API method for creating caseworker tasks is missing necessary security checks.
+
+*User Interface Impact:* No
+
+*Resolution:*
+Authorization checks have been added to the CaseworkerVerificationTaskManagerAPI.createCaseworkerTaskOnUpload method to ensure that only authorized users can invoke this API.
+
+"
+SPM-129616,DT036751,Missing validation and security checks in motivations,SOL,Income Support HCR,APIs,,"*Issue Description:*
+Motivations API for creating motivation is missing security checks.
+
+*User Interface Impact:* No
+
+*Resolution:*
+Authorization checks have been included within the HCRMotivationAPI.createMotivation method to verify that the user is also the owner of the application form.
+
+"
+SPM-129338,DT037075,"Incorrect use of HTML and accessibility attributes causes invalid announcement of headings, buttons and regions on the Evidence Dashboard for screen reader users",Accessibility,,,,"*Issue Description:*
+The Evidence Dashboard contains numerous accessibility issues, making it difficult for screen reader users to navigate. Invalid and confusing text is announced when navigating through the dashboard, and interactive elements such as the expand/collapse buttons and filter buttons do not function as expected. Additionally, their status is not accurately reflected to the screen reader user. The labels for these interactive elements are also not unique, which may confuse the screen reader user. Furthermore, users must hover over an evidence row with a mouse or tab to it using a keyboard to reveal the button to create a new piece of evidence.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Create an integrated case for the person and navigate to the Evidence tab, where the Evidence Dashboard can be found.
+# Enable a screen reader and navigate through the dashboard.
+# Interact with the dashboard by expanding and collapsing the panels, using the filter buttons and creating new evidence.
+# Issue: Confusing and invalid text is announced, and interactive elements do not function as expected, which makes it difficult for screen reader users to navigate and interact with the dashboard.
+
+*Resolution:*
+The Evidence Dashboard has been updated to ensure that clear and concise text is announced to screen reader users when navigating through the dashboard. Interactive elements, such as the expand/collapse and filter buttons, now function correctly. The button to create a new piece of evidence is now revealed by default and no longer requires user interaction to display.
+
+Additionally, unique labels have been provided for all interactive elements, and their programmatic status is accurately updated. This ensures that screen reader users receive full context for the current element. To support this, four message entries in the related curam.message.EVIDENCEDASHBOARD message file have been deprecated. New message file entries have been added, allowing arguments to be inserted into the messages to provide context to screen reader users regarding the current element.
+
+"
+SPM-129252,,Add Support for Red Hat Enterprise Linux (RHEL) Server 9 as a build platform for the Cúram application,Third Party Updates,,,,"Support is now added for Red Hat Enterprise Linux (RHEL) Server 9. This platform can be used for both the building and deployment of the Cúram application. 
+
+See the associated operating system prerequisites for this version of the product for further details of this support.
+
+"
+SPM-129144," DT037161",Focus not visible when error message list receives focus,Accessibility,,,,"*Issue Description:*
+The focus indicator is not visible when an error message receives focus.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Click the ?Search for a Person? link in the Quick Links pod to open the Person Search page.
+# On the Person Search, without entering any data, click the Search button.
+# Issue: An error message displays ?You must specify some search criteria,' but there is no visible focus indicator.
+
+*Resolution:*
+The focus indicator is now visible when an error message receives focus.
+
+"
+SPM-127671,,Selecting an option in the Evidence Dashboard group listbox causes the focus to jump to other parts of the page,Accessibility,,,,"*Issue Description:*
+When an option in the Evidence Dashboard's Display Evidence Group drop-down menu is selected and the page reloads, the focus does not return to the drop-down field.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as an administrator.
+# Click Integrated Cases below Cases in the shortcuts panel.
+# Select an Integrated Case type.
+# Navigate to the Dashboard Group page in the Evidence tab.
+# Create several Dashboard Groups.
+# Log out
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person and create an integrated case for which the Dashboard Groups were configured.
+# On the integrated case, navigate to the Dashboard page in the Evidence tab.
+# Navigate to the Display Evidence group drop-down field.
+# Open the drop-down and select an option.
+# Issue: When the page reloads, the focus does not return to the Display Evidence Group drop-down field.
+
+*Resolution:*
+The focus is now restored to the Display Evidence Group drop-down field on the Evidence Dashboard when an option is selected, and the page reloads.
+
+"
+SPM-127670,,When an option in the Evidence Dashboard group listbox receives focus it fails minimum contrast,Accessibility,,,,"*Issue Description:*
+When a menu item in the Evidence Dashboard's Display Evidence Group drop-down menu receives focus, the text and the background do not have sufficient color contrast ratios.
+
+*User Interface Impact:* No
+
+*Prerequisites:*
+
+# Log in as an administrator.
+# Click Integrated Cases below Cases in the shortcuts panel.
+# Select an Integrated Case type.
+# Navigate to the Dashboard Group page in the Evidence tab.
+# Create several Dashboard Groups.
+# Log out
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a person and create an integrated case for which the Dashboard Groups were configured.
+# On the integrated case, navigate to the Dashboard page in the Evidence tab.
+# Navigate to the Display Evidence group drop-down field.
+# Open the drop-down and navigate through the options.
+# Issue: The text and the background do not have sufficient color contrast ratios.
+
+*Resolution:*
+The text and background colors used when menu items receive focus in the Evidence Dashboard's Display Evidence Group drop-down now have sufficient color contrast ratios.
+
+"
+SPM-127214,,Resolve issues related to passing non-conforming file paths to WebSphere wsadmin Jython scripts during target configuration,CEF,Application Development Environment,Server Development Environment,,"*Issue Description:*
+An issue with the Cúram configure target running against a WebSphere Application Server was resolved, whereby non-conforming paths could be passed to wsadmin when configuring a WebSphere Application Server instance. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* N/A
+
+*Resolution:*
+The paths being passed to wsadmin are now being sanitised to ensure that non-conforming characters do not exist in the path.
+
+*Technical:* 
+The following files have been updated:
+
+* ../CuramSDEJ/bin/app_configureWAS.xml
+
+"
+SPM-127029,DT036651,Element <p> not allowed as child of element span in this context,Accessibility,,,,"*Issue Description:*
+Pages with sortable table headers are incorrectly structured and contain invalid HTML. Specifically, a <p> (paragraph) element cannot be a direct child of a  <span> element. Invalid or improperly structured HTML can negatively impact the user experience, particularly for individuals relying on assistive technologies. For example, screen readers may get stuck, read content inaccurately, or skip over important information.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce*:
+
+# Log in as an administrator.
+# Click My Organization under Organization in the shortcuts panel.
+# Click Structures and select Organization Structures.
+# Click the Name hyperlink of one of the structures.
+# On the opened structure, click Position and select All Positions.
+# Right-click on the pagination tab at the bottom and select Inspect to view the HTML.
+# Issue: The <p> element is a child of the <span> element.
+
+*Resolution:*
+The page has been updated to use valid and correctly structured HTML. The invalid <span><p> structure has been replaced with a more appropriate <button><span> structure, ensuring proper accessibility and compliance with standards.
+
+"
+SPM-126377,DT036603,Specific task types are not closed automatically by the application after incoming evidence issues have been resolved,CEF,Business Services,Workflow,,"*Issue Description:*
+The following three problematic scenarios relating to tasks have been raised:
+
+Scenario 1: 'No Supervisor existing for Case XXXXX submitted for approval' task could be closed off manually even without a supervisor available. 
+
+Scenario 2: 'New Incoming Evidence on Case xxx that needs to be resolved' task does not close automatically when incoming evidence is resolved.
+
+Scenario 3: 'New In-edit Evidence on Case xxx as evidence failed to activate' task can not be manually closed when in-edit evidence is resolved.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+
+# Log in as a caseworker.
+# Register a new person.
+# Create an integrated case.
+# Create a product delivery case.
+# Update the Position and PositionReportingLink database tables as follows. This removes supervisors from the organizational structure.
+## UPDATE POSITION SET LEADPOSITIONIND = '0'
+## UPDATE POSITIONREPORTINGLINK SET RECORDSTATUS = 'RST2'
+# Submit the product delivery for approval.
+# Navigate to the tasks tab on the product delivery.
+# Click the task ?No Supervisor existing for Case XXXXX submitted for approval.?
+# On the task home page, select 'Confirm that the supervisor exists'
+# Click Yes on the dialog box to confirm.
+# Issue: The task gets closed without the supervisor present.
+
+*Scenario 2:*
+
+# Log in as an administrator.
+# Select Evidence Sharing within Rules and Evidence on the shortcuts panel.
+# Create an identical evidence-sharing configuration from one integrated case type to another integrated case type.
+# Set Trusted Source = No
+# Log in as a caseworker.
+# Register a new person.
+# Create two integrated cases for the registered person i.e. the types configured for sharing in the previous step.
+# On the first case, navigate to the Evidence tab.
+# Add evidence and apply evidence changes.
+# On the second case, a 'New Incoming Evidence on Case xxx that needs to be resolved' task is created within the Tasks tab.
+# Navigate to the Evidences tab and select Incoming Evidence.
+# Resolve the incoming evidence by adding them to the case.
+#  Issue: The task 'New Incoming Evidence on Case xxx that needs to be resolved' is not closed even after the incoming evidence is resolved.
+
+*Scenario 3:*
+
+# Log in as a caseworker.
+# Register a new person.
+# Submit an application
+# On the application case, delete some evidence that would trigger mandatory evidence validations on the related integrated case.
+# Authorize the application case.
+# On the integrated case that gets created, evidence failed to activate and a new task 'New In-edit Evidence on Case xxx as evidence failed to activate' is created within the Tasks tab.
+# Navigate to the evidence tab and apply changes to activate the evidence on the integrated case.
+# A validation error for the mandatory evidence is shown.
+# Add the missing evidence and apply evidence changes. 
+# Open the task and click Add To My Tasks.
+# Now click Close on the task.
+# Issue: An error message is displayed preventing the task from being closed: ?Task XXX cannot be closed from this page.?
+
+*Resolution:*
+Scenario 1: Validations have been included to confirm that a supervisor exists before the task gets closed.
+
+Scenario 2: This issue has been resolved and the task 'New Incoming Evidence on Case xxx that needs to be resolved' gets closed when all the incoming evidence is resolved.
+
+Scenario 3: It is now possible to manually close the task. A new version of the AdvancedEvidenceSharingInEditTask workflow has been added to facilitate this manual closure.
+
+*Upgrade Impact:*
+For Scenario 3, any existing in-progress tasks will be created using the old workflow version. These tasks will not be affected by the new workflow, and a caseworker will still not be able to manually close them. Once the new workflow version is released and deployed, new tasks will be created, and a caseworker will be able to manually close them.
+
+
+
+
+"
+SPM-123729,,Update the ANTLR JAR file to the latest version,Third Party Updates,,,,"ANTLR (ANother Tool for Language Recognition) is a parser generator for reading, processing, executing, or translating structured text or binary files. It's widely used to build languages, tools, and frameworks. From a grammar perspective, ANTLR generates a parser that can build and walk parse trees.
+
+ANTLR is used either directly or indirectly in Cúram, including IEG custom function processing, workflow transition condition processing, GraphQL processing and any usages of Classic Rules. 
+
+The version of the ANTLR library has now been updated from 3.3 to 4.9.3. The upgrade to ANTLR 4.9.3 ensures compatibility and functionality for the GraphQL infrastructure provided as part of the REST deliverable. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+
+* CuramSDEJ/lib/third&#95;party&#95;version.properties - the version of the ANTLR JAR file has been updated.
+* CuramCDEJ/lib/ext/jar/antlr-4.9.3.jar  - version of the JAR updated.
+* CuramSDEJ/lib/antlr-4.9.3.jar - version of the JAR updated.
+* EJBServer/components/Rest/graphql_lib/antlr-4.9.3.jar JAR added.
+* EJBServer/components/Rest/graphql_lib/antlr-runtime-4.7.2.jar JAR removed.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+
+"
+SPM-123610,,Remove the 'which' JAR file from the CDEJ deliverable,Third Party Updates,,,,"The ?which.jar? file delivered in the CuramCDEJ was used in logic which in the past reported on the version of Xalan and Xerces used in that infrastructure. However, this logic has been defunct for a number of releases now.
+
+Therefore the ?which.jar? file and associated logic have been removed from the CuramCDEJ deliverable. As a result of this removal, the following changes have been made to the Cúram deliverable.
+
+* CuramCDEJlibextjarwhich.jar - this JAR file has been removed.
+
+We recommend that you update any references in custom scripts and other artifacts to remove any references to the JAR file that is specified above.
+
+"
+SPM-123561,"DT036467, PO08271"," Wrong validation message displayed when adding a new bank account for a duplicate person",CEF,Business Services,Participant Management,,"*Issue Description:*
+An incorrect validation message is displayed when adding a new bank account for a duplicate person. The system displays the following incorrect validation message, 'Bank Account details of a client that is currently marked as a duplicate cannot be modified.'.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Evidence tab.
+# Use the page-level action to add a Bank Account with any details.
+# Register a second Person.
+# Click the Administration tab and select the Duplicates page.
+# Use the page-level action to mark the first person as a duplicate of the second person.
+# Close and reopen the first person where the context panel should now display 'DUPLICATE'.
+# Click the Evidence tab.
+# Use the page-level action to attempt to add a Bank Account with any details.
+# Issue: The system displays the incorrect validation message, 'Bank Account details of a client that is currently marked as a duplicate cannot be modified.'
+
+*Resolution:*
+The evidence validation rulesets for bank account have been updated to return the correct validation message, 'New bank account details cannot be added for a client that is currently marked as a duplicate.'
+
+*Technical:*
+The following updates were made to the bank account validation ruleset attributes:
+
+* PDCBankAccountIBANValidationRuleSet.isConcernRoleDuplicate
+** Resource Message changed from ERR&#95;BANKACCOUNT&#95;XRV&#95;DUPLICATE&#95;CLIENT&#95;MODIFY to ERR&#95;BANKACCOUNT&#95;XRV&#95;DUPLICATE&#95;CLIENT&#95;CREATE
+* PDCBankAccountValidationRuleSet.xml.isConcernRoleDuplicate
+** Resource Message changed from ERR&#95;BANKACCOUNT&#95;XRV&#95;DUPLICATE&#95;CLIENT&#95;MODIFY to ERR&#95;BANKACCOUNT&#95;XRV&#95;DUPLICATE&#95;CLIENT&#95;CREATE
+
+"
+SPM-123059,,Remove the defunct 'doc/jdiff_api' directories from the CuramSDEJ and CuramCDEJ deliverables,Code Removal,,Infrastructure,Infrastructure,"The CuramSDEJ and CuramCDEJ ?doc/jdiff_api? directories contained Javadoc differences between two specific releases for those deliverables. The generation of content in this folder has not been supported since Cúram version 7. The directories are therefore obsolete and are being removed in this release.
+
+This has resulted in the following changes to the CuramSDEJ and CuramCDEJ deliverables.
+
+* CuramSDEJ/doc/jdiff_api - directory removed
+* CuramCDEJ/doc/jdiff_api - directory removed
+
+"
+SPM-120162,,"Focus is not visible when the Federal Time Limit icon receives focus ",Accessibility,,,,"*Issue Description:*
+The focus indicator is not visible when the Federal Time Limit icon on an Income Support case receives focus. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an Income Support caseworker.
+# Register a new Person.
+# Submit an Income Support application for Cash Assistance for this person and their child and add evidence to satisfy eligibility requirements.
+# On the application, clear all verifications and apply evidence changes.
+# Check Eligibility for Cash Assistance.
+# Select Ready for Determination from the tab menu and click Yes on the confirmation modal.
+# Authorize the Cash Assistance program.
+# Navigate to the Related Cases tab on the application and open the newly created Income Support integrated case.
+# Press the Tab key to navigate to the Federal Time Limit icon.
+# Issue: Focus is not visible when the Federal Time Limit icon receives focus.
+
+*Resolution:*
+This issue is now resolved. The Federal Time Limit icon is now visible when it receives focus.
+
+"
+SPM-115791,PO08200,"Duplicate bank account incorrectly allowed on the system ",CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+A validation check is missing to prevent duplicate bank accounts.
+
+*Related WorkItem:* SPM-140352
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Evidence tab.
+# Use the page-level action to add a Bank Account with the following details:
+## Account Name: Test Account
+## Account Type: Personal Current
+## Account Number: 12345678
+## Sort Code: 90-14-87
+## From: 18th March 2025
+# Click Save.
+# Register a second Person.
+# Click the Evidence tab.
+# Use the page-level action to add a Bank Account with identical details to those above.
+# Issue: The system allows a duplicate bank account to be inserted onto the system.
+
+*Resolution:*
+A validation has been added to prevent a duplicate bank account being entered onto the system.
+
+
+
+"
+SPM-115621,PO08156,It is possible to delete a bank account that has been used for payments,CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+A bank account that has been used to issue EFT payments to a client can currently be deleted. The system should prevent deletion of such bank accounts.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce (Generic):*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Evidence tab and use the page-level action to add a new bank account.
+# Click the Care and Protection tab and select Cases.
+# Use the page-level action to create a new integrated case.
+# Add an associated product delivery to the integrated case, setting Delivery Pattern to ?Weekly By Check In Advance?.
+# Add the necessary evidence and certification to make the product delivery eligible.
+# Submit, approve and activate the product delivery.
+# Click the Financials tab and use the page-level action on the Transactions page to issue a payment.
+# Select the row-level action ?Cancel Payment? on the issued payment.
+# Select Delivery Patterns from the Financials menu, select the Edit action on the current pattern and change to ?Weekly by EFT in Advance on a Monday?
+# Re-open the Transactions page  and select the ?Reissue? row level action on the cancelled payment
+# Navigate back to the person and delete the bank account.
+# Issue: The system allows the bank account to be deleted from the person. 
+
+*Resolution:*
+A bank account can only be deleted if it has never been used for payments and is not linked to a case with a payment delivery method set to EFT.
+
+The system enforces this by preventing deletion of any bank account that is or was set up to receive payments, even if no payments were made. The following validation is displayed ?The Bank Account is either in active use on a Case or has been used in the past for case payments, therefore it cannot be deleted.?
+
+If payments still need to be issued on a case, a new destination bank account must be created for the nominee. If a bank account is linked to a case but hasn?t been used for payments, the caseworker can update the case with a different account and then delete the unused one. Once a bank account has been used for any payment, it cannot be deleted.
+
+ 
+
+"
+SPM-115615,PO08155,"If one bank account (primary) exists for a person that a payment has been issued against, a new bank account cannot be created",CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+If a primary bank account exists for a person, which is their only bank account and a payment has been issued against it, it is not possible to modify the existing bank account or create a new bank account due to validation errors.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce (Generic):*
+
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Evidence tab.
+# Use the page-level action to add Bank Account evidence, ensuring to tick the Preferred checkbox.
+# Create an integrated case.
+# Add evidence to make the client eligible.
+# Apply changes.
+# Create an associated product delivery on the integrated case ensuring:
+## Receipt Date is the first of the month.
+## Delivery Pattern is ?Weekly by EFT in Advance on a Monday?.
+# Submit, approve and activate the product delivery.
+# Log in as a system administrator.
+# Click Processes below Batch in the shortcuts panel.
+# Search for and execute the following batch processes:
+## Generate Instruction Line Items 
+## Generate Instruments
+# Run the batch launcher to execute the batch processes.
+# Log in as a caseworker.
+# Navigate to the Financials tab on the product delivery to ensure the payment has been issued.
+# Search for and open the person home page. 
+# Click the Evidence tab.
+# Create new Bank Account evidence using the New Bank Account Wizard, tick the Preferred checkbox, and select either Save & Exit or Save & Next. 
+# Issue: The following validation message is displayed: ?A payment has been issued to this bank account therefore the modification cannot be applied. A new bank account should be created.? It should be possible to create a new bank account in the New Bank Account wizard and end-date an existing bank account that has been used for payments. It should also be possible to modify the following fields on a bank account once payments have been issued: To date, Account Status, Preferred indicator, Joint Account indicator (allowed to set to true), and Account Name.
+
+*Resolution:*
+Checks are performed to determine if the bank account is closed or if the end date is set. The following new informational message is displayed on the Person Evidence Dashboard and the Active Evidence list page when Person Evidence Management (PEM) is enabled: ?The bank account has been closed or the end date set. If there are payments scheduled to this bank account, they will not be issued.?
+
+Additional checks are performed when modifying a bank account to determine if it is receiving payments and whether any of the following fields are being modified: Account Number, Sort Code, IBAN, BIC, or From date. The following validation message is displayed: 'A payment has been issued to this bank account therefore the modification cannot be applied. A new bank account should be created.'
+
+*Technical:*
+Changes were made to the following rulesets:
+- EJBServer/components/PDC/CREOLE&#95;Rule&#95;Sets/PDCBankAccountIBANValidationRuleSet.xml
+- EJBServer/components/PDC/CREOLE&#95;Rule&#95;Sets/PDCBankAccountValidationRuleSet.xml
+- EJBServer/components/PDC/CREOLE&#95;Rule&#95;Sets/ParticipantEvidenceRuleSet.xml
+
+The full list of rule attributes that were updated/added are:
+
+# PDCBankAccountIBANValidationRuleSet.ValidationResult.isIBANBeingModified (new)
+# PDCBankAccountIBANValidationRuleSet.ValidationResult.isBICBeingModified (new)
+# PDCBankAccountIBANValidationRuleSet.ValidationResult.isfromDateBeingModified (new)
+# PDCBankAccountIBANValidationRuleSet.ValidationResult.hasRestrictedFieldChanged (new)
+# PDCBankAccountIBANValidationRuleSet.ValidationResult.bankAccountsHavePaymentsValidation (updated)
+# PDCBankAccountValidationRuleSet.ValidationResult.isAccountNumberBeingModified (new)
+# PDCBankAccountValidationRuleSet.ValidationResult.isSortCodeBeingModified (new)
+# PDCBankAccountValidationRuleSet.ValidationResult.isfromDateBeingModified (new)
+# PDCBankAccountValidationRuleSet.ValidationResult.hasRestrictedFieldChanged (new)
+# PDCBankAccountValidationRuleSetValidationResult.bankAccountsHavePaymentsValidation (updated)
+# ParticipantEvidenceRuleSet.BankAccountEvidence.iban (new)
+# ParticipantEvidenceRuleSet.BankAccountEvidence.bic (new)
+
+Changes were made to the following UIM/VIM pages to include an informational:
+
+# webclient/components/PDC/Evidence/PDCEvidence_listEvidence.uim
+# webclient/components/PEC/Evidence/PECEvidence_workspaceActiveHighLevelView.vim
+
+"
+SPM-113584,,Upgrade Rational Software Architect Designer to the latest version,Third Party Updates,,,,"Rational Software Architect Designer (RSAD) is the supported modeling environment for the Cúram product. The version of RSAD now supported has been updated to 9.7.1.2 which supports the Windows 11 platform. Support for this new version has also been added retrospectively for the Cúram 8.1.2.0 and 8.1.3.0 releases.
+
+"
