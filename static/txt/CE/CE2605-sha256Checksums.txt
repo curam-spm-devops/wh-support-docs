@@ -1,0 +1,7 @@
+ Verify Download Integrity (SHA-256 Checksums) for CE2605:
+
+
+
+ff6ded954a58b1c16b11ef429f51a46a43950c6ac4af8bb96c7e094afd83f364  SPM_DS_8.2.0.zip
+
+8065e30ce3b6a0f9be5ef9fd978a5a0551b8d9f8d06e1c8e69181c3e546c47f4  UA_Web_App_8.2.0.zip
