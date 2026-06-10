@@ -1,0 +1,1183 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-105299,PO07130,ABAWD months dropped upon case reassessment when member leaves household,SOL,Income Support CGISS,,,"*Issue Description:*
+The Time Limit tab in Income Support does not display Able-Bodied Adults Without Dependents (ABAWD) months correctly after a case reassessment when a household member leaves. This occurs because the system incorrectly resets the countable months to zero for the remaining members, potentially allowing individuals to exceed their three-month eligibility limit.
+*User Interface Impact:* No
+*Prerequisites:*
+# Log in as a system administrator.
+# Navigate to Properties under Application Data in the shortcuts panel.
+# Search for the property ?curam.isproduct.cgiss.abawd.applicable?.
+# Update the property?s value to true.
+# Publish the changes.
+
+*Steps to Reproduce:*
+# Log in as an Income Support caseworker. 
+# Register a person aged 40.
+# Submit an application dated 1/1/2026 for this person and another person aged 35, with a spouse relationship, no income, and a permanent living arrangement.
+# In the Income Support application, add Head of Household evidence for Food Assistance. Add Household Meal Group and Meal Group Member evidence.
+# Add Work Registration evidence as Registered for Food Assistance with a start date of 1/1/2026 for both individuals.
+# Check eligibility for the application.## Both individuals are eligible for three countable months from 1/1/2026 to 3/31/2026.
+
+# Apply changes to evidence in the application and authorize the program in the Income Support integrated case.## The Food Assistance program is created.
+
+# Activate the program and navigate to the Determinations tab in Food Assistance.## Determinations are displayed for the period 1/1/2026 to 3/31/2026.
+
+# In the Income Support integrated case, remove the second household member (spouse) after one countable month, that is, set the end date for the Household Member evidence for the second person to 2/1/2026. Apply changes to evidence.
+# Reassess the Food Assistance case.
+# Navigate to the Determinations tab and verify the results.
+# Determinations should display eligibility for the following periods:## 1/1/2026?1/31/2026: Eligible ? both persons
+## 2/1/2026?3/31/2026: Eligible ? first person only
+
+# In the Income Support integrated case, validate the Time Limit tab: it should display three countable months for the first person and one countable month for the second person.
+
+*Resolution:*
+The Time Limit tab in Income Support now correctly displays the number of ABAWD countable months for each household member after a reassessment when a member leaves the household. The system now accurately preserves and reflects the eligibility periods and countable months for each individual, ensuring that household composition changes do not incorrectly reset time limit data.
+"
+SPM-124275,,Remove the jar files (including batik) previously used for image generation from the Cúram deliverable,Third Party Updates,,,,"A number of older JAR files that were no longer used in the Cúram product have been removed from the CuramCDEJ deliverable. The ?CuramCDEJ/lib/imageGen? directory and all of the JAR files contained within it have been removed. 
+The following JAR files have been removed:
+* batik-awt-util.jar
+* batik-bridge.jar
+* batik-css.jar
+* batik-dom.jar
+* batik-ext.jar
+* batik-extension.jar
+* batik-gui-util.jar
+* batik-gvt.jar
+* batik-parser.jar
+* batik-script.jar
+* batik-svg-dom.jar
+* batik-svggen.jar
+* batik-swing.jar
+* batik-transcoder.jar
+* batik-util.jar
+* batik-xml.jar
+* js.jar
+* pdf-transcoder.jar
+
+It is recommended that you update or remove any references in custom scripts and other artifacts to the JAR files that are specified above.
+"
+SPM-127388,,Remove deprecated methods in LinkTag.java for rendering action menus,Code Removal,,,,"The code artifacts associated with rendering an action menu in LinkTag.java that were deprecated in Cúram 8.1.0.0 have now been removed. All of the references in the Cúram documentation have also been removed.
+* curam.omega3.taglib.flow.LinkTag.doGenerateLink()
+* curam.omega3.taglib.flow.LinkTag.setListRowAction()
+* curam.omega3.taglib.flow.LinkTag.setPageLevelAction()
+* curam.omega3.taglib.flow.LinkTag.getListRowAction()
+* curam.omega3.taglib.flow.LinkTag.getPageLevelAction()
+* curam.omega3.taglib.flow.LinkTag.listRowAction
+* curam.omega3.taglib.flow.LinkTag.pageLevelAction "
+SPM-129102,,Update to a later version of Eclipse and associated Tomcat Plugin,Third Party Updates,,,,"Eclipse is an integrated development environment (IDE) that can be used for Cúram development. It contains a base workspace and an extensible plug-in system for customizing the environment. 
+
+Apache Tomcat® is a free and open-source implementation of the Jakarta Servlet, Jakarta Expression Language, and WebSocket technologies. Tomcat provides a 'pure Java' HTTP web server environment in which Java code can run.
+
+The versions of Eclipse and Tomcat certified for use in Cúram development have been updated as follows:
+* Eclipse updated from version 4.18.0 to 2026?03 R and future micro/patch releases and qualifier builds.
+* Apache Tomcat updated from version 9.0.99 to 9.0.117.
+* Tomcat Eclipse Plugin - updated from 9.1.5 to 9.1.8.
+
+"
+SPM-129726,,Introduce support for Oracle AI Database 26ai,Third Party Updates,,,,"Cúram has now certified support for the Oracle 26ai database. Oracle AI Database 26ai is the next long-term support release of Oracle AI Database. This means that for the Cúram 8.2.2.0 release, the following Oracle database versions are supported:
+# Oracle Database 19c 
+# Oracle AI Database 26ai
+
+As part of the introduction of this support, the Oracle driver for JDBC shipped as part of the Server Development Environment for Java (SDEJ) has been updated. The ojdbc8 JDBC driver version has been updated from 19.3.0.0.0 to 23.26.1.0.0. As a result of this driver upgrade, the Oracle connection caching has been switched from the deprecated Implicit Connection Cache (ICC) approach to Oracle Universal Connection Pool (UCP). A new JAR file, ucp.jar, has been included in the deliverable for this purpose. 
+As part of this change, the following files have been updated in the SDEJ deliverable:
+* CuramSDEJdriversojdbc8.jar - The version of this JAR file has been updated.
+* CuramSDEJdriversucp.jar - A new JAR file has been added.
+
+Note that any references in custom scripts and other artifacts to the ?ojdbc8? JAR file may need to be updated to include a reference to the new 'ucp.jar? file as specified above.
+"
+SPM-130842,DT037290,Date input field missing mandatory ARIA attribute(s): 'aria-expanded' and 'aria-controls',CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+Date input fields do not include the ARIA attributes 'aria-expanded' and 'aria-controls'. This creates accessibility issues for users who rely on assistive technologies, such as screen readers. Specifically, screen readers do not announce whether the date picker is expanded or collapsed, and the relationship between the input and the calendar widget is not clearly defined.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Click Person under Search in the shortcuts menu.
+# With JAWS turned on, navigate to the Date of Birth field.
+# Issue: JAWS does not announce the date picker's state (expanded or collapsed). In addition, the aria-controls attribute was not present in the date picker combo box.
+
+*Resolution:*
+The ARIA attributes 'aria-expanded' and 'aria-controls' are added to the date input component. Expandable elements now correctly indicate their state to assistive technologies, and interactive controls are properly associated with the calendar content that they affect. This ensures a more accessible experience for screen reader users.
+"
+SPM-136388,,REST infrastructure not handling zero monetary values correctly for locales that use comma separator,CEF,Technical Services,Rest,Infrastructure,"*Issue Description:*
+In multi-locale environments that use a comma as the decimal separator (for example, German, French, and other European locales), REST API responses containing zero monetary amounts can result in application errors. This occurs because zero monetary values are not formatted using JSON-standard decimal notation, causing parsing failures in client applications.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Sign up as a new user and, once logged in, submit an application through the Universal Access web application, completing all script steps using default values.
+# Log in to the caseworker application as a caseworker. 
+# Search for the registered person and open the Person tab.
+# Navigate to the Care and Protection tab.
+# Open the product delivery that was created on foot of the application submission. This should be in an open state.
+# From the Financials tab: Select Certification from the sidebar. Add a certification covering a date range from a point in the past through to three months in the future.
+# On the Determinations tab, reassess the case and confirm that the individual is eligible and that payments are due.
+# From the Financials tab, select Transactions and issue a payment. Ensure the payment is successfully issued.
+# Log out and return to the Universal Access web application.
+# Log in as the registered citizen.
+# From the application dashboard, observe the payments displayed.
+# Using the language selector in the application footer, change the language to Deutsch (German).
+# Issue: An application error is encountered after changing the language.
+
+*Resolution:*
+REST API responses now correctly format zero monetary values using JSON-standard decimal notation across all supported locales, preventing application errors when users switch languages. "
+SPM-136547,DT037079,"Build failures when running build targets together due to class loading issues ",CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
+In Cúram development environments, automated builds could fail when multiple Ant build targets using dom4j XML libraries were run together in a single invocation, stopping with a {{DOMException: org.dom4j.DocumentFactory cannot be cast to org.dom4j.DocumentFactory}} error. This prevented automated build pipelines from completing successfully.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Set up a Cúram development environment.
+# Run a single build command chaining multiple dom4j-dependent targets, e.g.: {{./build.sh clean client external-client -Dapp=UniversalAccess}}
+# Issue: The build fails with the {{DocumentFactory}} casting error.
+
+*Resolution:*
+A class loading collision has been resolved so that build scripts running multiple dom4j-dependent targets in a single invocation now complete successfully without the casting error.
+"
+SPM-137140,DT037092,IEG modal dialog opens with reduced height when starting a new application,ENT,Common Intake,,,"*Issue Description:*
+In Cúram, when multiple application forms are configured, selecting an initial application form results in the subsequent Intelligent Evidence Gathering (IEG) modal dialog being displayed with a reduced height. This height is inconsistent with the larger modal size displayed when using the Resume Application action on the person pending application form page, leading to unnecessary scrolling for caseworkers. 
+*User Interface Impact:* Yes
+*Prerequisites: *
+# Log in as an administrator.
+# Navigate to Internal Applications below Universal Access in the shortcuts panel.
+# Click the New page-level action and enter the following details:## Name: test application
+## Schema: test
+## Question script: test
+## Submit On Completion Only: yes
+
+# Then add a new program: Insurance Affordability.
+
+*Steps to Reproduce:*
+# Log in as an Insurance Affordability caseworker.
+# Register a person and open their home page.
+# Click New Application, choose Health Care Application, and click Next.
+# Observe the modal window size when the IEG form opens.
+# Issue: The IEG form opens in a modal dialog with a reduced height.
+
+*Resolution:*
+The modal dialog for the IEG form now opens at the correct full size when starting a new application. This ensures consistency across the application, reduces the need for scrolling, and improves the user experience for caseworkers.
+"
+SPM-139093,DT037188,JAWS and NVDA screen readers read out 'blank' text on the Evidence workspace type tab,Accessibility,,,,"*Issue Description:*
+Screen reader users experience an accessibility issue in which the focus lands on an empty field between the page-level and tab actions. As a result, the screen reader announces the text as ?blank.?
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1:*
+# Enable a screen reader.
+# Log in as an Income Support caseworker.
+# Register a new person and submit an Income Support Application.
+# Navigate to the Evidence Dashboard and create a new Employment Offer.
+# Open the evidence and use the Tab key to move past the Validate button to reach the Evidence tab.
+# Issue: After the Validate button, the screen reader focus goes to an empty field rather than directly to the Evidence tab, causing the screen reader to announce the text ?blank.?
+
+*Scenario 2 (Generic):*
+# Enable a screen reader.
+# Log in as a caseworker.
+# Register a new person and create an integrated case.
+# Navigate to the Evidence Dashboard and create a new Address.
+# Open the evidence and use the Tab key to move past the Validate button to reach the Evidence tab.
+# Issue: After the Validate button, the screen reader focus goes to an empty field rather than directly to the Evidence tab, causing the screen reader to announce the text ?blank.?
+
+*Resolution:*
+When a screen reader user navigates from the page-level action, the focus now moves directly to the tab action, preventing the screen reader from announcing the text ?blank.? This issue has been addressed across all affected pages in the application, improving accessibility and navigation for users.
+"
+SPM-139705,DT037294,"Low contrast on banner search placeholder text when the field receives focus ",CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When a caseworker clicks the Search input field in the banner, the placeholder text does not have enough contrast against the background. This makes the text difficult to read for some users when the field is focused. 
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Navigate to the banner and click the Search input field.
+# Inspect the placeholder text color contrast using the Color Contrast Analyzer tool.
+# Issue: The contrast between the placeholder text and the background is insufficient when the field is focused.
+
+*Resolution:*
+The placeholder text color in the Search input field is updated to ensure it is clear and readable when the field is focused. The text now uses a darker color that provides a higher contrast against the background, meeting standard design guidelines.
+"
+SPM-139859,,Update the version of the commons-codec JAR file to the latest version,Third Party Updates,,,,"The Apache Commons Codec package contains simple encoders and decoders for various formats such as Base64 and Hexadecimal. In addition to these widely used encoders and decoders, the commons-codec library also maintains a collection of phonetic encoding utilities. 
+The library is used in the Cúram application in a variety of places for Base64 encoding purposes, including the Client Development Environment for Java (CDEJ) general plugin infrastructure. 
+The version of commons-codec used by Cúram has now been updated from 1.16.0 to 1.21.0.  The new version contains some defect fixes and minor enhancements. 
+As a result of this upgrade, the version of the commons-codec JAR has been updated in the following files in the Java Development Environment (JDE) deliverable:
+* CuramSDEJlibthird&#95;party&#95;version.properties
+
+Other changes in the Cúram deliverable include:
+* CuramCDEJlibextjarcommons-codec-1.21.0.jar - version of the JAR file has been updated.
+* CuramSDEJlibcommons-codec-1.21.0.jar - version of the JAR file has been updated.
+
+It is recommended that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+"
+SPM-141769,,A user with lower sensitivity is able to see the case audit details of a client with higher sensitivity,CEF,Application Development Environment,Security Management,,"*Issue Description:*
+A user with lower sensitivity can see the case audit details of a client with higher sensitivity.
+*User Interface Impact:* No
+*Prerequisites:*
+# Log in as an administrator.
+# Navigate to the Admin Workspace, select Case Audits, then Case Audit Configurations, and add a New Case Audit Configuration with the following details:## Choose Product Delivery and any benefit type from the search.
+## Set Algorithm to Systematic Sampling.
+## Select the Allow Audit Coordinator to Specify Audit Cases checkbox.
+## Set Dynamic Query to Benefit Product Delivery Case Query.
+## Select all Focus Areas and click Save.
+
+# Navigate to the User Search.
+# Set the sensitivity level to 5 for both the administrator and caseworker.
+
+*Steps to Reproduce (Generic):*
+# Log in as a caseworker and register a person.
+# Create an integrated case and two or more associated product delivery cases for the person.
+# Log in as an audit coordinator.
+# In Audits, create a new audit plan:## Set Purpose to Compliance Review.
+## Set Audit Item to the Benefit Type configured above.
+## Set User Involvement to Provide Feedback and Save.
+
+# Select My Audit Plans in Audits and choose Select Specific Cases to Audit from the action menu.
+# Search for the product deliveries by client name. Select the checkboxes for the cases to audit, then Add Selected and Finish.
+# Navigate to Case Audit Search from the shortcuts panel.
+# Select Audit Item as the product delivery and search.
+# In the search results, the user can access the details of the client case audits.
+# Log in as a caseworker.
+# Increase the sensitivity level of the registered client from 1 to 3.
+# Log in again as the audit coordinator.
+# Navigate to Case Audit Search, select the product delivery as the audit item, and search again.
+# Verify the case audit details of the client with increased sensitivity in the search results.
+# Issue: The audit coordinator, who has a lower sensitivity level, can see the case audit details of a client with a higher sensitivity level.
+
+*Resolution:*
+Users with lower sensitivity levels are now restricted from accessing case audit details of clients with higher sensitivity. When access is restricted, the status field appears blank and other fields in the case audit details are displayed with an asterisk (*) to indicate restricted access. "
+SPM-142279,DT037278,GenerateInstructionLineItems batch job processing a large number of cases not requiring payment,ENT,Financial Management,Financials,Batch Processing,"*Issue Description:*
+The Generate Instruction Line Items batch process is responsible for converting financial components into instruction line items. To ensure that clients remain eligible and entitled to the same amounts specified on the financial components to be paid, the batch process selects a range of cases that are believed to be due for payment and then reassesses them before proceeding with the payment process, provided that the next processing date on the financial components has been reached. 
+The logic that controls the first part of this processing, namely, the selection of cases that need to be reassessed, is dependent on the financial calendar. If exclusion dates exist on the calendar, the ?processingDateTo? batch parameter is set to the latest exclusion date, provided this date is later than the ?processingDateTo? batch parameter specified when scheduling the batch process. In many instances, the exclusion date will be later, as December 26 is often the latest exclusion date. 
+If the batch process runs at the start of the year (for example, in January), the resulting date range can be quite large and may return almost all cases in the system, including those that are not due for payment. As a result, for any customer using the financial calendar, there is a risk that the Generate Instruction Line Items batch process will spend a significant amount of time reassessing cases that are not due for payment.
+*User Interface Impact:* No
+*Steps to Reproduce: *N/A
+*Resolution:*
+To resolve the issue outlined above, the dependency on the financial calendar when determining which cases to reassess was removed from the Generate Instruction Line Items batch process. The batch process behaves consistently for all customers now. It is driven by the batch parameter dates specified when the batch process is scheduled; if these are not provided, the batch parameter dates default to the current date. 
+For customers who previously relied on the financial calendar and therefore may not have needed to give much, if any, consideration to the batch parameter dates when scheduling and running the Generate Instruction Line Items batch process, greater attention may now be required. This is particularly important when payments are due over a bank holiday weekend, and the organization wishes to schedule payments for the bank holiday to be issued in advance. 
+"
+SPM-143242,DT037281,Income Support Participation for Work Eligibility screen throws an unhandled server exception if Year field is blank for Cash or Food Assistance,SOL,Income Support,Food Assistance,,"*Issue Description:*
+An unhandled server exception occurs when the participation year field is empty on the Work Eligibility screen after selecting Show Participation in a Food Assistance integrated case.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as an Income Support caseworker.
+# Register a new Person.
+# Submit an Income Support application for Food Assistance for this person and add evidence to satisfy eligibility requirements.
+# On the application, clear all verifications and apply evidence changes.
+# Check Eligibility for Food Assistance.
+# Select Ready for Determination from the tab menu and click Yes on the confirmation modal.
+# Authorize the Food Assistance program.
+# Navigate to the Related Cases tab on the application and open the newly created Income Support integrated case.
+# Select the Participation tab and navigate to the Work Eligibility screen.
+# Issue: Clicking the Show Participation button with an empty participation year field throws an unhandled server exception.
+
+*Resolution:*
+A configurable validation has been introduced and is enabled by default. This can be disabled in the Validation Configuration section of the System Administration application to bypass the validation that checks whether the participation year field is empty.
+
+Reference for the configurable validation added:
+* ispgeneralerror.err&#95;general&#95;year&#95;empty|c|
+
+"
+SPM-143906,,Update the graphql-java JAR file and potentially the related GraphQL JAR files to later versions,Third Party Updates,,,,"The supported version of GraphQL Java used in the Cúram REST Infrastructure has been increased from 15.0 to 20.9. As a result of this upgrade, the following updates have been made. 
+* EJBServercomponentsRestgraphql_libgraphql-java-20.9.jar - Updated to version 20.9
+* EJBServercomponentsRestgraphql_libgraphql-java-kickstart-10.0.0.jar - Removed as it is no longer required following the GraphQL upgrade.
+* EJBServercomponentsRestgraphql_libgraphql-java-servlet-10.0.0.jar - Removed as it is no longer required following the GraphQL upgrade.
+* CuramSDEJlibthird&#95;party&#95;version.properties - Updated to reflect the JAR file changes described above.
+
+Update your custom scripts and any other artifacts to remove or update any references to the JAR files specified above.
+"
+SPM-144151,DT037310,The focus is lost when expanding a list row that contains a dynamic UIM page,Accessibility,Application Development Environment,Client Development Environment,,"*Issue Description:*
+In Cúram, when the Expand Content button has focus and a list row is expanded, focus might be lost if the inline page is a dynamic UIM page. This results in unpredictable focus movement for keyboard users, making it difficult to navigate through list items consistently.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a new Person.
+# Navigate to the Evidence tab.
+# Using the keyboard, navigate to any evidence type, such as Addresses.
+# Press Enter to expand or collapse the toggle button.
+# Issue: Focus is lost when the list row is expanded.
+
+*Resolution:*
+The focus management logic is updated to ensure that focus is retained on the expand or collapse toggle button after a row expands. This behavior is now consistent across both static and dynamic UIM pages, ensuring a predictable experience for keyboard users.
+"
+SPM-144163,DT037298,The gender field in the person context panel is not described by screen readers,Accessibility,,,,"*Issue Description:*
+In Cúram, the gender field in the person context panel does not have a visible label. This prevents screen readers from describing the field and can be confusing for sighted users when non-standard gender values, such as ?Unknown?, are displayed without context. 
+*User Interface Impact*: Yes
+*Steps to Reproduce*:
+# Start a screen reader.
+# Log in as a caseworker.
+# Register a Person.
+# Navigate to the person home page.
+# Issue: The gender field in the context panel has no label; therefore, it is not clear what the value represents, and screen readers cannot describe it.
+
+*Resolution:*
+A prefix label has been added to the gender field in the context panel. This ensures that both sighted users and screen reader users can correctly identify the gender field and its value, providing a consistent and clear experience for all users. 
+*Technical:*
+The required changes were implemented in the Platform and Solution repositories for all context panels that inherited from the Platform context panel. Customized context panels, such as those within the Child Welfare components, are out of scope and not addressed as part of this change.
+"
+SPM-144164,DT037299,The meaning behind the reference number field in a person context panel is not clear to sighted users,Accessibility,,,,"*Issue Description:*
+In Cúram, the reference number field in the person context panel does not have a label, making it unclear to sighted users what the number represents. While screen readers announce a label for this field, the information is hidden from sighted users, resulting in an inconsistent experience.
+*User Interface Impact:* Yes
+*Steps to Reproduce*:
+# Log in as a caseworker.
+# Register a new Person.
+# Issue: The reference number field in the context panel has no label; therefore, a sighted user cannot identify what the field represents.
+
+*Resolution:*
+A prefix label was added to the reference number field in the context panel. This ensures that both sighted users and screen readers can correctly identify and read the reference number field and its value. 
+*Technical:*
+The scope of this change is to update the default context panels within the Platform repositories. Such context panels are inherited by the Solution components. This decision ensured targeted updates to the standard context panels while maintaining the integrity of the custom implementations. "
+SPM-144213,DT037305,Focus is randomly moved to the main panel elements while selecting tabs after a browser refresh,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When navigating through the navigation menu using a keyboard, the focus occasionally jumps to the first element of the current menu item instead of remaining within the navigation menu. This behavior occurs after a page reload and results in an unpredictable and confusing experience for keyboard users.
+*User Interface Impact:* Yes
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Open several shortcut panel items to populate 10 or more tabs.
+# Reload the page.
+# Begin tabbing through the navigation menu.
+# Issue: Keyboard-driven tab navigation does not preserve the focus on the newly selected tab, causing usability and accessibility issues.
+
+*Resolution:*
+The application is updated to explicitly detect keyboard navigation between tabs. This ensures that focus remains on the correct tab button even after a page refresh or session restoration. The selected tab now correctly retains focus during keyboard navigation.
+"
+SPM-144387,DT037314,Custom task created during the submit for approval process is being closed automatically,CEF,Common Intake,Task Management,Workflow APIs,"*Issue Description:*
+When a caseworker submits a product delivery for approval, any custom tasks created as part of this process are automatically closed by the system.
+*User Interface Impact:* No
+*Prerequisites:*
+# A custom task must be raised in a hook point as part of the ?submit for approval? process for a product delivery.
+
+*Steps to Reproduce: *
+*Scenario 1 (Automated flow):*
+# Log in as a caseworker.
+# Register a new person.
+# Create a new integrated case for the person.
+# Add an associated product delivery.
+# Submit the product delivery for approval so that it goes to a status of ?Approved?.
+# Issue: The custom task is created and closed within the same transaction, so it is never available for a caseworker to act on.
+
+*Scenario 2 (Manual flow):* 
+# Log in as a caseworker.
+# Register a new person.
+# Create a new integrated case for the person.
+# Add an associated product delivery.
+# Submit the product delivery for approval so that it goes to a status of ?Submitted?.
+# Approve or reject product delivery.
+# Issue: The task that prompted the caseworker to approve the product delivery is correctly closed. However, the custom task that was created is also closed if a caseworker has not already acted on it.
+
+*Resolution:*
+A new activity category has been introduced specifically for the product delivery approval task. This category is now associated with a new version of the Cúram Product Delivery Approval Task workflow, CURAMPRODUCTDELIVERYAPPROVALTASK_v3.xml. 
+This change allows the system to target the closure of the approval task to that specific activity category, rather than using the ?Standard? activity category, which inadvertently resulted in the custom task being closed. "
+SPM-144422,DT037318,Screen reader does not announce the modal dialog name and role when it focuses on the first focusable element,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When a modal dialog opens, the screen reader does not announce the name and role of the dialog. Instead, the focus skips directly to the first interactive element inside the dialog. This behavior causes screen reader users to miss the context of the modal, leading to confusion about their current location in the application.
+*User Interface Impact:* No 
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a new person.
+# Click the Evidence tab.
+# Click the New Evidence button.
+# Enable the screen reader.
+# Click Add next to New Email Address.
+# Listen to the screen reader?s behavior.
+# Issue: The screen reader reads the Received Date, skipping the dialog name and role.
+
+*Resolution:*
+The focus management logic for modal dialogs is updated to ensure that screen readers correctly announce the dialog name and role. When a modal opens, focus is briefly set to the dialog container before moving to the first interactive element. This ensures that the context is clearly announced to the user. "
+SPM-145016,DT037334,The iframe title of the Application Search page does not describe its content,Accessibility,,,,"*Issue Description:*
+The iframe titles for the person and application search pages do not accurately indicate the specific page that the user is viewing.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1:*
+# Log in as an Insurance Affordability caseworker.
+# Select Person under the Searches section from the HCR Cases and Outcomes shortcuts panel.
+# Inspect the iframe containing the content of the person search page and check its title attribute.
+# Issue: The iframe title currently displays the application section name instead of the actual page title. Users utilizing assistive technologies may be unable to determine the purpose or context of the current screen.
+
+*Scenario 2:*
+# Log in as an Income Support caseworker.
+# Navigate to the Searches section from the Clients and Outcomes shortcuts panel.
+# Select the Person and Application links to access the corresponding search pages.
+# Inspect the iframe containing the content of both search pages and check their title attributes.
+# Issue: The iframe titles display the application section name instead of the actual page titles. Users utilizing assistive technologies may be unable to determine the purpose or context of the current screen.
+
+*Resolution:*
+The iframe title attribute for each search page has been updated to reflect the specific page being displayed, ensuring that users using assistive technology receive accurate context.
+"
+SPM-145588,DT037339,"When combo box options receive keyboard focus, they have insufficient contrast with the combobox border colour",CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When a user navigates through options in a combo box or dropdown menu, the visual indicator for the focused or hovered option has insufficient color contrast. This makes it difficult for users with visual impairments to identify which option is currently selected or highlighted. This issue occurs across various areas of the product where combo boxes are used.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Open the Register Person wizard and navigate to the second step.
+# Open any combo box, such as Preferred Communication.
+# Use the arrow keys on the keyboard to navigate through the available options.
+# Issue: The focus state of the combo box options does not have sufficient contrast with the adjacent colors, making the selection hard to distinguish.
+
+*Resolution:*
+The focus and hover states for combo box options are updated to meet accessibility standards for non-text contrast. When a user navigates through options using a mouse, the highlighted option is now clearly shaded. When using a keyboard, the option with focus is indicated by a clear blue outline.
+"
+SPM-145686,DT037344,Deletion of Names evidence of type 'Registered' is cancelling the AlternateName record and causing an unhandled server exception on the person context panel,CEF,Dynamic Evidence,Dynamic Evidence,,"*Issue Description:*
+Deleting Names evidence of type 'Registered' is cancelling the associated AlternateName record, resulting in an unhandled server exception on the person context panel.
+*User Interface Impact:* No
+*Prerequisites:*
+# Log in as a system administrator.
+# Click Property Administration under Application Data in the shortcuts panel.
+# Search for the property ?curam.pec.enabled?.
+# Use the row-level action to update the property?s value to YES.
+# Publish the change using the page-level action.
+
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Evidence navigation bar tab and select Dashboard.
+# Use the page-level action to apply changes.
+# From the Active evidence list page, click the Names evidence.
+# Provide an effective-dated change and apply changes.
+# Add a new Names evidence, select the case participant from the list, enter a new name, set the type to ?Preferred? and save.
+# Apply Changes.
+# Now, delete the first record in the original Names evidence succession.
+# Apply changes.
+# Issue: On refreshing the person context panel, an unhandled server exception is thrown.
+
+*Resolution:*
+The logic governing the removal of Names evidence has been updated to prevent the deletion of a registered name. Now, when a user attempts to delete a registered name, the following validation message is displayed: ?You cannot delete a registered name.? This makes the behavior of Participant Evidence Management (PEM) and Participant Data Case (PDC) consistent.
+"
+SPM-145716,DT037349,Initial focus should be set on important information when the user navigates to a page in the IEG modal,Accessibility,Intelligent Evidence Gathering,,,"*Issue Description:*
+When an Intelligent Evidence Gathering modal dialog opens, the initial focus is incorrectly set to the first interactive element at the bottom of the form. This causes screen reader and keyboard-only users to miss important instructional text and links at the top of the page. This issue occurs across multiple Intelligent Evidence Gathering pages where critical information appears above the form fields.
+*User Interface Impact:* Yes 
+*Steps to Reproduce:*
+# Log in as an Insurance Affordability caseworker.
+# Register a person.
+# Open the Actions menu and click New Application.
+# Observe where the focus is placed when the modal dialog opens.
+# Issue: The modal dialog sets the focus directly on a checkbox at the bottom of the content instead of the instructional text at the top.
+
+*Resolution:*
+The focus management logic for Intelligent Evidence Gathering modals is updated to follow an improved accessibility priority order. When a modal opens, focus now moves first to the error summary if one is present. If there are no errors, the focus moves to the first instructional text block to ensure users are aware of important information before they interact with the form. If no instructional text exists on the page, the focus moves to the first interactive element. If no interactive elements are available, the focus falls back to the Print link. This ensures that important content is announced in the proper reading order.
+"
+SPM-145737,DT037352,"Labels for Tab, Page and List Action menus lack clarity and are not descriptive",CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+The overflow button on page, and list action menus lack descriptive labels for assistive technologies. The tab actions button uses the HTML 'title' attribute instead of 'aria-label', and some page actions have no accessible name. Consequently, screen readers announce inconsistent or incorrect names, making it difficult for users to identify the purpose of these controls.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a person.
+# Navigate to the Client Contact tab and open the Communications page.
+# Create a new email communication.
+# Using a screen reader, navigate to the Tab Action, Page Action, and List Action menus.
+# Inspect the button element using the browser developer tools.
+# Note that the button uses ?title? instead of ?aria-label? or that page actions may not have an accessible name at all.
+# Issue: The screen reader may announce the controls incorrectly or, in some cases, not announce them at all with a meaningful name.
+
+*Resolution:*
+The user interface components are updated to improve accessibility. Descriptive 'aria-label' attributes are added to the tab, page, and list action menus, and unnecessary 'title' attributes are removed. These controls now provide consistent and descriptive names for screen reader users.
+"
+SPM-145793,DT037361,Cluster Bar Chart breaks the styling of other rows within the cluster,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+In Work Queue Workspace, when a cluster contains a bar chart along with other child elements such as lists, fields, or additional clusters, the styling of sibling rows following the bar chart is broken. This results in overlaid and misaligned tables for organization object subscribers, which makes the data difficult to read and interact with for users.
+*User Interface Impact:* Yes
+*Steps to Reproduce:*
+# Log in as an administrator.
+# Create a new task and assign it to the supervisor work queue.
+# Log in as a supervisor.
+# Subscribe to a work queue with multiple tasks.
+# Navigate to the work queue workspace.
+# Observe the tables for organization object subscribers.
+# Issue: Rows following a bar chart within a cluster were misaligned and overlaid.
+
+*Resolution:*
+The bar chart rendering logic has been updated to ensure all HTML tags are properly closed. As a result, sibling rows after the bar chart are now displayed correctly to the user, with proper alignment and no overlay. 
+"
+SPM-145849,DT037364,Payment Correction Case netting against incorrect Payment Correction Case,ENT,Financial Management,Financials,,"*Issue Description:*
+When generating financials for two or more payment correction cases via batch, an underpayment on one case can sometimes be offset against an overpayment on another, even though an overpayment also exists on the same case as the underpayment. This only happens occasionally due to the non-deterministic behavior of the processing. In this instance, the underpayment should be offset against the overpayment on the same payment correction case.
+*User Interface Impact:* No 
+*Steps to Reproduce (Generic):*
+# Log in as a caseworker.
+# Register a person.
+# Create an integrated case for the person.
+# Add evidence to make the person eligible for two components.
+# Activate the evidence.
+# Add an associated product delivery to the integrated case.
+# Add certification to the product delivery.
+# Submit, approve and activate the product delivery.
+# Click the Financials tab and issue a payment using the page-level action.
+# Modify evidence to ensure one of the components is overpaid.
+# Activate the evidence.## A Payment Correction - Overpayment case is created.
+
+# Modify evidence to ensure that one of the components is overpaid and the other is underpaid, with the underpayment amount being smaller than the overpayment amount.
+# Activate the evidence.## A Payment Correction - Overpayment case is created.
+
+# Submit, approve, and activate both payment correction cases.
+# Log in as a system administrator.
+# Queue the GenerateInstructionLineItems and GenerateInstruments batch processes.
+# Run the batch processes.
+# Issue: On occasion, the underpayment is offset against the overpayment on the other payment correction case. It should be offset against the overpayment on the same payment correction case.
+
+*Resolution:*
+This behavior was due to non-deterministic code being executed as part of the GenerateInstruments batch process. This process now ensures that overpayments and underpayments on a payment correction case are offset against each other before any allocation is made against a component on a separate payment correction case. 
+"
+SPM-146041,DT037383,HCR display rules use the wrong period in the Streamlined Medicaid financial unit subscreen,SOL,Income Support HCR,,,"*Issue Description:*
+When processing Medicaid financial units, the incomeCounted display rule did not update correctly when income changes occurred across different periods. Specifically, after a change of circumstance where a household member's income increased above the threshold, the system continued to display incomeCounted = No for that member instead of updating to Yes.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Create an application from 1/1/2025 with three family members: Aunt (primary applicant), Mum, and Child.
+# Set up family relationships:## Aunt is a sibling of Mum.
+## Mum is the parent of Child.
+## Aunt is aunt to Child.
+
+# Set up tax relationships:## Aunt is a tax filer.
+## Mum and Child are tax dependents of Aunt.
+
+# Add initial income evidence:## Aunt: $8,000 per year.
+## Mum: $4,000 per year.
+
+# Authorize the application. Navigate to the Streamlined Medicaid product delivery case and validate the initial ?Income Counted? status for Aunt?s financial unit.## Aunt has ?Income Counted? as Yes, Mum and Child as No.
+
+# Edit Mum?s income to be $8,000 per year starting from 04/01/2025.
+# Activate the evidence and validate the updated ?Income Counted? status for Aunt?s financial unit.
+# Issue: After the change of circumstances, Mum?s income increased above the threshold, but the system continued to display No instead of updating to Yes.
+
+*Resolution:*
+The timeline display for financial unit subscreens has been corrected. Previously, splits introduced by sub-page rules were collapsed due to the <removeduplicates> tag in incomeCountedSplitTimelineForFinancialUnitSubscreens. This tag has now been removed to ensure income-counted changes are displayed correctly when mid-period updates occur. 
+This change has been made in the HCR/EJBServer/components/HCR/CREOLE&#95;Rule&#95;Sets/StreamlineMedicaid/ProductDisplay/StreamlineMedicaidFinancialUnits.xml. "
+SPM-146270,,Update the version of the dom4j JAR file to the latest version,Third Party Updates,,,,"Dom4j is an open-source XML framework for Java. dom4j allows you to read, write, navigate, create, and modify XML documents. dom4j integrates with DOM and SAX and has full XPath support. It is used in Cúram in some of the client components and in many areas of the application where the requirement is to parse XML documents. 
+The version of the dom4j library has now been upgraded from 2.1.4 to 2.1.5. This update includes defect fixes and minor enhancements. As part of this upgrade, the following changes have been made to the Cúram deliverable:
+* CuramSDEJ/lib/third&#95;party&#95;version.properties  - Updated to reflect dom4j JAR file version change.
+* CuramCDEJ/lib/ext/jar/dom4j-2.1.5.jar  - Updated to version 2.1.5.
+* CuramSDEJ/lib/dom4j-2.1.5.jar  - Updated to version 2.1.5.
+
+It is recommended that you review and update any custom scripts and other artifacts that reference dom4j to ensure they point to the updated version of the JAR file.
+"
+SPM-146272,,Update the Jsoup JAR file to the latest version,Third Party Updates,,,,"Jsoup is an open-source Java library that is used to work with HTML. It provides an API for fetching URLs and extracting and manipulating data by using HTML5 DOM methods and CSS selectors. 
+The version of the Jsoup JAR used by Cúram has now been updated from 1.21.1 to 1.22.1. This new JAR file includes minor bug fixes and enhancements. 
+As part of this upgrade, the following changes have been made in the Java Development Environment deliverable:
+* CuramSDEJlibthird&#95;party&#95;version.properties - Updated to reflect the Jsoup version change.
+* CuramSDEJlibjsoup-1.22.1.jar - Added to the SDEJ deliverable.
+* CuramCDEJlibextjarjsoup-1.22.1.jar - Updated to version 1.22.1.
+
+Update any custom scripts or other artifacts that reference Jsoup to ensure they point to the updated version of the JAR file.
+"
+SPM-146456,,Upgrade the supported version of Rational Software Architect Designer to 10.0,Third Party Updates,,,,"Rational Software Architect Designer (RSAD) is the supported modeling environment for the Cúram product. 
+The supported version of RSAD has been updated to version 10.0. This version provides support for the Windows 11 platform and IBM Semeru Runtime Open Edition, Version 17.0.12.0."
+SPM-146940,,Session fixation risk due to reuse of JSESSIONID in multiple requests,Product Documentation,,,,"*Issue Description:*
+Cúram provides in-depth customer guidance on configuring security with WebSphere application servers. The details in the Cúram Deployment Guide for WebSphere Application Server did not fully explain some aspects of session management.
+*User Interface Impact:* No
+*Steps to Reproduce:* N/A
+*Resolution:*
+The details on how to configure the application server with security hardening measures have been updated in the Cúram Deployment Guide for WebSphere Application Server. "
+SPM-147314,,"Verification proof should not be shared with the target case when the data item being verified (for example, amount) does not match between the source and target cases",CEF,Verification,,,"*Issue Description:*
+Verification proof is incorrectly shared to a target case when the data item being verified does not match between the source and target cases. For example, if an amount of $100 is verified on a source case, but the corresponding evidence on the target case has been updated to $200, the verification proof is still shared and incorrectly verifies the target evidence.
+*User Interface Impact:* No
+*Prerequisites:*
+# Log in as an administrator. 
+# Configure Earnings evidence sharing from a source Integrated Case to a target Integrated Case with Share Verification set to Yes and Trusted Source set to Yes.
+# Configure a verification requirement for Earnings evidence for the data item: amount, with a verification item (for example, Birth Certificate) applied to both the source and target Integrated Cases respectively.
+
+*Steps to Reproduce:*
+# Log in as a caseworker. 
+# Register a person and create the source Integrated Case.
+# Navigate to the person home page, create the target Integrated Case.
+# Navigate to the source Integrated Case and add Earnings evidence with an amount of $100. The Earnings evidence is In Edit with an outstanding verification.
+# Activate the Earnings evidence.
+# Navigate to the target Integrated Case. Verify that the Earnings evidence is shared as In-Edit evidence with an outstanding verification.
+# On the target Integrated Case, select the Continue Editing link for the Earnings evidence and update the amount from $100 to $200. Save the change. An outstanding verification is created for the updated Earnings record of $200.
+# Navigate to the source Integrated Case. 
+# Go to the Verification tab and add proof to the Earnings evidence. The verification on the source Integrated Case is set to verified.
+# Navigate to the target Integrated Case and go to the Verification tab.
+# Issue: The verification proof added to the source Integrated Case is shared to the target Integrated Case and incorrectly verifies the outstanding verification, even though the data item value (amount of $100) being verified on the source Integrated Case does not match the data item value (amount of $200) on the target Integrated Case.
+
+*Resolution:*
+The system now compares the data item values between the source and target cases for all evidence records before sharing verification proof. Verification proof is now only shared to the target case when the data item values match between the source and target cases. This comparison is now performed regardless of the number of evidence records that exist, ensuring that verification proof is not incorrectly shared when data item values differ.
+"
+SPM-148150,DT037418,An Application Error occurs for a user's location Tree View,CEF,Administration Suite,,,"*Issue Description:*
+When an administrator accesses the Tree View tab for a user's location from the user?s homepage, an application error is displayed. This prevents administrators from viewing the location structure as they expect.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as an administrator.
+# Navigate to the user?s home page.
+# Click the location link on the Home tab to access the user location.
+# Navigate to the Tree View tab.
+# Issue: The administrator sees the following error: ?An Application Error Has Occurred.?
+
+*Resolution:*
+The Tree View page now loads without errors and displays the location structure as expected. "
+SPM-148204,DT037424,Reversal of a write-off is incorrectly reported in the Case Transaction Log as the reversal of a payment received,CEF,Financial Management,,,"*Issue Description:*
+The reversal of a write-off is incorrectly reported in the Case Transaction Log as the reversal of a payment received.
+*User Interface Impact:* No 
+*Steps to Reproduce (Generic):*
+# Log in as a caseworker.
+# Register a new Person.
+# Create an integrated case for the person.
+# Add the necessary evidence to make the client eligible.
+# Create a product delivery associated with the integrated case.
+# Add certification, if required.
+# Submit, approve, and activate the product delivery.
+# Click the Financials tab and issue the payment.
+# Modify the evidence on the integrated case so that an overpayment will be generated.
+# Activate the evidence.
+# Click the Financials tab and select OverUnder Payments.
+# Click the hyperlink to the Payment Correction (Overpayment) case.
+# If the overpayment is not active, submit, approve and activate the case.
+# Click the Financial tab and issue the liability.
+# Drill into the financial details on the liability.
+# From the row-level menu of the liability instruction line item, select the Write-off action.
+# Specify an amount and click Save.
+# From the Financials list page, a Liability Write-off should be visible.
+# Use the Reverse row-level action to reverse the write-off.
+# Click the Home page tab and examine the entries in the Case Transaction Log.
+# Issue: The write-off reversal is logged as a payment received reversal in the Case Transaction Log. This is confusing to a caseworker, as it was a write-off reversal, not a payment received reversal.
+
+*Resolution:*
+This issue has been addressed, and the Case Transaction Log now correctly reports that a write-off was reversed. 
+*Technical:*
+The following message entry was added to the BPOCaseEvents.xml:
+* WRITEOFF_REVERSED
+
+The following codetable entry was added to CT_CaseTransactionLogEventCode.ctx:
+* WRITEOFF_REVERSAL
+
+"
+SPM-148320,DT037066,Related checkbox fields in a cluster are not programmatically grouped,CEF,Dynamic Evidence,Editor,,"*Issue Description:*
+In Dynamic Evidence, related checkbox groups are not programmatically linked in the HTML. This affects evidence types such as Application Filer Consent, Demographics, Enrolled Plan, and Member Relationship. Consequently, screen readers do not announce the relationship between these checkboxes, making it difficult for users of assistive technology to understand that they represent a single set of options.
+*User Interface Impact:* Yes
+*Steps to Reproduce:*
+# Log in as an Insurance Affordability caseworker.
+# Create an Insurance Affordability case.
+# Click the Evidence tab.
+# Create new evidence for Application Filer Consent, Demographics, Enrolled Plan, and Member Relationship.
+# Issue: Related checkbox fields that appear as a group are not programmatically grouped, so assistive technologies do not identify them as a single set of options.
+
+*Resolution:*
+Dynamic Evidence now programmatically groups related checkbox fields that are presented as a single set of options. This allows assistive technologies, such as screen readers, to identify and announce the relationship between grouped checkboxes, which improves accessibility and usability for users who rely on assistive technology. 
+This update changes the layout on some Dynamic Evidence pages, where checkbox fields are visually grouped. As a result, field order and spacing can change on the following pages:
+* Demographics: spacing between fields changes.
+* New Member Relationship: the order of fields changes.
+* Application Filer Consent: the order of fields changes. 
+
+*Technical:*
+Dynamic Evidence metadata now supports a 'StandardContainer' element to group boolean fields. On create and modify Dynamic UIM pages, this generates a 'CONTAINER' element with 'FULL_ROW=true', rendering a fieldset and legend. On view pages, the container is flattened to display standard field values. With the release of Cúram 8.2.2.0, a new version of the Editor Applications (version 2.1) has been introduced to allow authors to apply these grouped containers to customized evidence types.
+"
+SPM-148369,,Updates to the versions of MS Word supported for the Microsoft Word Integration feature,Third Party Updates,,,,"The following changes have been made to the Microsoft Word version support for the Microsoft Word Integration feature in Cúram.
+* Support for Microsoft Word 2024 and future maintenance updates has been added.
+
+This means that the Microsoft Word versions supported for SPM 8.2.2.0 are as follows:
+* 2021 and future maintenance updates.
+* 2024 and future maintenance updates.
+* Microsoft Word for Microsoft 365 (included in Microsoft 365 Apps for enterprise) current channel and future updates.
+
+"
+SPM-148486,,Update Xalan-Java to the latest version,Third Party Updates,,,,"Xalan-Java (which contains both the Xalan and Serializer JAR files) is an XSLT processor for transforming XML documents into HTML, text, or other XML document types.
+The library is used across many different Cúram builds to transform XML documents into other formats required by Cúram.
+The version of the Xalan and serializer libraries has now been updated from 2.7.3-1 to 2.7.3-2. The new version contains a defect fix for XML parsing issues. As a result of this upgrade, the following changes have been made to the Cúram deliverable:
+* TI/lib/release/third&#95;party&#95;version.properties - the versions of the Xalan and serializer JAR files have been updated.
+* CuramCDEJlibextjarxalan-2.7.3-2.jar - the version of the JAR file has been updated.
+* CuramCDEJlibextjarserializer-2.7.3-2.jar - the version of the JAR file has been updated.
+* CuramSDEJlibxalan-2.7.3-2.jar - the version of the JAR file has been updated.
+* CuramSDEJlibserializer-2.7.3-2.jar - the version of the JAR file has been updated.
+* CuramSDEJxmlserverxalan-2.7.3-2.jar - the version of the JAR file has been updated.
+* CuramSDEJxmlserverserializer-2.7.3-2.jar - the version of the JAR file has been updated.
+
+It is recommended that you update any references in custom scripts and other artifacts to point to the new version of the JAR files mentioned above. "
+SPM-148647,,"Remove the JDOM-related classes, deprecated as a result of the replacement of JDOM by dom4j, from the Cúram deliverable",Code Removal,,,,"Code artifacts that were deprecated in Cúram 8.0.2.0 following the replacement of the JDOM library with the dom4j library have now been removed. References to these artifacts have also been removed from the SPM documentation.
+The following Java classes have been removed from the Cúram deliverable:
+* curam.advisor.impl.JDOMAdvice2XMLBuilder
+* curam.advisor.impl.JDOMAdviceContext2XMLBuilder.java
+
+* curam.intake.bom.impl.JDOMIntakeProcessConfiguration
+* curam.intake.bom.impl.JDOMIntakeProcessConfigurationImpl
+* curam.intake.internal.impl.XmlTools
+* curam.intakelifeevent.util.impl.XmlTools
+* curam.intaketriage.util.impl.XmlTools 
+
+Update any custom code or extensions that reference these classes, as they are no longer available."
+SPM-148659,,Remove deprecated Citizen Context Viewer Link APIs,Code Removal,,,,"Code artifacts associated with the Citizen Context Viewer (CCV) Link that were deprecated in Cúram 8.1.0.0 have been removed. References to these artifacts have also been removed from the Cúram documentation. 
+The following elements have been removed from the Cúram deliverable:
+* curam.cefwidgets.docbuilder.impl.LinkBuilder.createCCVLink()
+* curam.cefwidgets.docbuilder.impl.ImagePanelBuilder.addCCVLink()
+* curam.cefwidgets.docbuilder.impl.ImagePanelBuilder.setUpCCVLink()
+* ImagePanelBuilder.xml (message: INF&#95;CCV_VIEWER) 
+
+Update any custom code or extensions that reference these classes, as they are no longer available. "
+SPM-148663,,External Party Search - External Party Name fails to display as expected,SOL,Youth Services,,,"*Issue Description:*
+When attempting to create a new Legal Action of type Disposition Order and Offense Petition, the user is unable to specify the Court Location and Judge. The selected Court Location from the drop-down field does not persist, and the assigned Judge intermittently fails to appear. 
+*User Interface Impact:* Yes
+*Prerequisites:*
+# Log in as a caseworker.
+# Click External Party under Registration in the shortcuts panel.
+# Click Next on the Search External Party page.
+# Enter ?MyExternalParty? in the External Party Name field, select ?Legal Authority? for the Type field, and enter an address and phone number.
+# Click Save.
+# On the MyExternalParty tab, navigate to the Offices tab.
+# Click New Office Member from the actions menu.
+# Enter ?Court? in the Name field, select ?Court? for the Type field, enter an address, and click Save. 
+# On the Office page, from the row-level action, click ?New office Member?.
+# Enter Name as ?Judge Judy?, select Administrator for Profile field, and click Save.
+
+*Steps to Reproduce:*
+# Log in as a youth service case supervisor.
+# Register a person and create an youth integrated case.
+# In the case, navigate to Legal and select the Legal Actions page.
+# Click New Legal Action.
+# Select Legal Action Type: ?Petition? and Legal Category: ?Offense Petition?. 
+# Click Next.
+# On the New Petition page, click the Court Location field search.
+# On the External Party Office Search page, enter ?MyExternalParty? in the External Party name field and click search.
+# Issue: User is unable to select the Court Location. 
+
+*Resolution:*
+Youth service case supervisor can now capture Court Location and Judge details successfully while creating a Legal Action. "
+SPM-148665,,Verification misspelled in system property,SOL,Common Intake,,,"*Issue Description:*
+The system property ?curam.commonintake.application.authorization.mandatory.verfication.validation.enabled? contains a spelling mistake in the word verification. This makes searching for the property in the system administration application difficult for the system administrator
+*User Interface Impact:* No
+*Resolution:*
+Updated the system property name from ?curam.commonintake.application.authorization.mandatory.verfication.validation.enabled? to ?curam.commonintake.application.authorization.mandatory.verification.validation.enabled? to address the spelling mistake. 
+*Technical:*
+The property will be updated as part of the database upgrade step, insertproperties. "
+SPM-148688,,Remove deprecated superseded APIs and UIMs for multi-locale work from the Cúram deliverable,Code Removal,,,,"The code artifacts associated with superseded APIs and UIMs for multi-locale support that were deprecated in Cúram 8.1.0.0 have been removed. References to these artifacts have also been removed from the Cúram documentation.
+The following API methods have been removed and replaced: 
+../EJBServercomponentscoresourcecuramcoreimplLocation.java
+* countLocationsByNameAndStatus(LocationNameStructRef) replaced by countLocationsByNameAndStatus1(LocationNameLocaleAndStatusKey)
+* readLocationByName(LocationNameStructRef) replaced by readLocationByName1(LocationNameLocaleAndStatusKey)
+* readLocationName(LocationKey) replaced by readLocationName1(LocationKey)
+
+../EJBServercomponentscoresourcecuramcoreslentityimplOrganisationUnit.java
+* readOrgUnitID(OrganisationUnitName) replaced by readOrgUnitIDByNameAndLocale(OrgUnitNameAndLocaleKey)
+
+../EJBServercomponentscoresourcecuramcoreslentityimplSlot.java
+* readByNameAndScheduleID(SlotNameAndScheduleKey) replaced by readByNameScheduleIDAndLocale(SlotNameScheduleAndLocaleKey)
+
+../EJBServercomponentscoresourcecuramcoreslentityimplWorkQueue.java
+* searchByName(WorkQueueNameDetails) replaced by searchByNameAndLocale(SearchWorkQueueNameKey)
+* searchByExactMatchName(WorkQueueNameDetails) replaced by searchByExactMatchNameAndLocale(SearchWorkQueueNameKey)
+
+../EJBServercomponentscoresourcecuramworkspaceservicesfacadeimplLocalizableText.java
+* addTextTranslation(TextTranslationDetails) replaced by addTextTranslation1(TextTranslationDetails1)
+* modifyTextTranslation(TextTranslationDetails) replaced by modifyTextTranslation1(TextTranslationDetails1)
+* readTextTranslation(TextTranslationKey) replaced by readTextTranslation1(TextTranslationKey)
+* viewLocalizableText(LocalizableTextKey) replaced by viewLocalizableText1(LocalizableTextKey)
+
+The following UIM and VIM files have been removed or replaced: 
+..webclientcomponentscoreLocalizableText
+* LocalizableText&#95;addRichTextTranslation.uim replaced by LocalizableText&#95;addTextTranslation1.uim
+* LocalizableText&#95;modifyRichTextTranslation.uim replaced by LocalizableText&#95;modifyTextTranslation1.uim
+* LocalizableText&#95;modifyTextTranslation.uim replaced by LocalizableText&#95;modifyTextTranslation1.uim
+* LocalizableText&#95;resolveAddTextTranslation.uim
+* LocalizableText&#95;resolveModifyTextTranslation.uim
+* LocalizableText&#95;viewLocalizableTextView.vim replaced by LocalizableText&#95;viewLocalizableTextView1.vim 
+
+Update any custom code, UIMs, or integrations that reference these APIs or files to use the replacement methods and artifacts."
+SPM-148689,,Remove the deprecated curam.sec.sef.application.facade.impl.SocialEnterpriseFolder.modifyNote() function from the Cúram deliverable,Code Removal,,,,"The SocialEnterpriseFolder.modifyNote() facade method, which was deprecated in Cúram 8.1.0.0, has been removed. References to this method have also been removed from the SPM documentation. 
+The following element has been removed from the Cúram deliverable:
+* curam.sec.sef.application.facade.impl.modifyNote() "
+SPM-148744,DT037459,Modern Java - WebLogic administrator remote console throws an error  if the DefaultIdentityAsserter is configured,Third Party Updates,,Administration,,"*Issue Description:*
+In a Modern Java Oracle WebLogic 14.1.2.0 deployment, the local Admin console has been replaced by a Remote Console, which operates via REST requests. 
+HTTP 401 response issues may appear in the console banner if the DefaultAuthenticator is not configured in the Oracle WebLogic application deployment security configuration. 
+*User Interface Impact:* No
+*Resolution:*
+# WebLogic deployment configuration target is updated to ensure DefaultAuthenticator is configured with the control-flag set to SUFFICIENT.
+# The Cúram Deployment Guide for WebLogic Security Setup has been updated to reflect DefaultAuthenticator configuration. "
+SPM-149048,DT037443,Location Tree View Sort Order Issue,CEF,,,,"*Issue Description:*
+In the Cúram Administration Workspace, when an administrator views the Location Structure Tree View under Organization, the parent and child locations are not displayed in alphabetical order. This makes it difficult for users to quickly find and manage locations, as the expected sorting order is not followed.
+*User Interface Impact:* Yes
+*Steps to Reproduce:*
+# Log in as an administrator.
+# Navigate to the Administration Workspace.
+# Select My Organization under the Organization section in the Administration Workspace shortcuts panel.
+# Open the Structures tab and select Location Structures.
+# Click a Location Structure name and open the Tree View.
+# Expand the locations and observe the order of the parent and child locations.
+# Issue: The location tree structure is not sorted in alphabetical order.
+
+*Resolution:*
+The sorting logic was updated to ensure consistent and predictable ordering. The Location Structure Tree View now displays the parent and child locations in alphabetical order. "
+SPM-149051,,Modern Java - REST application deployment fails on WebLogic when RestServerCode is deployed separately in Modern Java builds.,CEF,Application Development Environment,,,"*Issue Description:*
+In Modern Java, when deploying the Cúram REST application separately to WebLogic application servers using the application name ?RestServerCode?, the login fails with a javax.naming.NameNotFoundException. 
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Build the Cúram REST application EAR for separate deployment with the application name ?RestServerCode.?
+# Deploy the REST EAR to the WebLogic Application Server.
+# Start the application server and attempt to log in to the REST application using a browser.
+# Issue: The REST application fails to log in and returns a NameNotFoundException.
+
+*Resolution:*
+The REST application now correctly identifies and uses the deployed application name during startup. The REST application can be deployed separately to WebLogic as ?RestServerCode? for REST-only server configurations and will start successfully. "
+SPM-149112,DT037441,The following validation is thrown when registering a prospect as a person: 'A prospect person cannot have more than one 'Registered' name.',CEF,Business Services,Participant Management,,"*Issue Description:*
+When the Participant Evidence Case (PEC) is enabled, prospect persons with effective-dated changes on their Names evidence cannot be registered as a person. The system incorrectly displays the validation message: 'A prospect person cannot have more than one 'Registered' name,' preventing caseworkers from completing the registration process.
+*User Interface Impact:* No
+*Prerequisites:*
+# Log in as a system administrator.
+# Click Properties underneath Application Data in the shortcuts panel.
+# Search for the property ?curam.pec.enabled?.
+# Use the row-level action to update the property?s value to YES.
+# Publish the changes.
+
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a prospect person. 
+# Edit Names evidence to create an effective-dated change record (for example, update a comment and set the Effective Date of Change to today?s date or a future date).
+# Apply the evidence changes.
+# From the prospect person context, select the Register action to register the prospect person as a person.
+# In the Register Prospect Person as Person wizard, click Next.
+# Enter all mandatory details and click Save.
+# Issue: The system displays the following validation message: ?A prospect person cannot have more than one ?Registered? name.?
+
+*Resolution:*
+It is now possible to register a prospect person as a person when effective-dated changes exist for evidence that changes over time, such as Names evidence.
+"
+SPM-149206,,Update the Accessibility section of the Cúram prerequisites and supported software document,Accessibility,,,,"*Issue Description:*
+The accessibility section of the Cúram prerequisites and supported software for the caseworker application does not clearly define the product's alignment with industry standards versus specific assistive technologies. Previously, the documentation listed specific screen reader and browser combinations, such as JAWS 2025 with Microsoft Edge, as the only certified options. This caused confusion regarding whether the product supports the underlying accessibility standards or only the specific tools used during internal validation.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Navigate to the Accessibility section of the Cúram prerequisites and supported software.
+# Review the supported software table.
+# Issue: The documentation specifies screen reader and browser combinations as the only certified ones.
+
+*Resolution:*
+The accessibility prerequisites are updated to clarify that Cúram aligns with recognized accessibility standards, including Web Content Accessibility Guidelines (WCAG), Section 508, and EN 301 549. This alignment is independent of specific assistive technologies, browsers, or devices. Assistive technologies that comply with these same standards are expected to interoperate with Cúram. 
+The list of assistive technologies has been updated to reflect key tools used during accessibility validation to verify conformance. Non Visual Desktop Access (NVDA) is now used for validation with Microsoft Edge, replacing JAWS as the primary validation tool. "
+SPM-149351,,Update the Cúram supported Software Prerequisites to use more meaningful vendor terminology,Third Party Updates,,,,"The Cúram software prerequisites document outlines the supported operating systems, prerequisites, and the supported software for the Cúram product. 
+The terminology used to describe support for future patches, fixes, and minor versions has been updated. Previously, a generic term such as ?and future fix packs? was used across multiple software items. This has now been replaced with vendor-appropriate terminology to more accurately reflect how each software provider defines updates. 
+Examples of this change include the following:
+# Oracle Database 19c - Updated from ?and future Release Updates (RU)? to ?and future Release Updates (RU), release updates revision (Revision) and increments.?
+# Google Chrome - Updated from ?and future fix packs? to ?and future minor versions, builds and patches?.
+
+This change in the terminology does not affect the level of support. Support for future patches, fixes and minor versions remains unchanged. "
+SPM-149364,DT037444,Names evidence updates are not always reflected on the person context panel,CEF,Business Services,Participant Management,,"*Issue Description:*
+When a caseworker updates the Names evidence for a person, the person context panel does not always display the updated name. This issue occurs when the Names evidence is modified with or without an effective date of change, resulting in the context panel not reflecting the latest information. This problem can lead to confusion for caseworkers, as the displayed name may not reflect the most recent evidence updates.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Register a person with a date of birth of November 1, 2020.
+# Edit the Names evidence, add an effective date of change in the past (November 1, 2021), and modify the last name.
+# Edit the Names evidence again, remove the effective date of change, and modify the last name.## The name in the context panel is not updated.
+
+# Edit the Names evidence again and change the last name.## The context panel is not updated.
+
+# Issue: The context panel does not display the updated name after modifying the Names evidence.
+
+*Resolution:*
+An update has been made to the evidence infrastructure logic to ensure that only one evidence record can exist for a given effective date. In the scenario outlined here, when a caseworker modifies the Names evidence, the system prevents saving a new record with an effective date that matches an existing record in the same succession. If a duplicate effective date is detected, the user is prompted to update the existing record instead. The context panel now reliably displays the most recent name information after evidence updates. 
+*Technical:*
+A new validation, ERR&#95;CONTROLLER&#95;XRV&#95;DUPLICATE&#95;EVIDENCE&#95;ON&#95;EFFECTIVE&#95;DATE, was introduced to prevent multiple active evidence records with the same effective date in a succession.
+"
+SPM-149575,,Update Carbon Design System UI Components from v11.24.0 to v11.97.0,Third Party Updates,,,,"1) Carbon Design System packages are open?source libraries of reusable UI components and styles that ensure consistency, accessibility, and scalability across digital products.
+2) Carbon Design System packages (@carbon/react, @carbon/styles, @carbon/icons, etc.) are consumed primarily to provide foundational UI primitives (layout, typography, icons, themes) and accessibility enhancements to build Cúram application components.
+3) Carbon Design System packages are updated from version 11.24.0 to 11.97.0. This updated deliverable has some minor bug fixes and enhancements. The following files in the deliverable have been updated:
+    3.1) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-activity-view.chunk.js
+    3.2) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-carbon-addons.chunk.js
+    3.3) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-case-overview.chunk.js
+    3.4) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-case-overview-apollo-client.chunk.js
+    3.5) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-ccv.chunk.js
+    3.6) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-charts.chunk.js
+    3.7) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-main.bundle.js
+    3.8) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-vendor.chunk.js
+    3.9) CuramCDEJjscriptSPMUIComponentsspm-uicomponents-vendors~activity-view~ccv.chunk.js
+4) The updates in the deliverable mean the following updates to parts of the UI:
+    4.1) The DropDown component has been refactored (arbitrary text input, case?insensitive matching).
+    4.2) Accessibility updates to various components in the user interface.
+    4.3) Updated styling on UI form control components (icon paths, RTL styling for Carbon 11 compatibility). "
+SPM-150492,,Remove the remaining artifacts associated with the Generic Search Server (GSS) feature,Code Removal,,,,"The Generic Search Server (GSS), which used Lucene for indexing and search functionality, was removed as part of SPM v8.1.0.0. During that process, a number of related classes were identified that had not been previously deprecated and therefore could not be removed at that time. These classes were subsequently deprecated in Cúram 8.1.0.0 and have now been removed. 
+The following model artifacts that have been removed as part of this exercise. 
+../EJBServercomponentscoremodelPackagesInfrastructureIndex Search Synchronization_cat.efx
+* Removed the class IndexConcernRoleSynchronization
+* Removed the class IndexEmployerSynchronization
+* Removed the class IndexTask_waSynchronization
+* Removed the class IndexProductProviderSynchronization
+* Removed the class IndexPaymentInstrumentSynchronization
+* Removed the class IndexPaymentInstructionSynchronization
+* Removed the class IndexLiabilityInstrumentSynchronization
+* Removed the class IndexLiabilityInstructionSynchronization
+* Removed the class IndexPaymentReceivedInstrumentSynchronization
+* Removed the class IndexPaymentReceivedInstructionSynchronization
+* Removed the class IndexPersonSynchronization
+* Removed the class IndexAddressSynchronization
+* Removed the class SynchronizeEvents
+* Removed the class SynchronizeEventsDetails
+* Removed the class EventKey
+* Removed the class IndexIssueDeliverySynchronization
+* Removed the class IndexScreeningSynchronization
+* Removed the class IndexAssessmentDeliverySynchronization
+* Removed the class IndexAlternateNameSynchronization
+* Removed the class IndexConcernRoleDuplicateSynchronization
+* Removed the class IndexInvestigationDeliverySynchronization
+* Removed the class IndexAllegationRoleSynchronization
+* Removed the class IndexResolutionSynchronization
+* Removed the class IndexEducationalInstituteSynchronization
+* Removed the class IndexedSearchConstant
+
+The following java classes have been completely removed: 
+* ..EJBServercomponentscoresourcecuramcoreimplIndexAddressSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexAllegationRoleSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexAllegationSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexAlternateNameSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexAssessmentDeliverySynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexCaseHeaderSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexConcernRoleDuplicateSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexConcernRoleSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexEducationalInstituteSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexEmployerSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexInvestigationDeliverySynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexIssueDeliverySynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexLiabilityInstructionSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexLiabilityInstrumentSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexPaymentInstructionSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexPaymentInstrumentSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexPaymentReceivedInstructionSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexPaymentReceivedInstrumentSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexPersonSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexProductProviderSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexResolutionSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexScreeningSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplIndexTask_waSynchronization.java
+* ..EJBServercomponentscoresourcecuramcoreimplSynchronizeEvents.java
+* ..EJBServercomponentscoresourcecuramcoreslinfrastructureimplIndexSearchConst.java
+* ..EJBServercomponentsCFSSCommonsourcecuramcfsscommonimplIndexedSearchConstant.java 
+
+The following file has been renamed: 
+IndexServicePlanDeliverySynchronization.java has been renamed to ServicePlanDeliveryEventPublisher.java
+* ..EJBServercomponentsServicePlanssourcecuramserviceplansslentityimplIndexServicePlanDeliverySynchronization.java 
+
+Update any custom code or integrations that reference these classes or artifacts, as they are no longer available or have been renamed."
+SPM-151034,,Java 8 - Update libraries in the BIRT Viewer runtime,Third Party Updates,,,,"Please note, the following information refers only to the version of BIRT used in the Java 8 version of the Cúram platform. 
+The Cúram BIRT Viewer is the BIRT Engine infrastructure component that executes BIRT charts and reports. This component wraps the open-source BIRT Engine and is a Java Platform, Enterprise Edition application. 
+The following BIRT-related JAR files have been updated to address minor defects:
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.batik.bridge_1.7.0.v201011041433.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.batik.bridge_1.7.0.v201011041433-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.batik.transcoder_1.7.0.v201011041433.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.batik.transcoder_1.7.0.v201011041433-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.poi_3.9.0.v201405241750.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.poi_5.4.1.v20250715-1000.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.core.runtime_3.14.0.v20180417-0825.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.core.runtime_3.14.0.v20180417-0825-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.core_4.8.0.v201806261756.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.core_4.8.0.v201806261756-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.chart.engine_4.8.0.v201806261756.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.chart.engine_4.8.0.v201806261756-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.report.engine_4.8.0.v201806261756.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.report.engine_4.8.0.v201806261756-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.report.model_4.8.0.v201806261756.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.report.model_4.8.0.v201806261756-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.ibm.db2.luw_1.2.1.201712071719.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.ibm.db2.luw_1.2.1.201712071719-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.emf.ecore_2.14.0.v20180529-1144.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.emf.ecore_2.14.0.v20180529-1144-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFliborg.eclipse.emf.ecore_2.14.0.v20180529-1144.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INForg.eclipse.emf.ecore_2.14.0.v20180529-1144-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.help_3.8.100.v20180512-1136.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.help_3.8.100.v20180512-1136-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.core.resources_3.13.0.v20180512-1138.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.core.resources_3.13.0.v20180512-1138-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.connectivity_1.14.1.201712071719.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.connectivity_1.14.1.201712071719-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.oda.ws_1.4.1.201712071719.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.oda.ws_1.4.1.201712071719-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.sqltools.result_1.3.1.201712071719.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.sqltools.result_1.3.1.201712071719-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.data.oda.pojo_4.8.0.v201806261756.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.data.oda.pojo_4.8.0.v201806261756-1.jar has been added.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.xerces_2.9.0.v201101211617.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.xerces_2.12.2.v20230928-1306.jar has been added.
+
+The following JAR files have been removed as a result of the removal of the Eclipse provisioning p2 JARs that are not required for the Cúram BIRT runtime operation:
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.artifact.repository_1.2.0.v20180413-0846.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.core_2.5.0.v20180512-1128.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.director_2.4.0.v20180302-1057.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.directorywatcher_1.2.0.v20180130-1836.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.engine_2.6.0.v20180409-1209.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.extensionlocation_1.3.0.v20180103-0918.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.garbagecollector_1.1.0.v20180103-0918.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.jarprocessor_1.1.0.v20180512-1128.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.metadata.repository_1.3.0.v20180302-1057.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.metadata_2.4.0.v20180320-1220.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.publisher.eclipse_1.3.0.v20180320-1332.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.publisher_1.5.0.v20180320-1332.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.reconciler.dropins_1.2.0.v20180302-1057.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.repository_2.4.0.v20180512-1128.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.equinox.p2.touchpoint.eclipse_2.2.0.v20180302-1057.jar has been removed.
+
+It is recommended that you update or remove any references in custom scripts and other artifacts to the JAR files that are specified above.
+"
+SPM-151068,,Update to the latest version of the Rampart Axis2 security library - esapi,Third Party Updates,,,,"Cúram web services are based on Apache Axis2. With the Rampart security module of Axis2, SPM web services can be secured for authentication, integrity (signature), confidentiality (encryption or decryption), and non-repudiation (timestamp). 
+The version of one of the JAR files in Rampart has been updated. As a result of this update, the following changes have been made to the JDE Axis2 deliverable:
+* CuramSDEJlibaxis2esapi-2.7.0.0.jar - version updated from 2.6.0.0 to 2.7.0.0. 
+
+Note that any references in custom scripts and other artifacts to the updated JAR file listed above must be updated.
+"
+SPM-151186,,Update the version of the Db2 driver shipped with the Cúram deliverable,Third Party Updates,,,,"The version of Db2 Driver used by Cúram has now been updated from 4.34.30 (taken from Db2 Version 12.1.0.0) to 4.36.6 (taken from Db2 Version 12.1.3.0). 
+The new version contains some defect fixes and minor enhancements. 
+As a result of this upgrade, the version of the db2jcc4 JAR and sqlj4 zip has been updated in the following files in the Cúram deliverable:
+* CuramSDEJ/drivers/db2/db2jcc4.jar
+* CuramSDEJ/drivers/db2/sqlj4.zip
+* CuramSDEJ/drivers/DRIVERS_README.txt
+
+It is recommended that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+"
+SPM-151244,,Java 8 - Update the Axis 2 axis2-transport-http JAR file to a later version,Third Party Updates,,,,"Please note, the following information refers only to the version of Axis2 used in the Java 8 version of the Cúram platform. 
+The axis2-transport-http JAR file provides Axis2?s HTTP(S) transport implementation ? the sender and receiver components used to deliver and accept SOAP/REST messages over HTTP/HTTPS. It plugs into Axis2?s transport framework (configured via axis2.xml) and handles connection management, headers, streaming/chunked transfers, and transport-level features, enabling services to be invoked over the web. 
+The version of the axis2-transport-http JAR file shipped with the Cúram Axis2 deliverable has been updated from 1.6.2 to 1.6.2-1. This new version contains some minor defect fixes. 
+As a result of this upgrade, the following changes have been made in the JDE deliverable.
+* CuramSDEJlibaxis2axis2-transport-http-1.6.2-1.jar - version of the JAR updated.
+
+Update any references in custom scripts and other artifacts to point to the new version of the JAR file specified above.
+"
+SPM-151387,,"Modern Java - Update org.apache.derby JAR on Cúram ",Third Party Updates,,,,"Please note, the following information refers only to the version of BIRT used in the Modern Java version of the Cúram platform. 
+The Cúram BIRT Viewer is the BIRT Engine infrastructure component that executes BIRT charts and reports. This component wraps the open-source BIRT Engine and is a Java Platform, Enterprise Edition application. 
+The following BIRT-related JAR file has been updated  to address minor defects:
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.derby_10.16.1.v20240802-0900.jar has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.derby_10.16.1.v20240802-0900-1.jar has been added.
+
+It is recommended that you update or remove any references in custom scripts and other artifacts to the JAR file that is specified above.
+"
+SPM-151644,DT037475,Issue with holiday (non-payment date) calendar,ENT,Financial Management,Financials,,"*Issue Description:*
+The financial calendar contains exclusion dates representing days on which the organization is closed for business. Payments may be due on these dates; however, the organization may not be in operation, in which case the batch jobs may not be run. In a simple scenario, where no offset exists on the delivery pattern used for a payment, if the financial batch jobs are run on the day before the exclusion date, the payments due on the exclusion date (the following day) will be processed. 
+If an offset does exist on the delivery pattern, then the financial processing fails to account for the exclusion date correctly. To overcome this shortcoming, a customer may have customized the application to set the Next Processing Date on a financial component so that it takes account of the exclusion date; in essence, it adds it to the offset. Two issues can arise in this instance. If an organization does not add an exclusion date to the calendar in a timely manner, or if ad hoc days are added during the year, then ideally the financial components need to be regenerated. 
+When reassessing cases and generating financials, the Next Processing Date is not included in the FCGenerationUtil.isEquals() check for financial components. This means that the system will always see newly generated financial components, on new cases that have not been paid out on, as identical to those in the database, even when the Next Processing Date differs.
+Further rationale for adding the Next Processing Date to the equality check is to account for scenarios where there may have been issues calculating the dynamic offset for a financial component. In these cases, a reassessment is required to recalculate the Next Processing Date and write new financial components to the system.
+*User Interface Impact:* No
+*Prerequisites:*
+# A customization needs to be in place to alter the Next Processing Date to be 4 days earlier than it would be, to account for the delivery pattern 3 day offset plus the exclusion date.
+
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a new Person.
+# Create an integrated case for the person.
+# Add the necessary evidence to make the client eligible.
+# Activate the evidence.
+# Add an associated product delivery to the integrated case using the delivery pattern:## Weekly By Check On Monday In Advance (3-day offset)
+
+# Add certification to the product delivery:## 1st March 2026 (Monday) to 22nd April 2026 (Sunday)
+
+# Submit, approve and activate the product delivery.
+# Queue and run the GenerateInstructionLineItems and GenerateInstruments batch jobs for 1st March 2026.## A payment for the week starting Monday, 1st March 2026 should be generated.
+
+# The organization now realizes that it failed to add an exclusion date of 8th March 2026.
+# Issue: Upon adding the exclusion date for 8th March 2026, ideally a forced reassessment of the case, which generates the financial components, would write a new financial component to the system with an updated Next Processing Date. However, this does not happen due to the isEquals() function inside FCGenerationUtil not including the Next Processing Date as part of its comparison criteria.
+
+*Resolution:*
+To facilitate the regeneration of the financial components in the scenario outlined above, the Next Processing Date has been added as part of the comparison criteria in the FCGenerationUtil.isEquals() function. This will enable a customer to use the Reassessing Outstanding Cases batch process to reassess and regenerate the financial components. *Note: *Regeneration of financial components only happens on CREOLE cases. The assessment engine short-circuits on classic cases if it finds that there has been no change in eligibility and entitlement.  
+"
+SPM-151733,,Duplicate relationship evidence added when submitting an Income Support application for a single mother and a child,SOL,Income Support,,,"*Issue Description:*
+When an Income Support caseworker submits an application that registers participants as persons, the system displays multiple relationship evidence records for the same individual. This occurs because a household member is created as a Prospect Person during intake and then registered as a Person in the same application, so separate relationship evidence records appear for each state.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as an Income Support caseworker.
+# Register a new person.
+# From the person?s home page, create a new Income Support application that includes a household member.
+# Submit the application.
+# Navigate to the registered person?s home page and click the Evidence tab.
+# Review the relationship evidence records.
+# Issue:* *Two Relationship evidence records are displayed for the same person?household member relationship.
+
+*Resolution:*
+The Evidence tab on the person?s home page now displays a single Relationship evidence record for the registered household member. When a participant moves from Prospect Person to Person during the application process, the system no longer creates multiple relationship evidence records for the same logical relationship.
+"
+SPM-151757,DT037478,Verification Ruleset error when evidence is in the incoming queue,CEF,Verification,,,"*Issue Description:*
+When conditionally verifiable evidence is shared from a source case to a target case and appears on the incoming evidence list, the application attempts to execute verification rules that are not applicable to evidence with a status of ?Identical Shared In-Edit?. This results in rules errors being logged and, in some cases, a null pointer exception.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as an Insurance Affordability caseworker.
+# Register a person.
+# Click New Application on the person?s home page.
+# Complete the Insurance Affordability application with the following details:## SSN, US Citizen, Not Enrolled on a Health Plan, TaxFiler, No Tax Dependents.
+
+# In the Household Income section, record:## American Indian Alaska Native Income of $10,000 per year.
+## Excluded Income of type Scholarship Income with an excluded amount of $2,000 per year.
+
+# Submit the application.
+# Open the newly created application case and authorize it.
+# On the Related Cases tab, open the integrated case.
+# On the Evidence tab, select Verifications and clear the verifications by providing the necessary proof.
+# Create a new application for the same person, using the same details as before, but change the income to $12,000 per year. Do not change the Scholarship Income.
+# Submit the second application.
+# Evidence is pulled from the integrated case to the application case incoming list.
+# Issue: Rules errors appear in the logs after the evidence is added to the incoming evidence list of the second application. In some cases, a null pointer exception is thrown.
+
+*Resolution:*
+The application now prevents execution of conditional verification rules for evidence with a status of ?Identical Shared In-Edit? when such evidence is added to the incoming evidence list. Defensive checks have been added to ensure that rules are only executed when appropriate, preventing rules errors and null pointer exceptions from being logged. This change ensures that Insurance Affordability caseworkers do not encounter unnecessary error messages when processing evidence for persons with multiple applications. "
+SPM-151971,DT037483,Unclear what to enter in the Reference Number field of the Receive Payment for a Person page,ENT,Financial Management,Financials,,"*Issue Description:*
+The purpose of the Reference Number field on the ?Receive Payment for a Person? modal is unclear to caseworkers. The help text does not adequately explain what the field value represents or how it is used.
+*User Interface Impact:* Yes
+*Steps to Reproduce:*
+# Log in as a financial user.
+# Click the Transactions and Accounts tab.
+# Click the ?Receive Payment for a Person? shortcut.
+# Search for a person and select one from the search results.
+# On the next screen, enter some information and enter a value in the Reference Number field.
+# Issue: The following message is displayed, ?Invalid Reference Number entered. Please modify or remove.? It is not clear to a caseworker what this field is for.
+
+*Resolution:*
+The issue reported has been addressed by changing the field label from Reference Number to Liability Reference Number, as that field represents the liability external reference number. This is the human-readable liability instrument identifier. The help text for the field has also been updated to make it clear to the caseworker precisely what the field value is and how it is used. Finally, the whole purpose of supplying a liability external reference number with a payment received is to allow the payment received to be allocated against the specified liability. If a liability external reference number is supplied, the liabilities list page should be filtered on that liability. Previously, this filtering was not happening. This is now addressed, and only the liability with the supplied liability external reference number is returned. As before, all liabilities are returned if no liability reference number is provided.
+"
+SPM-151989,DT037487,Handling UnsupportedCallbackException in the CuramLoginModule for WebLogic Server with SSO,CEF,Technical Services,Security Management,Infrastructure,"*Issue Description:*
+In a WebLogic SAML Single-Sign-On (SSO) deployment where Cúram is configured to run in identity-only authentication mode, a login failure could occur during user authentication.
+In this configuration, authentication is initiated using SSO and does not include a traditional password. However, when multiple WebLogic authentication providers are configured in the login module stack, a downstream authentication module attempts to perform a password-based authentication callback check. 
+The CuramLoginModule is unable to handle this callback and throws an UnsupportedCallbackException, causing the login process to fail. As a result, users who successfully authenticate with the external Identity Provider are unable to access the Cúram application and are blocked at login despite having valid SSO credentials.
+*User Interface Impact: *No
+*Steps to Reproduce:*
+# Configure a WebLogic Server environment with SAML Single-Sign-On (SSO) enabled using an external Identity Provider.
+# Configure Cúram to run in identity-only authentication mode.
+# Initiate login to the Cúram application using SSO.
+# Issue: After successful authentication at the Identity Provider, Cúram fails to authenticate the user.
+
+*Resolution:*
+The CuramLoginModule has been updated to correctly handle authentication flows within a WebLogic SSO environment. "
+SPM-152239,DT037492,ReassessOutstandingCases batch is very slow due to extremely large number of SELECTs on OverUnderPaymentBreakdown table,CEF,Business Services,Overpayments Management,,"*Issue Description:*
+On extremely long running granular reassessments, where many previous over and underpayments exist, a lot of time is spent executing the same SQL on the OverUnderPaymentBreakdown entity. The API where the entity operations are executed is OverUnderPaymentBreakdownImpl.adjustForPreviousReassessments(final OverUnderPaymentBreakdown currentBreakdown, final long prevNOUPID).
+*User Interface Impact:* No
+*Steps to Reproduce: *N/A
+*Resolution:*
+The entity operations in the above API have been cached to greatly reduce the amount of time spent in the data access layer. This will hugely benefit long running granular reassessments where the breakdown is stored on the OverUnderPaymentBreakdown entity and the same SQL is being executed over and over again. "
+SPM-152623,DT037494,Batch streamer does not stop or exit when the chunker has no data,CEF,Technical Services,Administration,Batch Processing,"*Issue Description:*
+When the chunker for a batch job does not generate any chunks, the streamer(s) do not exit.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Start a batch streamer and wait for it to fully initialize.
+# Start the corresponding chunker, ensuring that the parameters or underlying data will cause it to process no records.
+# The chunker will initialize, produce no chunks, and then exit normally.
+# Issue: The streamer(s) will not exit and must be terminated manually, or will terminate normally once the corresponding chunker produces one or more chunks for the job.
+
+*Resolution:*
+Batch streamers now exit normally once their chunker completes the batch run, regardless of whether the batch run produces zero chunks."
+SPM-153073,DT037479,Specific inline configuration for a tab action menu is not working correctly,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+In some cases, the max-inline-items setting configured for one tab can affect the display of tab action menus on other tabs. This results in an inconsistent user experience where a tab incorrectly inherits the action menu configuration from a previously opened tab.
+*User Interface Impact:* No
+*Prerequisites*:
+# Configure the 'Person Home' tab actions menu to display 3 inline items (set max-inline-items=""""3"""").
+# Configure the 'Incident' tab actions menu to display 0 inline items (set max-inline-items=""""0"""").
+
+*Steps to Reproduce*:
+# Log in as a caseworker
+# Search for and open a person's record 
+# Observe that the Person Home tab correctly shows 3 inline items.
+# From the Person Home tab, create a new incident, save it, and open the Incident tab. 
+# Navigate back to the previously opened Person Home tab.
+# Issue: The Person Home tab now incorrectly displays 0 inline items, having inherited the configuration from the Incident tab.
+
+*Resolution:*
+The application is updated to ensure that tab action menu configurations are correctly isolated. Each tab now displays its own inline actions and tab action menu consistently according to its specific configured settings, regardless of the navigation sequence.
+"
+SPM-153270,,Update the log4j JAR files to the latest version,Third Party Updates,,,,"Apache Log4j is a Java-based logging utility that is used as the logging provider for the Cúram product. 
+The version of Log4j used by the Cúram application has now been updated from 2.23.1 to 2.26.0. This new JAR file contains some minor bug fixes and enhancements. 
+As a result of this upgrade, the following changes have been made to the Java Development Environment (JDE) deliverable:
+* CuramSDEJlibthird&#95;party&#95;version.properties - the versions of the specified Log4j JAR files have been updated.
+* CuramSDEJliblog4j-api-2.26.0.jar - new JAR added.
+* CuramSDEJliblog4j-api-2.23.1.jar - old JAR removed.
+* CuramSDEJliblog4j-core-2.26.0.jar - new JAR added.
+* CuramSDEJliblog4j-core-2.23.1.jar - old JAR removed.
+* CuramSDEJxmlserverlog4j-api-2.26.0.jar - new JAR added.
+* CuramSDEJxmlserverlog4j-api-2.23.1.jar - old JAR removed.
+* CuramSDEJxmlserverlog4j-core-2.26.0.jar - new JAR added.
+* CuramSDEJxmlserverlog4j-core-2.23.1.jar - old JAR removed.
+* CuramCDEJlibextjarlog4j-api-2.26.0.jar - new JAR added.
+* CuramCDEJlibextjarlog4j-api-2.23.1.jar - old JAR removed.
+* CuramCDEJlibextjarlog4j-core-2.26.0.jar - new JAR added.
+* CuramCDEJlibextjarlog4j-core-2.23.1.jar - old JAR removed.
+
+It is recommended that you update any references in custom scripts and other artifacts to point to the new version of the JAR files mentioned above. "
+SPM-153304,,Modern Java - Update Bouncy Castle to version 1.84,Third Party Updates,,,,"The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms developed by the Legion of the Bouncy Castle. 
+The following versions have been updated to the latest:
+* CuramSDEJlibaxis2bcprov_1.80.0.jar updated to CuramSDEJlibaxis2bcprov-jdk18on-1.84.jar 
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsbcpkix_1.80.0.jar updated to CuramBIRTViewerWebContentWEB-INFplatformpluginsbcpkix-jdk18on-1.84.jar
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsbcprov_1.80.0.jar updated to CuramBIRTViewerWebContentWEB-INFplatformpluginsbcprov-jdk18on-1.84.jar
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsbcutil_1.80.0.jar updated to CuramBIRTViewerWebContentWEB-INFplatformpluginsbcutil-jdk18on-1.84.jar
+
+"
+SPM-153419,,Java 8 - Update the velocity-engine-core JAR file to a later version,Third Party Updates,,,,"Cúram web services are based on Apache Axis2. With the Rampart security module of Axis2, Cúram web services can be secured for authentication, integrity (signature), confidentiality (encryption/decryption), and non-repudiation (timestamp). 
+The version of one of the JAR files in Rampart has been updated. The Apache Velocity Engine is a core module of Apache Velocity, a Java-based template engine for generating text output. As a result of this update, the following changes have been made to the JDE Axis2 deliverable:
+* CuramSDEJlibaxis2velocity-engine-core-2.4.1.jar - version updated from 2.3 to 2.4.1.
+
+Note that any references in custom scripts and other artifacts to the updated JAR file listed above must be updated. 
+Also, please note that the above change only applies to the Java 8 release. The version of Axis2 used in  Modern Java does not include the velocity engine."
+SPM-153936,,The createkeystore target should use the keystore password defined in CryptoConfig.properties,CEF,Application Development Environment,Infrastructure,Infrastructure,"*Issue Description:*
+The keystore password configuration no longer has a default value and must now be explicitly provided during installation or upgrade.
+*User Interface Impact:* No
+*Steps to Reproduce:*N/A
+*Resolution:*
+* The keystore password must now be configured by the administrator; it is no longer automatically set.
+* For new environments, this configuration is applied as part of the keystore setup process.
+* For upgrades from versions earlier than 8.2.0.0, if an existing keystore is retained, administrators may need to manually provide the required configuration. See our Curam Security guide for more details.
+* After updating the configuration, ensure the system configuration is synchronized as part of the standard setup process. "
