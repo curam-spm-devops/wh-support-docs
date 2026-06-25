@@ -2,8 +2,6 @@
   pages:
     - title: Overview
       path: /spm/overview
-    - title: 8.2.2.0 is now available
-      path: /spm/announcements       
     - title: Release notes
       path: /spm/release-notes
     - title: Enablement
@@ -17,7 +15,15 @@
     - title: Code samples
       path: /spm/code-samples
     - title: Education & Certification
-      path: /spm/education                                                          
+      path: /spm/education   
+- title: Announcements
+  pages:
+      - title: 8.2.2.0 is now available
+        path: /spm/announcements/822_announcement
+      - title: Cúram Action View 1.0.0 is now available
+        path: /spm/announcements/curam_action_view_100
+      - title: All announcements
+        path: /spm/announcements
 # - title: Merative Integrated Care
 #   pages:
    #  - title: Overview
