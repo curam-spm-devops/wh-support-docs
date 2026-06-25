@@ -1,0 +1,26 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-144457,DT037316,DBtoJMS LTPA mode does not handle http content length specifier correctly,CEF,Technical Services,,,"*Issue Description:*
+Batch jobs which were using the DBtoJMS functionality were incorrectly processing the response content length figure by treating it as a decimal string whereas it is actually represented as a hexadecimal string.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+Set the following application properties:
+
+* curam.batchlauncher.dbtojms.enabled = True
+* curam.batchlauncher.dbtojms.notification.port = Application Server specific
+* curam.batchlauncher.dbtojms.notification.ltpa = True
+* curam.batchlauncher.dbtojms.notification.trace = True
+
+Run the following SQL statements:
+
+* UPDATE KeyServer SET humanReadable = '1' WHERE keysetCode = 'DEFAULT';
+* UPDATE KeyServer SET nextUniqueIDBlock=400000000 WHERE keysetCode = 'DEFAULT';
+
+Restart server.
+
+Issue: Run the batch launcher. A numberFormat exception is thrown.
+
+*Resolution:*
+The defect has been fixed, eliminating the numberFormat exception and allowing the batch job to complete successfully. "

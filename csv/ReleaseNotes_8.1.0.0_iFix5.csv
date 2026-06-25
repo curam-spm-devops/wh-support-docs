@@ -1,0 +1,86 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-135448,DT036968,"Actions column in Versions list for a Dynamic Evidence showing unnecessary text """"container disabled AS"""" twice",CEF,,,,"*Issue Description:*
+In the administration application when viewing the versions information for Dynamic Evidence, an unexpected column displaying the text ?container disabled AS"""" is shown. 
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Select the Shortcuts tab and expand the Rules and Evidence section.
+# Select Dynamic Evidence to open the Dynamic Evidence list.
+# Expand a Dynamic Evidence.
+# Issue:  An unexpected column displaying """"container disabled AS"""" is displayed on the Versions tab.
+
+*Resolution:*
+In the administration application, when viewing the Versions information for a Dynamic Evidence type, it is displayed without the additional column.
+
+"
+SPM-133691,"DT036923, DT036503",Space occupied by the expanded nested list item not removed when the nested list item is collapsed,CEF,Application Development Environment,,,"*Issue Description:*
+When a nested expandable list row is collapsed, its content was replaced with whitespace which still took up space on the screen, rather than collapsing completely.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Open the Inbox tab.
+# Create a task, while creating the task select the Add to My Tasks checkbox.
+# Open Task and open the History and Comments tab and expand the toggle.
+# Collapse the toggle.
+# Issue: Whitespace still remains where the expanded content was shown.
+
+*Resolution:*
+The issue has been resolved by ensuring a collapsed row no longer takes up any space on the page.
+
+"
+SPM-133649,,Certify Adoptium Temurin? Open JDK version 8 for usage in the Curam Development Environment for V8.1.,Third Party Updates,,,,"The Adoptium Temurin? Open JDK version 8 has been certified for usage in the Cúram Application Development Environment. This JDK is available as a free download from [https://adoptium.net/|https://adoptium.net/|smart-link].
+
+The ?configtest? target has been updated to recognize and support the JDK type of ?Temurin?.
+
+It should be noted that this type of JDK should be used for application development purposes only. When building and deploying the Cúram application onto a supported application server, a suitable JDK compatible with that application server should be used. 
+
+"
+SPM-133576,"PO09679, DT032844",Action menu within nested lists do not display all values,Accessibility,,,,"*Issue Description:*
+Within nested lists, all values in an action menu do not display without scrolling downward to view.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+*Scenario 1:* 
+
+# Log in as an administrator. 
+# Select Dynamic Evidence under Rules and Evidence in the shortcuts panel. 
+# Click the New page-level action to create a new Dynamic Evidence Type and save the record.
+# Expand the row to view the details for the Dynamic Evidence Type created in Step 3. 
+# Select the ellipsis to view the action menu.
+# Issue: The action menu is not large enough to display all values without a user scrolling. 
+
+*Scenario 2:* 
+
+# Log in as a Child Welfare Structured Decision Making intake worker.
+# Select the Intakes Tab to expand the shortcuts panel. 
+#  Expand the Intakes section and select New Intake.  
+# Complete the Category, Types, Date, Time and Method fields and save the intake.
+# The Intake Assistant opens, on the Basics tab enter a narrative in the Smart Panel.
+# Select the Participants tab and select the New Participant action. 
+# Enter mandatory details for the participant, First Name, Last Name and Role and click Next.
+# On the next screen click Finish. 
+# Click the New Participant action on the Participants tab to create a second participant.
+# Enter mandatory details for the second participant, First Name, Last Name and Role and click Next.
+# On the next screen click Finish. 
+# Select the Relationships tab and select the New action.
+# Create a relationship between the two participants registered above and save. 
+# Select the Assessments tab.
+# Select the checkbox for Inadequate Food for question 7, for all other questions either select the None checkbox or the No radio button. 
+# Click Finish.
+# Select the Open Intake action. 
+# Navigate to the Assessments tab and select the ellipsis on the completed assessment row to view the action menu.
+# Issue: All actions are not displayed in the menu, the user has to scroll down to view the full list of actions. 
+
+*Resolution:*
+The CSS for all screens containing action menus which are contained within nested lists have been adjusted to ensure that there is a minimum amount of space in those containing action menus that need to expand downwards. This will help with readability and will ensure that action menus contained within nested lists display a greater number of values that will result in less need for scrolling by users.
+
+
+"

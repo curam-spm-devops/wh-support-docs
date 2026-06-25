@@ -1,0 +1,6 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-150776,,Referer header domain name was not being validated,CEF,,,,"*Issue Description:*
+Due to a minor issue in the Referer header domain validation, one of the wildcards in the domain names was not validated correctly. 
+*User Interface Impact:* No
+*Resolution:*
+The Referer header domain name validation logic for both REST and Cúram applications has been improved to address this issue."

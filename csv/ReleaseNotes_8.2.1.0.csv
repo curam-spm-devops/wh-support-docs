@@ -1,0 +1,1356 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-18796,"PO09651, DT032830",The initial keyboard focus is not set correctly on view-only modal dialogs,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When a caseworker user opens a view-only modal, such as a confirmation dialog, the initial keyboard focus is not set correctly.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1:*
+# Log in as a caseworker.
+# Register a new Person.
+# Open the person home page.
+# Click the Remove Picture button.
+# Focus is not on the No button.
+# Issue: Focus is not visible to the user.
+
+*Scenario 2:*
+# Log in as a caseworker.
+# Register a new Person.
+# Open the person home page.
+# Click the Evidence tab and, using the keyboard, navigate to any evidence type, like Addresses, and then expand.
+# Move the focus to the Change History tab and then to the 3 dots on the right side under the Change Summary table.
+# Press Enter to open the drop-down and select the Delete option.
+# When the Delete Active Evidence modal opens, move the focus to the X Close modal using tab.
+# Press the tab again and verify the focus.
+# Issue: Focus is not visible to the user.
+
+*Resolution:*
+The initial keyboard focus is now correctly set when a view-only modal dialog is opened by a caseworker, and also when the text content on the modal receives focus.
+"
+SPM-115739,PO06752,The Close link on the Preview Contact Log page is not working,CEF,Technical Services,,,"*Issue Description:*
+The Close link on the Preview Contact Log Details is not working.
+
+*User Interface Impact:* Yes
+
+*Steps to Reproduce:* 
+# Log in as a Child Welfare intake worker.
+# Select New Intake from the Quick Links PODs.
+# Set the following intake details:## Category: Child Protection Services
+## Type: Child Abuse or Neglect
+## Date: Today?s date
+
+# Click Save to create an Intake Assistant.
+# Navigate to the Participant tab.
+# From the actions menu, select to create a New Participant.## Enter First Name (e.g., Bobby)
+## Select Role as ?Alleged Victim?
+## Click Next, then Finish on the following page.
+
+# Open the tab actions menu and select Open Intake.
+# On the Intake, navigate to the Contacts tab and create a new Contact Log.## Select the Contact Log you created
+## Click Preview Selected Contacts
+## The Preview Contact Log will display
+## Click the Close link to exit
+
+# Issue: User has to go to a different page and come back to see the Contact Logs again.
+
+*Resolution:*
+The user can select the Close link on Preview Contact Logs, and they are returned to the Contact Logs page.
+"
+SPM-116448,,An unhandled server exception is thrown when trying to view a Risk Assessment report that was created by using either a Policy or a Discretionary Assessment Override,SOL,Child Welfare,,,"*Issue Description:*
+The Risk Assessment report download results in an unhandled server exception when the assessment is completed using an Assessment Override, regardless of whether it is a Policy or Discretionary override. 
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1:*
+# Log in as a Structured Decision-Making Child Welfare intake worker.
+# Select New Intake under the Intakes section of the shortcuts panel. 
+# Provide a Category, Types, Date, and click Save; an Intake Assistant will be created.
+# Navigate to the Participant tab and create a New Participant from the action menu.
+# Provide a First Name, Last Name, and select the Role as Alleged Victim.
+# Navigate to the Assessments tab and complete the screening questions.
+# Navigate to the Allegations tab.
+# Add allegations that came as part of the Screening Assessment by selecting Alleged Victim and Unknown Maltreater.
+# Select Open Intake from the actions menu.
+# Navigate to the Recommendation tab and complete the RPA (Response Priority Assessment).
+# Select Add Information from the list action menu, complete the required fields, and submit.
+# Log out.
+# Log in as a Structured Decision-Making Child Welfare supervisor.
+# Navigate to the Intake, click on Make Decision, and approve the intake.
+# Log out.
+# Log in as a Structured Decision-Making Child Welfare investigator.
+# Start an investigation for the approved Intake.
+# Complete the safety assessment, add contact logs, dispose of allegations, and register the client.
+# Complete the Risk Assessment, and in the Assessment Override drop-down, select either Policy Override or Discretionary Override and finish the Assessment.
+# Select View Report from the completed risk assessment action menu.
+# Issue: An unhandled server exception occurs when the report is expected to be downloaded.
+
+*Scenario 2:*
+# Log in as an administrator.
+# Select Assessment Definitions under the Outcome Management section of the shortcuts panel.
+# Open an active Risk Assessment.
+# Navigate to the Factors tab and select the Final Risk link.
+# Navigate to the Classification tab and expand any of the four override classifications.
+# Issue: An unhandled server exception is displayed when the override classifications are expanded for viewing.
+
+*Resolution:*
+Initial data has been added for Policy Override and Discretionary Override assessment flows. With this data in place, the Risk Assessment report downloads and the admin classification page for override types functions as expected. 
+*Technical Section:*
+The initial data entries for the following four Risk Assessment override types were missing, which resulted in an unhandled server exception.
+* Moderate (Discretionary Override)
+* High (Discretionary Override)
+* Very High (Discretionary Override)
+* Very High (Policy Override)
+
+The missing entries have been added to the following files:
+* CFSS/EJBServer/components/InvestigationSDMContent/data/initial/RISK_CLASSIFICATIONGUIDANCE.dmx
+* CFSS/EJBServer/components/InvestigationSDMContent/data/initial/RISK_LOCALIZABLETEXT.dmx
+
+"
+SPM-123358,,Update the version of Apache Ant used in Cúram to 1.10.15,Third Party Updates,,,,"The supported version of Apache Ant used in the Cúram Development Environment has been increased from 1.10.6 to 1.10.15.
+"
+SPM-128260,,Remove the xmltask.jar from the Cúram CDEJ Deliverable,Code Removal,,,,"The following defunct OSS JAR file has been removed from the Cúram CDEJ deliverable:
+* CuramCDEJlibextjarxmltask.jar
+
+It was not being referenced or used by any Cúram logic. 
+We recommend that you update your custom scripts and any other artifacts to delete any references to the removed JAR file specified above.
+"
+SPM-130428,,Update the versions of the Jackson JAR files to the latest version,Third Party Updates,,,,"The Jackson API contains multiple functions to read and build JSON using Java. It has data binding capabilities and provides a framework to serialize custom Java objects to JSON strings and deserialize JSON strings back into Java objects. The Java Development Environment (JDE) and the REST infrastructure utilizes these utilities. 
+The versions of these JARs have now been updated from 2.15.2 to 2.19.2. As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - the versions of the specified Jackson JARs have been updated.
+
+* CuramSDEJlibjackson-annotations-2.19.2.jar - version of the JAR updated.
+* CuramSDEJlibjackson-core-2.19.2.jar - version of the JAR updated.
+* CuramSDEJlibjackson-databind-2.19.2.jar - version of the JAR updated.
+
+* CuramCDEJlibextjarjackson-annotations-2.19.2.jar - version of the JAR updated.
+* CuramCDEJlibextjarjackson-core-2.19.2.jar - version of the JAR updated.
+* CuramCDEJlibextjarjackson-databind-2.19.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-annotations-2.19.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-core-2.19.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsExtjackson-databind-2.19.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-base-2.19.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-jaxrs-json-provider-2.19.2.jar - version of the JAR updated.
+* EJBServercomponentsRestrestlibdependencyLibsCorejackson-module-jaxb-annotations-2.19.2.jar - version of the JAR updated.
+* EJBServercomponentsRestgraphql_libjackson-dataformat-yaml-2.19.2.jar - version of the JAR updated.
+
+* EJBServercomponentsRestgraphql_libjackson-datatype-jdk8-2.19.2.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+"
+SPM-130441,,Update the Jsoup JAR file to the latest version,Third Party Updates,,,,"Jsoup is a Java library that is used to work with HTML. It provides an API for fetching URLs and extracting and manipulating data by using HTML5 DOM methods and CSS selectors. 
+The version of the Jsoup JAR that is used by SPM has now been updated from 1.16.1 to 1.21.1. This new JAR file contains some minor bug fixes and enhancements. 
+As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable:
+* CuramSDEJlibthird&#95;party&#95;version.properties - the version of the specified Jsoup JAR file has been updated.
+* CuramSDEJlibjsoup-1.21.1jar - the jsoup JAR has been added to the SDEJ at this location.
+* CuramCDEJlibextjarjsoup-1.21.1.jar - the version of the JAR has been updated.
+
+Note that any references in custom scripts and other artefacts must be updated to point to the new version of the JAR file as specified above. 
+"
+SPM-130486,,Update the Apache FOP (Formatting Objects Processor) libraries to the latest version,Third Party Updates,,,,"Apache FOP (Formatting Objects Processor) is a print formatter driven by XSL formatting objects and an output-independent formatter. It is used by the Cúram XML Server in the generation of PDF documents. 
+The version of Apache FOP used by the Cúram XML Server has been updated from 2.8 to 2.11. Apache FOP 2.11 contains some bug fixes and several improvements. It also restructures some of the main JAR files in the FOP deliverable in that there are now multiple JAR files related to both FOP and Batik, whereas previously there was just one JAR file for each. 
+As a result of this upgrade, the following changes have been made in the Java Development Environment (JDE) deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - the versions of the specified FOP-related JARs have been updated.
+
+The changes to the FOP and related JAR files include:
+* CuramSDEJxmlserverbatik-all-1.16.jar - this JAR file has been removed.
+* CuramSDEJxmlserverbatik-anim-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-awt-util-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-bridge-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-codec-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-constants-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-css-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-dom-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-ext-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-extension-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-gvt-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-i18n-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-parser-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-script-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-shared-resources-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-svg-dom-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-svggen-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-transcoder-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-util-1.19.jar - new JAR added.
+* CuramSDEJxmlserverbatik-xml-1.19.jar - new JAR added.
+* CuramSDEJxmlserverfop-2.11.jar - new JAR added.
+* CuramSDEJxmlserverfop-2.8.jar - old JAR removed.
+* CuramSDEJxmlserverfop-core-2.11.jar - new JAR added.
+* CuramSDEJxmlserverfop-events-2.11.jar - new JAR added.
+* CuramSDEJxmlserverfop-util-2.11.jar - new JAR added.
+* CuramSDEJxmlserverxmlgraphics-commons-2.11.jar - new JAR added.
+* CuramSDEJxmlserverxmlgraphics-commons-2.8.jar - old JAR removed.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that are specified above.
+"
+SPM-130489,,Upgrade Eclipse Business Intelligence and Reporting Tools (BIRT) to 4.20 in Modern Java,Third Party Updates,Business Intelligence and Analytics,,,"Business Intelligence Reporting Tool (BIRT) is an open-source technology platform that is used to create charts and traditional reports. 
+BIRT is included in Cúram where it provides interactive, summarized information in context and allows for analytics to be integrated. These BIRT charts are displayed on user workspace pages, context panels, and dashboards. 
+The version of BIRT used by Cúram has now been updated from 4.15 to 4.20 in Modern Java. 
+As a result of this upgrade, the following changes have been made to the Cúram deliverable. 
+*Updated:*
+/BIApp/CuramBIRTViewer/buildscripts/rep&#95;javadoc.xml to reference the new plugin version org.eclipse.birt.report.engine_4.20.0.v202506011452.jar
+/BIApp/CuramBIRTViewer/buildscripts/BIRTthird&#95;party&#95;version.properties to reference the new plugin version _4.20.0.v202506011452 
+*The contents of the following directories have been updated to reflect the new version of BIRT: *
+/BIApp/CuramBIRTViewer/WebContent/WEB-INF/platform
+/BIApp/CuramBIRTViewer/WebContent/WEB-INF/lib
+
+It should be noted that any references in custom build scripts and other artifacts to the BIRT JAR files should be updated to point to the new version of the JAR files. 
+This upgrade has resulted in performance, scalability, and accessibility improvements, as well as dark/light theme support for a better user experience, while also ensuring future maintainability. Testing of existing reports is recommended, particularly those using Excel, PDF, or DOCX outputs, as the emitter improvements may subtly affect output formatting.
+"
+SPM-131933,DT036872,The 'Get selected tasks' confirmation page is opening as a page instead of a modal,CEF,Technical Services,Task Management,,"*Issue Description:*
+The ?Get selected tasks? confirmation page is opening as a page instead of a modal.
+*User Interface Impact:* Yes
+*Steps to Reproduce*
+# Log in as a caseworker.
+# Click the Inbox workspace, and select New Task under My Tasks in the shortcuts panel.
+# Fill in the Subject field and check ?Add to My Tasks?.
+# Repeat Step 2 twice more to create a total of three tasks.
+# From each newly created Open Task, select ?Make Available'.
+# From the shortcuts panel, select Available Tasks.
+# Leave the default checkboxes selected and perform a search.
+# From the search results, select the three newly added tasks and click ?Add to My Tasks?.
+# Issue: A confirmation page opens instead of a modal, and 'No' does not return to the previous page.
+
+*Resolution:*
+When the user selects multiple tasks and clicks 'Add to My Tasks', a confirmation correctly opens with a modal dialog, ensuring a more seamless and consistent user experience. The modal presents the user with 'Yes' and 'No' options. Selecting 'Yes' confirms the action and adds the selected tasks to the user's task list. Selecting 'No' now correctly closes the modal and returns the user to the previous screen, preserving their search results and selections. 
+"
+SPM-132619,DT036908," Create Legal Action fails to capture court and judge",ENT,Appeals,,,"*Issue Description:*
+When attempting to create a new Legal Action, the user is unable to specify the Court Location and Judge. The selected Court Location from the drop-down field does not persist, and the assigned Judge intermittently fails to appear. 
+*User Interface Impact:* Yes
+*Prerequisites*:
+# Log in as administrator.
+# Select Legal Actions under Case in the shortcuts panel.
+# On the Legal Actions page, select ?Add Product Delivery Cases? for Petition to Transfer.
+# Select a product delivery case.
+# Click Publish.
+# Log in as a caseworker.
+# Click External Party under Registration in the shortcuts panel.
+# Click Next on the Search External Party page.
+# Enter ?MyExternalParty? in the External Party Name field, select ?Legal Authority? for the Type field, and enter an address and phone number.
+# Click Save.
+# On the MyExternalParty tab, navigate to the Offices tab.
+# Click New Office Member from the actions menu.
+# Enter ?Court? in the Name field, select ?Court? for the Type field, enter an address, and click Save. 
+# On the Office page, from the row-level action, click ?New office Member?.
+# Enter Name as ?Judge Judy?, select Administrator for Profile field, and click Save.
+
+*Steps to Reproduce (Generic):*
+# Log in as a caseworker.
+# Register a person and create an integrated case.
+# Create an associated product delivery - this is the same product delivery for which a Legal Action was configured against.
+# In the product delivery case, navigate to Issues and Proceedings and select the Legal Actions page.
+# Click New Legal Action.
+# Select Legal Action Type: ?Petition? and Legal Category: ?Petition to Transfer?. 
+# Click Next.
+# On the New Petition page, click the Court Location field search.
+# On the External Party Office Search page, enter ?MyExternalParty? in the External Party name field and click search.
+# Issue: User is unable to select the Court Location. 
+
+*Resolution:*
+Caseworkers can now capture Court Location and Judge details successfully while creating a Legal Action.
+In the External Party Office modal dialog, the results section has been updated to improve usability. The two columns previously labelled Reference Number and External Party Name have been merged into a single column titled External Party Name. This change simplifies the display and assists with external party office searches.
+"
+SPM-135365,DT037041,Remove unnecessary '&ast; required field' messages from screen readers and hide them on screens without mandatory fields,CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
+The ?&ast; required field? message is visible on all pages regardless of whether they contain mandatory fields. Screen readers also announce this message, although it is intended only as a visual legend for the asterisk symbol.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1:*
+# Log in as a caseworker.
+# Register a person.
+# On Step 1 of the Register Person wizard (Registered Person Check), observe the UI. 
+# Issue: The ?&ast; required field? message is visible, even though no fields on this page are mandatory. 
+
+*Scenario 2:*
+# Enable a screen reader.
+# Log in as a caseworker.
+# Register a person.
+# Proceed to Step 2 of the Register Person wizard.
+# Issue: The screen reader announces the ?&ast; required field? message. This message is meant only for visual users to explain the asterisk symbol next to required fields and should not be read aloud.
+
+*Resolution:*
+The ?&ast; required field? message now only appears on pages with mandatory fields and is hidden from screen readers.
+**"
+SPM-135432,DT037007,Incoming records are not removed when source evidence updates match target evidence exactly,CEF,Evidence Broker,,,"*Issue Description:*
+Incoming evidence records are not removed when source evidence updates match target evidence exactly.
+*User Interface Impact:* No
+*Prerequisites: *
+# Log in as an administrator.
+# Click Evidence Sharing under Rules and Evidence in the shortcuts panel.
+# Click the New Sharing Configurations page-level action.## Select Source = Person, Target = <Any integrated case type>
+## Select ?Birth and Death Details?
+## Set ?Trusted Source? = Yes
+## Click Save and Exit
+
+# Repeat step 3 for the following configuration:## Select Source = <Same integrated case type referenced in Step 3.a>, Target = Person
+## Select ?Birth and Death Details?
+## Set ?Trusted Source? = No
+## Click Save and Exit.
+
+# Log out.
+
+*Steps to Reproduce (Generic):*
+# Log in as a caseworker.
+# Register a person.
+# Click the Care and Protection tab and select Cases.
+# Use the page-level action to create an integrated case - the same integrated case as referenced in the prerequisites.
+# Click the Evidence tab on the integrated case.
+# Select ?In Edit Evidence?.
+# Select ?Continue Editing? for the Birth and Death Details evidence, setting a date of death 10 days prior. 
+# Apply changes.## The evidence is shared to the Person Data Case and appears on the Incoming Evidence screen.
+
+# On the integrated case, remove the date of death. 
+# Apply changes.
+# Issue: The incoming evidence, with the date of death, remains on the incoming screen.
+
+*Resolution:*
+This issue has been resolved, and an incoming evidence record is now removed if a change is made to the source evidence that makes it identical to the evidence on the target case.
+"
+SPM-135474,DT037016,Focus order for the shortcuts panel is not working as expected for a keyboard user,CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
+Using a keyboard to navigate through the section shortcuts panel does not follow the expected focus order pattern.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Click the Cases and Outcomes tab.
+# Use the keyboard to navigate to the shortcuts panel button and press the spacebar or Enter key to open the panel.
+# Press the Tab key to navigate to the Search category, where the focus goes to the top and currently opened category as expected. 
+# Press the Tab key, and focus goes to the Person, which is the first link in the Search category.
+# Keep pressing the Tab key until focus goes to the Provider Group, which is the last link in the Search category.
+# Press the Tab key again.
+# Issue: Focus goes to the shortcuts panel divider, and there is no way for a keyboard user to navigate to other shortcut categories unless the user reads the Cúram documentation.
+
+*Resolution:*
+The shortcuts panel has been updated so that the focus order moves through the category titles and visible links from top to bottom, as would be expected. 
+Note: The behaviour of the shortcuts panel categories has changed. Any previously opened category will no longer automatically collapse or close when a new category is selected. Categories will remain open until a user selects to close them. 
+"
+SPM-135754,DT037028," The toggle button in an expandable list detail row doesn't describe its purpose clearly",Accessibility,Application Development Environment,Core Development Infrastructure,,"*Issue Description:*
+When using a screen reader to navigate to a details row in an expandable list, the toggle button does not clearly indicate its purpose or what content it controls.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Start a screen reader.
+# Log in as an administrator.
+# Select Work Queues in the shortcuts panel.
+# Navigate through the Work Queues list.
+# Issue: The details row toggle button does not provide any information about the particular row it is toggling.
+
+*Resolution:*
+The aria-label for the toggle button in the details row in an expandable list now includes additional contextual information, e.g. ?Toggle details, Online Application Received Work Queue, Row 2?. 
+*Technical:*
+By default, the text from the first column is used to provide additional context for the generated aria-label on the toggle button. In UIM, you can use the CONTEXT element to gain more control over the information included in the aria-label. 
+The CONTEXT element can be added as a child of either the FIELD or CONTAINER element, and it supports two attributes: 
+*ORDER* -  Indicates that the field should be used to provide additional context for the generated aria-label, and also the concatenation order when generating the aria-label for lists with multiple columns (FIELD elements).
+For example, if the first FIELD in the list has ORDER=?2? on its CONTEXT element and the second FIELD  has ORDER=?1?, the generated aria-label will place the text from the second column before the text from the first column. 
+*IGNORE *- Indicates that the text from this column should be excluded when generating the aria-label. 
+"
+SPM-135797,"DT037040, DT036793",The hierarchical levels of nested tables are not programmatically available,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When accessing content within expandable lists, especially when the lists are nested multiple levels deep or combined with in-page tab navigation, screen reader or keyboard users cannot reliably identify or navigate within these lists. This is making it difficult to understand the context of the information presented.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Start a screen reader.
+# Log in as an Insurance Affordability caseworker.
+# Register a new Person and create an integrated case.
+# Navigate to the Evidence tab.
+# Add New Phone Number evidence.
+# Update the Phone Number evidence.
+# Click the Phone Number evidence row and expand.
+# Expand the nested Change History table.
+# Inspect the nested tables in Developer Tools.
+# Issue: The level of tables in the hierarchy should be described to help screen reader users know where they are in the nested table hierarchy.
+
+*Resolution:*
+Expandable lists within the application are now fully accessible. Screen reader and keyboard users can reliably identify, navigate and understand content in nested expandable lists and in-page navigation tabs, ensuring a clearer and more inclusive experience.
+"
+SPM-135798,DT037037,The purpose of the list actions is not clear in their accessible name,Accessibility,Application Development Environment,Core Development Infrastructure,,"*Issue Description:*
+When using a screen reader to navigate to a row in a list that includes an inline action, the action menu button does not clearly indicate its purpose or the content it affects.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1:*
+# Start a screen reader.
+# Log in as a caseworker.
+# Register a new Person.
+# Navigate to the Evidence tab.
+# Click the New Evidence page-level action.
+# Issue: The ?Add? button on the New Evidence modal does not provide any information about the particular evidence type it is adding. 
+
+*Scenario 2:*
+# Start a screen reader.
+# Log in as a caseworker.
+# Register a new Person.
+# Click the ?New Application Form? link. 
+# On the Application form modal once inside the table, use keyboard shortcuts to navigate to the radio button and notice instructions in the title attribute.
+# Issue:* *Content is hidden from sighted users but exposed to screen reader users only when keyboard shortcuts are being used.* *
+
+*Scenario 3:*
+# Start a screen reader.
+# Log in as an administrator.
+# Select Work Queues in the shortcuts panel.
+# Tab to the View Localizable Text blue button on the row.
+# Screen reader reads out the label as expected.
+# Use Shift + Tab to go back one element.
+# Press the down arrow key to navigate to the View Localizable Text button.
+# Issue: Screen reader does not read out the label name. It just announces ?Row 2 Link? or ?Row x link?, depending on which row the icon is displayed.
+
+*Resolution:*
+The aria-label for inline action menu buttons now includes additional contextual information, e.g ?Add Addresses Row 2?. 
+*Technical:*
+By default, the text from the first column is used to provide additional context for the generated aria-label. In UIM, you can use the CONTEXT element to gain more control over the information included in the aria-label. 
+The CONTEXT element can be added as a child of either the FIELD or CONTAINER element, and it supports two attributes: 
+*ORDER* -  Specifies the concatenation order when generating the aria-label for lists with multiple columns (FIELD  elements). For example, if the first FIELD  in the list has ORDER=?2? on its CONTEXT element and the second FIELD  has ORDER=?1?, the generated aria-label will place the text from the second column before the text from the first column. 
+*IGNORE *- Indicates that the text from this column should be excluded when generating the aria-label. 
+"
+SPM-135892,"DT037051, DT037406","Input instructions before fields are not announced when modals have multiple ways to select a participant ",CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
+The screen reader does not announce the instructional text on the screen that provides users with additional context for completing form fields.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1 (Generic):*
+# Log in as an administrator.
+# Configure a verification for an evidence type (e.g. Bank Accounts) on an integrated case.
+# Start a screen reader.
+# Log in as a caseworker.
+# Register a person and create an instance of the integrated case referenced at Step 2.
+# Add Bank Account evidence on the integrated case.
+# Navigate to the Evidence tab and select Verifications.
+# Click the Add Proof row-level action for an Outstanding Verification to open the ?Add Proof? dialog.
+# Navigate to the Case Participant drop-down or Participant drop-down and Name text field in the Provided By cluster.
+# Issue: The screen reader does not read the instructional text present before the fields.
+
+*Scenario 2 (Generic):*
+# Start a screen reader.
+# Log in as a caseworker.
+# Register a person and create an integrated case.
+# Navigate to the Evidence tab and click the Verify button.
+# Navigate to the Case Participant drop-down or Participant drop-down and Name text field in the Provided By cluster.
+# Issue: The screen reader does not read the instructional text present before the fields.
+
+*Scenario 3 (Generic):*
+# Log in as an administrator. 
+# Configure an Appeals Process against a Product Delivery Case; Appeal Stage set to Hearing, and click Save.
+# Start a screen reader.
+# Log in as a caseworker.
+# Register a person and create an integrated case.
+# Create an associated product delivery, the one for which the Appeal Process was configured against in Step 2. 
+# On the product delivery case, open the tab actions and click the New Case Appeal option to open the New Case Appeal dialog.
+# Navigate to the Appellant drop-down.
+# Issue: The screen reader does not read the instructional text present on the screen.
+
+*Resolution:*
+The affected screens have been updated so that screen readers now announce the instructional text when reading associated form fields. 
+*Technical:*
+The  INSTRUCTIONAL_TEXT element is available in UIM to configure instructional text to provide the user with context on completing form fields.
+"
+SPM-136158,DT037066,Related checkbox fields in a cluster are not programmatically grouped on the Case Search page,Accessibility,Application Development Environment,Core Development Infrastructure,,"*Issue Description:*
+On the Case search page, semantically related checkbox fields in the cluster entitled ?Search Results will only include cases with' are not programmatically grouped.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Navigate to the Case Search page.
+# Open the browser?s developer tools and inspect the checkbox fields in the cluster with the title ?Search Results will only include cases with?.
+# Issue: The semantically related checkbox fields are not programmatically grouped inside an HTML fieldset element.
+
+*Resolution:*
+Semantically related checkbox fields can now be programmatically grouped to provide context to screen reader users. 
+*Technical:*
+A new attribute called FULL&#95;ROW has been added to Static and Dynamic UIM for CONTAINER elements to support programmatically grouping semantically related checkbox input fields. When checkbox UIM FIELD elements are inside a CONTAINER element with a FULL&#95;ROW attribute set to ?true? and a LABEL attribute specified, a HTML fieldset element with an accompanying legend element will be rendered. The CONTAINER will span the full width of the CLUSTER row, and each child checkbox field will appear in its own column across the cluster row. 
+Enabling FULL&#95;ROW =""""true"""" may disrupt the visual layout of the parent CLUSTER (the CONTAINER?s parent), for example, by misaligning fields. To correct this, one or more dummy FIELD elements with the attribute CONTROL=""""SKIP"""" specified can be added inside the CLUSTER but outside the CONTAINER to balance the layout. 
+For more information on this new attribute, please see the CONTAINER element documentation in the UIM pages and views reference section in the _Cúram Webclient Reference Manual_. 
+Additionally, in static UIM, if a CLUSTER element has a TITLE and only contains FIELD elements which are checkbox input fields, the grouping of checkboxes will be automatically rendered inside a HTML fieldset element with an accompanying legend element. 
+For more information on this new attribute, please see the CLUSTER element documentation in the UIM pages and views reference section in the _Cúram Webclient Reference Manual_.
+"
+SPM-137903,,Rich Text Editor filter updates,CEF,Application Development Environment,,,"*Issue Description:*
+The allowlist, which was installed by default, supports a set of HTML elements and attributes which are deemed safe and therefore do not require filtering out. However, it doesn?t provide protocol-level controls, which means customers cannot configure which URL schemes are permitted via the allowlist.
+*User Interface Impact:* No
+*Resolution:*
+We now support protocol entries in the allowlist - for example: 
+a.href.protocols=http,https,mailto,tel 
+which makes those the only permitted schemes for a[href], with all other protocols filtered out. The SanatizierAllowListConfigure java class was also renamed to SanitizerAllowListConfigure. 
+"
+SPM-138159,DT037128,Toggling between high contrast mode in Windows does not update all on screen elements,CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
+Switching Windows high contrast mode on or off does not update some on-screen elements to the correct contrast mode.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Open any page, e.g. Person Search.
+# Turn Windows high-contrast mode on.
+# Some elements might not be in high contrast mode.
+# Refresh the page.
+# Verify all elements have been updated to high contrast mode.
+# Turn Windows high-contrast mode off.
+# Some elements might still be in high contrast mode.
+# Refresh the page.
+# Issue: All elements should have returned to normal, but this is not always the case.
+
+*Resolution:*
+The application now properly refreshes visual elements to match the selected Windows high contrast mode.
+"
+SPM-139075,DT037187,LifeEvents and HoldingCaseDP do not have proper error handling mechanism,ENT,Life Event Management,,,"*Issue Description:*
+The application does not provide a way for customers to handle errors that occur when an exception is thrown during the deferred process in curam.citizen.datahub.holdingcase.impl.HoldingCaseImpl.updateEvidence(EvidenceUpdate). This results in a lack of error handling for failures during life event updates, making it difficult for customers to implement custom error processing or notify users when a deferred process fails. 
+*Steps to Reproduce (Generic):*
+Below is a sample scenario where HoldingCaseDP failures are not logged appropriately:
+# Log in as a caseworker, register a person and create a Universal Access account for this person.
+# Create a new integrated case for the person.
+# Log in with the above person?s credentials in the portal and navigate to the Update My Information link.
+# Access the Update Income Details life event link and click the Income Details page.
+# Add the income details, navigate to the last page, and submit it.
+# Log in as a caseworker. 
+# Navigate to the integrated case and view the active evidence.
+# Verify that added income evidence is not brokered from the Holding Case to the integrated case.
+# Check the console log.  
+# Issue: The error infrastructure:RUN_ID_RECORD_NOT_FOUND: Record not found seen in the logs. This error doesn?t provide any useful information about the failure. 
+
+*User Interface Impact:* No
+*Resolution:*
+curam.citizen.datahub.holdingcase.impl.HoldingCaseImpl.updateEvidence(EvidenceUpdate) has been updated to include a new error handler specific to this API. A new hook is now available for customers to implement, which will be invoked when an exception occurs during deferred process execution. 
+*Technical:*
+An API is provided for customers to define the actions to be taken when an exception occurs. The following method in the hook can be implemented to handle custom error processing: curam.citizen.datahub.holdingcase.impl.HoldingCaseCustomErrorHandler.handleError(String, long).
+"
+SPM-139129,DT037192,An incorrect aria-label is applied to the text-area element when a text-area element has no label specified in a UIM,Accessibility,Application Development Environment,Core Development Infrastructure,,"*Issue Description:*
+When a text-area element has no label specified in a UIM, an incorrect aria-label is automatically applied to the element.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Start a screen reader.
+# Log in as an administrator.
+# Click Assessments under Decision Assist in the shortcuts panel.
+# Click the New Assessment page-level action.
+# Navigate to the Description text-area.
+# Issue: The screen reader incorrectly announces the text-area as: ?List.Label.Children edit multi-line.'
+
+*Resolution:*
+When the user navigates to the Description text area for New Assessments, the screen reader correctly communicates 'Description edit multi-line'.
+"
+SPM-139212,DT037198,Entity operations on ProductDeliveryPatternInfo are not translating the name field,CEF,,,,"*Issue Description:*
+Entity operations on the ProductDeliveryPatternInfo entity do not correctly translate the name field. When a user selects a different language, the name of the delivery pattern is displayed in English instead of the selected language. This affects multi-locale environments, where users expect to see delivery pattern names in their chosen language.
+*User Interface Impact:* No
+*Prerequisites:*
+# Log in as an administrator.
+# Click Product Delivery Cases under Cases in the shortcuts panel.
+# Open any product delivery configuration.
+# Click Financial and select Delivery Patterns.
+# Verify that the delivery pattern ?Weekly by Check in Advance on a Monday? is configured.
+# Click View Localizable Text and select Add Translation.
+# Select French as the language and enter a new translation text, such as ?Weekly by Check in Advance on a Monday_Fr?.
+
+*Steps to Reproduce :*
+# Log in as a caseworker.
+# Register a new Person.
+# Create an instance of the product delivery configured above.## Ensure that ?Weekly by Check in Advance on a Monday? is chosen at the delivery pattern.
+
+# Verify that the selected delivery pattern is displayed in the Home tab and the Financials section.
+# Open the User menu and select Language.
+# Choose French (Français) and save the selection.
+# Verify that the newly added French translation is displayed.
+# Repeat steps 5 to 7 for the following languages: German (Deutsch), Spanish (Español), Finnish, Swedish (Svenska), and Arabic (?????).
+# Switch the language back to English and confirm that the delivery pattern is displayed in English as the default.
+# Issue: The ProductDeliveryPatternInfo.readNearestProdDelPatInfo() entity operation is currently returning the untranslated value of the name field from the ProductDeliveryPatternInfo record.
+
+*Resolution:*
+A post method has been added to the ProductDeliveryPatternInfo operations to support the required translation functionality. Entity operations on ProductDeliveryPatternInfo can now correctly translate the name field. 
+ If customers require the values for the 'name' column to be localized in their custom environment, they need to ensure that the correct records are inserted into the LocalizableText and TextTranslation tables for that purpose.
+"
+SPM-139652,DT037207,The heading for the toggle button on expandable lists is not translated correctly,CEF,,,,"*Issue Description:*
+The hidden text in the table column header for toggle buttons in expandable lists is not translated correctly.
+*User Interface Impact:* No
+*Prerequisites:*
+The application has* *English set as the default language and must allow the caseworker to change the language via the user menu.
+*Steps to Reproduce:*
+# Start a screen reader.
+# Log in as a caseworker.
+# Navigate to the Person Search page. 
+# In the search results list, navigate to the list toggle column header (i.e., the column with the expand/collapse buttons).
+# Note that ?Expand/Collapse Item? is announced by the screen reader.
+# Open the application?s user menu and change the language.
+# Once the application refreshes, return to the same toggle column header on the Person Search page.
+# Issue: The screen reader still announces the English phrase ?Expand/Collapse Item?, even after the language has been changed.
+
+*Resolution:*
+The hidden text in the table column header for toggle buttons in expandable lists has been removed. This text did not provide additional value to screen reader users in understanding the purpose of the toggle buttons. The incorrectly translated text will no longer be announced to screen reader users.
+"
+SPM-139900,,Update the commons-lang JAR file to the latest version,Third Party Updates,,,,"The Apache Commons Lang JAR has been updated. This JAR provides a host of helper utilities for the java.lang API, notably String manipulation methods, basic numerical methods, object reflection, concurrency, creation and serialization and System properties. Additionally, it contains basic enhancements to java.util.Date and a series of utilities dedicated to help with building methods, such as hashCode, toString and equals.
+* Apache Commons Lang JAR has been updated from 3.14.0 to 3.19.0.
+
+As a result of this upgrade, the following changes have been made in the JDE and REST deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - versions of the specified Apache Commons JARs updated.
+* CuramSDEJlibcommons-lang-3.19.0.jar - version of the JAR updated.
+* CuramCDEJlibextjarcommons-lang-3.19.0.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-139915,,Update the version of the commons-configuration JAR file to the latest,Third Party Updates,,,,"The Apache Commons Configuration package contains tools to assist in the reading of configuration/preferences files in various formats. The library is used in Cúram in a variety of places for XML configuration processing. It is mainly used in the client project for processing the various configuration files for Client Widgets.
+The version of the commons configuration library has now been updated from 2.10.1 to 2.12.0. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* CuramCDEJlibextjarcommons-configuration-2.12.0.jar - the version of the JAR file has been updated.
+* TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-configuration JAR has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-141096,DT037308,Hidden content ('Skip to main content' link) is readable with a screen reader but not actionable,CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+The ?Skip to main content? link was being announced by screen readers when navigating with the arrow keys, even though the link was not visible and not reachable by Tab. This exposed a labelled element in the accessibility tree that was not keyboard operable, causing confusion.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker. 
+# Register a new Person. 
+# Start an application. 
+# With the screen reader ON, move through the dialog using the arrow keys. 
+# Issue: The screen reader announces the hidden ?Skip to main content? link even though it is not visible or tabbable.
+
+*Resolution:*
+The ?Skip to main content? link now becomes visible when users tab to it and reliably moves the user into the main form area; it no longer causes confusing announcements for screen readers.
+"
+SPM-141098,,"Financials screens are not displaying payment details as expected when payments are processed for Persons, Employers, Representatives, and Third Parties",ENT,Financial Management,,,"*Issue Description:*
+The financials list page is not populated for a representative who is a nominee on a product delivery. Additionally, financials for a secondary nominee are appearing on the financials list page for the primary client.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Care and Protection tab and select Cases.
+# Use the New Case page-level action to create an integrated case.
+# Add the necessary evidence to make the client eligible.
+# Activate the evidence.
+# Add an associated product delivery, ?Weekly By Cash In Advance On Monday?.
+# Add a certification, if required.
+# Click the Financials tab and select Nominees.
+# Use the New Nominee page-level action to add a nominee.## Use the freeform fields so that the nominee created is a representative.
+
+# Select the Components page and use the Assign To Nominee row-level action to assign a payable component to the representative.
+# Submit, approve and activate the product delivery.
+# Click the Financials tab and generate the payment online.
+# Click the Nominees page and select the representative from the list. This opens the Representative home page.
+# Click the Financial page.
+# Issue 1: No financials are displayed from the representative.
+# Return to the Nominees page and select the primary client from the list. This opens the client?s home page.
+# Click the Financial Transactions tab.
+# Issue 2: Both the financials for the primary client and the representative are displayed. Only the financials for the primary client should appear.
+
+*Resolution:*
+Both issues have been resolved. Financials now appear on the financials list page for a representative who is a nominee on a product delivery. In addition, only the financials belonging to the selected participant are displayed.
+"
+SPM-141451,DT037261,"Cúram IEG framework is not capable of handling a prepopulated list question, which is not getting displayed conditionally on the IEG Page",CEF,Intelligent Evidence Gathering,,,"*Issue Description:*
+In IEG, when a single-select mandatory list question is wrapped in a condition and the question is not displayed, no value is selected. This results in an error message on submission of the page. 
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Use an IEG script containing a page with a single-select list question wrapped in a condition.
+# Run the Script and navigate to the page with the condition.
+# Ensure the list question remains hidden by selecting the appropriate condition.
+# Submit the page.
+# Issue: An error page is displayed because the hidden mandatory question has no value selected.
+
+*Resolution:*
+The issue has been resolved. A single-select mandatory list question can now be submitted successfully even when it is hidden and no value is selected.
+"
+SPM-141453,,Page not found error when clicking save on the refund payment modal,ENT,Financial Management,,,"*Issue Description:*
+When a financial user attempts to refund a payment using the Refund Payments page for a person, a ?Page Not Found? error is displayed after clicking Save.
+*User Interface Impact:* No 
+*Steps to Reproduce (Generic):*
+# Log in as a caseworker.
+# Register a person.
+# On the Person home page, click the Edit page-level action.
+# Set the Method of Payment and click Save.
+# Log in as a financial user.
+# Navigate to Receive Payments for a Person.
+# Search for and select the registered person.
+# Enter an amount with a ledger number and click Save.
+# Navigate to the Refund Payments for a Person.
+# Search for and select the same person.
+# In the Refund Payment modal, select the payment to refund and click Save.
+# Issue: A ?Page not found? error is displayed after saving.
+
+*Resolution:*
+This issue is now resolved. After saving in the Refund Payment modal, the user is returned to the person search screen from which the modal was opened. The same fix has also been applied to the Refund Payment page for an employer.
+"
+SPM-141476,DT037262,Unhandled server exception thrown when registering Prospect Person as Person,CEF,Technical Services,Participant Management,,"*Issue Description:*
+Registering a prospect person as a person with an existing mailing address results in an unhandled server exception if a private address is added during the registration process.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a Prospect Person with details: First Name, Last Name, Date of Birth, Gender, Mailing Address.## Note: If no private address is provided, the system inserts an ?Address Unavailable? placeholder for the private address.
+
+# On the Prospect Person home page, click the Register page level action.
+# During the registration process, provide a valid private address.
+# Click Save.
+# Issue: An unhandled server exception is thrown.
+
+*Resolution:*
+The issue was caused by the removal of the placeholder private address ('Address Unavailable') when the mailing address was inserted for the person. As a result, the primary address for the Concern Role was left pointing to a deleted address, which triggered the unhandled server exception. The logic has been updated to only remove the placeholder address if the newly inserted address is marked as preferred.
+"
+SPM-141694,DT037272,The evidence task related to evidence issues does not close when an application case is closed,CEF,,,,"*Issue Description:*
+When an application is submitted with an evidence issue, a corresponding task is created. This task remains open even though the case gets automatically closed when the application is withdrawn.
+*User Interface Impact:* No
+*Prerequisites:*
+# Log in as a system administrator.
+# Click Properties under Application Data in the shortcuts panel.
+# Enter ?curam.intake.use.resilience? in the Name field and click Search.
+# Use the row-level action to update the property?s value to ?true'.
+# Use the Publish page-level action to publish the change.
+
+*Steps to Reproduce:*
+# Log in as an Insurance Affordability caseworker.
+# Register a person and create a new application.
+# On the application, assign the same Social Security Number (SSN) to both the primary individual and a second person.
+# Upon submission, the application will move to a status of ?Awaiting Resolution'. An evidence task related to the evidence issue is created.
+# Withdraw the program, which will also result in the closure of the associated application case.
+# Issue: The evidence task related to the evidence issue remains open even after the case is automatically closed when the application is withdrawn. 
+
+*Resolution:*
+The evidence task related to the evidence issue will be automatically closed when the application case is closed. 
+*Technical:*
+A new version of the Process Intake Application Workflow has been introduced. Previously, application submission resulted in an error with the ?Mapping?; the application would be set to 'Awaiting Resolution', and an evidence correction task would be created. When the user withdrew the application case, the case would close, but the task would remain open. In the updated new version of the workflow, when the application is closed, the associated task is also closed. This improvement was implemented by adding a new event and an additional step to check the case status and resume based on this. 
+Below are the details of the changes:
+* The solution introduces a new `Closed` event type in the ApplicationCase.evx file.
+* Enhances the Process Intake Application workflow with three new activities: CheckStatus (automatic activity that reads application case status and stores it in the WDO), RouteBasedOnStatus (routes based on case status), and ConvergeStatusBasedRoute (converges to end workflow for closed cases).
+* When tasks are manually closed, the workflow now automatically checks the application case status - if closed, it terminates the workflow, preventing case reactivation; if active, it continues normal processing through AESRoute.
+
+This intelligent routing mechanism eliminates orphaned tasks and prevents unintended case reactivation.
+"
+SPM-143283,,Navigation is incorrect when the first item in the navigation group is dynamic and disabled,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When the first navigation item in a group is configured as dynamic and marked as hidden, the system still attempts to load that item into the main content area during the initial tab load. As a result, the hidden page either appears briefly or remains visible until the user manually selects another tab.
+*User Interface Impact:* No
+*Prerequisites:* 
+# Log in as an administrator.
+# In the shortcuts panel, click Application Cases under Universal Access.
+# Click the New Application Case page-level action.
+# Configure a new application case where the Evidence Dashboard is not selected.
+
+*Steps to Reproduce*:
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Care and Protection tab and select Applications.
+# Use the New Application Case page-level action to create an instance of the newly configured application case.
+# Navigate to the Evidence tab.
+# Issue: The first navigation item, which is the Evidence Dashboard, is still being rendered into the content area during the initial tab load, even though the associated nav loader Java logic set it to invisible based on the Evidence Dashboard setting (i.e. false) on the newly configured application case.
+
+*Resolution:*
+When the first navigation item in a group is configured as dynamic and marked as hidden, the system immediately detects this state and programmatically triggers a click on the next available visible item. This guarantees that the correct page is displayed in the content area, aligning the UI with the intended navigation configuration and preventing user confusion.
+"
+SPM-143540,DT037283,Verification is not being created when the income amount is updated from zero to a non-zero value via the Citizen Portal,SOL,Verification,,,"*Issue Description:*
+A verification is not being created when the income amount is updated from zero to a non-zero value via the Citizen Portal.
+*User Interface Impact:* No
+*Prerequisites:*
+Configure a verification on the ?amount? data item on Income evidence associated with Insurance Affordability, with a Reverification Mode set to Reverify Always.
+*Steps to Reproduce:*
+# Log in to the Citizen Portal as an external user.
+# Submit an Insurance Affordability application with a single applicant and no income details.
+# Log in as an Insurance Affordability caseworker.
+# Search for and authorize the application.
+# Navigate to the Insurance Affordability integrated case evidence dashboard and create Income evidence with an amount of $0.
+# Apply evidence changes.## No verification is created for the income as the amount is $0. 
+
+# Log in to the Citizen Portal as the same external user.
+# Launch the Change of Circumstance script via ?Update My Information? button and update the income amount from $0 to $100.
+# Submit the changes.
+# Log in as an Insurance Affordability caseworker.
+# Navigate to the Insurance Affordability integrated case.
+# Click the Evidence tab and select Verifications.
+# Issue: No verification is created for the updated income of $100.
+
+*Resolution:*
+A defect in the postponed verification implementation for updated evidence was responsible for the verification not being created for the updated income in the above scenario. This defect has been fixed, and a verification is now created in the reported scenario.
+"
+SPM-143697,,Register person fails on Arabic in Modern Java,CEF,,,Infrastructure,"*Issue Description:*
+The register person process fails on Arabic in Modern Java due to changes in how Date parsing is processed based on that locale.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Click Person under Registration in the shortcuts panel.
+# On the Register Person wizard, click the Next button.
+# Enter data in all mandatory fields (First Name, Last Name, Date of Birth, Private Address).
+# Issue: An IndexOutOfBoundsException is thrown.
+
+*Resolution:*
+Register Person now works as expected in Modern Java.
+"
+SPM-143718,,"Deprecate some message file entries associated with the Cúram license JAR file, which are no longer used",Code Removal,Application Development Environment,,,"*Issue Description:*
+curam-license.jar is a utility for Cúram license verification. It is no longer used by Cúram components. Some message entries associated with the curam-license.jar have been deprecated to indicate curam-license.jar will be removed in a future release.
+*User Interface Impact:* No
+*Resolution:*
+No user action is required."
+SPM-144177,,Remove the defunct omega3-commons.jar file from the Cúram deliverable,Code Removal,,,,"The following empty defunct Cúram JAR file has been removed from the Cúram deliverable:
+* CuramCDEJlibcuramjaromega3-commons.jar
+
+We recommend that you update your custom scripts and any other artifacts to delete any references to the removed JAR file specified above.
+"
+SPM-144205,DT037302,Non-relevant reading by screen reader due to incorrect aria-label on the Reference Number input field on Person Registration,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+When navigating to the Register Person wizard using Microsoft Edge, the Reference Number input field is incorrectly announced as a ?Modal Frame?. This results in a confusing experience for screen reader users. 
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Enable a screen reader.
+# Log in as a caseworker (using the Microsoft Edge browser).
+# Navigate to Person under Registration in the shortcuts panel.
+# Using the keyboard, navigate to the Reference Number input field.
+# Issue: The screen reader announces non-relevant information when the user is on the Reference Number input field.
+
+*Resolution:*
+The Reference Number input field on the Register Person wizard is now correctly communicated by the screen reader.
+"
+SPM-144206,DT037304,A descriptive label for a participant's age should be provided to clarify that the number represents the participant's age,CEF,,,,"*Issue Description:*
+On several pages in the application, the participant?s age is displayed in brackets next to their name, for example, James Smith (55). There is no descriptive label to clarify that the number refers to the participant?s age. This can confuse both visual and screen reader users, as it is unclear whether the number is an age or another identifier. The lack of a clear label may impact usability and accessibility for caseworkers.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+# Log in as a caseworker.
+# Register a new Person.
+# Click the Evidence tab.  
+# Expand the Gender evidence type and select the Edit row-level action.
+# Issue: The participant?s age is rendered in brackets beside the name. It does not specify that this refers to the participant?s age, which may confuse users as to what the number represents. e.g., James Smith (55).
+
+*Resolution:*
+A descriptive label has been added to clarify that the number represents the participant?s age. The participant?s name is now displayed in the format: James Smith, Age: 55. This update improves clarity for both visual and screen reader users and is applied across all relevant screens. 
+*Technical:*
+The following APIs are updated to return the new display text:
+# curam.core.impl.MaintainConcernRoleDetails.appendAgeToName(ConcernRolesDetails)
+# curam.core.sl.impl.AlternateName.getNameAndAge(ConcernRoleKey)
+# curam.meetings.meetingminutes.facade.impl.MeetingsUtilityImpl.getClientInviteeDetails(MeetingParticipantDetails)
+
+The following UIMs/VIMs are updated to display the new display text :
+# ProductDelivery_createDeliveryPatternView.vim
+# Financial_cancelPaymentView1.vim
+# Action_createView.vim
+# Activity_modifyRecurringUserActivity1.uim
+# Activity_modifyStandardUserActivity1.uim
+# InvestigationDelivery_createAllegationRoleView.vim
+# InvestigationDelivery_createAllegationView.vim
+# VerificationApplication_createVerificationItemProvision.uim
+# VerificationApplication_verifyOutstandingEvd.uim
+# ProductDelivery_getParticipantAndLiabilityForVariableWizardContent.vim
+# ProductDelivery_getParticipantAndLiabilityWizardContent.vim
+# ProductDelivery_getParticipantAndLiabilityContent.vim
+# ProductDelivery_getParticipantAndLiabilityForVariableContent.vim
+# ProductDelivery_createThirdPartyFixedDeduction1.uim
+# ProductDelivery_getParticipantLiabilityWizardContent.vim
+# ProductDelivery_createCaseNomineeView1.vim
+# Case_listOperationalNomineePopup.uim
+# ProductDelivery_createAppliedFixedDeduction1Content.vim
+# ProductDelivery_createAppliedVariableDeduction1Content.vim
+# ProductDelivery_modifyAppliedDeductionDetailsView.vim
+# ProductDelivery_modifyThirdPartyDeductionView1.vim
+# ProductDelivery_createUnappliedFixedDeduction1.uim
+# ProductDelivery_createUnappliedVariableDeduction1.uim
+# ProductDelivery_modifyUnappliedDeductionDetailsView.vim
+# ProductDelivery_assignObjectiveToNominee.uim
+# ProductDelivery_assignObjectiveToNomineeView.vim
+# ProductDelivery_assignObjectiveToNominee1.uim
+# Financial_regeneratePayment1.uim
+# ApplicationVerificationApplication_createVerificationItemProvision.uim
+# EVD_selectAssignedIncomeEvidencePreAssociation.uim
+# EVD&#95;addToCaseEmploymentExpenseEvidence&#95;wzContent.vim
+# EVD&#95;createEmploymentExpenseEvidence&#95;wzContent.vim
+# EVD&#95;createPaidEmploymentEvidence&#95;wzContent.vim
+# EVD&#95;addToCaseSelfEmploymentEvidence&#95;wzContent.vim
+# EVD&#95;createSelfEmploymentEvidence&#95;wzContent.vim
+# EVD&#95;addToCaseUnpaidEmploymentEvidence&#95;wzContent.vim
+# EVD&#95;createUnpaidEmploymentEvidence&#95;wzContent.vim
+# EVD&#95;addToCaseVoluntaryQuitEvidence&#95;wzContent.vim
+# EVD&#95;createVoluntaryQuitEvidence&#95;wzContent.vim
+# CYSIntegratedCase_listParticipantView.vim
+# NonRestrictive_listAllPlacements.uim
+# NonRestrictive_listPlacements.uim
+# ProductDelivery_createThirdPartyVariableDeduction1.uim
+# DecisionAssistApplication_createThirdParty.uim
+# ProductDelivery_addUnitMemberView.vim 
+
+"
+SPM-144230,DT037307,"The button's accessible name 'Modal Frame' is announced instead of 'Contact Details' ",CEF,Application Development Environment,Client Development Environment,,"*Issues Description:*
+On both the New Application Form dialog and User Details modal, the button accessible name does not reflect the visual heading/button text. This results in a confusing experience which makes it difficult for screen reader users to navigate.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1:*
+# Enable a screen reader.
+# Log in as a caseworker.
+# Register a new Person.
+# Select New Application Case from the tab-level menu.
+# From the New Application Case modal, select any application case type. 
+# Click Save.
+# On the top right of the application case page, click the Intake User link. This will bring up the User Details modal, and you can see the Contact Details section.
+# Issue: The screen reader incorrectly announces ?Modal Frame' on the application column header instead of 'Contact Details?.
+
+*Scenario 2:*
+# Enable a screen reader.
+# Log in as a caseworker.
+# Search for and open any person.
+# From the tab-level menu, select New Application Form and navigate to the application column header.
+# Using the tab key, tab through the modal dialog until you reach the application column header again.
+# Issue: When the user tabs through the dialog to the application column header for the second time, the screen reader announces  ?Modal Frame New Application Form?. This is repeated if the user tabs through the dialog to the Application column header again.
+
+*Resolution:*
+Screen readers will correctly read out relevant and meaningful context for the button, enabling assistive technology users to understand the field?s intent. 
+"
+SPM-144306,DT037317,Generate Instruments batch fails when future payments are transferred to a new bank account,ENT,Financial Management,,,"*Issue Description:*
+When EFT payments are being issued to a representative, for example, on a product delivery, and a new bank account is subsequently added to the representative and future payments transferred to the new bank account, an unhandled server exception occurs when running Generate Instruments for the next payment due.
+*User Interface Impact:* No 
+*Steps to Reproduce (Generic):*
+# Log in as a caseworker.
+# Register a new Person.
+# Create an integrated case.
+# Add the necessary evidence to make the client eligible.
+# Apply Changes.
+# Create a product delivery, ?Weekly By EFT in advance on a Monday?, on the integrated case.
+# Add certification, if required.
+# Add a representative as a nominee on the product delivery.
+# Add a bank account to the representative.
+# Make this account a destination bank account on the product delivery.
+# Make the new nominee the default nominee.
+# Submit, approve and activate the product delivery.
+# Add a new bank account for the representative.
+# On the list of bank accounts for the representative, use the Transfer row-level action on the initial bank account.## Select the new bank account. This transfers all future payments to the new bank account.
+
+# Issue: When issuing the next payment due on the product delivery, an unhandled server exception is reported by the Generate Instruments batch process.
+
+*Resolution:*
+This issue has been addressed and the Generate Instruments batch job no longer reports an unhandled server exception when future payments are transferred to a new bank account for a representative. The issue arose as there were two Case Nominee Destination records for the nominee (representative), one active and one cancelled, but the logic inside Generate Instruments to check if a valid bank account existed, did not perform a read on status. This existing entity read has been replaced by one that only looks for active Case Nominee Destination records.
+"
+SPM-144388,DT037316,DBtoJMS LTPA mode does not handle http content length specifier correctly,CEF,Technical Services,,,"*Issue Description:*
+Batch jobs which were using the DBtoJMS functionality were incorrectly processing the response content length figure by treating it as a decimal string, whereas it is represented as a hexadecimal string.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+
+# Set the following application properties:## curam.batchlauncher.dbtojms.enabled = True
+## curam.batchlauncher.dbtojms.notification.port = Application Server specific
+## curam.batchlauncher.dbtojms.notification.ltpa = True
+## curam.batchlauncher.dbtojms.notification.trace = True
+
+# Run the following SQL statements:## UPDATE KeyServer SET humanReadable = '1' WHERE keysetCode = 'DEFAULT';
+## UPDATE KeyServer SET nextUniqueIDBlock=400000000 WHERE keysetCode = 'DEFAULT'; 
+
+# Restart the server.
+# Issue: Run the batch launcher. A numberFormat exception is thrown.
+
+*Resolution:*
+The defect has been fixed, eliminating the numberFormat exception and allowing the batch job to complete successfully. 
+"
+SPM-144421,,Resolve the consistency issue with the ESC key so that this works for all combo boxes,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+Across the application, multiple user interface components that use IEG combo boxes or code table hierarchies do not respond to the ESC key. This behavior affects various screens and forms that utilise these components, including, but not limited to, application intake, person registration, and other data entry flows. 
+The expected behaviour for keyboard users is that pressing the ESC key should clear the selection in a combo box. This is a standard accessibility feature and improves usability for users who rely on keyboard navigation.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a new Person.
+# On the person home, click the Applications tab.
+# Click the New Application page-level action.
+# Check all checkboxes for application names and click Next.
+# Navigate to the ?Method of Receipt? field and press the ESC key.
+# Issue: The ESC key does not clear the IEG combobox.
+
+*Resolution:*
+The ESC key behavior has been standardized across all IEG Combo boxes and code table hierarchies in the application. Pressing ESC clears the selection consistently, improving accessibility and user experience across all relevant screens.
+"
+SPM-144662,DT037324,Hover state of the shortcut menu option has insufficient contrast with its adjacent colour,CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
+The hover color of the section shortcut panel has insufficient contrast with its adjacent background color.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Navigate to any page with a section shortcut panel.
+# Use the mouse to hover over a category or link in the section shortcut panel.
+# Issue: The hover color has insufficient contrast with its adjacent color.
+
+*Resolution:*
+The hover color of the section shortcut panel has been updated, so that it has sufficient contrast with its adjacent background color.
+"
+SPM-145280,,Remove the defunct 'ToolsGeneratorsEGToolslibxalan-2.6.0.jar' from the Cúram deliverable,Code Removal,,,,"The following JAR file has been removed from the Cúram deliverable as it is no longer used by the Evidence Generator.
+* ToolsGeneratorsEGToolslibxalan-2.6.0.jar
+
+The Evidence Generator uses the xalan JAR file delivered in the CuramSDEJ. 
+We recommend that you update any custom scripts and other artifacts to remove references to the JAR file which has been removed above and point to the version in the CuramSDEJ if required."
+SPM-145285,,Update the xalan and serializer JAR files to a later version,Third Party Updates,,,,"Xalan-Java (which contains both the Xalan and Serializer JAR files) is an XSLT processor for transforming XML documents into HTML, text, or other XML document types.
+The library is used across many different Cúram builds to transform XML documents into other formats required by Cúram.
+The version of the xalan and serializer libraries has now been updated from 2.7.2 to 2.7.3-1. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* TI/lib/release/third&#95;party&#95;version.properties - the versions of the xalan and serializer JAR files have been updated.
+* CuramCDEJlibextjarxalan-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramCDEJlibextjarserializer-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramSDEJlibxalan-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramSDEJlibserializer-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramSDEJxmlserverxalan-2.7.3-1.jar - the version of the JAR file has been updated.
+* CuramSDEJxmlserverserializer-2.7.3-1.jar - the version of the JAR file has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR files that have been specified above.
+"
+SPM-145596,,Open Enrollment Period Configuration for 2026,SOL,Income Support HCR,,,"*Issue Description:*
+The Open Enrollment Period configuration for 2026 for Insurance Affordability is not available in the application.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as an administrator.
+# Navigate to the Open Enrollment Period under Health Care Reform in the shortcuts panel.
+# Issue: No Open Enrollment Period for 2026 is configured.
+
+*Resolution:*
+A new Open Enrollment Period configuration for 2026 is now available for Insurance Affordability. The configuration is as follows:
+* Start Date: November 1, 2025
+* End Date: January 15, 2026
+* Coverage Start Date: January 1, 2026  
+* Coverage End Date: December 31, 2026
+
+"
+SPM-145684,DT037346,The calendar in the date input field displays the wrong format,CEF,,,,"*Issue Description:*
+When the date format is set to ?dd/MM/yyyy?, the calendar date input field displays the selected date in the wrong format ('MM/dd/yyyy') when the chosen day is between the 1st and 12th of the month.
+*User Interface Impact:* No
+*Prerequisites:*
+# Open the following files:## /Development/webclient/JavaSource/curam/omega3/ApplicationConfiguration.properties
+## /Development/webclient/components/SECCommon/javasource/curam/omega3/ApplicationConfiguration.properties
+## /Development/webclient/WebContent/WEB-INF/classes/curam/omega3/ApplicationConfiguration.properties
+
+# Update the following properties to change the date format to be dd/MM/yyyy:## dateformat=dd MM yyyy
+## dateseparator=/
+
+# Open /Development/EJBServer/project/properties/Bootstrap.properties
+# Update the following properties:## curam.environment.default.dateformat=dd MM yyyy
+## curam.environment.default.dateseparator=/
+
+# Run the server, database, and webclient builds.
+
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a person.
+# On the Register Person wizard, navigate to the second page.
+# Navigate to a date picker input field and select a date where the day value is the 12th or lower (4th August 2025 or 04/08/2025, for example).
+# Close and re-open the date picker.
+# Issue: The selected date is being interpreted in ?MM/dd/yyyy? format, and the date picker is now displaying April 8th, 2025, as the selected date.
+
+*Resolution:*
+The calendar date input field now correctly displays selected dates in the ?dd/MM/yyyy? format, regardless of the day of the month, when this format is configured.
+"
+SPM-145699,,Update the version of the commons-jxpath JAR file to the latest,Third Party Updates,,,,"The Commons JXPath is a Java-based implementation of XPath 1.0 that, in addition to XML processing, can inspect/modify Java object graphs (the library's explicit purpose) and mixed Java/XML structures. There are no direct references to the commons-jxpath jar file in the Cúram application. The commons-configuration JAR file has an indirect dependency on commons-jxpath jar.
+The versions of this JAR have now been updated from 1.3 to 1.4.0. As a result of this upgrade, the following change has been made in the JDE:
+* TI/lib/release/third&#95;party&#95;version.properties - the version of the specified commons-jxpath JAR has been updated.
+* CuramCDEJlibextjarcommons-jxpath-1.4.0.jar - version of the JAR updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-145708,DT037350,Legend text at the top of pages with mandatory fields is not descriptive,CEF,Application Development Environment,Client Development Environment,,"*Issue Description:*
+On a modal or wizard that has a form, the required legend displayed to caseworkers to inform them about mandatory fields is too simplistic and lacks clarity.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Open the Register Person wizard.
+# Navigate to Step 2.
+# Issue: Observe the legend text at the top of the dialog. The legend text ?&ast; required field? is overly simplistic and lacks clarity, which can confuse users.
+
+*Resolution:*
+Modals and wizards with required input fields display a legend ?&ast; Indicates a required field?. This is more informative to caseworkers and aligns with IEG screens in the application.
+"
+SPM-145709,,Update the version of the java-jwt JAR file to the latest,Third Party Updates,,,,"The java-jwt library is a Java implementation of JSON Web Token (JWT). It provides a mechanism for creating the JWT token using an algorithm that defines how the token is signed and verified. Cúram uses the java-jwt library for the creation and verification of the JWT token. 
+The version of the java-jwt library has now been updated from  4.4.0 to 4.5.0. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* CuramSDEJ/lib/third&#95;party&#95;version.properties  - the version of the java-jwt JAR file has been updated.
+* CuramSDEJ/lib/java-jwt-4.4.0.jar  - old JAR removed.
+* CuramSDEJ/lib/java-jwt-4.5.0.jar  - new JAR added. 
+
+We recommend that you update any references in custom scripts and other artefacts to point to the new version of the JAR file that is specified above.
+"
+SPM-145742,,Update the version of the xmlunit-core JAR file to the latest,Third Party Updates,,,,"XMLUnit Core provides helper classes to validate generated XML against an XML schema, assert the values of XPath queries or compare XML documents against expected outcomes. It provides a diff engine that offers full control over what kind of difference is required and which part of the generated document to compare against reference documents. It is used to ensure that Dynamic Domain Definitions are loaded correctly in the product.
+The version of the xmlunit-core library has now been updated from 2.10.0 to 2.10.3. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* CuramSDEJ/lib/xmlunit-core-2.10.3.jar - the version of the JAR file has been updated.
+* TI/lib/release/third&#95;party&#95;version.properties - the version of the specified xmlunit-core JAR file has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above. 
+"
+SPM-145790,DT037358,Screen Reader reading Navigation Left & Navigation Right icons which should be hidden,CEF,Application Development Environment,Client Development Environment,Infrastructure,"*Issue Description:*
+When a user opens multiple tabs in the application (e.g., Person Search, Employer Search) or reduces the browser size, the navigation tab buttons ('Navigation Left' and ?Navigation Right?) become visible for sighted users to scroll through the tabs. However, these navigation tab buttons may be incorrectly announced by screen readers to non-sighted users when navigating via keyboard.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1 (Generic):*
+# Start a screen reader.
+# Log in as a caseworker.
+# Register a person and create an integrated case with an associated product delivery.
+# Open additional tabs such as Person Search, Employer Search, Investigation Search, etc., until you see the Navigation Left and Navigation Right buttons appear in the Tab Navigation bar.
+# Using a screen reader, navigate to the Tab Navigation Menu button.
+# Press the down arrow key on your keyboard.
+# Issue: Screen reader announces Navigation Left, Navigation Right and then the Application tab. This is confusing for screen reader users as Navigation Left or Navigation Right icons are only for sighted users and should be hidden for non-sighted users.
+
+*Scenario 2:*
+# Start a screen reader.
+# Log in as a caseworker.
+# Register a person and open the Smart Panel.
+# Reduce the browser window size until the Navigation Left and Navigation Right buttons appear in the Content Area Navigation bar.
+# Using a screen reader, navigate to the Content Area Tab Navigation Menu button.
+# Press the down arrow key.
+# Issue: Screen reader announces Navigation Left, Navigation Right and then the Content Area Navigation tab. This is confusing for screen reader users as Navigation Left or Navigation Right icons are only for sighted users and should be hidden for non-sighted users.
+
+*Resolution:*
+The navigation tab buttons (Navigation Left and Navigation Right buttons) are excluded from the accessibility tree, ensuring they are not announced by screen readers.
+"
+SPM-145804,DT037359,The household calculation is incorrect for a second pregnancy,SOL,Income Support HCR,Eligibility & Entitlement,,"*Issue Description:*
+The household size calculation for Medicaid and CHIP eligibility was incorrect when multiple pregnancy records existed for the same person. The system only considered the first pregnancy record, resulting in an inaccurate household member count during postpartum periods and when new pregnancies were added. This led to incorrect eligibility determinations for both Streamlined Medicaid and CHIP programs.
+*User Interface Impact:* No
+*Steps to Reproduce: *
+*Scenario 1: Streamlined Medicaid*
+# Log in as an Insurance Affordability caseworker.
+# Register a female person.
+# Submit an Insurance Affordability Application with Application Date as Jan 1 of the current year, select Pregnant as yes with 3 children expected, enter Due Date as <Upcoming date within the current year>, set income as none, and submit.
+# Apply all evidence and authorize to create a Streamlined Medicaid and Insurance Affordability case.
+# Open the Streamlined Medicaid product delivery, click Determinations, and observe that 3 entries for Pregnancy, Post-Partum, and Adult categories.
+# Open the Pregnancy evidence, remove the Due Date, set the Received Date, and Pregnancy End Date to <any date before the due date>. Save and apply the evidence changes.
+# Refresh Streamlined Medicaid. Four coverage period entries will appear.
+# Return to Pregnancy evidence and add a new record with Received Date and Start Date as <Start date for second pregnancy>, Due Date as <Due date for second pregnancy>, and unborn children as 1. Apply the evidence changes.
+# Issue: Access the Streamlined Medicaid case and navigate to the Determinations section. Only three entries are displayed. The entry for the second pregnancy incorrectly reflects just one household member, instead of including two household members.
+
+*Scenario 2: CHIP Eligibility And Entitlement*
+# Log in as an Insurance Affordability caseworker.
+# Register a female person, age 18.
+# Submit an Insurance Affordability Application with Application Date as Jan 1 of the current year, mark Pregnant as Yes with 3 children expected, enter Due Date as <Upcoming date within the current year>, select Taxpayer as Yes, add income as $42,000/year, and submit the application.
+# Apply all evidence and authorize to create HCR CHIP, Insurance Assistance, and Insurance Affordability cases.
+# Access the HCR CHIP link, click Determinations, and verify that two entries are created: one Eligible (with coverage cost) and the other Not Eligible (no household members found eligible).
+# Navigate back to the Evidence tab on the Insurance Affordability case and open the Pregnancy evidence in a separate tab.
+# Click the Edit link, remove the Due Date, update the Received Date and Pregnancy End Date to <any date before the due date>, then save and apply the evidence change.
+# Go back to Pregnancy evidence and add new evidence with Received Date and Start Date as <Start date for second pregnancy>, Due Date as <Due date for second pregnancy>, and Unborn children as 4. Apply the evidence changes.
+# Issue: In the HCR CHIP Determinations section, three entries are displayed, but the determination for the second pregnancy is incorrectly shown as Not Eligible.
+
+*Resolution:*
+StreamlineMedicaidEligibilityAndEntitlementRuleset.xml  and CHIPEligibilityAndEntitlementRuleset.xml rules have been updated to handle multiple pregnancy records. The system now accurately includes all applicable household members in the determination, reflecting the correct household size for the second pregnancy. 
+The following ruleset files have been modified: 
+1) EJBServer/components/HCR/CREOLE&#95;Rule&#95;Sets/StreamlineMedicaidEligibilityAndEntitlementRuleset.xml 
+2) EJBServer/components/HCR/CREOLE&#95;Rule&#95;Sets/CHIPEligibilityAndEntitlementRuleset.xml 
+ The following attributes were modified as part of the fix: 
+1) EJBServer/components/HCR/CREOLE&#95;Rule&#95;Sets/StreamlineMedicaidEligibilityAndEntitlementRuleset.xml 
+* medicaidFamilySize(attribute modified) 
+
+2) EJBServer/components/HCR/CREOLE&#95;Rule&#95;Sets/CHIPEligibilityAndEntitlementRuleset.xml 
+* medicaidFamilySize(attribute modified) 
+
+*Technical:*
+The StreamlineMedicaidEligibilityAndEntitlementRuleset.xml and CHIPEligibilityAndEntitlementRuleset.xml rulesets have been updated to properly handle multiple pregnancy evidences for the medicaidFamilySize attribute. Both rule-sets now incorporate improved household calculation logic that properly sums unborn children from all pregnancies. This ensures accurate family size calculations across all pregnancy records, providing more precise eligibility and entitlement determinations for both Medicaid and CHIP programs.
+"
+SPM-145818,DT037363,Date picker is highlighting the day before the current selected date in the date picker field,CEF,,,,"*Issue Description:*
+When the date format is set to ?yyyy-MM-dd? in the Cúram application and the user?s computer is in a time zone behind UTC (Coordinated Universal Time), the calendar in a date input field highlights the day before the selected date.
+*User Interface Impact:* No
+*Prerequisites:*
+# Open the following files:## /Development/webclient/JavaSource/curam/omega3/ApplicationConfiguration.properties
+## /Development/webclient/components/SECCommon/javasource/curam/omega3/ApplicationConfiguration.properties
+## /Development/webclient/WebContent/WEB-INF/classes/curam/omega3/ApplicationConfiguration.properties
+
+# Update the following properties to change the date format to be yyyy-MM-dd:## dateformat=yyyy MM dd
+## dateseparator=-
+
+# Open /Development/EJBServer/project/properties/Bootstrap.properties
+# Update the following properties:## curam.environment.default.dateformat=yyyy MM dd
+## curam.environment.default.dateseparator=-
+
+# Run the server, database, and webclient builds.
+# Set the time zone on the machine to one behind UTC (e.g., UTC -05:00 Eastern Time (US & Canada)).
+
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a person.
+# On the Register Person wizard, navigate to the second page.
+# Navigate to and select a date picker input field.
+# Issue: The date picker is highlighting the day before the current selected date in the date picker field.
+
+*Resolution:*
+When the date format is set to ?yyyy-MM-dd? in the application and the user?s computer is in a time zone behind UTC (Coordinated Universal Time), the calendar in a date input field now correctly highlights the currently selected day when opened.
+"
+SPM-145831,," Oracle WebLogic Version 14c 14.1.2.0.0 is now supported in Modern Java",Third Party Updates,,,,"*Issue Description:*
+Modern Java deployment of the application was not supported in Oracle WebLogic.
+*User Interface Impact:* No
+*Resolution:*
+Modern Java deployment of the application is now supported in Oracle WebLogic Version 14c 14.1.2.0.0."
+SPM-145833,,Update the version the commons-beanutils JAR file in TI to the latest version,Third Party Updates,,,,"Apache Commons BeanUtils provides easy-to-use wrappers around the Java Reflection and Introspection APIs. The Java Development Environment (JDE) utilizes this.
+The versions of this JAR have now been updated from 1.9.4 to 1.11.0. As a result of this upgrade, the following changes have been made to the JDE deliverable.
+* CuramSDEJ/lib/third&#95;party&#95;version.properties - the versions of the specified commons-beanutils JAR have been updated.
+* CuramSDEJ/lib/commons-beanutils-1.11.0.jar - new JAR added.
+* CuramSDEJ/lib/commons-beanutils-1.9.4.jar - old JAR removed.
+* CuramCDEJ/lib/ext/jar/commons-beanutils-1.11.0.jar- new JAR added.
+* CuramCDEJ/lib/ext/jar/commons-beanutils-1.9.4.jar - old JAR removed.
+* EJBServercomponentsRestscriptrest_properties.xml - the version of the specified JAR file has been updated.
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-145857,,Upgrade of BIRT open-source artifacts in Modern Java,CEF,Business Intelligence and Analytics,,,"The Cúram BIRT Viewer is the BIRT Engine infrastructure component which executes BIRT charts and reports. This component wraps the open source BIRT Engine and is a Java Platform, Enterprise Edition application. 
+A number of changes have been made to the Cúram BIRT Viewer deliverable in Modern Java, including the updating of a JAR file to a more recent version and the removal of a number of JAR files and plugins which were defunct and not required for the viewing of the BIRT reports delivered and utilized by the Cúram application. 
+The changes include the following:
+* CuramBIRTViewerWebContentWEB-INFlibaxis.jar - the version of this JAR file has been updated to org.apache.axis&#95;1.4.1.v20231107-0937.jar.
+* CuramBIRTViewerWebContentWEB-INFlibaxis-ant.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFlibsaaj.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.apache.derby&#95;10.11.1.1&#95;v201605202053.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.mysql.dbdefinition&#95;1.2.1.201712071719.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.postgresql.dbdefinition&#95;1.2.1.201712071719.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.datatools.enablement.postgresql&#95;1.3.1.201712071719.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsorg.eclipse.birt.report.data.oda.excel&#95;4.8.0.v201806261756.jar - this JAR file has been removed.
+* CuramBIRTViewerWebContentWEB-INFplatformpluginsuk.co.spudsoft.birt.emitters.excel&#95;4.8.0.v201806261756 - this complete directory has been removed. This includes the removal of the following JAR files:
+* dom4j-1.6.1.jar
+* xmlbeans-2.3.0.jar
+
+We recommend that you update or remove any references in custom scripts and other artifacts to the JAR files that are specified above.
+"
+SPM-146002,DT037380,"In the development environment, the process of serializing and deserializing Modern Java Money objects is not functioning as expected.",CEF,Application Development Environment,Financials,Infrastructure,"*Issue Description:*
+When adding a new account adjustment under a person?s Financial Transactions tab in the Modern Java Eclipse development environment, an HTTP 500 Internal Server Error is thrown.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Start up Cúram in Eclipse/Tomcat.
+# Log in using RestLoginClient as caseworker/password.
+# Register a new person, or use an existing person record.
+# On the person home page, click the Financial Transactions tab.
+# Click New Account Adjustment.
+# Enter any data, for example, set the amount to 1000 and leave the other fields as default. 
+# Click Save.
+# Issue: An HTTP 500 Internal Server Error occurs. Expected behavior: The new account adjustment should complete successfully.
+
+*Resolution:*
+Updated (de)serialization handling for _curam.util.type.Money_ to ensure proper processing in Modern Java.
+"
+SPM-146029,,Update the version of guava to latest version in Modern Java,Third Party Updates,,,,"*Issue Description:*
+Google Guava is an open source set of core libraries for the Java platform released by Google under the Apache License. The version of Google Guava used in the Cúram product has been updated from 31.1-jre to 33.3.1-jre in Modern Java.
+As a result of this upgrade, the following change has been made in the Server Java Development Environment deliverable.
+* guava.jar (updated from 31.1-jre to 33.3.1-jre).
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file specified above.
+"
+SPM-146030,,Update to latest version of okio in Modern Java,Third Party Updates,,,,"*Issue Description:*
+Okio is a library that complements java.io and java.nio, simplifying data access, storage, and processing. It is released under an Apache license and included as part of Axis2 support for Web Services in Modern Java.
+The version of Okio used in the Cúram product has been updated from 2.10.0 to 3.16.0.
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file above.
+"
+SPM-146129,DT037388,Event on the ProductDeliveryLifeCycleEvents class is not called when a product delivery is activated in batch,ENT,Integrated Case Management,,,"*Issue Description:*
+When a product delivery is activated via the DetermineProductDeliveryActivation batch process, the appropriate post-activation event, postProductDeliveryActivation(), inside ProductDeliveryLifeCycleEvents, is not invoked. The event is being called when a case is activated online. 
+The same is true of the post-closure event, postProductDeliveryClosure(), on the ProductDeliveryLifeCycleEvents class. This is invoked when a product delivery is closed online, but isn?t invoked as part of the CloseCasesPendingClosure batch process.
+*User Interface Impact:* No
+*Prerequisites:*
+# Provide sample implementations of the following events - this could even be something as simple as a system out to demonstrate that the event is being raised:## ProductDeliveryLifeCycleEvents.postProductDeliveryActivation()
+## ProductDeliveryLifeCycleEvents.postProductDeliveryClosure()
+
+# Ensure the sample implementation(s) are bound in a module class.
+
+*Steps to Reproduce (Generic): *
+*Post-Activation Event (Testing in Eclipse):*
+# Log in as a caseworker using the RMILoginClient utility.
+# Register a new Person.
+# Create a new integrated case.
+# Add the necessary evidence and activate it.
+# Create an associated product delivery.
+# Add certification, if applicable.
+# Submit, approve and activate the product delivery online.## You should see the system out written to the console of the IDE.
+
+# Create another associated product delivery, and add certification if necessary.
+# Log in as a system administrator.
+# Click Processes under Batch in the shortcuts panel.
+# Search for the ?Determine Product Delivery Eligibility? batch process and execute it.
+# Run the batch launcher locally.
+# Issue: Check the logs; there is no system out from the sample implementation of the post-activation event.
+
+*Post-Closure Event (Testing in Eclipse):*
+#  Log in as a caseworker using the RMILoginClient utility.
+#  Register a new Person.
+#  Create a new integrated case.
+# Add the necessary evidence and activate.
+# Create an associated product delivery.
+# Add certification, if applicable.
+# Close the product delivery with today?s date.## You should see the system out written to the console of the IDE.
+
+# Create another associated product delivery, and add certification if necessary.
+# Now, close the new product delivery with a future date. ## The product delivery now has a status of ?Pending Closure?.
+
+# Log in as a system administrator.
+# Click Processes under Batch in the shortcuts panel.
+# Search for the ?Close Cases Pending Closure? batch process.
+#  Specify the ?processingDate? parameter as the date you specified when closing the case.
+# Execute the batch process.
+# Run the batch launcher to run the batch job locally.
+# Issue: Check the logs; there is no system out from the sample implementation of the post-closure event.
+
+*Resolution:*
+The post-activation and post-closure events are now called by the relevant batch, as well as online processes, thereby making the flows consistent regarding the raising of these events.
+"
+SPM-146203,,Update the certified version of Apple VoiceOver and Chrome for tablet accessibility,Third Party Updates,,,,The certified version of Apple VoiceOver is now updated to iOS 26.1 This is certified against Chrome 142. 
+SPM-146209,,Updates to supported browser versions,Third Party Updates,,,,"The following browser versions are now updated and certified for this release.
+Caseworker Application Browser Support
+* Google Chrome is updated to 142
+* Microsoft Edge is updated to 142
+
+Universal Access Application Browser Support
+* Google Chrome is updated to 142
+* Microsoft Edge is updated to 142
+* Mozilla Firefox is updated to 144
+* Apple Safari is updated to 26
+
+"
+SPM-146273,,Update the version of the commons-fileupload JAR file to the latest version,Third Party Updates,,,,"The Apache Commons FileUpload API enables file upload capabilities in Java EE web applications.
+It is used in the Cúram application for that purpose. It is also part of the Cúram Axis 2 web services deliverable.
+The version of the commons-fileupload JAR that is used by Cúram has now been updated from 1.5 to 1.6 in the Axis 2 deliverable and JDE deliverables. This new JAR file contains some minor bug fixes and enhancements.
+As a result of this upgrade, the following changes have been made to the Cúram deliverable.
+* CuramSDEJlibthird&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.
+* CuramSDEJxmlserverthird&#95;party&#95;version.properties - the version of the commons-fileupload JAR file has been updated.
+
+The changes to the commons-fileupload JAR file include:
+* CuramSDEJ/lib/axis2/commons-fileupload-1.6.jar - version updated from 1.5 to 1.6 .
+* CuramCDEJ/lib/ext/jar/commons-fileupload-1.5.jar - version updated from 1.5 to 1.6 .
+
+We recommend that you update any references in custom scripts and other artifacts to point to the new version of the JAR file that is specified above.
+"
+SPM-146457,,Updates to the versions of MS Word supported for the Microsoft Word Integration feature,Third Party Updates,,,,"The following changes have been made to the Microsoft Word version support for the Microsoft Word Integration feature in Cúram.
+* Support for Microsoft Word for Microsoft 365 (included in Microsoft 365 Apps for enterprise) has been added.
+* Support for Microsoft Word 2021 and future fix packs is being maintained.
+
+This means that the Microsoft Word versions supported for Cúram 8.2.1.0 are as follows:
+* 2021 and future fix packs.
+* Microsoft Word for Microsoft 365 (current channel and future updates).
+
+"
+SPM-146515,,File Downloads via REST API may now require Accept header after Jackson JAX-RS Provider Upgrade,Third Party Updates,,,,"*Issue Description:*
+Following the upgrade to the Jackson JARs from version 2.15.2 to 2.19.2, an error is being thrown when making REST API calls for file downloads that contain binary data (Blob objects).
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Upload a blob file (like an image) via a File Upload API e.g. {{/v1/dbs/files}}
+# Attempt to get File Contents via API e.g. {{/v1/dbs/files/:fileId}} without specifying an Accept header
+# Issue: An InvalidDefinitionException is thrown: {{InvalidDefinitionException: No serializer found for class curam.util.type.Blob}}
+
+*Resolution:*
+Ensure the correct {{Accept}} header is provided for API calls when downloading binary files:
+{noformat}GET /v1/dbs/files/:fileId
+Accept: application/octet-stream{noformat}
+
+*JavaScript/Fetch API:*
+{noformat}fetch('/v1/dbs/files/123', {  
+  headers: {
+    'Accept': 'application/octet-stream'
+  }
+}){noformat}
+
+*cURL:*
+{noformat}curl -H """"Accept: application/octet-stream"""" /v1/dbs/files/123{noformat}
+
+*Java HTTP Client:*
+{noformat}HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create(""""/v1/dbs/files/123""""))
+    .header(""""Accept"""", """"application/octet-stream"""")
+    .build();{noformat}"
+SPM-146518,,The provider management Navigator Non Secure fails to load properly,SOL,Provider Management,,,"*Issue Description:*
+In Cúram v8.2, the Navigator Non Secure portal under Provider Management fails to load properly.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Navigate to the NavigatorNS Portal.
+# Issue: The Navigator Non Secure portal fails to load. A FailedLoginException can be seen in the server logs.
+
+*Resolution:*
+The NavigatorNS portal now logs in successfully.
+"
+SPM-146534,,Referer header domain name was not being validated,CEF,,,,"*Issue Description:*
+Due to a minor issue in the Referer header domain validation, one of the wildcards in the domain names was not validated correctly. 
+*User Interface Impact:* No
+*Resolution:*
+The Referer header domain name validation logic for both REST and Cúram applications has been improved to address this issue."
+SPM-148060,,BIRT charts were occasionally not loading on startup,CEF,Business Intelligence and Analytics,,,"*Issue Description:*
+BIRT charts were occasionally not loading on startup.
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# On the home page, check the Caseload Summary pod.
+# Issue: The Caseload Summary pod chart occasionally fails to display and appears blank. 
+
+*Resolution:*
+A warm-up call was added so that the first time a BIRT chart is loaded, it initializes properly. Charts now display as expected.
+"
+SPM-148166,,"When the 'Enable Localized Currency Symbol Placement' property is set to false, numerical amounts are converted to the Arabic locale in the Modern Java build",Look and Feel,,,Infrastructure,"*Issue Description:*
+Modern Java is configured by default to use the Common Data Local Repository (CDLR) for the formatting and processing of locale-dependent values. [https://openjdk.org/jeps/252] describes this support. It is a more robust and correct handling of dates, times, currencies, languages, countries, and time zones based on locale compared to the previous default native handling in Java 8. Visually, the update represents changes in how values are formatted and presented in the User Interface. 
+Example: for locale=ar, values containing digits will be shown as Arabic-Indic digits, not Latin-based digits as was previously the case.
+*User Interface Impact:* No"
+SPM-148400,,Support has been added for the usage of an Open JDK for running the XML Server and Batch Processing,CEF,Technical Services,,,"The Cúram Batch Launcher and XML Server are designed to be run as standalone Java® programs outside of an Application Server. 
+While every effort is made to ensure that these Java® programs are compatible with all JREs, only the JREs listed below are officially supported.
+* Adoptium OpenJDK 8 and future fix packs for Cúram Java 8.
+* IBM Semeru OpenJDK 21 and future fix packs for Cúram Modern Java.
+
+Please refer to the 8.2.1.0 Cúram software prerequisites for details of this support.
+"
+SPM-148525,DT037430,Insufficient documentation on parameters for improving batch performance,Product Documentation,,,,"*Issue Description:*
+Currently, there is insufficient documentation on the parameters used in streamed batch processes, which prevents customers from fine-tuning performance when batch processes fail to complete within the expected timeframe. The parameters in question are:
+# curam.batch.streams.batchprocessreadwaitinterval
+# curam.batch.streams.chunkkeyreadwaitinterval
+# curam.batch.streams.scanforunprocessedchunkswaitinterval 
+# *.unprocessedchunkwaitinterval
+
+*User Interface Impact:* No
+*Steps to Reproduce:*
+# Schedule and run a streamed batch process.
+# Issue: If chunks are not completing within 1?2 minutes, what configuration settings can customers adjust to improve performance?
+
+*Resolution:*
+The _Curam Batch Performance Mechanism_ guide has been updated to include additional information on the four batch parameters listed above.
+"

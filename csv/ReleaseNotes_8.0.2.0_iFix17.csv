@@ -1,0 +1,16 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-131643,DT036846,Cúram Session Timeout warning is not appearing at the expected time when a modal is open,CEF,Application Development Environment,,,"*Issue Description:*
+The Cúram Session Timeout warning is not appearing at the expected time when a modal is open.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Open the Register Person modal.
+# Issue: The Cúram Session Timeout warning may appear before the default time of 28 minutes.
+
+*Resolution:*
+Additional functionality has been added to the Cúram Session Timeout feature to ensure the timing of this warning is correct, even when a modal is already displayed.
+
+"

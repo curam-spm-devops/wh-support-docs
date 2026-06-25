@@ -1,0 +1,114 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-129628,"PO07268, DT036746",Unable to remove a user from a position in an organization structure even though no cases are assigned to the user,CEF,Administration Suite,,,"*Issue Description:*
+When attempting to remove a user from a position in the admin workspace, a validation error is displayed preventing the removal of the user from the position even though the user has no open associated cases.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as an administrator.
+# Select the Administration Workspace tab and expand the Shortcuts panel.
+# Expand the Users section, select New User.
+# Complete all the mandatory fields for the New User.
+# Expand the Organization section, select My Organizations.
+# Select the Structures Tab and select an Organization Structure.
+# The Organization Structure will open in a new tab, select the Positions tab.
+# Assign the user created in step 4 to a position. 
+# Enable this new users account by searching for this user and select enable account from the home page actions.
+# Log in to the application as the user created in step 4.
+# Register a person.
+# Create an integrated case for the person.
+# Create a product delivery case for the person.
+# Close the product delivery and integrated cases for the person.
+# Log in again as an administrator.
+# Navigate to the user's Organization by selecting My Organizations, select the Structures Tab and select the Organization Structure chosen for user created in step 4.
+# Select the Positions tab and select the position assigned to the user, the position will open in a new tab.
+# Click on the Remove action for user created in step 4.
+# Issue: The following error is displayed: ?This user is the owner of one or more cases and therefore cannot be removed from the position.'
+
+*Resolution:*
+This issue has been resolved. The existence of the ownership of one or more Participant Data Cases does not prevent the removal of a user from a position.
+
+"
+SPM-129239,DT036735,A negative payment amount is getting created for a third-party beneficiary,ENT,Financial Management,Financials,,"*Issue Description:*
+A negative payment amount can be created for a third-party payment. This can happen where a previous third-party payment reversal is rolled together with current payment deductions and the reversal is larger in value than the sum of the current deductions.
+
+*User Interface Impact:* No
+
+*Prerequisite(s):*
+
+# Log in as an administrator.
+# Navigate to Product Delivery Cases under Cases in the shortcuts panel.
+# Select the product to be used in this scenario.
+# Click on the Financial tab and select Deductions.
+# Use the Add Existing page-level action to add a third-party deduction of type Electricity to the product.
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker.
+# Register a utility of type ?Electricity? ensuring to specify the Payment Frequency and Currency Type.
+# Register a new Person.
+# Create an integrated case for the person.
+# Create a product delivery for the person, ?Weekly By Check In Advance On Monday?.
+# Add evidence to make the client eligible for $100 per week.
+# Activate the evidence.
+# Add the following certification.
+## 28th August 2023 - 26th November
+# Add a third-party deduction to the case with details:
+## Account Name = Test Utility (utility name)
+## Account Number = 98348720
+## Type = Fixed
+## Amount = $25
+## Start Date = 28th August 2023
+## Deduction Name = Electricity
+## Deduct From Nominee = <First Person>
+# Save and activate the deduction.
+# Register a second person.
+# Create an integrated case for the second person.
+# Create a product delivery for the second person, ?Weekly By Check In Advance On Monday?.
+# Add evidence to make the client eligible for 100 per week.
+# Activate the evidence.
+# Add the following certification.
+## 28th August 2023 - 26th November
+# Add a third-party deduction to the case with details:
+## Account Name = Test Utility (utility name)
+## Account Number = 98348720
+## Type = Fixed
+## Amount = $40
+## Start Date = 28th August 2023
+## Deduction Name = Electricity
+## Deduct From Nominee = <Second Person>
+# Save and activate the deduction.
+# Submit, approve and activate the product delivery for the first person.
+# Submit, approve and activate the product delivery for the second person.
+# Log in as a system administrator.
+# Select Processes under Batch in the shortcuts panel.
+# Search for ?GenerateInstructionLineItems?.
+# Use the row-level action to Execute the GenerateInstructionLineItems batch process.
+# Search for ?GenerateInstruments?.
+# Use the row-level action to Execute the GenerateInstruments batch process.
+# Now run the batch jobs.
+# Log in as a caseworker.
+# Search for the first person and find the product delivery associated with them. Ensure that a payment of $75 was issued to them.
+# Search for the second person and find the product delivery associated with them. Ensure that a payment of $60 was issued to them.
+# Search for the utility and open its home page.
+# Click on the Financial tab.
+## A payment of $65 should have been created for the utility.
+# Now cancel the payment that was issued to the second person.
+# Set the system date to 4th September 2023.
+# Log in as a system administrator.
+# Select Processes under Batch in the shortcuts panel.
+# Search for ?GenerateInstructionLineItems?.
+# Use the row-level action to Execute the GenerateInstructionLineItems batch process.
+# Search for ?GenerateInstruments?.
+# Use the row-level action to Execute the GenerateInstruments batch process.
+# Now run the batch jobs.
+# Log in as a caseworker.
+# Search for the utility and open its home page.
+# Click on the Financial tab.
+# Issue: A negative payment (-$15) should exist for the utility. Negative payment amounts should never be present in the system.
+
+*Resolution:*
+An issue existed with the logic for determining third-party payments. A check was present to determine if the payment amount was negative, however, in the instance where this was the case, the proper adjustment was not performed to readjust the total amount value. This update is now in place and a negative payment amount will never be issued for third-party payments.
+
+"

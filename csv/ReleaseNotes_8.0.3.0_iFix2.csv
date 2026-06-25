@@ -1,0 +1,94 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-130140,DT036660,Focus disappears when tabbing through expandable lists in the application,Accessibility,,,,"*Issue Description:*
+Focus disappears when navigating through sections of an expandable list using the keyboard.
+
+*User Interface Impact:* No.
+
+*Steps to Reproduce:*
+
+*Scenario 1:*
+1. Log in as a case worker.
+2. Register a person.
+3. Navigate to the Evidence tab.
+4. Expand the Addresses evidence by clicking on toggle icon.
+5. Press tab key to navigate to the Details tab.
+6. Press tab key again.
+Issue: Focus goes to invisible elements and user has to tab multiple times before focus goes to Case Participant cluster.
+
+*Scenario 2:*
+1. Log in as an eligibility caseworker.
+2. Register a person and create a Food Assistance application case.
+3. On the submitted application case navigate to the Evidence tab.
+4. Expand Household Member evidence by clicking on toggle icon.
+5. Press tab key to navigate to the Evidence Description link.
+6. Press tab key again.
+Issue: Focus goes to invisible elements and user has to tab multiple times before focus goes to Change Summary sortable column.
+
+*Scenario 3:*
+1. Log in as a caseworker.
+2. Register a person and navigate to the Notes tab.
+3. Add a New Note.
+4. Expand the Note by clicking on toggle icon.
+5. Press tab key to navigate to Overflow icon for the Note.
+6. Press tab key again.
+Issue: Focus goes to invisible elements and user has to tab multiple times before focus goes to Case Participant cluster.
+
+*Scenario 4:*
+1. Log in as an administrator.
+2. Navigate to the Administration Workspace. 
+3. Expand the Shortcuts menu and navigate to Rules and Evidence.
+4. Click on Evidence sharing to open Evidence Sharing configs in new tab.
+5. Expand an Evidence Sharing config by clicking on toggle icon.
+6. Press tab key to navigate to Identical tab.
+7. Press the tab key again.
+Issue: Focus goes to invisible elements and the user has to tab multiple times before focus goes to Evidence Type sortable column.
+
+*Resolution:*
+Now, the invisible elements that were being focused on have been removed and tabbing goes directly to the next focusable element on the expandable list.
+
+"
+SPM-130045,"DT036295, DT036645",Pop-up search clear button disappears when errors are present,Accessibility,Application Development Environment,,,"*Issue Description:*
+The clear button, displayed in a modal dialog pop-up search field when a value is selected, disappears when an error message is displayed after you click Save on the modal dialog, so you can no longer clear the selected value.
+
+In addition, when you open a modal dialog with a pre-populated pop-up search field,  the clear button is not displayed in the pop-up search field, so you can?t clear the pre-populated value.
+
+*User Interface Impact:* No 
+
+*Steps to Reproduce:*
+
+*Scenario 1*
+
+# Log in as a caseworker.
+# Navigate to the Inbox section.
+# On the My Tasks tab, select New Task from the tab-level actions menu.
+# Click the Search icon in the Case Participant pop-up search field.
+# Search for and select a registered person in the pop-up search dialog.
+# Observe the clear button (represented with an X icon) is visible beside the selected Case Participant name in the New Task dialog.
+# Click Save.
+# Observe the error message displayed.
+# Issue: The clear button in the Case Participant field beside the selected name disappears after clicking Save, and you can?t clear the selected value.
+
+*Scenario 2*
+
+# Log in as a caseworker.
+# Navigate to the Cases and Outcomes section.
+#  Open the Register Person wizard and click Next.
+# On the Registration page, search for and select a Preferred Office for the person
+# Observe the clear button (represented with an X icon) is visible beside the selected Preferred Office name.
+# Click Save.
+# Observe the error messages displayed.
+# Issue: The clear button in the Preferred Office field beside the selected office disappears after clicking Save, and you can?t clear the selected value.
+
+*Scenario 3*
+
+# Log in as a caseworker.
+# Search for and select a registered person.
+# On the Person home page, click the Edit link in the context panel.
+# If the Preferred Office field is blank, search for and select a Preferred Office for the person and click Save. Click the Edit link again on the context panel.
+# The Edit Person modal dialog opens, with the Preferred Office pop-up search field pre-populated.
+# Issue: The clear button is not displayed beside the pre-populated value in the Preferred Office pop-up search field, and you can?t clear the selected value. 
+
+*Resolution:*
+The clear button is now displayed in modal dialog pop-up search fields with a selected value, when an error message is displayed after clicking Save on the modal dialog,  or when the value is pre-populated when the modal dialog is opened, and the selected value can be cleared as expected.
+
+"

@@ -1,0 +1,960 @@
+<html xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:dyn="http://exslt.org/dynamic" xmlns:mso="urn:schemas-microsoft-com:office:office">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Merative Social Program Management 8.0.1.1</title>
+<style type="text/css">
+	  body, table {font-family: Arial,sans-serif; font-size: 10pt}
+	  h1 {font-size: 22pt}
+	  h2 {font-size: 18pt}
+	  h3 {font-size: 14pt}
+	  h4 {font-size: 12pt}
+	  h5 {font-size: 10pt}
+	  h6 {font-size: 9pt}
+	  h7 {font-weight: bold; font-size: 8pt }
+	  h9 {font-weight: bold; color:rgb(0, 128, 128);font-size: 10pt }
+	  em {font-style: normal;font-weight: bold}
+	</style>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<a name="ibm-content"></a>
+<h2>
+<b>Merative Social Program Management 8.0.1.1</b>
+</h2>
+<h5>CONTENTS</h5>
+<a href="#intro">Introduction</a><br/>
+<a href="#supported_hwsw">System Requirements</a><br/>
+<a href="#download">Download</a><br/>
+<a href="#appinstallsteps">Installation</a><br/>
+<a href="#release_items">Improvements, Resolved Issues, Third Party Updates</a><br/>
+<a href="#known_issues">Known Issues</a><br/>
+<a href="#notices">Notices</a><br/>
+<br/>
+<a name="intro"></a><h2>Introduction</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+<p>
+Welcome to the Merative Social Program Management 8.0.1.1 release. This is a Fix Pack release on the Long Term Support (LTS) line. 
+</p>
+
+<p>
+For more information about the product, see the product documentation at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation/">Product Documentation and PDFs</a>.
+</p>
+
+<p>
+Release notes for releases from 1 October 2022 are available online at the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/release-notes/">Merative Support Docs</a> Site 
+</p>
+
+<p>
+Release notes for releases before 1 October 2022 are available online at the <a href="https://www.ibm.com/support/pages/ibm-c%C3%BAram-social-program-management-release-notes">IBM Support Portal</a> 
+
+</p>
+
+<p>
+A CSV file is also available from the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/release-notes/">Merative Support Docs</a> Site, which summarizes these release notes.
+</p>
+
+
+<!-- UPDATE/INCLUDE/REMOVE THIS TEXT IF/AS NECESSARY
+
+<p>This 8.0.1.1 release incorporates content from previous x.x.x releases, which is documented separately in the following sets of online release notes:
+<ul>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+<li><a href="LINK.html">IBM C&#250;ram Social Program Management x.x.x.x</a></li>
+</ul>
+</p>
+
+-->
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="supported_hwsw"></a><h2>System Requirements</h2><!DOCTYPE root [
+<!ENTITY Eacute "&#201;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#34;">
+<!ENTITY rdquo "&#34;">
+<!ENTITY lsquo "&#39;">
+<!ENTITY rsquo "&#39;">
+<!ENTITY ndash "&#150;">
+
+<p>For information about the supported software for this release, see the <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/prerequisites/" target="_blank">Prerequisites and Supported Software</a>.</p>
+
+<p>The minimum hardware requirements for Cúram SPM development and test environments are documented in the <a href="https://www.ibm.com/support/pages/hardware-requirements-cúram-social-program-management-spm-development-and-test-environments-0" target="_blank">Hardware requirements for Cúram Social Program Management (SPM) Development and Test Environments</a> technote. (That technote is effective from v7.0.2.0 onwards.)</p>
+
+<p>For information about the supported software and hardware for releases before 1 October 2022, see the <a href="http://www-01.ibm.com/support/docview.wss?uid=swg27036661" target="_blank">IBM Cúram Social Program Management Supported Prerequisites</a>.</p>
+
+<p>There are additional prerequisites for deployment of IBM Cúram Social Program Management on cloud native hosting platforms. For information about deploying Cúram on IBM Cloud Kubernetes Services (IKS) or OpenShift, see the information about prerequisite software in the IBM Cúram SPM on Kubernetes Runbook at <a href="https://merative.github.io/curam-kubernetes/prereq/prereq/" target="_blank">https://merative.github.io/curam-kubernetes/prereq/prereq/</a></p>
+
+<p>For information about prerequisites for the Universal Access Responsive Web Application and the Social Program Management Design System assets, see the PDFs at <a href="https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation" target="_blank">https://curam-spm-devops.github.io/wh-support-docs/spm/pdf-documentation</a></p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="download"></a><h2>Download</h2><p>
+Download instructions for this release can be found at <a href="https://ibmwatsonhealth.force.com/mysupport/s/?language=en_US">https://ibmwatsonhealth.force.com/mysupport/s/?language=en_US</a>.
+</p>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="appinstallsteps"></a><h2>Installation</h2><?xml version="1.0" encoding="UTF-8"?>
+<html>
+
+  <body>
+  
+    <p>This 8.0.1.1 release can be installed on top of the following Cúram release:</p>
+
+<ul>
+	<li>8.0.1.0</li>
+
+</ul>
+
+  <p>Before you run the installer, ensure that all files in your C&#250;ram installation are writable.</p>
+
+<p> The installation steps are as follows:
+</p>
+<ul>
+  <li>Extract the contents of the .zip file to a local drive location. </li>
+  <li>Run the C&#250;ram installer, which you can find in the INSTALLER folder that is in the extracted folder from the previous step. </li>
+  <li>After installing the release, you must run the appropriate build targets as necessary for your installation.</li>
+</ul>
+
+<p>You can see additional installation instructions in the <a href="https://www.ibm.com/docs/en/spm/8.0.1?topic=environment-installing-cram-social-program-management">Installing IBM Cúram Social Program Management</a> topic.</p>
+
+<br/>
+
+<h4>Upgrading</h4>
+<p>
+If you are upgrading from a previous version, the C&#250;ram Upgrade Helper contains documentation and tools to help you to upgrade your C&#250;ram application codebase and database to work with your new version of C&#250;ram. The C&#250;ram Upgrade Guide describes a recommended process for performing application and database upgrades. The Upgrade Helper contains tools to assist you with implementing the upgrade, including tools to produce a schedule of required migrations for your upgrade, tools to provide information about database schema changes and tools to generate initial SQL scripts for applying changes to your database.</p>
+<p>You can download the lastest version of the C&#250;ram Upgrade Helper from <a href="https://ibmwatsonhealth.force.com/mysupport/s/?language=en_US">https://ibmwatsonhealth.force.com/mysupport/s/?language=en_US</a>.</p>
+
+  
+    </body>
+</html>
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="release_items"></a><h2>Improvements, Resolved Issues, Third Party Updates</h2><a name="ReleaseItems"></a><a name="SUPER_ISSUE"></a>
+<a href="#look_and_feel_improvedandresolvedissues">Look and Feel</a><br/><a href="#curam_enterprise_framework_improvedandresolvedissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_improvedandresolvedissues">Curam Modules</a><br/><a href="#solutions_improvedandresolvedissues">Solutions</a><br/><a href="#third_party_updates_improvedandresolvedissues">Third Party Updates</a><br/>
+<br/><a name="look_and_feel_improvedandresolvedissues"></a>
+<h4>Look and Feel</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125678"></a>PO09810, WorkItem:SPM-125678 - Passive modal dialogs can display buttons when opened from a modal dialog<br/><p><b>Issue Description:</b>
+<br/>If a passive modal dialog (a modal dialog with no action controls), is opened from another modal dialog in the application, it incorrectly shows buttons from the previous modal dialog. Users can get confused and think that the buttons can be used in the new context.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b> N/A
+<br/>
+<br/><b>Resolution:</b>
+<br/>The buttons are now hidden as expected in passive modal dialogs that open from a modal dialog in the application.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125680"></a>PO09812, WorkItem:SPM-125680 - Date picker content is partially hidden making it difficult to select a date value<br/><p><b>Issue Description:</b>
+<br/>When you open a date picker positioned at the end of a modal window, the calendar expands, but the dates are not displayed. Scrolling is required to select the hidden dates, but the calendar in the date picker closes when you click the scrollbar. To select a date, you must scroll down using the trackpad or the wheel on the mouse or tab into the widget and use the arrow keys. 
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce (Generic):</b>
+<br/> <ol><li>Log in as a caseworker.
+ <li>Register a Person.
+ <li>Create an integrated case.
+ <li>Navigate to the Evidence tab and add new Dividends evidence.
+ <li>Select the date widget on the New Dividends evidence modal.
+ <li>Issue: The date picker expands, but its content is only partially visible. Scrolling is required to select some dates, but the date picker closes when the user clicks on the scrollbar.
+
+</ol><b>Resolution:</b>
+<br/>When the date picker calendar opens, all the days from that month are visible and available to be selected without the need to scroll.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125683"></a>PO09779, WorkItem:SPM-125683 - Form control labels are not displayed when a nested LABEL child element is used<br/><p><b>Issue Description:</b>
+<br/>A form control's label is not displayed on a page or modal if the associated FIELD element in UIM has a nested LABEL child element.
+<br/>
+<br/>For example, the 'Show Nicknames' label is not displayed for a checkbox form control on the Person Search page if the label is nested.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/> <ul><li>Install Social Program Management from a development installer.
+ <li>Locate the file: ../webclient/components/core/Person/Search/Person_searchCriteriaView.vim.
+ <li>Find the Nickname field:
+
+</ul>&lt;FIELD LABEL="Field.Label.Nickname"> &lt;CONNECT> &lt;SOURCE NAME="DISPLAY" PROPERTY="result$dtls$searchWithNicknamesInd" /> &lt;/CONNECT> &lt;CONNECT> &lt;TARGET NAME="ACTION" PROPERTY="personSearchKey$nicknameInd" /> &lt;/CONNECT> &lt;/FIELD>
+<br/>
+<br/> <ul><li>Modify the field so that the LABEL is a child element instead of a FIELD attribute:
+
+</ul>&lt;FIELD> &lt;LABEL> &lt;CONNECT> &lt;SOURCE NAME="TEXT" PROPERTY="Field.Label.Nickname" /> &lt;/CONNECT> &lt;/LABEL> &lt;CONNECT> &lt;SOURCE NAME="DISPLAY" PROPERTY="result$dtls$searchWithNicknamesInd" /> &lt;/CONNECT> &lt;CONNECT> &lt;TARGET NAME="ACTION" PROPERTY="personSearchKey$nicknameInd" /> &lt;/CONNECT> &lt;/FIELD><br/>
+<br/>
+<br/> <ul><li>Run the client build (build clean client).
+
+</ul><b>Steps to Reproduce:</b>
+<br/> <ol><li>Log in as a caseworker.
+ <li>Navigate to Cases and Outcomes, expand the shortcuts panel, and select Searches.
+ <li>Click Person to open the Person Search.
+ <li>Issue: The Show Nicknames label for the checkbox on the Person Search page is not displayed.
+
+</ol><b>Resolution:</b>
+<br/>The JSP generator has been updated so that a label that is associated with a form control on an application page or modal is correctly displayed when a FIELD element has a nested LABEL element in UIM.<br/>
+<br/></p></p>
+<br/><a name="curam_enterprise_framework_improvedandresolvedissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#administration_suite_improvedandresolvedissues">Administration Suite</a><br/><a href="#application_development_environment_improvedandresolvedissues">Application Development Environment</a><br/><a href="#business_services_improvedandresolvedissues">Business Services</a><br/><a href="#common_intake_improvedandresolvedissues">Common Intake</a><br/><a href="#integrated_case_management_improvedandresolvedissues">Integrated Case Management</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125192"></a>DT036279, WorkItem:SPM-125192 - Date picker converts input to incorrect dates<br/><p><b>Issue Description:</b>
+<br/>If a caseworker enters a date in an incorrect format, the date gets automatically converted to a date in the correct format. Invalid dates may be input as a result.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/> <ol><li>Log in as a caseworker.
+ <li>Open the Register Person modal.
+ <li>Enter an incorrect date, for example, 1.2, in the date picker of the Date Of Birth field.
+ <li>Issue: The input gets converted to 01.02.2022, and there is no format validation.
+
+</ol><b>Resolution:</b>
+<br/>A validation message is displayed when a caseworker provides a date in the wrong format.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125644"></a>PO09678, WorkItem:SPM-125644 - Modal windows do not launch after a JavaScript error occurs in the console<br/><p><b>Issue Description:</b>
+<br/>Sometimes a JavaScript error occurs in the console, which results in modal windows not opening. This error is a result of user actions, including deleting existing evidence. After this error occurs, the user must perform the extra step of refreshing the browser to open modal windows.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/>
+<br/><b>Scenario 1 (Generic):</b>
+<br/><ol><li>Log in as a caseworker and register a new person.
+<li>Create a new integrated case on the Care & Protection tab and then close the tab.
+<li>Delete the address evidence on the person page and select the No option.
+<li>Attempt to add new evidence by selecting the New page action.
+<li>Issue: The New evidence modal does not open. 
+
+</ol><b>Scenario 2:</b>
+<br/><ol><li>Log in as an Insurance Affordability caseworker. 
+<li>Register a new person. 
+<li>Select New Application from the tab action menu on the person home page.
+<li>Enter only the mandatory information.
+<li>For Household income, choose Yes and enter Income of 5000 yearly for Wages and Salaries.
+<li>Submit the application.
+<li>Open the application and authorize it from the action menu.
+<li>Return to the person tab and refresh.
+<li>Open the Insurance Affordability integrated case.
+<li>Click the Evidence tab and then select Verifications.
+<li>Add proof for the Income Type.
+<li>Open the All tab under Verifications and the verified income records are displayed.
+<li>Close all other tabs except the integrated case that is open.
+<li>Click the person's name in the context panel under their image.
+<li>Close the person tab that just opened.
+<li>Now back on the Verifications (All) tab, expand the Income Type record that was verified.
+<li>Scroll down and under Verification Items Received, select the action menu and select Yes.
+<li>Close the modal.
+<li>Click the action menu and select Apply Changes on the In Edit Evidence page.
+<li>Issue: The window does not open.
+
+</ol><b>Resolution:</b>
+<br/>The JavaScript focus error that was causing the problem has been fixed. The modal window now opens when the user creates new evidence and applies changes without having to refresh the browser. <br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125645"></a>PO09459, WorkItem:SPM-125645 - Evidence broker incorrectly shares evidence to cases when a case member is end-dated<br/><p><b>Issue Description:</b>
+<br/>The evidence broker incorrectly shares evidence to cases when a case member is end-dated but also has another active case participant role on the case such as Verification Provider.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>Configure evidence sharing from an integrated case to the same integrated case.
+<li>Select an evidence type that has verifications configured for that type.
+<li>For the evidence select Share Verifications = Never, Trusted Source = No. 
+<li>Also configure another evidence type as listed in step 3. This evidence does not need to have verifications configured. 
+
+</ol><b>Steps to Reproduce (Generic):</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Register Person One and Person Two.
+<li>Using the integrated case type configured in Prerequisite(s), create a new integrated case for Person One who should be added as a case participant. Add Person Two to the integrated case so that Person Two is also a case participant. 
+<li>On the integrated case, navigate to the Evidence tab and create new evidence for the first evidence configured in the Prerequisite(s) (the evidence has verifications configured). The evidence can be added for either person. 
+<li>Verify the evidence by selecting the second person as the case participant who is verifying the evidence. 
+<li>Based on the appropriate evidence for your integrated case type, end date Person Two so that they are no longer active on the case.
+<li>Apply evidence changes. 
+<li>Create a new integrated case of the same type for Person Two. 
+<li>Navigate to the Evidence tab and create new evidence based on the second evidence configured in Prerequisite(s) (evidence with no verifications configured for it). 
+<li>Apply evidence changes. 
+<li>Navigate back to the first integrated case. Navigate to the Evidence tab then to Incoming Evidence.
+<li>Issue: Observe that incoming evidence is shared from the second case to the first case. The second participant is no longer a member of the first case so there should not be incoming evidence.
+
+</ol><b>Resolution:</b>
+<br/>Evidence is no longer shared to a case participant on a case if the case participant is not an active case member of the case. The issue was resolved by updating the code to check whether the case participant has an active and un-end-dated case participant role of either the Primary Client or Case Member on the target case when brokering evidence.
+<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125682"></a>PO09703, WorkItem:SPM-125682 - Third-party address lookup services cannot access information from drop-downs in address fields<br/><p><b>Issue Description:</b>
+<br/>Incorrect address evidence can be created where custom screens that use a third-party address lookup service cannot access data from drop-downs in address fields.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/> <ol><li>A third-party address lookup service and a Social Program Management custom person registration screen that calls the lookup service and populates the results.
+
+</ol><b>Steps to Reproduce:</b>
+<br/> <ol><li>Log in as a caseworker.
+ <li>Navigate to Cases and Outcomes, expand the shortcuts panel and select Registration.
+ <li>Click Person to open the Register Person modal.
+ <li>Use the address lookup service to collect the address to be populated.
+ <li>Issue: The address fields are not populated on the person registration screen when the address is selected.
+
+</ol><b>Resolution:</b>
+<br/>Two functions are now available in the '<i>curam.util.Dropdown</i>' JavaScript module to support an update to the selected value of an address drop-down by a third-party address lookup service.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125800"></a>WorkItem:SPM-125800 - Hook point to support draggable modals<br/><p><b>Issue Description:</b>
+<br/>Currently, in IBM Social Program Management Version 8, the Carbon Design System does not allow the modal windows to be moveable.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce</b>: N/A
+<br/>
+<br/><b>Resolution:</b>
+<br/>A new JavaScript file that is called <i>webclient/components/core/WebContent/CDEJ/jscript/curam/application/modal/ModalHooks.js</i> is available to allow the implementation of custom functionality to make modal windows moveable.  The function <i>enableDraggableModals(modalRoot)</i> can be implemented in a custom component copy of this file. The modalRoot node of the modal is available within this function and can be updated to implement the required behavior. One of the most common ways to implement this behavior is to use event listeners that listen for users dragging the modals and update the position of the node by using the style attribute. <br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125845"></a>PO09820, WorkItem:SPM-125845 - An error is displayed when saving updates to user preferences<br/><p><b>Issue Description:</b>
+<br/>The user preferences modal that is available in the web client allows each user of the application to update certain user settings, such as their time zone. When a user tries to make any changes to the User Preferences, an 'Error 500 - internal server error' message is displayed.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as an administrator.
+<li>Open the Application menu and select the Preferences option.
+<li>Modify a setting on the Preferences modal. For example, set Enhanced mode to Yes, and click Save.
+<li>Issue: An 'Error 500 - internal server error' message is displayed. 
+
+</ol><b>Resolution:</b>
+<br/>Users can now save updates to their user preferences without any errors being displayed. <br/>
+<br/></p></p>
+<br/><a name="administration_suite_improvedandresolvedissues"></a>
+<h4>Administration Suite</h4><a href="#case_audits_improvedandresolvedissues">Case Audits</a><br/>
+<br/><a name="case_audits_improvedandresolvedissues"></a>
+<h4>Case Audits</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125681"></a>PO09795, WorkItem:SPM-125681 - When an audit coordinator tries to assign a case audit, action buttons disappear from the modal dialog<br/><p><b>Issue Description:</b>
+<br/>When an audit coordinator tries to assign a case audit by selecting the New Auditor or New Audit Team button, all the available buttons disappear from the Assign Case Audits modal dialog.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/> <ol><li>Log in as an administrator.
+ <li>Create a new Case Audit Configuration from the Case Audits menu item on the shortcuts panel.
+ <li>Select the following values on the modal dialog:
+ </ol><ul><li>Case audit type as Integrated Case
+ <li>Default Algorithm
+ <li>Check 'Allow Audit Coordinator to specify cases for audit'
+ <li>Integrated Case Dynamic Query
+ <li>Any available Focus Area
+
+</ul><b>Steps to Reproduce:</b>
+<br/> <ol><li>Log in as an audit coordinator.
+ <li>Create an Audit Plan from the New Audit Plan shortcuts menu item.
+ <li>Select any of the available mandatory values.
+ <li>Navigate to the My Audit Plans list page and select the audit plan created above.
+ <li>Add a Schedule to the Audit Plan by using Add Schedule tab-level action menu.
+ <li>On the modal dialog, select any End Date in the future.
+ <li>Open the Page Actions menu from the Home tab of the Case Audit Plan and Generate Random Case Sample.
+ <li>On the Criteria screen of the Generate Random Case Sample modal, select a Start Date From value which is a year in the past.
+ <li>Enter 100 as the value for the Percentage field on the next screen, use the default for the rest of the wizard and click Finish.
+ <li>Navigate to the Case Audits tab and click the Assign Case Audits Link to open the Assign Case Audits dialog.
+ <li>Click the New Auditor or New Audit Team button.
+ <li>Issue: All the buttons disappear from the modal dialog.
+
+</ol><b>Resolution:</b>
+<br/>The New Auditor and New Audit Team buttons do not disappear from the screen, and the audit coordinator can now successfully assign a case audit to a new auditor or audit team.<br/>
+<br/></p></p>
+<br/><a name="application_development_environment_improvedandresolvedissues"></a>
+<h4>Application Development Environment</h4><a href="#client_development_environment_improvedandresolvedissues">Client Development Environment</a><br/><a href="#server_development_environment_improvedandresolvedissues">Server Development Environment</a><br/>
+<br/><a name="client_development_environment_improvedandresolvedissues"></a>
+<h4>Client Development Environment</h4><a href="#widgets_improvedandresolvedissues">Widgets</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125643"></a>WorkItem:SPM-125643 - Session timeout is not logging out the user correctly under certain conditions<br/><p><b>Issue Description:</b>
+<br/>The user is not correctly logged out when a modal such as Register Person is displayed without a tab open in its background. The user is not logged out when the user clicks Logout from the session timeout modal or when the countdown on the session timeout modal runs out.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Close any open tabs. 
+<li>Open the Register Person modal.
+<li>Wait for the session to time out and for the session timeout modal to appear.
+<li>Click Logout.
+<li>Issue: The user is not logged out and remains logged in.
+
+</ol><b>Resolution:</b>
+<br/>The user is now logged out when the user clicks Logout from the session timeout modal or the countdown on the session timeout modal runs out.
+<br/>
+<br/><b>Technical:</b>
+<br/>The session timeout JavaScript was updated to ensure that a user is always logged out when the user selects Logout from the session timeout modal and the countdown on the session timeout modal runs out.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125667"></a>DT036254, WorkItem:SPM-125667 - Claim Representatives page not loading due to JSP Scriptlet page tag<br/><p><b>Issue Description:</b>
+<br/>The Create Claim Representatives page does not finish loading correctly, preventing user input.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a claim worker.
+<li>Navigate to Cases and select New Case.
+<li>Search for and select a registered person (for example, John Smith).
+<li>Enter the values to create the claim.
+<li>On the claim home page select Case Summary and then Case Representatives and click New.
+<li>Select Case Participant (John Smith) and click Next.
+<li>Issue: The page does not finish loading correctly preventing user input.
+
+</ol><b>Resolution:</b>
+<br/>The Create Claim Representatives page now loads correctly.
+<br/>
+<br/><b>Technical:</b>
+<br/>In the Workers Compensation component, WCO_createClaimRepresentatives.uim uses a JSP_SCRIPTLET tag, which has been updated to correctly render on pages where it is configured in UIM. The page now loads correctly.<br/>
+<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125673"></a>PO09838, WorkItem:SPM-125673 - Custom search page with multiple searches display all of the search result counts on the first search list<br/><p><b>Issue Description:</b>
+<br/>Custom search pages with multiple searches display all of the search result counts on the first results list instead of displaying separate counts for each result list on the page. The search result count needs to be displayed on each results list to give the user context. 
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>Set LIST_ROW_COUNT to true in the curam-config.xml configuration file.
+<li>Customize Person_search1.uim and Person_search1.properties to have more than one LIST element.
+<li>Rebuild and deploy the application.
+
+</ol><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Navigate to Person under Searches in the shortcuts panel.
+<li>Search for an existing person (using search criteria such as Last Name).
+<li>Issue: The first set of search results shows '(Number of Items: X)' twice, where X is the number of items in the list.
+
+</ol><b>Resolution:</b>
+<br/>The search result count is displayed separately on each list which helps provide appropriate context to the user.
+<br/>
+<br/><b>Technical:</b>
+<br/>When LIST_ROW_COUNT is configured in the application and when multiple lists are present on a page, the page correctly displays the search result count on each list separately.<br/>
+<br/></p></p>
+<br/><a name="widgets_improvedandresolvedissues"></a>
+<h4>Widgets</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125669"></a>DT036263, WorkItem:SPM-125669 - Time widget clears manually entered time values on pressing Tab<br/><p><b>Issue Description:</b>
+<br/>When a user manually enters a time into the time widget in the new Activity Modal and presses Tab, the value entered is cleared and placeholder text is displayed.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Navigate to the Calendar.
+<li>Select New activity from the page-level action menu.
+<li>In the New Activity modal,  navigate to the time widget by pressing the Tab keyboard navigation key.
+<li>Manually enter a value from the time drop-down list (for example,  00:00, 00:30, 01:00, 01.30 ...) 
+<li>Press the Tab key to move to the next input field.
+<li>Issue: The entered time value is erased and the placeholder HH:mm is displayed.
+
+</ol><b>Resolution:</b>
+<br/>The time is now set correctly when a user enters a value manually and presses the Tab keyboard navigation key.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125670"></a>DT036247, WorkItem:SPM-125670 - Spinner disappears after 15 seconds even if the associated activity has not completed<br/><p><b>Issue Description:</b>
+<br/>The process spinner disappears after 15 seconds even if the associated activity has not been completed, indicating to the user that the process had finished when it is still running.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>Identify a process (for example a particular person search) that requires more than 15 seconds for the server to complete.
+
+</ol><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Navigate to Cases and Outcomes, expand the shortcuts panel, and select Person under Searches.
+<li>Enter the search criteria that will start the process identified in the Prerequisite(s), for example, Last Name 'Smith'.
+<li>Issue: The progress spinner disappears after 15 seconds giving no indication to the user that the process is still running.
+
+</ol><b>Resolution:</b>
+<br/>The progress spinner no longer terminates after 15 seconds.
+<br/>
+<br/><b>Technical:</b>
+<br/>The maximum spinner timeout period can be increased by setting the 'curam.progress.widget.timeout.max' property to an appropriate value in the ApplicationConfiguration.properties file. The default spinner maximum timeout period is 90000 (90 seconds).<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125672"></a>DT036250, WorkItem:SPM-125672 - Some labels are not displayed on the person home page<br/><p><b>Issue Description:</b>
+<br/>When a user navigates to the person home page, the 'Date of Birth Verified' and 'Date of Death Verified' labels are not displayed. The user has no context for the Yes or No information displayed on the page.
+<br/>
+<br/><b>User Interface Impact: </b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a claim worker.
+<li>Register a new Person.
+<li>Issue: On the person home page, the 'Date of Birth Verified' and 'Date of Death Verified' labels are not displayed.
+
+</ol><b>Resolution:</b>
+<br/>All the field labels are now displayed correctly on the person home page.
+<br/>
+<br/><b>Technical:</b>
+<br/>The infrastructure that generates Java Server Pages from UIM/VIM has been updated. A label that is associated with a form control on an application page or modal is now correctly rendered when a FIELD element has a nested LABEL child element in UIM. <br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125674"></a>PO09836, WorkItem:SPM-125674 - The progress spinner is not displayed when fetching search results<br/><p><b>Issue Description:</b>
+<br/>When you click a Search button on a modal or wizard to search for data in the system, the progress spinner is not displayed to indicate that the search is in progress.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/> <ol><li>Log in as a caseworker.
+ <li>Navigate to Person under Searches in the shortcuts panel.
+ <li>Enter some search criteria into the fields provided in the form.
+ <li>Click the Search button.
+ <li>Issue: A progress spinner does not display as expected while the system fetches the data to populate the search results.
+
+</ol><b>Resolution:</b>
+<br/>When a Search button on a modal or wizard is clicked to search for data in the system, the progress spinner is displayed to indicate that the search is in progress.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125675"></a>PO09817, WorkItem:SPM-125675 - A button is displayed as a link where an ACTION_CONTROL has a nested CONDITION element<br/><p><b>Issue Description:</b>
+<br/>A button in the application is incorrectly displayed as a link if the corresponding ACTION_CONTROL element has a nested CONDITION element.
+<br/>
+<br/>For example, when a conditional Cancel button on a modal dialog is configured in UIM/VIM with a nested CONDITION element on an ACTION_CONTROL element that does not have TYPE="SUBMIT", it is not displayed correctly to the user.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>RegisterPerson_duplicateCheckForPDCWizard.uim is customized to have a Cancel button ACTION_CONTROL element that is a nested CONDITION element.
+
+</ol><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Navigate to and open the person registration wizard.
+<li>Issue: The Cancel action button is displayed as a link.
+
+</ol><b>Resolution:</b>
+<br/>The button is correctly displayed on the customized page.
+<br/>
+<br/><b>Technical:</b>
+<br/>The infrastructure that generates JavaServer Pages from UIM has been updated. A button on a modal dialog is now correctly rendered when the associated ACTION_CONTROL element has a nested CONDITION child element.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125677"></a>PO09827, WorkItem:SPM-125677 - Incorrectly entered dates are converted to random dates in the application<br/><p><b>Issue Description:</b>
+<br/>When a user manually enters an incorrect date value into a date field on a form in the application, a seemingly random date is displayed.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Navigate to Person under Registration in the shortcuts panel.
+<li>Manually enter an incorrect date into the Date of Birth field on the first step of the Register Person wizard.
+<li>Click the Search button.
+<li>Issue: An incorrect random date is generated and displayed in the field when the search is being done in the system.
+
+</ol><b>Resolution:</b>
+<br/>When a user manually enters an incorrect date into a form within the application, an error message now notifies them that an incorrect date was entered. Users can enter a new date by clearing the incorrect date and manually entering the correct date.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125679"></a>PO09775, WorkItem:SPM-125679 - The date picker is unnecessarily opened when certain modal dialogs open<br/><p><b>Issue Description:</b>
+<br/>The date picker is activated by default when you open a modal dialog where the first field accepts a date value. The open date picker can block some of the modal dialog content that the user needs to see.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Register a new Person.
+<li>On the Evidence tab for the person, select New to add email address evidence.
+<li>Issue: When the New Email Address modal dialog opens, the date picker for the Received Date field opens and blocks some content on the modal dialog.
+
+</ol><b>Resolution:</b>
+<br/>When a user opens a modal dialog that has the date picker form control as the first field, the date picker stays closed until the user goes to the field and selects a date.<br/>
+<br/>
+<br/></p></p>
+<br/><a name="server_development_environment_improvedandresolvedissues"></a>
+<h4>Server Development Environment</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125709"></a>DT036276, WorkItem:SPM-125709 - Batch launcher error when DB-to-JMS is enabled with WebSphere Liberty server<br/><p><b>Issue Description:</b>
+<br/>The batch launcher fails when DB-to-JMS is enabled in conjunction with WebSphere Liberty server.
+<br/>
+<br/>In addition, the server logs will include one or both of the following messages:
+<br/> <ul><li>User ‘UNAUTHENTICATED’ does not have a role on CuramServer'
+ <li>java.lang.ClassCastException: curam.util.invoke.EJSLocal0SLEJBMethod_2b4572e3 incompatible with 'curam.util.invoke.Method'
+
+</ul><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/> <ol><li>Set application property 'Database-to-jms - enable flag' to 'True'.
+ <li>Set application property 'Database-to-jms - Notification batch launcher mode' to '1'.
+ <li>Set application property 'Database-to-jms - Notification host name' and 'Database-to-jms - Notification port number' to reference an SPM application on WebSphere Liberty.
+ <li>Run the batch launcher.
+ <li>Issue: [batchlauncher] A runtime exception occurred: An error occurred triggering the database-to-JMS server at '&lt;host name>':'&lt;port number>' (SSL mode: false). Note that properties 'curam.batchlauncher.dbtojms.notification.host' and 'curam.batchlauncher.dbtojms.notification.port' respectively must be set to the host and port number on which the Curam client application is deployed because the database to JMS server is part of the Curam client application.
+
+</ol><b>Resolution:</b>
+<br/>When DB-to-JMS is enabled, the batch launcher can authenticate with the server to obtain an LTPA token required by WebSphere Liberty to trigger a database-to-JMS transfer.
+<br/>
+<br/>LTPA token usage is enabled by setting the application property 'Database-to-jms - Enable LTPA token usage for DB-to-JMS triggering'
+<br/>(Technical ID: curam.batchlauncher.dbtojms.notification.ltpa) to 'True'.
+<br/>
+<br/>To help with troubleshooting another property 'Database-to-jms - Enable tracing for DB-to-JMS triggering'
+<br/>(Technical ID: curam.batchlauncher.dbtojms.notification.trace) is now available. Setting this property to 'True' enables diagnostic logging for DB-to-JMS operations. Previously it was necessary to set the application-wide property 'Tracing level' (Technical ID: curam.trace) to 'trace_verbose' to activate this logging, which was less convenient.<br/>
+<br/></p></p>
+<br/><a name="business_services_improvedandresolvedissues"></a>
+<h4>Business Services</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125633"></a>PO09746, WorkItem:SPM-125633 - Editing a Word document on Google Chrome browser displays 'X' error randomly<br/><p><b>Issue Description:</b>
+<br/>Caseworkers can edit the contents of Word documents using the Word Integration Assistant. An intermittent issue occurs after a caseworker edits a document and then shuts down the Word Integration Assistant when the Google Chrome browser is used. When the caseworker then tries to edit another document, a red X icon is displayed in the File Edit Control Panel in the browser window.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>Install Microsoft Word.
+<li>Install a supported (supported for Social Program Management Word Integration) Java Runtime Environment.
+<li>Install Google Chrome.
+<li>Install and enable the Cúram File Edit Native Messaging Bridge Extension for Google Chrome. This is available on the Chrome Web Store.
+<li>Install the Social Program Management Word Integration Assistant. This is distributed with the Cúram Client Development Environment. 
+
+<li>Log in as a system administrator.
+<li>Navigate to Microsoft Word Templates under Communications in the shortcuts panel.
+<li>Select the New page action to create a new Microsoft Word template.
+<li>Enter a name and template document ID for the template and upload a file to be used as the template.
+<li>Select a suitable category and sub-category. To allow the template to be used for any communication, set the category to All Communication and the subcategory to All Communications. Click Save.
+
+</ol><b>Steps to Reproduce:</b>
+<br/>Note that this is an intermittent issue, there is no known method to force this.
+<br/><ol><li>Log in as a caseworker.
+<li>Navigate to a Person home page.
+<li>Click the Client Contact tab and choose Communications.
+<li>Click the page-level menu to create a new Microsoft Word communication.
+<li>On the New Microsoft Word Communication modal, specify a Correspondent and click Next.
+<li>Enter the Subject and Address. Choose the Template Name that was configured previously. Click Save.
+<li>The Word File Edit Screen is loaded in the Tab Content page and the File Edit Control Panel modal is shown.
+<li>Microsoft Word opens. 
+<li>Make an edit to the Word document.
+<li>Close the Word editor.
+<li>The document will be saved and the File Edit Control Panel will close.
+<li>In the same browser window, try editing another Word document.
+<li>Issue: A red X icon appears in the File Edit Control Panel.
+
+</ol><b>Resolution:</b>
+<br/>A caseworker is now able to edit multiple Word documents without seeing the red X icon. 
+<br/>
+<br/><b>Technical:</b>
+<br/>This issue was caused by the improper handling of an initial exception that occurs when the user attempts to shut down the Word Integration Assistant Java process. The Java process is prevented from exiting correctly after the Word editor is closed. The red X icon is the result of starting a second Word Editing session in an inconsistent state. The fix also contains changes to ensure the problem state data that was previously long-lived is now short-lived.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125635"></a>PO09782, WorkItem:SPM-125635 - Microsoft Word closes unexpectedly in Google Chrome if an unrelated Chrome browser is also open and is closed<br/><p><b>Issue Description:</b>
+<br/>When using the Microsoft Word Integration feature through the Google Chrome browser, if a separate Chrome browser window is also open and a user closes this browser, Microsoft Word closes unexpectedly in the other browser. 
+<br/>
+<br/><b>User Interface Impact:</b> No 
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>Install Microsoft Word.
+<li>Install a supported (supported for Social Program Management Word Integration) Java Runtime Environment.
+<li>Install Google Chrome.
+<li>Install and enable the Cúram File Edit Native Messaging Bridge Extension for Google Chrome. This is available on the Chrome Web Store.
+<li>Install the Social Program Management Word Integration Assistant. This is distributed with the Cúram Client Development Environment. 
+
+<li>Log in as a system administrator.
+<li>Navigate to Microsoft Word Templates under Communications in the shortcuts panel.
+<li>Select the New page action to create a new Microsoft Word template.
+<li>Enter a name and template document ID for the template and upload a file to be used as the template.
+<li>Select a suitable category and sub-category. To allow the template to be used for any communication, set the category to All Communication and the subcategory to All Communications. Click Save.
+
+</ol><b>Steps to Reproduce:</b>
+<br/><ol><li>In Google Chrome, go to 'chrome: settings/system' and enable 'Continue running background apps when Google Chrome is closed.'
+<li>Open a second browser tab and move it out to be its own window.
+<li>In the first window, log in as a caseworker.
+<li>Navigate to a Person home page.
+<li>Click the Client Contact tab and choose Communications.
+<li>Click the page-level menu to create a new Microsoft Word communication.
+<li>On the New Microsoft Word Communication modal, specify a Correspondent and click Next.
+<li>Enter the Subject and Address. Choose the Template Name that was configured previously. Click Save.
+<li>The Word File Edit screen is loaded in the Tab Content page and the File Edit Control Panel modal is shown.
+<li>Microsoft Word opens. 
+<li>Close the second browser window (the one that did not open the Word editing session).
+<li>Issue: Microsoft Word closes after the browser window is closed.
+
+</ol><b>Resolution:</b>
+<br/>When an unrelated Chrome browser window is closed, the browser window in which the Word editing session opened is no longer closed. 
+<br/>
+<br/><b>Technical:</b>
+<br/>The code executing in the browser mistakes the event of closing an unrelated Chrome browser window as the closing of the browser window that started the Word editing session. Therefore, a message is sent in error by the browser to the Word Integration Assistant instructing it to close Word and then itself. The Word Integration Assistant now ignores these events from other Chrome browser windows. Changes were also made to bring the actual behavior in line with the preferred behavior described here [[https://www.ibm.com/docs/en/spm/8.0.2?topic=reference-file-edit-widget]]. If the user chooses to leave the page, the editing session is terminated and the document or Microsoft Word (if it was the only document open) closes along with the browser. <br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125636"></a>PO09747, WorkItem:SPM-125636 - File Edit Control Panel is closed on Google Chrome without informing the user that an error has occurred<br/><p><b>Issue Description:</b>
+<br/>Caseworkers can edit the contents of Word documents using the Word Integration Assistant. When the Word Integration Assistant is used through a Google Chrome browser and a user chooses to save changes by closing the Word Editing session, if an error is encountered the File Control Panel closes. In this instance, the caseworker is unable to see that an error has occurred. This is in contrast to when a user uses the commit changes button on the File Control Panel to save periodically to the Cúram server, where the same error is visible in the File Edit Control Panel.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/> <ol><li>Install Microsoft Word.
+ <li>Install a supported (supported for Social Program Management Word Integration) Java Runtime Environment.
+ <li>Install Google Chrome.
+ <li>Install and enable the Cúram File Edit Native Messaging Bridge Extension for Google Chrome. This is available on the Chrome Web Store.
+ <li>Install the Social Program Management Word Integration Assistant. This is distributed with the Cúram Client Development Environment.
+ <li>Log in as a system administrator.
+ <li>Navigate to Microsoft Word Templates under Communications in the shortcuts panel.
+ <li>Select the New page action to create a new Microsoft Word template.
+ <li>Enter a name and template document ID for the template and upload a file to be used as the template.
+ <li>Select a suitable category and sub-category. To allow the template to be used for any communication, set the category to All Communication and the subcategory to All Communications. Click Save.
+
+</ol><b>Steps to Reproduce:</b>
+<br/> <ol><li>Log in as a caseworker.
+ <li>Navigate to a Person home page.
+ <li>Click the Client Contact tab and choose Communications.
+ <li>Click on the page-level menu to create a new Microsoft Word communication.
+ <li>On the New Microsoft Word Communication modal, specify a Correspondent and click Next.
+ <li>Enter the Subject and Address. Choose the Template Name that was configured previously. Click Save.
+ <li>The Word File Edit Screen is loaded in the Tab Content page and the File Edit Control Panel modal is shown.
+ <li>Microsoft Word is launched.
+ <li>Copy and paste the content of a 1MB text file into the Word document. The resulting Word document will be too large to be saved by the Cúram server and will cause an error.
+ <li>Close the Word editor.
+ <li>The File Edit servlet responds with a 500 HTTP response code indicating an error and the document is not saved.
+ <li>Issue: The File Edit Control Panel closes. It should remain open and display an error message to the user. Having reviewed the error message, the user should be able to close the File Edit Control Panel.
+
+</ol><b>Resolution:</b>
+<br/>The File Edit Control Panel modal now stays open so the error is visible to the user. The user can then close the modal after they have been shown the error message.
+<br/>
+<br/><b>Technical:</b>
+<br/>The issue has been resolved by updating the functionality so that the browser does not close the File Edit Control Panel modal if there are any errors during the saving of the document. The user will be able to close the modal manually.<br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125637"></a>PO09745, WorkItem:SPM-125637 - Edits to Word document on Google Chrome browser are not saved when the Word editing session is closed and the user delays in confirming the edits<br/><p><b>Issue Description:</b>
+<br/>Using the Microsoft Word Integration feature in the Google Chrome browser, when a user makes an update to a Word document they can choose to save their changes. Saving can be done either by closing the Word Editing session and confirming in a pop-up modal that is displayed or by selecting the commit changes button on the File Edit Control Panel. When users select to save changes by closing the Word editing session, if they wait more than 5 seconds before confirming in the pop-up dialog that appears in the browser (asking if they want to save their edits to the Cúram server), the edits are not saved.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>Install Microsoft Word.
+<li>Install a supported (supported for Social Program Management Word Integration) Java Runtime Environment.
+<li>Install Google Chrome.
+<li>Install and enable the Cúram File Edit Native Messaging Bridge Extension for Google Chrome. This is available on the Chrome Web Store.
+<li>Install the  Social Program Management Word Integration Assistant. This is distributed with the Cúram Client Development Environment. 
+
+<li>Log in as a system administrator.
+<li>Navigate to Microsoft Word Templates under Communications in the shortcuts panel.
+<li>Select the New page action to create a new Microsoft Word template.
+<li>Enter a name and template document ID for the template and upload a file to be used as the template.
+<li>Select a suitable category and sub-category. To allow the template to be used for any communication, set the category to All Communication and the subcategory to All Communications. Click Save.
+
+</ol><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a caseworker.
+<li>Navigate to a Person home page.
+<li>Click the Client Contact tab and choose Communications.
+<li>Click the page-level menu to create a new Microsoft Word communication.
+<li>On the New Microsoft Word Communication modal, specify a Correspondent and click Next.
+<li>Enter the Subject and Address. Choose the Template Name that was configured previously. Click Save.
+<li>The Word File Edit Screen is loaded in the Tab Content page and the File Edit Control Panel modal is shown.
+<li>Microsoft Word opens. 
+<li>Make an edit to the Word document.
+<li>Close the Word editor.
+<li>The pop-up dialog appears in the browser window asking if you want to save your edit to the Cúram server. Wait 5 seconds, then press OK.
+<li>Issue: The file changes are not saved to the Cúram server.
+
+</ol><b>Resolution:</b>
+<br/>When a user closes the Word Editing session, the changes are now saved. The Word Integration Assistant no longer deletes the Word file from the local file system before the browser code can attempt to save the changes to the Cúram server. The deletion of the local file now only happens after the operation to save the document to the Cúram server has finished.<br/>
+<br/></p></p>
+<br/><a name="common_intake_improvedandresolvedissues"></a>
+<h4>Common Intake</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125647"></a>DT036281, WorkItem:SPM-125647 - Opening a modal to add static evidence throws an Application Error with a ClassCastException in the logs if the property 'curam.trace.methods' is set to true<br/><p><b>Issue Description:</b>
+<br/>Adding static evidence results in the message 'An Application Error Has Occurred' being presented to the user as well as a ClassCastException in the server logs if the property 'curam.trace.methods' is set to true.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>Log in as a system administrator.
+<li>Navigate to Property Administration under Application Data in the shortcuts panel.
+<li>Search for the property 'curam.trace.methods'.
+<li>Use the row-level action to edit the value and set it to true. Click Save.
+<li>Publish the changes.
+
+</ol><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as an Income Support caseworker.
+<li>Register a person and complete a new Income Support Application.
+<li>Open the Income Support Application case and navigate to the Evidence dashboard.
+<li>Add static evidence, such as Work Registration. 
+<li>Issue: When clicking to add Work Registration evidence, the following error is presented to the user 'An Application Error Has Occurred' together with a ClassCastException in the server logs.
+
+</ol><b>Resolution:</b>
+<br/>This issue has been resolved and a ClassCastException is no longer thrown in the server logs when opening a modal to add static evidence. <br/>
+<br/></p></p>
+<br/><a name="integrated_case_management_improvedandresolvedissues"></a>
+<h4>Integrated Case Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125590"></a>DT036299, WorkItem:SPM-125590 - Authorizing an Insurance Affordability Application throws a Process Instance Error with a ClassCastException in the logs if 'curam.trace.methods' is set to true<br/><p><b>Issue Description:</b>
+<br/>When Enable Tracing of all Modelled Methods is set to true, authorizing an Insurance Affordability Application throws a Process Instance Error.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/> <ol><li>Log in as a system administrator.
+ <li>Navigate to Property Administration under Application Data in the shortcuts panel.
+ <li>Search for 'curam.trace.methods'.
+ <li>Edit the value and set it to true. Save and then Publish the change.
+
+</ol><b>Steps to Reproduce:</b>
+<br/> <ol><li>Log in as an Insurance Affordability caseworker.
+ <li>Register a new Person.
+ <li>Create a new application with the mandatory info.
+ <li>Authorize the application.
+ <li>Issue: The application gets stuck and if the Process Instance Error queue is examined, an entry can be seen there reporting a ClassCastException.
+
+</ol><b>Resolution:</b>
+<br/>An exception is no longer thrown in the logs when authorizing an Insurance Affordability Application with trace enabled.<br/>
+<br/></p></p>
+<br/><a name="curam_modules_improvedandresolvedissues"></a>
+<h4>Curam Modules</h4><a href="#provider_management_improvedandresolvedissues">Provider Management</a><br/>
+<br/><a name="provider_management_improvedandresolvedissues"></a>
+<h4>Provider Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125641"></a>WorkItem:SPM-125641 - Optimize method for preventing the creation of unnecessary notifications for provider management cases used for financials processing<br/><p><b>Issue Description:</b>
+<br/>In a prior release, a mechanism was introduced to prevent the generation of unnecessary notifications for provider management case types that should not generate notifications because they are intended only for use in generating financials. This mechanism for excluding certain case types from generating notifications worked by checking the case type in identified workflows. The previous approach included case types that did not generate any notifications, which could cause a performance overhead.
+<br/>
+<br/><b> User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/>This issue is dependent on user data so it is not directly reproducible.
+<br/>
+<br/><b>Resolution:</b>
+<br/>This issue has been resolved now and the mechanism for excluding provider management case types that should not generate a notification has been updated, to only generate notifications for the following case types:
+<br/><ul><li>CASEREASSESSMENTNOTIFICATION
+<li>DEFAULTCASENOTIFICATION 
+
+</ul>For more information, see <a href="https://www.ibm.com/docs/spm/8.0.2?topic=sets-products">https://www.ibm.com/docs/spm/8.0.2?topic=sets-products</a>. <br/>
+<br/>
+<br/>
+<br/></p></p>
+<br/><a name="solutions_improvedandresolvedissues"></a>
+<h4>Solutions</h4><a href="#child_welfare_improvedandresolvedissues">Child Welfare</a><br/><a href="#income_support_cgiss_improvedandresolvedissues">Income Support CGISS</a><br/>
+<br/><a name="child_welfare_improvedandresolvedissues"></a>
+<h4>Child Welfare</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125671"></a>WorkItem:SPM-125671 - Save and Cancel buttons disappear from the New Petition modal<br/><p><b>Issue Description:</b>
+<br/>When a Child Welfare caseworker creates a new legal action but incorrectly populates the Participant and Respondent fields as the same person, the Save and Cancel buttons disappear from the New Petition modal.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Prerequisite(s):</b>
+<br/><ol><li>Legal Actions are configured.
+
+</ol><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as a Child Welfare caseworker.
+<li>Register a person and create an Ongoing Case.
+<li>Open the ongoing case and navigate to the Legal tab.
+<li>Select Legal actions and then click New.
+<li>The New Legal Action modal is displayed.
+<li>Select 'Petition'  for the Legal Category and 'Petition to Transfer' for the Legal Action and click the Next button.
+<li>Complete the mandatory fields and select the same person as participant and respondent and click on save. For example, select James Smith for both the Participant and Respondent fields.
+<li>Issue: The buttons on the modal will disappear from view and the only resolution is to start the task of creating a New Legal Action again. 
+
+</ol><b>Resolution:</b>
+<br/>The Save and Cancel buttons do not disappear from the New Petition modal when a new legal action is being created.<br/>
+<br/></p></p>
+<br/><a name="income_support_cgiss_improvedandresolvedissues"></a>
+<h4>Income Support CGISS</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125646"></a>WorkItem:SPM-125646 - Authorizing an Income Support Application throws an Application Error with a ClassCastException in the logs if the property 'curam.trace.methods' is set to true<br/><p><b>Issue Description:</b>
+<br/>Authorizing an Income Support Application results in the message 'An Application Error Has Occurred' being presented to the user as well as a ClassCastException in the server logs if the property 'curam.trace.methods' is set to true.
+<br/>
+<br/><b>User Interface Impact:</b> No
+<br/>
+<br/><b>Steps to Reproduce:</b>
+<br/><ol><li>Log in as an Income Support caseworker.
+<li>Register a new Person.
+<li>Create an Income Support application for Food Assistance for this person.
+<li>Submit the application.
+<li>Add Work Registration and Head of Household evidence for Food Assistance. 
+<li>Apply evidence changes.
+<li>Log out.
+<li>Log in as a system administrator.
+<li>Select Property Administration under Application Data in the shortcuts panel.
+<li>Search for the 'curam.trace.methods' application property.
+<li>Set the value to 'true'. Click Save.
+<li>Publish the changes.
+<li>Log out.
+<li>Log in as an Income Support caseworker.
+<li>Search for the application created in the steps above.
+<li>Set the application to Ready for Determination.
+<li>Check eligibility and authorize the application.
+<li>Issue: An Application Error Has Occurred is presented to the user and a ClassCastException can be found in the server logs.
+
+</ol><b>Resolution:</b>
+<br/>This issue has been resolved and the exception is no longer thrown in the server logs when authorizing an Income Support Application with method tracing enabled.<br/>
+<br/></p></p>
+<br/><a name="third_party_updates_improvedandresolvedissues"></a>
+<h4>Third Party Updates</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125273"></a>WorkItem:SPM-125273 - Updating JDOM to Dom4j<br/><p>The JDOM library is a Java-based solution for accessing, manipulating, and outputting XML data from Java code. Its usage in Social Program Management was widespread across all areas of the application.
+<br/>
+<br/>The JDOM library used by Social Program Management has now been removed and replaced by dom4j version 2.1.3. dom4j is an open-source XML framework for Java. dom4j allows you to read, write, navigate, create, and modify XML documents. Dom4j integrates with DOM and SAX and is integrated with full XPath support.
+<br/>
+<br/>As a result of this upgrade, a number of changes have been made across all components of the Social Program Management application.
+<br/>
+<br/>The changes to the JAR files include:
+<br/> <ul><li>CuramCDEJ\lib\ext\jar\jdom.jar - JDOM version removed.
+ <li>CuramSDEJ\lib\jdom-1.0.jar - JDOM version removed.
+ <li>CuramCDEJ\lib\ext\jar\dom4j.jar - dom4j version 2.1.3 added.
+ <li>CuramSDEJ\lib\dom4j-2.1.3.jar - dom4j version 2.1.3 added.
+
+</ul>The jde-commons JARs delivered in the following CDEJ and SDEJ locations provide wrappers around the dom4j classes, where new external APIs provide a mostly backward-compatible API with JDOM. These APIs are located in the curam.common.util.xml.dom package.
+<br/> <ul><li>CuramCDEJ\lib\curam\jar\jde-commons.jar
+ <li>CuramSDEJ\lib\jde-commons.jar
+
+</ul>It should be noted that any references in custom build scripts to the versioned JAR files should be updated to point to the new JAR files as specified above. Any custom code that uses JDOM should be migrated to instead use the dom4j wrapper classes provided by the CDEJ and SDEJ.
+<br/>
+<br/>For more information about the changes associated with this update, see 'Migrating the JDOM library to the dom4j library' in the Cúram Upgrade Guide.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125360"></a>WorkItem:SPM-125360 - Update to the latest version of the Rampart Axis 2 security library - esapi<br/><p>Social Program Management (SPM) web services are based on Apache Axis2. With the Rampart security module of Axis2, SPM web services can be secured for authentication, integrity (signature), confidentiality (encryption/decryption), and non-repudiation (timestamp).
+<br/>
+<br/>The version of one of the JAR files in Rampart has been updated. As a result of this update, the following changes have been made to the JDE Axis 2 deliverable.
+<br/> <ul><li>CuramSDEJ\lib\axis2\esapi-2.4.0.0.jar - version updated from 2.2.3.1 to 2.4.0.0. 
+
+</ul>Note that before performing any builds or deployments, ensure that the old versions of the esapi JAR files are not present in the directories specified above. If they are, they should be removed before proceeding.
+<br/>
+<br/>Note that any references in custom scripts and other artifacts to the updated JAR file listed above must be updated.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125629"></a>WorkItem:SPM-125629 - Update the version of the Log4j 2 library to the latest version: 2.16.0<br/><p>Apache Log4j is a Java-based logging utility that is used as the logging provider for the Social Program Management (SPM) product. <br/><br/>The version of the Log4j used by SPM has now been updated from 2.14.1 to 2.16.0. This new JAR file contains some minor bug fixes and enhancements.<br/><br/>As a result of this upgrade, the following changes have been made in the Java Development Environment deliverable.<br/><ul><li>CuramSDEJ\lib\third_party_version.properties - the versions of the specified Log4j JAR files have been updated.<li>CuramSDEJ\lib\log4j-api-2.16.0.jar - the version of the JAR has been updated.<li>CuramSDEJ\lib\log4j-core-2.16.0.jar - the version of the JAR has been updated.<li>CuramSDEJ\xmlserver\log4j-api-2.16.0.jar - the version of the JAR has been updated.<li>CuramSDEJ\xmlserver\log4j-core-2.16.0.jar - the version of the JAR has been updated.<li>CuramCDEJ\lib\ext\jar\log4j-api-2.16.0.jar - the version of the JAR has been updated.<li>CuramCDEJ\lib\ext\jar\log4j-core-2.16.0.jar - the version of the JAR has been updated.</ul>Note that any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above. <br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125630"></a>WorkItem:SPM-125630 - Update the version of the Log4j 2 library to the latest version: 2.17.1<br/><p>Apache Log4j is a Java-based logging utility that is used as the logging provider for the Social Program Management (SPM) product.
+<br/>
+<br/>The version of the Log4j used by SPM has now been updated from 2.16.0 to 2.17.1. This new JAR file contains some minor bug fixes and enhancements.
+<br/>
+<br/>As a result of this upgrade, the following changes have been made to the Java Development Environment deliverable.
+<br/><ul><li>CuramSDEJ\lib\third_party_version.properties - the versions of the specified Log4j JAR files have been updated.
+<li>CuramSDEJ\lib\log4j-api-2.17.1.jar - the version of the JAR has been updated.
+<li>CuramSDEJ\lib\log4j-core-2.17.1.jar - the version of the JAR has been updated.
+<li>CuramSDEJ\xmlserver\log4j-api-2.17.1.jar - the version of the JAR has been updated.
+<li>CuramSDEJ\xmlserver\log4j-core-2.17.1.jar - the version of the JAR has been updated.
+<li>CuramCDEJ\lib\ext\jar\log4j-api-2.17.1.jar - the version of the JAR has been updated.
+<li>CuramCDEJ\lib\ext\jar\log4j-core-2.17.1.jar - the version of the JAR has been updated.
+
+</ul>Before performing any builds or deployments, please make sure that the old versions of the log4j-core and log4j-api JAR files are not present in the directories specified above.
+<br/>
+<br/>Any references in custom scripts and other artifacts must be updated to point to the new version of the JAR file as specified above. <br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125632"></a>WorkItem:SPM-125632 - [Security] Update the Google gson JAR file to the latest version<br/><p>Google Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Several areas in the Social Program Management (SPM) product utilize this library. These include Advanced Evidence Sharing (AES) administration screens, the Timeline Calendar, and the Smart Navigator feature.
+<br/>
+<br/>The version of the Google Gson library has now been updated from 2.2.2 to 2.8.9. The new version contains some defect fixes and minor enhancements. As a result of this upgrade, the following changes have been made to the SPM deliverable.
+<br/><ul><li>EJBServer/components/core/lib/gson-2.2.2.jar  - old JAR removed.
+<li>EJBServer/components/core/lib/gson-2.8.9.jar  - new JAR added. 
+
+</ul>It should be noted that any references in custom scripts and other artifacts to the updated JAR files listed above should be updated. <br/>
+<br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125639"></a>WorkItem:SPM-125639 - Update the versions of the Jackson JARs to the latest version - 2.13.2<br/><p>The Jackson API contains multiple functions to read and build JSON using Java. It has powerful data binding capabilities and provides a framework to serialize custom Java objects to JSON strings and deserialize JSON strings back into Java objects.  The Java Development Environment (JDE) and the REST infrastructure use these utilities.<br/><br/>The versions of these JARs have now been updated to a later version. As a result of this upgrade, the following changes have been made in the JDE and REST deliverables.<br/><ul><li>CuramSDEJ\lib\third_party_version.properties - the versions of the specified Jackson JARs have been updated.<li>CuramSDEJ\lib\jackson-annotations-2.13.2.jar  - new JAR added.<li>CuramSDEJ\lib\jackson-core-2.13.2.jar - new JAR added.<li>CuramSDEJ\lib\jackson-databind-2.13.2.2.jar- new JAR added.<li>CuramSDEJ\lib\jackson-annotations-2.12.1.jar  - old JAR removed.<li>CuramSDEJ\lib\jackson-core-2.12.1.jar - old JAR removed.<li>CuramSDEJ\lib\jackson-databind-2.12.1.jar- old JAR removed.<li>CuramCDEJ\lib\ext\jar\jackson-annotations-2.13.2.jar - new JAR added.<li>CuramCDEJ\lib\ext\jar\jackson-core-2.13.2.jar - new JAR added.<li>CuramCDEJ\lib\ext\jar\jackson-databind-2.13.2.2.jar - new JAR added.<li>CuramCDEJ\lib\ext\jar\jackson-annotations-2.12.1.jar - old JAR removed.<li>CuramCDEJ\lib\ext\jar\jackson-core-2.12.1.jar - old JAR removed.<li>CuramCDEJ\lib\ext\jar\jackson-databind-2.12.1.jar - old JAR removed.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-annotations-2.13.2.jar - new JAR added.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-core-2.13.2.jar - new JAR added.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-databind-2.13.2.2.jar - new JAR added.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-annotations-2.12.1.jar - old JAR removed.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-core-2.12.1.jar - old JAR removed.<li>EJBServer\components\Rest\restlib\dependencyLibsExt\jackson-databind-2.12.1.jar - old JAR removed.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-jaxrs-base-2.13.2.jar - new JAR added.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-jaxrs-json-provider-2.13.2.jar - new JAR added.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-module-jaxb-annotations-2.13.2.jar - new JAR added.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-jaxrs-base-2.12.1.jar - old JAR removed.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-jaxrs-json-provider-2.12.1.jar - old JAR removed.<li>EJBServer\components\Rest\restlib\dependencyLibsCore\jackson-module-jaxb-annotations-2.12.1.jar - old JAR removed.</ul>GraphQL JARs:<br/><ul><li>EJBServer\components\Rest\graphql_lib\jackson-datatype-jdk8-2.13.2 - new JAR added.<li>EJBServer\components\Rest\graphql_lib\jackson-dataformat-yaml-2.13.2 - new JAR added.<li>EJBServer\components\Rest\graphql_lib\jackson-datatype-jdk8-2.12.1 - old JAR removed<li>EJBServer\components\Rest\graphql_lib\jackson-dataformat-yaml-2.12.1 - old JAR removed</ul>Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated. <br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125640"></a>WorkItem:SPM-125640 - Updates to some of the libraries present in Axis 2 and Rampart<br/><p>IBM Cúram Social Program Management web services are based on Apache Axis2.  With the  Rampart security module of Axis2, Social Program Management web services can be secured for authentication, integrity (signature), confidentiality (encryption/decryption), and non-repudiation (timestamp). <br/><br/>The versions of some of the JARs in both Axis 2 and Rampart have been updated. As a result of these updates, the following changes have been made in the JDE Axis 2 deliverable.<br/><ul><li>CuramSDEJ\lib\third_party_version.properties - the versions of the specified Axis 2 and Rampart JARs have been updated.<li>CuramSDEJ\lib\axis2\axis2-ant-plugin-1.8.0.jar - version updated from 1.6.2 to 1.8.0.<li>CuramSDEJ\lib\axis2\xmlbeans-3.1.0.jar - version updated from 2.3.0 to 3.1.0.<li>CuramSDEJ\lib\axis2\esapi-2.2.3.1.jar - version updated from 2.0GA to 2.2.3.1.<li>CuramSDEJ\lib\axis2\velocity-engine-core-2.3.jar version updated from velocity-1.5.jar to velocity-engine-core-2.3.jar. <li>CuramSDEJ\lib\axis2\xmltooling-1.4.4.jar- version updated from 1.3.2-1 to 1.4.4. </ul>Note that any references in custom scripts and other artifacts to the updated JAR files listed above must be updated. <br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125947"></a>WorkItem:SPM-125947 - Browser Support Update<br/><p>The following browser versions are now updated and certified for this release.
+<br/>
+<br/>Caseworker Application Browser Support
+<br/> <ul><li>Google Chrome is updated to 107
+ <li>Microsoft Edge is updated to 107
+
+</ul>Universal Access Application Browser Support
+<br/> <ul><li>Google Chrome is updated to 107
+ <li>Microsoft Edge is updated to 107
+ <li>Mozilla Firefox is updated to 106
+ <li>Apple Safari is updated to 16
+</ul><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125950"></a>WorkItem:SPM-125950 - Tablet accessibility support<br/><p>The certified version of Apple VoiceOver is now updated to iOS 15.7. This is certified against Chrome 107.</p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-125951"></a>WorkItem:SPM-125951 - Update browser plugin-in Java™ Runtime Environment (JRE) level used in Microsoft Word Integration<br/><p>The following JRE level for Microsoft Word Integration is supported for this release:
+<br/> <ul><li>JRE 1.8 u351
+</ul><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="known_issues"></a><h2>Known Issues</h2><a name="KnownIssues"></a><a name="SUPER_ISSUE"></a>
+<a href="#look_and_feel_knownissues">Look and Feel</a><br/><a href="#curam_enterprise_framework_knownissues">Curam Enterprise Framework</a><br/><a href="#curam_modules_knownissues">Curam Modules</a><br/><a href="#solutions_knownissues">Solutions</a><br/>
+<br/><a name="look_and_feel_knownissues"></a>
+<h4>Look and Feel</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-123111"></a>WorkItem:SPM-123111 (was previously 272250) - Some modals are not sized based on the contents they are displaying<br/><p>The Modal Sizing Tool has not been run on the full 8.0.1 internal application codebase. The tool has been run on the core caseworker functionality and as a result, generic case management and person management modals, such as notes will be updated. The modal sizing tool is yet to be run on the following enterprise modules and solutions: <br/><ol><li>Content Management Interoperability Service (CMIS) <li>Curam Provider Management <li>Outcome Management,<li>Cúram Provider Management <li>Cúram Social Enterprise Collaboration<li>Cúram Verifications <li>Cúram Citizen Portal <li>Cúram Citizen Account <li>Cúram Funded Program Management<li>Priority Complexity And Risk<li>Cúram Supervisor Workspace<li>Cúram Appeals <li>Cúram Advisor<li>Service Plans <li>Cúram Evidence Broker <li>Cúram Identity Intelligence <li>Cúram Global Income Support Internal Application<li>Cúram Child Welfare </ol>These will be updated in a subsequent release. It is worth noting, that if there is a custom file, or a file that overrides the core product file, the standard override UIM mechanism will apply. This means, that the UIM displayed will be the overridden file, and the sizing changes will not have been applied.<br/><br/><br/></p></p>
+<br/><a name="curam_enterprise_framework_knownissues"></a>
+<h4>Curam Enterprise Framework</h4><a href="#common_intake_knownissues">Common Intake</a><br/>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-123834"></a>WorkItem:SPM-123834 (was previously 274649) - System message visibility field code-table blank value does not default to blank on edit of the record.<br/><p>A new drop-down field called 'Visibility' has been added to the table 'SystemMessage' in 8.0.1. The value determines the user group that the message is visible to, for example, 'Logged-in users', 'Public users' or 'Public and logged-in users'. For existing records on the 'SystemMessage' table, the value of the new field 'Visibility' is set to 'null'. The 'Visibility' field 'null' value has the same meaning as the default value of 'Logged-in user'. When a 'System Message' record with a 'Visibility' field value of 'null' is edited, the 'Visibility' field drop-down incorrectly defaults to 'Logged-in user' instead of a blank value. <br/><br/>To address this issue, an additional property 'USE_DEFAULT="false"' needs to be added to the 'Visibility' 'FIELD element of the page SystemMessage_modifySystemMessage.vim. This will be updated in a subsequent release.<br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-123846"></a>WorkItem:SPM-123846 (was previously 274692) - The Modify Meeting Details modal shows an incorrect time after a custom time was used to create the meeting<br/><p>When a caseworker edits a record that contains a date and time, for example, editing a meeting, an activity, a task, or a deadline, the time component does not display the value entered by the caseworker. Instead, the time component displays the nearest default value, which is different from the time input by the caseworker. If the caseworker saves this record without making any changes to the time, then the new value will be saved and will overwrite the original value entered by the caseworker. <br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-123847"></a>WorkItem:SPM-123847 (was previously 274693) - Duplicate data-testid on Register Person modal address fields<br/><p>A duplicate data-testid element is being used on the fields Apt/Suite and Street 1 in the Private Address section of the Register Person dialog. The data-testid is attached to the labels 'Apt/Suite' and 'Street 1'.<br/><br/>The CSS selector<br/><p><code><br/>input[data-testid="textinput_Field.Label.PrimaryAddressData"]<br/></code><p/><br/> <br/>matches two elements in the Address section of the dialog<br/><ol><li>Apt/Suite<li>Street 1</ol>As a result, the selector is no longer unique.<br/><br/>The following UI elements are currently affected by this duplication issue:<br/><ol><li>data-testid="textinput_Field.Label.PrimaryAddressData"<li>data-testid="textinput-1_Field.Label.PrimaryAddressData" </ol>Developers can still use those selectors but they are producing duplicate UI elements, so they need to implement additional workarounds to choose which one of the multiple elements they wish to work with in the automated test. <br/><br/><br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-124644"></a>WorkItem:SPM-124644 (was previously 277418) - A modal page closes when the escape key is used to close a drop-down inside the modal<br/><p>Currently, when a user opens a drop-down field from within a modal window and uses the escape key on the keyboard to close the field, the field closes along with the modal itself. This may result in the potential loss of data. This problem does not occur on IEG forms. <br/><br/></p></p>
+<br/><a name="common_intake_knownissues"></a>
+<h4>Common Intake</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-123564"></a>WorkItem:SPM-123564 (was previously 273964) - An iPad user is forced to log out when trying to add a participant to any intake<br/><p>On an iPad, a user is unable to navigate to a page that uses the CKEditor. One such instance where this issue manifests is in Child Welfare. When a user creates a Child Welfare intake on an iPad, they are not able to navigate to the Participants tab. <br/><br/><br/></p></p>
+<br/><a name="curam_modules_knownissues"></a>
+<h4>Curam Modules</h4><a href="#provider_management_knownissues">Provider Management</a><br/>
+<br/><a name="provider_management_knownissues"></a>
+<h4>Provider Management</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-89478"></a>WorkItem:SPM-89478 (was previously 103350) - Incorrect underpayment amount created when multiple service invoice line items reassessed due to change in service rate<br/><p>When there are multiple service invoice line items created and paid for a provider using a fixed amount service rate and payment option of 'pay fixed amount', if the service rate that was used to determine the payment amount is retrospectively modified, to a higher rate, for example, underpayments are not being generated for all of the affected service invoice line items. <br/><br/></p></p>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-123769"></a>WorkItem:SPM-123769 (was previously 274492) - A 'Null' button appears on the Preview Contract confirmation modal<br/><p>When a caseworker views the Preview Contract confirmation modal, the 'Yes' button is incorrectly labeled as 'Null'. To view the Preview Contract confirmation dialog, perform the following steps: <br/><ol><li>Log in as a Provider Management manager.<li>Click My Providers under Provider in the shortcuts panel.<li>Click the Provider Reference Number hyperlink to open an existing provider in a new tab.<li>Click the Financial tab and select Contracts.<li>Create and generate a Utilization Contract for the contract to go to an Issued state.<li>Select the Preview row-level action for the Utilization Contract.<li>Issue: The 'Yes' button is incorrectly labeled as 'Null'. </ol><br/><br/></p></p>
+<br/><a name="solutions_knownissues"></a>
+<h4>Solutions</h4><a href="#child_welfare_knownissues">Child Welfare</a><br/>
+<br/><a name="child_welfare_knownissues"></a>
+<h4>Child Welfare</h4>
+<p style="font-weight: bold;color: rgb(0,128,128);"><a name="SPM-124601"></a>WorkItem:SPM-124601 (was previously 277357) - Buttons not dynamically displayed based on Reporter Type selected in Capture Reporter dialog<br/><p>When capturing Reporter information on a Child Welfare intake, depending on the reporter type selected, the modal buttons displayed should change. For example, when an 'Anonymous' type is selected, only the 'Cancel' and 'Finish' buttons should display. Currently, all three buttons (Cancel, Next, and Finish) are displayed regardless of the Reporter type selected.<br/><br/></p></p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+<a name="notices"></a><h2>Notices</h2><p>Before using this information and the product it supports, read the information in
+ <a href="https://www.ibm.com/docs/en/spm/8.0.2?topic=overview-notices" target="_top"> "Notices"</a> </p>
+
+<br/>
+
+<h3>Copyright</h3>
+<p>
+         © Merative US L.P. 2022
+</p>
+
+<br/><p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-content">Back to top</a></p><hr/>
+</body>
+</html>

@@ -1,0 +1,107 @@
+TICKET,APAR,SUMMARY,COMPONENT,SUBCOMPONENT1,SUBCOMPONENT2,SUBCOMPONENT3,RELEASE_NOTE
+SPM-129554,DT036748,Curam Session Timeout issue when minimizing browser,CEF,Application Development Environment,,,"*Issue Description:*
+An IntensiveWakeUpThrottling feature has been introduced into the Microsoft Edge and Google Chrome browsers. This feature aggressively throttles JavaScript timers running in background tabs.
+
+This new browser feature has affected some features in the Cúram application, specifically those associated with timers. One such feature is the Session Timeout feature which can be adversely affected if the browser window containing the countdown timer is minimized.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* N/A
+
+*Resolution:*
+Additional functionality has been added into the Cúram Session Timeout feature to mitigate the affect of the browser IntensiveWakeUpThrottling setting and ensuring that the timer works correctly even if the Session Timeout browser window has been minimized.
+
+"
+SPM-129467,DT036745,"While using a screen reader the selected value inside the Case Participant input field is not announced, the focus goes to the Clear button (X) and skips the input field",Accessibility,,,,"*Issue Description:*
+When using a screen reader to search for and select a case participant on the New Task modal, the screen reader is not announcing the selected value in the Case Participant input field, the focus goes to the Clear button (X) and skips the input field.  
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Register a person.
+# Navigate to the Inbox tab.
+# Select New Task from actions menu.
+# On the New Task modal, tab to the Case Participant search field. 
+# Select the Search icon, search for and select the person registered in step 3. 
+# Issue: The screen reader does not announce the selected value in the Case Participant input field. 
+
+
+*Resolution:*
+This has been resolved, the screen reader now announces the value in the case participant input field on returning to the New Task modal. 
+
+"
+SPM-129458,DT036744,While using a screen reader searching for and selecting an item results in the page crashing and an error code being displayed,Accessibility,,,,"*Issue Description:*
+When using a screen reader, searching for and selecting an item by using the Enter key or Spacebar results in the page crashing and an error code being displayed.
+
+For example, when creating a task while using a screen reader, searching for and selecting an external user causes the page to crash and the task is not created. 
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+# Enable a screen reader.
+# Log in as a caseworker.
+# Navigate to the Person Search page.
+# Search for a registered user and open their home page.
+# Navigate to the Administration tab.
+# Select to create a new task.
+# Select the search icon for an external user.
+# Enter % in the search field to return all external users.
+# Press tab until you reach the Select link.
+# Hit the link by pressing the Space bar.
+# Issue: The new task page does not open and an error is displayed with Error code: ?STATUS_ACCESS_VIOLATION?.
+
+*Resolution:*
+This has been resolved. Now you can search for and select items using the Enter key or Spacebar while using a screen reader.
+
+Now when creating a task while using a screen reader, searching for and selecting an external user will return the user to the new task page where the selected external user is displayed. The user can continue to create the task.
+
+"
+SPM-128838," DT036727",Applications that have applicants who have special characters in their names cannot be withdrawn,CEF,Application Development Environment,,,"*Issue Description:*
+Applications cannot be withdrawn when applicants have special characters in their names (e.g., O'Conner, O'Brian), the Withdraw button is unresponsive. Attempting to withdraw an application for an applicant with special characters in their name causes the Withdraw button to become unresponsive for applicants without special characters in their names. Logging out, clearing cache, and re-logging resolves the issue for applicants whose names do not contain special characters, but persists for those with special characters in their names.
+
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:* 
+
+*Scenario 1*
+
+# Log in as an Insurance Affordability caseworker.
+# Register a person who has a special character in their name. eg: First name: Person and Last name: O?Brian.
+# Submit a new Insurance Affordability application.
+# On the Insurance Affordability Application case Navigate to the Programs cluster  on the Home tab and click on the Withdraw action.
+# Issue: The Withdraw Program modal does not open.  
+
+
+*Scenario 2*
+
+# Log in as a case worker.
+# Register a person who has a special character in their name. eg: First name: Person and Last name eg. O?Connor.
+# Submit a new application.
+# Open the application case and go to Authorization tab.
+# Navigate to Withdrawals and select the Withdraw link.
+# Issue: The Withdraw Program modal does not open. 
+
+*Resolution:*
+The issue was resolved by escaping special characters in the name, allowing the Withdraw Program modal to open.
+
+"
+SPM-125755,DT036307,"""""Go to date"""" in the calendar page leads to the current date and not the date entered",CEF,,,,"*Issue Description:*
+When selecting a date using the Go to date functionality in the calendar page, the calendar date selected is the current date and not the date entered by the caseworker.
+
+*User Interface Impact:* No
+
+*Steps to Reproduce:*
+
+# Log in as a caseworker. 
+# Select the Calendar tab.
+# Click the Select a Date icon (calendar icon to the right side of the ?Go to date? edit box)
+# The Select a Date modal displays, select a date from a previous month. 
+# Issue: The current date is displayed in the Select a Date modal and the calendar and not the date selected by the user. 
+
+*Resolution:*
+When selecting a date using the """"Go to date"""" functionality in the calendar page, the calendar date selected is the date entered by the caseworker."
