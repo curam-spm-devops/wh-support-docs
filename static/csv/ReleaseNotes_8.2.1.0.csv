@@ -33,18 +33,21 @@ The Close link on the Preview Contact Log Details is not working.
 *Steps to Reproduce:* 
 # Log in as a Child Welfare intake worker.
 # Select New Intake from the Quick Links PODs.
-# Set the following intake details:## Category: Child Protection Services
+# Set the following intake details:
+## Category: Child Protection Services
 ## Type: Child Abuse or Neglect
 ## Date: Today?s date
 
 # Click Save to create an Intake Assistant.
 # Navigate to the Participant tab.
-# From the actions menu, select to create a New Participant.## Enter First Name (e.g., Bobby)
+# From the actions menu, select to create a New Participant.
+## Enter First Name (e.g., Bobby)
 ## Select Role as ?Alleged Victim?
 ## Click Next, then Finish on the following page.
 
 # Open the tab actions menu and select Open Intake.
-# On the Intake, navigate to the Contacts tab and create a new Contact Log.## Select the Contact Log you created
+# On the Intake, navigate to the Contacts tab and create a new Contact Log.
+## Select the Contact Log you created
 ## Click Preview Selected Contacts
 ## The Preview Contact Log will display
 ## Click the Close link to exit
@@ -274,12 +277,14 @@ Incoming evidence records are not removed when source evidence updates match tar
 *Prerequisites: *
 # Log in as an administrator.
 # Click Evidence Sharing under Rules and Evidence in the shortcuts panel.
-# Click the New Sharing Configurations page-level action.## Select Source = Person, Target = <Any integrated case type>
+# Click the New Sharing Configurations page-level action.
+## Select Source = Person, Target = <Any integrated case type>
 ## Select ?Birth and Death Details?
 ## Set ?Trusted Source? = Yes
 ## Click Save and Exit
 
-# Repeat step 3 for the following configuration:## Select Source = <Same integrated case type referenced in Step 3.a>, Target = Person
+# Repeat step 3 for the following configuration:
+## Select Source = <Same integrated case type referenced in Step 3.a>, Target = Person
 ## Select ?Birth and Death Details?
 ## Set ?Trusted Source? = No
 ## Click Save and Exit.
@@ -294,7 +299,8 @@ Incoming evidence records are not removed when source evidence updates match tar
 # Click the Evidence tab on the integrated case.
 # Select ?In Edit Evidence?.
 # Select ?Continue Editing? for the Birth and Death Details evidence, setting a date of death 10 days prior. 
-# Apply changes.## The evidence is shared to the Person Data Case and appears on the Incoming Evidence screen.
+# Apply changes.
+## The evidence is shared to the Person Data Case and appears on the Incoming Evidence screen.
 
 # On the integrated case, remove the date of death. 
 # Apply changes.
@@ -461,6 +467,51 @@ We now support protocol entries in the allowlist - for example:
 a.href.protocols=http,https,mailto,tel 
 which makes those the only permitted schemes for a[href], with all other protocols filtered out. The SanatizierAllowListConfigure java class was also renamed to SanitizerAllowListConfigure. 
 "
+SPM-138106,DT034908,Case Transaction Log entries are not translatable due to the hard-coding of certain message elements,CEF,,,,"*Issue Description:*
+The Case Transaction Log entries for application cases are not fully translatable in multi-locale environments because some message components are hard-coded.
+*User Interface Impact: *No
+*Prerequisites:*
+# Log in as an administrator.
+# In the shortcuts panel, select Application Cases under Universal Access.
+# Create a new application case type.
+# Select the newly created application case and navigate to the Evidence tab.
+# Add the required evidence types.
+
+*Steps to Reproduce:*
+# Log in as a caseworker.
+# Register a person and create an instance of the application case configured above.
+# On the application case, click the Evidence tab.
+# Add instances of the configured evidence to the application case.
+# Navigate to the home page and review the Recent Transactions panel. Observe the entry: 
+## ?Application case <application reference number> Evidence added for <evidence name>.?
+
+# Open the User menu and change the default language to any other supported language.
+# Issue: The Case Transaction Log entry for recently added evidence is not fully translated into the selected user language. Similar translation gaps occur when:
+## A case participant is added, modified, or cancelled
+## Evidence is activated, added, approved, cancelled, modified, or marked as pending deletion
+## A user role is added or cancelled  
+
+
+*Resolution*:
+Case Transaction Log entries for newly added records are now fully translatable and appear in the user?s selected language. 
+*Technical*:
+The following message entries were added to the BPOCaseEvents.xml message file to support codetable codes instead of hard-coded strings. This enables proper translation:
+* CASE_PARTICIPANT_ADDED1
+* CASE_PARTICIPANT_MODIFIED1
+* CASE_PARTICIPANT_CANCELLED1
+* EVIDENCE_ACTIVATED1
+* EVIDENCE_ADDED1
+* EVIDENCE_APPROVED1
+* EVIDENCE_CANCELLED1
+* EVIDENCE_MODIFIED1
+* EVIDENCE_PENDING_DELETION1
+* USER_ROLE_ADDED1
+* USER_ROLE_CANCELLED1
+
+The previous message entries that used string parameters for the product name will continue to be used for existing records in the Case Transaction Log table. 
+*Note:*
+Existing entries in the Case Transaction Log will continue to display as before. Only newly created entries will use the updated, fully translatable messages.
+"
 SPM-138159,DT037128,Toggling between high contrast mode in Windows does not update all on screen elements,CEF,Application Development Environment,Infrastructure,,"*Issue Description:*
 Switching Windows high contrast mode on or off does not update some on-screen elements to the correct contrast mode.
 *User Interface Impact:* No
@@ -529,7 +580,8 @@ Entity operations on the ProductDeliveryPatternInfo entity do not correctly tran
 *Steps to Reproduce :*
 # Log in as a caseworker.
 # Register a new Person.
-# Create an instance of the product delivery configured above.## Ensure that ?Weekly by Check in Advance on a Monday? is chosen at the delivery pattern.
+# Create an instance of the product delivery configured above.
+## Ensure that ?Weekly by Check in Advance on a Monday? is chosen at the delivery pattern.
 
 # Verify that the selected delivery pattern is displayed in the Home tab and the Financials section.
 # Open the User menu and select Language.
@@ -604,7 +656,8 @@ The financials list page is not populated for a representative who is a nominee 
 # Add an associated product delivery, ?Weekly By Cash In Advance On Monday?.
 # Add a certification, if required.
 # Click the Financials tab and select Nominees.
-# Use the New Nominee page-level action to add a nominee.## Use the freeform fields so that the nominee created is a representative.
+# Use the New Nominee page-level action to add a nominee.
+## Use the freeform fields so that the nominee created is a representative.
 
 # Select the Components page and use the Assign To Nominee row-level action to assign a payable component to the representative.
 # Submit, approve and activate the product delivery.
@@ -657,7 +710,8 @@ Registering a prospect person as a person with an existing mailing address resul
 *User Interface Impact:* No
 *Steps to Reproduce:*
 # Log in as a caseworker.
-# Register a Prospect Person with details: First Name, Last Name, Date of Birth, Gender, Mailing Address.## Note: If no private address is provided, the system inserts an ?Address Unavailable? placeholder for the private address.
+# Register a Prospect Person with details: First Name, Last Name, Date of Birth, Gender, Mailing Address.
+## Note: If no private address is provided, the system inserts an ?Address Unavailable? placeholder for the private address.
 
 # On the Prospect Person home page, click the Register page level action.
 # During the registration process, provide a valid private address.
@@ -727,7 +781,8 @@ Configure a verification on the ?amount? data item on Income evidence associated
 # Log in as an Insurance Affordability caseworker.
 # Search for and authorize the application.
 # Navigate to the Insurance Affordability integrated case evidence dashboard and create Income evidence with an amount of $0.
-# Apply evidence changes.## No verification is created for the income as the amount is $0. 
+# Apply evidence changes.
+## No verification is created for the income as the amount is $0. 
 
 # Log in to the Citizen Portal as the same external user.
 # Launch the Change of Circumstance script via ?Update My Information? button and update the income amount from $0 to $100.
@@ -884,7 +939,8 @@ When EFT payments are being issued to a representative, for example, on a produc
 # Make the new nominee the default nominee.
 # Submit, approve and activate the product delivery.
 # Add a new bank account for the representative.
-# On the list of bank accounts for the representative, use the Transfer row-level action on the initial bank account.## Select the new bank account. This transfers all future payments to the new bank account.
+# On the list of bank accounts for the representative, use the Transfer row-level action on the initial bank account.
+## Select the new bank account. This transfers all future payments to the new bank account.
 
 # Issue: When issuing the next payment due on the product delivery, an unhandled server exception is reported by the Generate Instruments batch process.
 
@@ -896,12 +952,14 @@ Batch jobs which were using the DBtoJMS functionality were incorrectly processin
 *User Interface Impact:* No
 *Steps to Reproduce: *
 
-# Set the following application properties:## curam.batchlauncher.dbtojms.enabled = True
+# Set the following application properties:
+## curam.batchlauncher.dbtojms.enabled = True
 ## curam.batchlauncher.dbtojms.notification.port = Application Server specific
 ## curam.batchlauncher.dbtojms.notification.ltpa = True
 ## curam.batchlauncher.dbtojms.notification.trace = True
 
-# Run the following SQL statements:## UPDATE KeyServer SET humanReadable = '1' WHERE keysetCode = 'DEFAULT';
+# Run the following SQL statements:
+## UPDATE KeyServer SET humanReadable = '1' WHERE keysetCode = 'DEFAULT';
 ## UPDATE KeyServer SET nextUniqueIDBlock=400000000 WHERE keysetCode = 'DEFAULT'; 
 
 # Restart the server.
@@ -976,15 +1034,18 @@ SPM-145684,DT037346,The calendar in the date input field displays the wrong form
 When the date format is set to ?dd/MM/yyyy?, the calendar date input field displays the selected date in the wrong format ('MM/dd/yyyy') when the chosen day is between the 1st and 12th of the month.
 *User Interface Impact:* No
 *Prerequisites:*
-# Open the following files:## /Development/webclient/JavaSource/curam/omega3/ApplicationConfiguration.properties
+# Open the following files:
+## /Development/webclient/JavaSource/curam/omega3/ApplicationConfiguration.properties
 ## /Development/webclient/components/SECCommon/javasource/curam/omega3/ApplicationConfiguration.properties
 ## /Development/webclient/WebContent/WEB-INF/classes/curam/omega3/ApplicationConfiguration.properties
 
-# Update the following properties to change the date format to be dd/MM/yyyy:## dateformat=dd MM yyyy
+# Update the following properties to change the date format to be dd/MM/yyyy:
+## dateformat=dd MM yyyy
 ## dateseparator=/
 
 # Open /Development/EJBServer/project/properties/Bootstrap.properties
-# Update the following properties:## curam.environment.default.dateformat=dd MM yyyy
+# Update the following properties:
+## curam.environment.default.dateformat=dd MM yyyy
 ## curam.environment.default.dateseparator=/
 
 # Run the server, database, and webclient builds.
@@ -1100,19 +1161,26 @@ The following ruleset files have been modified:
 *Technical:*
 The StreamlineMedicaidEligibilityAndEntitlementRuleset.xml and CHIPEligibilityAndEntitlementRuleset.xml rulesets have been updated to properly handle multiple pregnancy evidences for the medicaidFamilySize attribute. Both rule-sets now incorporate improved household calculation logic that properly sums unborn children from all pregnancies. This ensures accurate family size calculations across all pregnancy records, providing more precise eligibility and entitlement determinations for both Medicaid and CHIP programs.
 "
+SPM-145814,DT037362,"Remove the empty """"CuramCDEJlibextjs"""" directory from the CuramCDEJ deliverable",Code Removal,,,,"The following directory has been removed from the CuramCDEJ in the Cúram deliverable. 
+* _CuramCDEJ/lib/ext/js_
+
+The directory was empty in the previous release and no longer served any purpose."
 SPM-145818,DT037363,Date picker is highlighting the day before the current selected date in the date picker field,CEF,,,,"*Issue Description:*
 When the date format is set to ?yyyy-MM-dd? in the Cúram application and the user?s computer is in a time zone behind UTC (Coordinated Universal Time), the calendar in a date input field highlights the day before the selected date.
 *User Interface Impact:* No
 *Prerequisites:*
-# Open the following files:## /Development/webclient/JavaSource/curam/omega3/ApplicationConfiguration.properties
+# Open the following files:
+## /Development/webclient/JavaSource/curam/omega3/ApplicationConfiguration.properties
 ## /Development/webclient/components/SECCommon/javasource/curam/omega3/ApplicationConfiguration.properties
 ## /Development/webclient/WebContent/WEB-INF/classes/curam/omega3/ApplicationConfiguration.properties
 
-# Update the following properties to change the date format to be yyyy-MM-dd:## dateformat=yyyy MM dd
+# Update the following properties to change the date format to be yyyy-MM-dd:
+## dateformat=yyyy MM dd
 ## dateseparator=-
 
 # Open /Development/EJBServer/project/properties/Bootstrap.properties
-# Update the following properties:## curam.environment.default.dateformat=yyyy MM dd
+# Update the following properties:
+## curam.environment.default.dateformat=yyyy MM dd
 ## curam.environment.default.dateseparator=-
 
 # Run the server, database, and webclient builds.
@@ -1194,7 +1262,8 @@ When a product delivery is activated via the DetermineProductDeliveryActivation 
 The same is true of the post-closure event, postProductDeliveryClosure(), on the ProductDeliveryLifeCycleEvents class. This is invoked when a product delivery is closed online, but isn?t invoked as part of the CloseCasesPendingClosure batch process.
 *User Interface Impact:* No
 *Prerequisites:*
-# Provide sample implementations of the following events - this could even be something as simple as a system out to demonstrate that the event is being raised:## ProductDeliveryLifeCycleEvents.postProductDeliveryActivation()
+# Provide sample implementations of the following events - this could even be something as simple as a system out to demonstrate that the event is being raised:
+## ProductDeliveryLifeCycleEvents.postProductDeliveryActivation()
 ## ProductDeliveryLifeCycleEvents.postProductDeliveryClosure()
 
 # Ensure the sample implementation(s) are bound in a module class.
@@ -1207,7 +1276,8 @@ The same is true of the post-closure event, postProductDeliveryClosure(), on the
 # Add the necessary evidence and activate it.
 # Create an associated product delivery.
 # Add certification, if applicable.
-# Submit, approve and activate the product delivery online.## You should see the system out written to the console of the IDE.
+# Submit, approve and activate the product delivery online.
+## You should see the system out written to the console of the IDE.
 
 # Create another associated product delivery, and add certification if necessary.
 # Log in as a system administrator.
@@ -1223,10 +1293,12 @@ The same is true of the post-closure event, postProductDeliveryClosure(), on the
 # Add the necessary evidence and activate.
 # Create an associated product delivery.
 # Add certification, if applicable.
-# Close the product delivery with today?s date.## You should see the system out written to the console of the IDE.
+# Close the product delivery with today?s date.
+## You should see the system out written to the console of the IDE.
 
 # Create another associated product delivery, and add certification if necessary.
-# Now, close the new product delivery with a future date. ## The product delivery now has a status of ?Pending Closure?.
+# Now, close the new product delivery with a future date. 
+## The product delivery now has a status of ?Pending Closure?.
 
 # Log in as a system administrator.
 # Click Processes under Batch in the shortcuts panel.
