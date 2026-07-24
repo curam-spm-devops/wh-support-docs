@@ -7,12 +7,8 @@ const links = [
     href: 'https://merative.my.site.com/mysupport/s/',
   },
   {
-    title: 'Cúram (SPM) support details',
+    title: 'Cúram support details',
     href: 'https://www.merative.com/support/curam',
-  },
-  {
-    title: 'Integrated Care support details',
-    href: 'https://www.merative.com/support/integrated-care',
   },
 ];
 
