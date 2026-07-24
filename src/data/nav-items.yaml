@@ -13,7 +13,7 @@
     - title: Technical support articles
       path: /spm/support-articles
     - title: Education & Certification
-      path:  /spm/education
+      path: https://education.mycuram.com/
 - title: Announcements
   pages:
       - title: 8.2.2.0 is now available
