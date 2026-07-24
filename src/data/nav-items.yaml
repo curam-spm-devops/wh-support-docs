@@ -1,4 +1,4 @@
-- title: Cúram (SPM)
+- title: Cúram 
   pages:
     - title: Overview
       path: /spm/overview
@@ -12,13 +12,13 @@
       path: /spm/prerequisites 
     - title: Technical support articles
       path: /spm/support-articles
-    - title: Code samples
-      path: /spm/code-samples
     - title: Education & Certification
-      path: /spm/education   
+      path:  /spm/education
 - title: Announcements
   pages:
       - title: 8.2.2.0 is now available
+        path: /spm/announcements/822_announcement
+      - title: Citizen Engagement 8.3.1 is now available
         path: /spm/announcements/822_announcement
       - title: Cúram Action View 1.0.0 is now available
         path: /spm/announcements/curam_action_view_100
