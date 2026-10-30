@@ -8,10 +8,17 @@ Clone this repository.
 
 ### Requirements
 
-node.js - version 20.11.0
+Node.js - version 24.22.2 or later
 
 It is recommended to install node using [Node Version Manager](https://github.com/nvm-sh/nvm)
 Mac: See the 'Troubleshooting on macOS' section, you might need to create a bash profile (see related bullet)
+
+From the repository root, install and use the version pinned in `.nvmrc`:
+
+```console
+  nvm install
+  nvm use
+```
 
 ### Install dependencies
 

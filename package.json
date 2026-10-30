@@ -20,6 +20,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
+  "engines": {
+    "node": ">=24.22.2"
+  },
   "dependencies": {
     "eslint": "^8.21.0",
     "gatsby": "^3.3.1",
