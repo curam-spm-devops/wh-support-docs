@@ -1,0 +1,46 @@
+- title: Cúram 
+  pages:
+    - title: Overview
+      path: /spm/overview
+    - title: Release notes
+      path: /spm/release-notes
+    - title: Enablement
+      path: /spm/enablement
+    - title: Product documentation
+      path: /spm/pdf-documentation
+    - title: Prerequisites
+      path: /spm/prerequisites 
+    - title: Technical support articles
+      path: /spm/support-articles
+    - title: Education & Certification
+      path: https://education.mycuram.com/
+- title: Announcements
+  pages:
+      - title: 8.3.0.0 is now available
+        path: /spm/announcements/830_announcement
+      - title: Cúram Action View 1.4.0 is now available
+        path: /spm/announcements/curam_action_view_140
+      - title: Citizen Engagement 8.4.0 is now available
+        path: /spm/announcements/citizen_engagement_840
+      - title: All announcements
+        path: /spm/announcements
+# - title: Merative Integrated Care
+#   pages:
+   #  - title: Overview
+    #   path: /wcm/overview
+  #   - title: Release notes
+   #    path: /wcm/release-notes
+   # - title: Coming soon
+      # path: /wcm/coming-soon
+  #   - title: System requirements
+   #    path: /wcm/requirements
+ #    - title: Product videos
+    #   path: /wcm/videos
+ #    - title: Technotes
+    #   path: /wcm/technotes
+  #   - title: Product documentation
+   #    path: /wcm/product-documentation
+  hasDivider: true
+- title: Notices
+  pages:
+    - path: /notices/

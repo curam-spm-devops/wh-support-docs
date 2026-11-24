@@ -1,0 +1,38 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+      - name: Install dependencies
+        run: npm install
+      - name: Build site
+        run: |
+          npm run build:prefixed
+          echo Build site step complete
+      - name: Deploy to GitHub pages
+        # only when pushing to main
+        if: ${{(github.event_name == 'push' || github.event_name == 'workflow_dispatch' ) && github.ref_name == 'main'}}
+        run: |
+          cd ./public
+          git config --global init.defaultBranch main
+          git init
+          git config user.name ${{ github.actor }}
+          git config user.email ${{ github.actor }}@users.noreply.github.com
+          git add .
+          git commit -m "chore: Deploy commit ${{ github.sha }}"
+          git push -f https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git main:gh-pages
+          echo Deploy to GitHub pages site step complete 🚀

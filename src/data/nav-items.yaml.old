@@ -1,0 +1,26 @@
+- title: Curam Social Program Management
+  pages:
+    - title: PDF documentation
+      path: /spm/pdf-documentation
+    - title: Product videos
+      path: /spm/product-videos
+    - title: Prerequisites
+      path: /spm/prerequisites
+    - title: Release notes
+      path: /spm/release-notes
+    - title: Security bulletins
+      path: /spm/security-bulletins
+    - title: Support articles
+      path: /spm/support-articles
+- title: Merative Integrated Care
+  pages:
+    - title: Coming soon
+      path: /wcm/coming-soon
+    - title: System requirements
+      path: /wcm/requirements
+    - title: Release notes
+      path: /wcm/release-notes
+    - title: Product videos
+      path: /wcm/videos
+    - title: Technotes
+      path: /wcm/technotes

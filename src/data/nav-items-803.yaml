@@ -1,0 +1,36 @@
+- title: Cúram by Merative™ 
+  pages:
+    - title: Overview
+      path: /spm/overview
+    - title: Product documentation
+      path: /spm/pdf-documentation                       
+    - title: Release notes
+      path: /spm/release-notes
+- title: SPM 8.0.3 release
+  pages:
+    - title: Overview 
+      path: /spm/spm_803     
+    - title: Download 
+      path: /spm/spm_803_download
+    - title: Release notes 
+      path: /spm/spm_803_releasenotes
+    - title: Prerequisites
+      path: /spm/spm_803_prereqs
+    - title: Documentation 
+      path: /spm/spm_803_docs              
+- title: Merative Integrated Care
+  pages:
+    - title: Overview
+      path: /wcm/overview
+    - title: Release notes
+      path: /wcm/release-notes
+    - title: Coming soon
+      path: /wcm/coming-soon
+    - title: System requirements
+      path: /wcm/requirements
+    - title: Product videos
+      path: /wcm/videos
+    - title: Technotes
+      path: /wcm/technotes
+    - title: Product documentation
+      path: /wcm/product-documentation
